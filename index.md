@@ -13,7 +13,10 @@ logo        : LA_Full_colour_reversed.svg
 biglogo     : A1_FullColour.svg
 assets      : {assets: ../../assets}
 license     : by-nc-sa
-
+github:
+  user: drabarlow
+  repo: bioinformatics_bootcamp
+  branch: "ghpages"
 ---
 
 
@@ -32,8 +35,8 @@ strong {
 
 Date|Time|Activity
 ---|---|---
-Tue 03/10/2023 | 09:30 to 14:00 | Unix-like systems and bash
-Wed 04/10/2023 | 09:30 to 14:00 | Super-computing Wales and slurm
+Tue 03/10/2023 | 09:30 to 13:00 | Unix-like systems and bash
+Wed 04/10/2023 | 12:00 to 14:00 | Super-computing Wales and slurm
 Mon 9/10/2023 | 14:00 to 17:00 | Illumina data and BEARCAVE
 Tue 10/10/2023 | 09:30 to 17:00 | Illumina data processing
 Wed 11/10/2023 | 09:30 to 15:30 | ANGSD, covariance and distance matrices
@@ -52,8 +55,17 @@ Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plo
 
 ## Resources
 
-- slides
-- worksheet
+### Lecture slides
+
+<https://drabarlow.github.io/bioinformatics_bootcamp/>
+
+For `R` geeks: <https://github.com/drabarlow/bioinformatics_bootcamp>
+
+### Bootcamp worksheet
+
+<https://drabarlow.github.io/bootcamp_worksheet/bootcamp_worksheet.html>
+
+For `R` geeks: <https://github.com/drabarlow/bootcamp_worksheet>
 
 ---
 
