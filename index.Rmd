@@ -64,13 +64,13 @@ Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plo
 
 <https://drabarlow.github.io/bioinformatics_bootcamp/>
 
-For `R` geeks: <https://github.com/drabarlow/bioinformatics_bootcamp>
-
 ### Bootcamp worksheet
 
-<https://drabarlow.github.io/bootcamp_worksheet/bootcamp_worksheet.html>
+<https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html>
 
-For `R` geeks: <https://github.com/drabarlow/bootcamp_worksheet>
+### Github repor
+
+<https://github.com/drabarlow/bioinformatics_bootcamp>
 
 ---
 
