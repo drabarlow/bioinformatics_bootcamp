@@ -1,0 +1,70 @@
+/* getting the fonts correctly for gh pages */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Source+Code+Pro:500|Open+Sans|Oswald);
+
+.title-slide {
+  background-color: #FFFFFF;
+  /* background-color: #CBE7A5; #EDE0CF; ; #CA9F9D*/
+  /* background-image:url(http://goo.gl/EpXln); */
+}
+
+/* this is the grey bar that the title logo sits in*/
+aside.gdbar {
+  height: 100px;
+  width: 340px;
+  position: absolute;
+  left: -1px;
+  top: 125px;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, darkslategray), color-stop(100%, darkslategray)) no-repeat;
+  background: -webkit-linear-gradient(left, darkslategray, darkslategray) no-repeat;
+  background: -moz-linear-gradient(left, darkslategray, darkslategray) no-repeat;
+  background: -o-linear-gradient(left, darkslategray, darkslategray) no-repeat;
+  background: -ms-linear-gradient(left, darkslategray, darkslategray) no-repeat;
+  background: linear-gradient(left, darkslategray, darkslategray) no-repeat;
+  -webkit-background-size: 0% 100%;
+  -moz-background-size: 0% 100%;
+  -o-background-size: 0% 100%;
+  background-size: 0% 100%;
+  -webkit-transition: all 0.5s ease-out 0.5s;
+  -moz-transition: all 0.5s ease-out 0.5s;
+  -ms-transition: all 0.5s ease-out 0.5s;
+  -o-transition: all 0.5s ease-out 0.5s;
+  transition: all 0.5s ease-out 0.5s;
+  /* Better to transition only on background-size, but not sure how to do that with the mixin. */
+}
+/* this is the size of the small logo image */
+aside.gdbar img {
+  height: 85px !important;
+  width: 300px !important;
+  position: absolute;
+  right: 0;
+  margin: 8px 15px;
+}
+
+
+
+
+
+
+.title-slide hgroup > h1,
+.title-slide hgroup > h2 {
+  color: darkslategray; /*#535E43 ;  /* ; #EF5150*/
+}
+
+.thank-you-slide {
+background: #FFFFFF !important;
+color: darkslategray;
+}
+
+/* line 58, ../scss/default.scss */
+::selection {
+  color: white;
+  background-color: #00289e; /*#ffd14d;*/
+  text-shadow: none;
+}
+
+
