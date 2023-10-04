@@ -677,7 +677,7 @@ squeue -u username
 
 # do something resource intensive
 module load pigz
-pigz -p ASM28112v4_HiC.fasta
+pigz -p 4 ASM28112v4_HiC.fasta
 
 # exit
 exit
@@ -717,6 +717,51 @@ sbatch job_script.sh</code></pre>
 </div>
 <div id="your-turn-4" class="section level3">
 <h3>5. Your turn :)</h3>
+<ul>
+<li>make 2 new directories in your <code>home</code>:
+<code>my_slurm_scripts</code> and <code>output_logs</code></li>
+<li>You are going to implement the method you developed to calculate
+base composition of scaffold 1 of the Alligator genome in part 5. as a
+<code>slurm</code> script.</li>
+<li>Make the shell <code>slurm</code> script in
+<code>./my_slurm_scripts</code></li>
+<li>You should work on the compressed file located in your
+<code>home</code> directory</li>
+<li>use pigz to decompress the genome file and then re-compress after
+doing the computation</li>
+<li>Direct stdout and error messages to <code>./output_logs</code></li>
+<li>Specify 1 node, 4 cpus, 8Gb RAM, 1 hour</li>
+<li>Submit job to queue</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="illumina-data-processing" class="section level2">
+<h2>Illumina data processing</h2>
+<div id="fastq-file-format" class="section level3">
+<h3>1. Fastq file format</h3>
+<pre class="bash"><code># navigate to shared scratch space
+cd /scratch/scw2141/
+
+# look at a fastq file
+less ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz 
+
+# look at metadata
+cat ./BEARCAVE2/rawdata/metadata.txt 
+
+# look at reference genome
+less ./BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa</code></pre>
+</div>
+<div id="your-turn-5" class="section level3">
+<h3>2. Your turn :)</h3>
+<ul>
+<li>locate sequence data for your adder</li>
+<li>What are the file sizes of R1 and R2 files?</li>
+<li>How many R1 and R2 sequences are there?</li>
+<li>What is the read length?</li>
+<li>What can you surmise about the arrangement of R1 and R2 data, and
+how do you explain the file sizes?</li>
+</ul>
 </div>
 </div>
 

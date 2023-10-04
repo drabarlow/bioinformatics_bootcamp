@@ -63,9 +63,13 @@ Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plo
 
 <https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html>
 
-### Github repor
+### Github repo
 
 <https://github.com/drabarlow/bioinformatics_bootcamp>
+
+### Supercomputing Wales shared project
+
+- please request access to: **scw2141 Bioinformatics training**
 
 ---
 
@@ -106,6 +110,12 @@ Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plo
 <img src="./assets/img/Operating_system_placement.svg.png" width="40%" style="display: block; margin: auto;" />
 
 <img src="./assets/img/unix-an-open-group-standard.png" width="70%" style="display: block; margin: auto;" />
+
+---
+
+## Unix
+
+<iframe src = 'https://en.wikipedia.org/wiki/Unix' height='600px'></iframe>
 
 --- &twocol
 
@@ -190,7 +200,6 @@ games|yes|no|no
 
 <img src="./assets/img/Screenshot from 2023-10-02 09-39-05.png" width="90%" style="display: block; margin: auto;" />
 
-
 --- .segue .dark 
 
 ## Supercomputing Wales and slurm
@@ -255,15 +264,15 @@ games|yes|no|no
 - `/` [root] is uppermost level of filesystem
 - Everything is contained in `/`
 - Directories exist within the filesystem, they can contain files and other directories
-- We specify a path through this hierarchy using forward-slashes
+- We specify a path through this hierarchy using forward-slashes (note back-slashes on `DOS`)
+- Our current directory is called the `working directory`
 
 ```bash
 /home/b.xlb21brx/
 /scratch/b.xlb21brx/
 ```
-- We can move through the filesystem
-- Our current directory is called the `working directory`
-- Or we can specify the patch to directories or files
+- We can navigate through the filesystem (change working directory)
+- Or we can specify the patch to directories or files remotely
 
 --- &twocol
 
@@ -405,4 +414,70 @@ Short reads from a single individual can be mapped to a reference genome assembl
   - Publicly available
   - Safeguards in place to ensure consistency
 - Consequently BEARCAVE is not for everyone, and has idiosyncrasies in use
+
+--- &twocol
+
+## Our project: adder population genomics
+
+*** =left
+
+- Adders (*Vipera berus*) widespread across northern Eurasia
+- Threatened or near-threatened in UK
+- Illumina PE data from 18 individuals
+  - adder01-04: Dublin
+  - adder05-08: Belfast
+  - adder09-12: Cork
+  - adder13-16: Limerick
+  - adder17-18: Galway
+- Data format
+- Adapter trimming and read merging
+- Map to reference genome: chr7
+
+*** =right
+
+<img src="./assets/img/male.jpg" width="90%" style="display: block; margin: auto;" />
+
+<img src="./assets/img/female.jpg" width="90%" style="display: block; margin: auto;" />
+
+--- .segue .dark 
+
+## Illumina data processing
+
+---
+
+## .fastq file format
+
+- fastq is the standard output format for data from Illumina (and other) platforms
+
+```bash
+@A00551:758:HKTVJDSX7:4:1101:3595:6872 1:N:0:CCTGAGATGT+GGTCTAGTTG
+CTGAATATGGATTTTAATTGAATCCTAAGATATTATAGCATCTTTCACTCCCTGTCCTGTGCATGTCAGA
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+```
+
+- **Line 1**: info on sequencer, flowcell, cluster position, indexes (sometimes)
+- **Line 2**: called bases
+- **Line 3**: a +
+- **Line 4**: quality scores on Phred scale
+- 10 = 90% accuracy; 20 = 99% accuracy; 30 = 99.9% accuracy
+- Recoded as single character: F = 37; ? = 30; 5 = 20; + = 10
+
+--- .segue .dark 
+
+## Adapter trimming and read merging
+
+--- .segue .dark 
+
+## Mapping
+
+---
+
+
+
+<iframe src = 'https://en.wikipedia.org/wiki/Phred_quality_score' height='600px'></iframe>
+
+
+
+
 
