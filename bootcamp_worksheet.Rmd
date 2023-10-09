@@ -29,15 +29,11 @@ Unix-like (linux and Mac) generally use a bash shell (or something like it).
 See https://en.wikipedia.org/wiki/Bash_(Unix_shell)
 
 ```bash
-# print working directory
-pwd
-
 # print something to screen
 echo "hello"
 
 # redirect output to file 
 echo "hello" > hello.txt
-echo "hello2" >> hello.txt
 
 # list contents of directory
 ls
@@ -49,6 +45,11 @@ ls --help
 cat
 less
 head
+
+# print something else to file
+echo "hello2" > hello.txt
+echo "hello" > hello.txt
+echo "hello2" >> hello.txt
 
 # count lines and characters
 wc -l
@@ -102,6 +103,15 @@ exit
 - Work out the genome size (don't worry about newline characters in your base counts for now)
 - try to connect graphically to SCWales
 
+### Info from a fellow windows user
+ 
+- There is a Windows Subsystem for Linux that needs to be installed
+- <https://learn.microsoft.com/hu-hu/windows/wsl/install>
+- <https://learn.microsoft.com/hu-hu/windows/wsl/setup/environment#set-up-your-linux-user-info>
+- <https://learn.microsoft.com/hu-hu/windows/wsl/filesystems#file-storage-and-performance-across-file-systems>
+- I use Total Commander with the SFTP plugin which enables direct access to files on SCW (WinSCP does the same, but I have no experience with it).    
+
+
 ### 4. Basic bash commands 2
 
 ```bash
@@ -134,7 +144,7 @@ sed 's/./\0 /g' my_randoms.txt
 ### 5. Your turn
 
 - Using the help menu and Google, work out how to get grep to report the line numbers of each scaffold header in the Alligator genome file
-- Extract the sequence of the first scaffold and calculate the base composition (number A, T, G, C)
+- Extract the sequence of the first scaffold and calculate the base composition (number of A, T, G, C)
 
 ### 6. Bash scripts
 
