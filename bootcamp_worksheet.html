@@ -734,17 +734,25 @@ sbatch job_script.sh</code></pre>
 <ul>
 <li>make 2 new directories in your <code>home</code>:
 <code>my_slurm_scripts</code> and <code>output_logs</code></li>
-<li>You are going to implement the method you developed to calculate
-base composition of scaffold 1 of the Alligator genome in part 5. as a
-<code>slurm</code> script.</li>
-<li>Make the shell <code>slurm</code> script in
+<li>make a copy of the <code>slurm</code> script in
 <code>./my_slurm_scripts</code></li>
-<li>You should work on the compressed file located in your
-<code>home</code> directory</li>
+<li>Direct stdout and error messages to <code>./output_logs</code></li>
+<li>Specify 1 node, 4 cpus, 8Gb RAM, 1 hour</li>
+<li>Submit job to queue</li>
+</ul>
+<p><strong>Next</strong></p>
+<ul>
+<li>You are going to implement the method you developed to print
+scaffold names to a file from the alligator genome in part 3. as a
+<code>slurm</code> script.</li>
+<li>Make a <code>slurm</code> script in
+<code>./my_slurm_scripts</code></li>
+<li>You should work on the <strong>compressed</strong> file located in
+your <code>home</code> directory</li>
 <li>use pigz to decompress the genome file and then re-compress after
 doing the computation</li>
 <li>Direct stdout and error messages to <code>./output_logs</code></li>
-<li>Specify 1 node, 4 cpus, 8Gb RAM, 1 hour</li>
+<li>Specify 1 node, 8 cpus, 16Gb RAM, 1 hour</li>
 <li>Submit job to queue</li>
 </ul>
 <hr />

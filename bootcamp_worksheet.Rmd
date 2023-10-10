@@ -368,12 +368,19 @@ sbatch job_script.sh
 
 ### 5. Your turn :)
 - make 2 new directories in your `home`: `my_slurm_scripts` and `output_logs`
-- You are going to implement the method you developed to calculate base composition of scaffold 1 of the Alligator genome in part 5. as a `slurm` script.
-- Make the shell `slurm` script in `./my_slurm_scripts`
-- You should work on the compressed file located in your `home` directory
-- use pigz to decompress the genome file and then re-compress after doing the computation
+- make a copy of the `slurm` script in `./my_slurm_scripts`
 - Direct stdout and error messages to `./output_logs`
 - Specify 1 node, 4 cpus, 8Gb RAM, 1 hour
+- Submit job to queue
+
+**Next**
+
+- You are going to implement the method you developed to print scaffold names to a file from the alligator genome in part 3. as a `slurm` script.
+- Make a `slurm` script in `./my_slurm_scripts`
+- You should work on the **compressed** file located in your `home` directory
+- use pigz to decompress the genome file and then re-compress after doing the computation
+- Direct stdout and error messages to `./output_logs`
+- Specify 1 node, 8 cpus, 16Gb RAM, 1 hour
 - Submit job to queue
 
 ---
