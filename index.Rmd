@@ -465,11 +465,7 @@ Short reads from a single individual can be mapped to a reference genome assembl
 - Adders (*Vipera berus*) widespread across northern Eurasia
 - Threatened or near-threatened in UK
 - Illumina PE data from 18 individuals
-  - adder01-04: Dublin
-  - adder05-08: Belfast
-  - adder09-12: Cork
-  - adder13-16: Limerick
-  - adder17-18: Galway
+- 5 locations
 - Data format
 - Adapter trimming and read merging
 - Map to reference genome: chr7
@@ -483,6 +479,11 @@ include_graphics("./assets/img/male.jpg")
 ```{r, out.width = "90%", dpi = 300, fig.align = "center", echo = FALSE, fig.cap=""}
 include_graphics("./assets/img/female.jpg")
 ```
+
+---
+
+## Adder locations
+
 
 --- .segue .dark 
 
@@ -512,15 +513,115 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 ## Adapter trimming and read merging
 
+--- &twocol bg:white
+
+## DNA fragment length distribution
+
+- DNA can be fragmented
+- The fragment lengths have a **distribution**
+
+*** =left
+
+```{r, out.width = "100%", out.height = "100%", fig.width = 8, fig.height = 7, dpi = 600, fig.align = "center", echo = FALSE, fig.cap=""}
+# function for calculating mode
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+adna <- read.table("./assets/data/HV74-Dab-SS_S12_dataset1_rld.txt", header=TRUE)
+
+plot <- ggplot(adna) +
+  geom_histogram(aes(x=bp), fill="lightgrey", colour="black", show.legend=TRUE, bins = 30) +
+  theme_bw(base_size = 25)+
+  labs(x="DNA fragment length (bp)", y="count")
+
+plot
+```
+*** =right
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/kudarensis.png")
+```
+
+45 ka cave bear (*Ursus kudarensis*)
+
+--- 
+
+## Effect of insert size
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim1.svg")
+```
+
+--- 
+
+## Effect of insert size
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim2.svg")
+```
+
+--- 
+
+## Effect of insert size
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim3.svg")
+```
+
+--- 
+
+## Effect of insert size
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim4.svg")
+```
+
+--- 
+
+## Effect of insert size
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim5.svg")
+```
+
+--- 
+
+## Effect of insert size
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim6.svg")
+```
+
+--- 
+
+## Adapter trimming
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim9.svg")
+```
+
+--- 
+
+## Overlapping reads are merged
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/trim10.svg")
+```
+
+---
+
+## BEARCAVE script
+
+
+
 --- .segue .dark 
 
 ## Mapping
 
 ---
 
-
-
-<iframe src = 'https://en.wikipedia.org/wiki/Phred_quality_score' height='600px'></iframe>
 
 
 

@@ -366,6 +366,21 @@ echo hello > hello.txt
 sbatch job_script.sh
 ```
 
+#### For people who have multiple accounts
+
+- If you have multiple accounts on SCWales, the command above will throw an error
+- You can specify the acount at the command line, or include in the slurm script
+
+```bash
+#command line
+sbatch account=scw1234 job_script.sh
+
+# or include the following SBATCH in the script
+
+#assign account
+#SBATCH account=scw1234
+```
+
 ### 5. Your turn :)
 - make 2 new directories in your `home`: `my_slurm_scripts` and `output_logs`
 - make a copy of the `slurm` script in `./my_slurm_scripts`
@@ -411,7 +426,7 @@ less ./BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa
 - What is the read length?
 - What can you surmise about the arrangement of R1 and R2 data, and how do you explain the file sizes?
 
-
+### 3. BEARCAVE script: trim and merge
 
 
 

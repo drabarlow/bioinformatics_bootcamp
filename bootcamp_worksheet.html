@@ -728,6 +728,22 @@ job script</li>
 echo hello &gt; hello.txt</code></pre>
 <pre class="bash"><code># submit to queue
 sbatch job_script.sh</code></pre>
+<div id="for-people-who-have-multiple-accounts" class="section level4">
+<h4>For people who have multiple accounts</h4>
+<ul>
+<li>If you have multiple accounts on SCWales, the command above will
+throw an error</li>
+<li>You can specify the acount at the command line, or include in the
+slurm script</li>
+</ul>
+<pre class="bash"><code>#command line
+sbatch account=scw1234 job_script.sh
+
+# or include the following SBATCH in the script
+
+#assign account
+#SBATCH account=scw1234</code></pre>
+</div>
 </div>
 <div id="your-turn-4" class="section level3">
 <h3>5. Your turn :)</h3>
@@ -784,6 +800,9 @@ less ./BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa</code></
 <li>What can you surmise about the arrangement of R1 and R2 data, and
 how do you explain the file sizes?</li>
 </ul>
+</div>
+<div id="bearcave-script-trim-and-merge" class="section level3">
+<h3>3. BEARCAVE script: trim and merge</h3>
 </div>
 </div>
 

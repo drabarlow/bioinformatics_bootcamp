@@ -424,11 +424,7 @@ Short reads from a single individual can be mapped to a reference genome assembl
 - Adders (*Vipera berus*) widespread across northern Eurasia
 - Threatened or near-threatened in UK
 - Illumina PE data from 18 individuals
-  - adder01-04: Dublin
-  - adder05-08: Belfast
-  - adder09-12: Cork
-  - adder13-16: Limerick
-  - adder17-18: Galway
+- 5 locations
 - Data format
 - Adapter trimming and read merging
 - Map to reference genome: chr7
@@ -438,6 +434,11 @@ Short reads from a single individual can be mapped to a reference genome assembl
 <img src="./assets/img/male.jpg" width="90%" style="display: block; margin: auto;" />
 
 <img src="./assets/img/female.jpg" width="90%" style="display: block; margin: auto;" />
+
+---
+
+## Adder locations
+
 
 --- .segue .dark 
 
@@ -467,15 +468,82 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 ## Adapter trimming and read merging
 
+--- &twocol bg:white
+
+## DNA fragment length distribution
+
+- DNA can be fragmented
+- The fragment lengths have a **distribution**
+
+*** =left
+
+<img src="assets/fig/unnamed-chunk-21-1.png" width="100%" height="100%" style="display: block; margin: auto;" />
+*** =right
+
+<img src="./assets/img/kudarensis.png" width="100%" />
+
+45 ka cave bear (*Ursus kudarensis*)
+
+--- 
+
+## Effect of insert size
+
+<img src="./assets/img/trim1.svg" width="100%" />
+
+--- 
+
+## Effect of insert size
+
+<img src="./assets/img/trim2.svg" width="100%" />
+
+--- 
+
+## Effect of insert size
+
+<img src="./assets/img/trim3.svg" width="100%" />
+
+--- 
+
+## Effect of insert size
+
+<img src="./assets/img/trim4.svg" width="100%" />
+
+--- 
+
+## Effect of insert size
+
+<img src="./assets/img/trim5.svg" width="100%" />
+
+--- 
+
+## Effect of insert size
+
+<img src="./assets/img/trim6.svg" width="100%" />
+
+--- 
+
+## Adapter trimming
+
+<img src="./assets/img/trim9.svg" width="100%" />
+
+--- 
+
+## Overlapping reads are merged
+
+<img src="./assets/img/trim10.svg" width="100%" />
+
+---
+
+## BEARCAVE script
+
+
+
 --- .segue .dark 
 
 ## Mapping
 
 ---
 
-
-
-<iframe src = 'https://en.wikipedia.org/wiki/Phred_quality_score' height='600px'></iframe>
 
 
 
