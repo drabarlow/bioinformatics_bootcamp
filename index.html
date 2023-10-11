@@ -941,7 +941,105 @@ strong {
   </hgroup>
   
   <article data-timings="">
-    
+    <table><thead>
+<tr>
+<th>sample</th>
+<th>locality</th>
+<th>colour</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>adder01</td>
+<td>Dublin</td>
+<td>red</td>
+</tr>
+<tr>
+<td>adder02</td>
+<td>Dublin</td>
+<td>red</td>
+</tr>
+<tr>
+<td>adder03</td>
+<td>Belfast</td>
+<td>green</td>
+</tr>
+<tr>
+<td>adder04</td>
+<td>Belfast</td>
+<td>green</td>
+</tr>
+<tr>
+<td>adder05</td>
+<td>Dublin</td>
+<td>red</td>
+</tr>
+<tr>
+<td>adder06</td>
+<td>Dublin</td>
+<td>red</td>
+</tr>
+<tr>
+<td>adder07</td>
+<td>Cork</td>
+<td>blue</td>
+</tr>
+<tr>
+<td>adder08</td>
+<td>Cork</td>
+<td>blue</td>
+</tr>
+<tr>
+<td>adder09</td>
+<td>Cork</td>
+<td>blue</td>
+</tr>
+<tr>
+<td>adder10</td>
+<td>Cork</td>
+<td>blue</td>
+</tr>
+<tr>
+<td>adder11</td>
+<td>Limerick</td>
+<td>yellow</td>
+</tr>
+<tr>
+<td>adder12</td>
+<td>Limerick</td>
+<td>yellow</td>
+</tr>
+<tr>
+<td>adder13</td>
+<td>Limerick</td>
+<td>yellow</td>
+</tr>
+<tr>
+<td>adder14</td>
+<td>Limerick</td>
+<td>yellow</td>
+</tr>
+<tr>
+<td>adder15</td>
+<td>Galway</td>
+<td>grey</td>
+</tr>
+<tr>
+<td>adder16</td>
+<td>Galway</td>
+<td>grey</td>
+</tr>
+<tr>
+<td>adder17</td>
+<td>Belfast</td>
+<td>green</td>
+</tr>
+<tr>
+<td>adder18</td>
+<td>Belfast</td>
+<td>green</td>
+</tr>
+</tbody></table>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1150,13 +1248,53 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   </hgroup>
   
   <article data-timings="">
-    
+    <ul>
+<li>decompress fastqs</li>
+<li>trim adapter seqs using <code>Cutadapt</code>
+
+<ul>
+<li>30 bp min length</li>
+<li>min overlap 1 bp</li>
+</ul></li>
+<li>merge overlapping read pair using <code>FLASH</code></li>
+<li>recompress files and clean up </li>
+<li>save appropriate log files</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="segue dark" id="slide-48" style="background:;">
+<slide class="" id="slide-48" style="background:;">
+  
+  <hgroup>
+    <h2>Cutadapt</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2011-Cutadapt_removes_adapter_sequences_from_high-throughput_sequencing_reads.pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  
+  <hgroup>
+    <h2>FLASH</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_to_improve_genome_assemblies..pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-50" style="background:;">
   
   <hgroup>
     <h2>Mapping</h2>
@@ -1169,7 +1307,7 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   
 </slide>
 
-<slide class="" id="slide-49" style="background:;">
+<slide class="" id="slide-51" style="background:;">
   
   <article data-timings="">
     
@@ -1514,15 +1652,29 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Mapping'>
+        data-slide=48 title='Cutadapt'>
          48
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='NA'>
+        data-slide=49 title='FLASH'>
          49
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Mapping'>
+         50
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='NA'>
+         51
       </a>
     </li>
     

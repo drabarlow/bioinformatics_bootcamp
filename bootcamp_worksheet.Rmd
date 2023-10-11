@@ -428,6 +428,44 @@ less ./BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa
 
 ### 3. BEARCAVE script: trim and merge
 
+```bash
+less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh 
+```
+
+```bash
+#!/bin/bash
+
+# Hacked by Axel, April 2023
+# For use on Hawk which has shiny modules, using new cutadapt and pigz to allow multithreading
+# you will need to load the following modules in your slurm script:
+# module load cutadapt/4.3 FLASH/1.2.11 pigz/2.4
+
+# November 2018
+# script for trimming adapter sequences from DS library PE data, removing short reads, amd merging overlapping PE reads.
+# this script is for data sequenced using the standard Illumina R1 sequencing primer
+
+# this script should be run from /BEARCAVE/scripts
+
+# example command line: ./trim_merge_DS_PE_standard.sh $1 $2 $3
+# $1 = SAMPLE*
+# $2 = PREFIX*
+# $3 = SEQ_RUN*
+
+# * these can be found in /BEARCAVE/rawdata/metadata.txt
+```
+
+### 4. Your turn :)
+
+- make a `slurm` job script in your chosen location within home directory. It should do the following:
+- load appropriate modules
+- run the trim_merge_DS_PE_standard2.sh script on your adder sample
+- use 4Gb RAM, 10 CPUs, and run for 1 hour
+- direct stdout and errors to your chosen location in your home directory
+- check the script works
+- submit to queue
+
+
+
 
 
 

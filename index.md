@@ -439,6 +439,27 @@ Short reads from a single individual can be mapped to a reference genome assembl
 
 ## Adder locations
 
+sample|locality|colour
+---|---|---
+adder01|Dublin|red
+adder02|Dublin|red
+adder03|Belfast|green
+adder04|Belfast|green
+adder05|Dublin|red
+adder06|Dublin|red
+adder07|Cork|blue
+adder08|Cork|blue
+adder09|Cork|blue
+adder10|Cork|blue
+adder11|Limerick|yellow
+adder12|Limerick|yellow
+adder13|Limerick|yellow
+adder14|Limerick|yellow
+adder15|Galway|grey
+adder16|Galway|grey
+adder17|Belfast|green
+adder18|Belfast|green
+
 
 --- .segue .dark 
 
@@ -536,7 +557,25 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 ## BEARCAVE script
 
+- decompress fastqs
+- trim adapter seqs using `Cutadapt`
+  - 30 bp min length
+  - min overlap 1 bp
+- merge overlapping read pair using `FLASH`
+- recompress files and clean up 
+- save appropriate log files
 
+---
+
+## Cutadapt
+
+<embed src="./assets/img/2011-Cutadapt_removes_adapter_sequences_from_high-throughput_sequencing_reads.pdf" width="100%" height="500" type="application/pdf" />
+
+--- 
+
+## FLASH
+
+<embed src="./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_to_improve_genome_assemblies..pdf" width="100%" height="500" type="application/pdf" />
 
 --- .segue .dark 
 
