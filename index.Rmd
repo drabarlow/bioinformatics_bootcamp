@@ -686,7 +686,7 @@ include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_
 
 --- 
 
-## samtools
+## samtools (48,024 citations)
 
 ```{r, out.width = "100%", out.height=500, dpi = 300, echo = FALSE, fig.cap=""}
 include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
