@@ -506,7 +506,4 @@ less BEARCAVE2/scripts/map_modern_PE_mem2.sh
 - move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
 - delete the *processing directory
 - make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
-- use 192Gb RAM, 20 CPUs, and run for 2 hours
-
-
-
+- Use 192Gb RAM, 20 CPUs, and run for 2 hours
