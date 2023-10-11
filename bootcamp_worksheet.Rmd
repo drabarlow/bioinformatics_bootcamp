@@ -446,7 +446,7 @@ less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh
 
 # this script should be run from /BEARCAVE/scripts
 
-# example command line: ./trim_merge_DS_PE_standard.sh $1 $2 $3
+# example command line: sh ./trim_merge_DS_PE_standard.sh $1 $2 $3
 # $1 = SAMPLE*
 # $2 = PREFIX*
 # $3 = SEQ_RUN*
@@ -457,6 +457,13 @@ less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh
 ### 4. Your turn :)
 
 - make a `slurm` job script in your chosen location within home directory. It should do the following:
+- you will need to add the following SBATCH to your script, to ensure the command is executed in the scripts directory: 
+
+```bash
+#set working directory
+#SBATCH --chdir=/scratch/scw2141/BEARCAVE2/scripts/
+```
+
 - load appropriate modules
 - run the trim_merge_DS_PE_standard2.sh script on your adder sample
 - use 4Gb RAM, 10 CPUs, and run for 1 hour

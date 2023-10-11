@@ -817,7 +817,7 @@ how do you explain the file sizes?</li>
 
 # this script should be run from /BEARCAVE/scripts
 
-# example command line: ./trim_merge_DS_PE_standard.sh $1 $2 $3
+# example command line: sh ./trim_merge_DS_PE_standard.sh $1 $2 $3
 # $1 = SAMPLE*
 # $2 = PREFIX*
 # $3 = SEQ_RUN*
@@ -829,6 +829,12 @@ how do you explain the file sizes?</li>
 <ul>
 <li>make a <code>slurm</code> job script in your chosen location within
 home directory. It should do the following:</li>
+<li>you will need to add the following SBATCH to your script, to ensure
+the command is executed in the scripts directory:</li>
+</ul>
+<pre class="bash"><code>#set working directory
+#SBATCH --chdir=/scratch/scw2141/BEARCAVE2/scripts/</code></pre>
+<ul>
 <li>load appropriate modules</li>
 <li>run the trim_merge_DS_PE_standard2.sh script on your adder
 sample</li>
