@@ -1309,8 +1309,53 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 <slide class="" id="slide-51" style="background:;">
   
+  <hgroup>
+    <h2>BEARCAVE mapping script</h2>
+  </hgroup>
+  
   <article data-timings="">
-    
+    <ul>
+<li>decompress fastqs</li>
+<li>merged (SE) and PE data processed separately
+
+<ul>
+<li>mapping using <code>bwa</code> mem algorithm</li>
+<li>PCR duplicates identified and removed using <code>samtools</code></li>
+<li>Reads with poor mapping quality (Q30) removed using <code>samtools</code></li>
+</ul></li>
+<li>SE and PE data merged</li>
+<li>mapping log file generated</li>
+<li>file cleanup and renaming</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-52" style="background:;">
+  
+  <hgroup>
+    <h2>bwa</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-53" style="background:;">
+  
+  <hgroup>
+    <h2>samtools</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf" width="100%" height="500" type="application/pdf" /></p>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1673,8 +1718,22 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=51 title='NA'>
+        data-slide=51 title='BEARCAVE mapping script'>
          51
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='bwa'>
+         52
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='samtools'>
+         53
       </a>
     </li>
     

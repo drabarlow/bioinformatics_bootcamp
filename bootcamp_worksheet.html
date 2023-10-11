@@ -782,7 +782,7 @@ doing the computation</li>
 cd /scratch/scw2141/
 
 # look at a fastq file
-less ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz 
+zcat ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz | less
 
 # look at metadata
 cat ./BEARCAVE2/rawdata/metadata.txt 
@@ -843,6 +843,44 @@ sample</li>
 directory</li>
 <li>check the script works</li>
 <li>submit to queue</li>
+</ul>
+</div>
+<div id="bearcave-script-mapping" class="section level3">
+<h3>5. BEARCAVE script: mapping</h3>
+<pre class="bash"><code>less BEARCAVE2/scripts/map_modern_PE_mem2.sh</code></pre>
+<pre class="bash"><code>#!/bin/bash
+
+# Hacked by Axel, April 2023
+# For use on Hawk which has shiny modules, using new bwa and samtools
+# this uses the improved duplicate removal method (not rmdup)
+# you will need to load the following modules in your slurm script:
+# module load bwa/0.7.17 samtools/1.17 pigz/2.4
+
+# November 2018
+# script for mappping modern DNA reads to a reference genome
+# note this includes mapping of both merged and unmerged paired-end reads
+
+# this script should be run from /BEARVACE/scripts
+
+# example command line: sh ./map_modern_PE_mem2.sh $1 $2 $3 $4
+# $1 = prefix or prefixes (if you are mapping combined data file, you should enter its while set of prefixes as one argument, like this: pr1_pr2_pr3
+# $2 = reference - folder name in /refgenomes/
+# $3 = 3 character taxon identifier, used for filenaming - e.g. arc, spe, kud, mar.
+# $4 = sample name</code></pre>
+</div>
+<div id="your-turn-7" class="section level3">
+<h3>6. Your turn :)</h3>
+<ul>
+<li>check the outcome of the trimming and merging</li>
+<li>move your processed files into
+<code>/scratch/scw2141/BEARCAVE2/trimdata/</code></li>
+<li>move your log files into
+<code>/scratch/scw2141/BEARCAVE2/trimdata/trimlogs</code></li>
+<li>delete the *processing directory</li>
+<li>make a slurm job script similar to the one in part 4. in your chosen
+location within home directory. This script should execute the
+map_modern_PE_mem2.sh script</li>
+<li>use 192Gb RAM, 20 CPUs, and run for 2 hours</li>
 </ul>
 </div>
 </div>

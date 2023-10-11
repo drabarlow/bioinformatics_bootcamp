@@ -409,7 +409,7 @@ sbatch account=scw1234 job_script.sh
 cd /scratch/scw2141/
 
 # look at a fastq file
-less ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz 
+zcat ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz | less
 
 # look at metadata
 cat ./BEARCAVE2/rawdata/metadata.txt 
@@ -471,9 +471,42 @@ less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh
 - check the script works
 - submit to queue
 
+### 5. BEARCAVE script: mapping
 
+```bash
+less BEARCAVE2/scripts/map_modern_PE_mem2.sh
+```
 
+```bash
+#!/bin/bash
 
+# Hacked by Axel, April 2023
+# For use on Hawk which has shiny modules, using new bwa and samtools
+# this uses the improved duplicate removal method (not rmdup)
+# you will need to load the following modules in your slurm script:
+# module load bwa/0.7.17 samtools/1.17 pigz/2.4
+
+# November 2018
+# script for mappping modern DNA reads to a reference genome
+# note this includes mapping of both merged and unmerged paired-end reads
+
+# this script should be run from /BEARVACE/scripts
+
+# example command line: sh ./map_modern_PE_mem2.sh $1 $2 $3 $4
+# $1 = prefix or prefixes (if you are mapping combined data file, you should enter its while set of prefixes as one argument, like this: pr1_pr2_pr3
+# $2 = reference - folder name in /refgenomes/
+# $3 = 3 character taxon identifier, used for filenaming - e.g. arc, spe, kud, mar.
+# $4 = sample name
+```
+
+### 6. Your turn :)
+
+- check the outcome of the trimming and merging
+- move your processed files into `/scratch/scw2141/BEARCAVE2/trimdata/`
+- move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
+- delete the *processing directory
+- make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
+- use 192Gb RAM, 20 CPUs, and run for 2 hours
 
 
 

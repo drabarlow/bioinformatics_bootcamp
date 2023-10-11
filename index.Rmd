@@ -665,7 +665,32 @@ include_graphics("./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_
 
 ---
 
+## BEARCAVE mapping script
 
+- decompress fastqs
+- merged (SE) and PE data processed separately
+  - mapping using `bwa` mem algorithm
+  - PCR duplicates identified and removed using `samtools`
+  - Reads with poor mapping quality (Q30) removed using `samtools`
+- SE and PE data merged
+- mapping log file generated
+- file cleanup and renaming
+
+---
+
+## bwa
+
+```{r, out.width = "100%", out.height=500, dpi = 300, echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf")
+```
+
+--- 
+
+## samtools
+
+```{r, out.width = "100%", out.height=500, dpi = 300, echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
+```
 
 
 
