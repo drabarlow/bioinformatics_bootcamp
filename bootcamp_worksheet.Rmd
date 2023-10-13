@@ -647,5 +647,12 @@ plot(my_root, show.tip.label=FALSE)
 tiplabels(my_info$sample, frame="none", cex=0.75, adj=-0.3)
 ```
 
+### 3. Heterozygosity
 
+```{r, out.width = "50%", fig.width = 4.5, fig.height = 4, dpi = 300, echo = TRUE, fig.align = "center", fig.cap=""}
+my_sfs <- read.table("./assets/data/adder01_het.window.sfs")
+hist((my_sfs$V2/100), breaks=40)
+
+plot(1:length(my_sfs$V2), my_sfs$V2, type="l")
+```
 
