@@ -507,3 +507,145 @@ less BEARCAVE2/scripts/map_modern_PE_mem2.sh
 - delete the *processing directory
 - make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
 - Use 192Gb RAM, 20 CPUs, and run for 2 hours
+- Check outcome
+
+## PCA, NJ tree and heterozygosity
+
+### 1. Covariance and distance matrices
+
+```bash
+# load angsd module
+module load angsd/0.935
+angsd
+
+# angsd requires a list on bam files in a text file
+ls -1 ./*bam > bamlist
+
+# set ref genome as a variable
+ref='/scratch/scw2141/BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa'
+
+# angsd command
+#-doIBS,-doCounts = Identity by state, currently set as single read sampling
+#-doCov  = calculate covariance matrix
+#-makeMatrix = calculate distance matrix
+#-doMajorMinor, -GL = identify major/minor allele using genotype likelihoods  
+#-minFreq = min allele frequency for site
+#-minInd = min individuals with data
+#-minQ,-minMapQ = min base and map quality
+#-b = specify bamlist
+#-ref = reference genome
+#-out = name outputs
+#-nThreads = number threads
+
+angsd -doIBS 1 -doCov 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 18 -minQ 30 -minMapQ 30 -b bamlist -ref $ref -out bamlist_out -nThreads 10
+```
+
+### 2. Heterozygosity
+
+```bash
+
+# set files as variables
+input='/scratch/scw2141/BEARCAVE2/mappedursinii_chr7/xxx+adder0X_ber_ursinii_chr7_1.XXXXXX.bam'
+output='adder0X_het'
+ref='/scratch/scw2141/BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa'
+
+# depth variables
+max=20
+min=3
+
+# estimate genotype likelihoods
+# -i = input file
+# -doSaf = per-site allele frequencies
+# -GL = genotype likelihood model
+# -P = number threads
+# -anc = outgroup, to identify ancestral allele
+#-minQ,-minMapQ = min base and map quality
+# -setMinDepthInd, -setMaxDepthInd = max and min depth filters
+angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $ref -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
+
+# calculate sfs
+# -nSites = sliding window size
+# -P = no threads
+realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
+```
+
+### 3. Your turn :)
+
+- Make a slurm job script in you home directory to run the analyses above 
+- make a bamlist in the same directory
+- direct stdout and errors to your chosen location in your home directory
+- adjust variables to appropriate paths and filenames
+- Use 32Gb RAM, 10 CPUs, and run for 0.5 hours
+- Check results
+- Look at your *.ibs.gz file and count the lines
+
+## Analysis and visualisation in `R`
+
+I made a quick sample info file called bam_info, ordered the same as the bamlist
+
+```bash
+sample	locality	colour	bam
+adder17	Belfast	green	2hy+adder17_ber_ursinii_chr7_1.01421.bam
+adder13	Limerick	yellow	34g+adder13_ber_ursinii_chr7_.95552.bam
+adder11	Limerick	yellow	547+adder11_ber_ursinii_chr7_1.01000.bam
+adder08	Cork	blue	7f7+adder08_ber_ursinii_chr7_1.04511.bam
+adder18	Belfast	green	7Lx+adder18_ber_ursinii_chr7_1.01297.bam
+adder12	Limerick	yellow	ef1+adder12_ber_ursinii_chr7_.95648.bam
+adder14	Limerick	yellow	eL1+adder14_ber_ursinii_chr7_1.01451.bam
+adder10	Cork	blue	i2f+adder10_ber_ursinii_chr7_.99929.bam
+adder01	Dublin	red	Lbx+adder01_ber_ursinii_chr7_1.00762.bam
+adder16	Galway	grey	piq+adder16_ber_ursinii_chr7_.89471.bam
+adder02	Dublin	red	pwm+adder02_ber_ursinii_chr7_1.02637.bam
+adder03	Belfast	green	qy7+adder03_ber_ursinii_chr7_1.07458.bam
+adder07	Cork	blue	rr0+adder07_ber_ursinii_chr7_1.01144.bam
+adder15	Galway	grey	urz+adder15_ber_ursinii_chr7_.37351.bam
+adder06	Dublin	red	vb2+adder06_ber_ursinii_chr7_1.04132.bam
+adder05	Dublin	red	vys+adder05_ber_ursinii_chr7_.97694.bam
+adder04	Belfast	green	wjq+adder04_ber_ursinii_chr7_1.03066.bam
+adder09	Cork	blue	xfx+adder09_ber_ursinii_chr7_1.09662.bam
+```
+
+### 1. PCA
+
+```{r, out.width = "50%", fig.width = 4.5, fig.height = 5, dpi = 300, echo = TRUE, fig.align = "center", fig.cap=""}
+my_info <- read.table("./assets/data/bam_info", header=TRUE)
+
+# read in covariance matrix
+my_cov <- read.table("assets/data/bamlist_out.covMat")
+
+# do PCA
+my_pca <- eigen(my_cov)
+
+# plot
+plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour)
+
+```
+
+### 2. NJ tree
+
+```{r, out.width = "50%", fig.width = 4.5, fig.height = 4, dpi = 300, echo = TRUE, fig.align = "center", fig.cap=""}
+# we use the ape library
+library(ape)
+
+# read in matrix
+my_mat <- as.dist(read.table("./assets/data/bamlist_out.ibsMat"))
+
+# compute tree
+my_tree <- nj(my_mat)
+
+# sort out plot margins
+par(mar=c(1,1,1,5), xpd=TRUE)
+
+#### finding root node
+#plot(nj(my_tree, show.tip.label=FALSE)
+#tiplabels(my_info$locality)
+#nodelabels()
+
+# plot
+my_root <- root(my_tree, node=34)
+plot(my_root, show.tip.label=FALSE)
+tiplabels(my_info$sample, frame="none", cex=0.75, adj=-0.3)
+```
+
+
+

@@ -565,6 +565,13 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 - recompress files and clean up 
 - save appropriate log files
 
+**Expected output in** `/BEARCAVE2/trimdata/*processing/`
+
+- merged reads `*_mappable.fastq.gz` [big file]
+- unmerged R1 `*_mappable_R1.fastq.gz` [big file]
+- unmerged R2 `*_mappable_R2.fastq.gz` [big file]
+- trim report `*_trim_report.log` and merge report `*_merge_report.log`
+
 ---
 
 ## Cutadapt
@@ -594,6 +601,12 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 - mapping log file generated
 - file cleanup and renaming
 
+**Expected output in** `/BEARCAVE2/mapped*/*processing/`
+
+- mapped filtered data `*.bam` [big file]
+- bam index `*.bam.bai`
+- mapping log `*_mapping.log`
+
 ---
 
 ## bwa
@@ -606,6 +619,66 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 <embed src="./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf" width="100%" height="500" type="application/pdf" />
 
+--- .segue .dark 
 
+## Population genomics using `angsd`
 
+---
+
+## angsd
+
+- Widely used program
+- MANY population genetics analyses possible
+- Tends to work directly from bam files (unlike `plink`, `admixtools`, etc)
+- MANY filters available
+- Genotype likelihood approach is a particular speciality
+
+Allele1|Allele2|prob11|prob12|prob22
+---|---|---|---|---
+A|T|0.05|0.9|0.05
+
+- Several spin off programs that use GLs
+  - `NGSadmix`
+  - `PCangsd`
+  - `NGSrelate`
+  - `realSFS`
+
+---
+
+## angsd website
+
+<iframe src = 'http://www.popgen.dk/angsd/index.php/ANGSD' height='600px'></iframe>
+
+---
+
+## angsd paper
+
+<embed src="./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf" width="100%" height="500" type="application/pdf" />
+
+---
+
+## Covariance matrix, distance matrix, heterozygosity
+
+**Covariance matrix**
+
+- All indviduals
+- Allele frequency covariance matrix
+- PCA is eigendecomposition of the covariance matrix
+
+**Distance matrix**
+
+- All indviduals
+- absolute genetic distance between populations
+- used as input for NJ algorithm
+
+**Heterozygosity**
+
+- Your single adder
+- Calculate GLs, ML estimation of SFS along a sliding window using `NGSrelate`
+
+--- &thankyou
+
+## That's all folks!
+
+**See you next year :)**
 

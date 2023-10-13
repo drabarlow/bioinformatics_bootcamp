@@ -1261,6 +1261,15 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <li>save appropriate log files</li>
 </ul>
 
+<p><strong>Expected output in</strong> <code>/BEARCAVE2/trimdata/*processing/</code></p>
+
+<ul>
+<li>merged reads <code>*_mappable.fastq.gz</code> [big file]</li>
+<li>unmerged R1 <code>*_mappable_R1.fastq.gz</code> [big file]</li>
+<li>unmerged R2 <code>*_mappable_R2.fastq.gz</code> [big file]</li>
+<li>trim report <code>*_trim_report.log</code> and merge report <code>*_merge_report.log</code></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1328,6 +1337,14 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <li>file cleanup and renaming</li>
 </ul>
 
+<p><strong>Expected output in</strong> <code>/BEARCAVE2/mapped*/*processing/</code></p>
+
+<ul>
+<li>mapped filtered data <code>*.bam</code> [big file]</li>
+<li>bam index <code>*.bam.bai</code></li>
+<li>mapping log <code>*_mapping.log</code></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1361,6 +1378,143 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   
 </slide>
 
+<slide class="segue dark" id="slide-54" style="background:;">
+  
+  <hgroup>
+    <h2>Population genomics using <code>angsd</code></h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-55" style="background:;">
+  
+  <hgroup>
+    <h2>angsd</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Widely used program</li>
+<li>MANY population genetics analyses possible</li>
+<li>Tends to work directly from bam files (unlike <code>plink</code>, <code>admixtools</code>, etc)</li>
+<li>MANY filters available</li>
+<li>Genotype likelihood approach is a particular speciality</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Allele1</th>
+<th>Allele2</th>
+<th>prob11</th>
+<th>prob12</th>
+<th>prob22</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>T</td>
+<td>0.05</td>
+<td>0.9</td>
+<td>0.05</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>Several spin off programs that use GLs
+
+<ul>
+<li><code>NGSadmix</code></li>
+<li><code>PCangsd</code></li>
+<li><code>NGSrelate</code></li>
+<li><code>realSFS</code></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-56" style="background:;">
+  
+  <hgroup>
+    <h2>angsd website</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <iframe src = 'http://www.popgen.dk/angsd/index.php/ANGSD' height='600px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-57" style="background:;">
+  
+  <hgroup>
+    <h2>angsd paper</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-58" style="background:;">
+  
+  <hgroup>
+    <h2>Covariance matrix, distance matrix, heterozygosity</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><strong>Covariance matrix</strong></p>
+
+<ul>
+<li>All indviduals</li>
+<li>Allele frequency covariance matrix</li>
+<li>PCA is eigendecomposition of the covariance matrix</li>
+</ul>
+
+<p><strong>Distance matrix</strong></p>
+
+<ul>
+<li>All indviduals</li>
+<li>absolute genetic distance between populations</li>
+<li>used as input for NJ algorithm</li>
+</ul>
+
+<p><strong>Heterozygosity</strong></p>
+
+<ul>
+<li>Your single adder</li>
+<li>Calculate GLs, ML estimation of SFS along a sliding window using <code>NGSrelate</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="thank-you-slide segue nobackground" id="slide-59">
+  <aside class="gdbar right"><img src="assets/img/LA_Full_colour_reversed.svg"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>That&#39;s all folks!</h2>
+    <p><strong>See you next year :)</strong></p>
+
+  </article>
+
+  <p class="auto-fadein" data-config-contact="">
+    
+  </p>
+</slide>
     <slide class="backdrop"></slide>
   </slides>
   <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
@@ -1734,6 +1888,48 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       <a href="#" target="_self" rel='tooltip' 
         data-slide=53 title='samtools (48,024 citations)'>
          53
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='Population genomics using <code>angsd</code>'>
+         54
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title='angsd'>
+         55
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='angsd website'>
+         56
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='angsd paper'>
+         57
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title='Covariance matrix, distance matrix, heterozygosity'>
+         58
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='That&#39;s all folks!'>
+         59
       </a>
     </li>
     
