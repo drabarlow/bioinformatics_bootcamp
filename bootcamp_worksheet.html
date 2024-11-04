@@ -11,7 +11,6 @@
 
 <meta name="author" content="Axel Barlow" />
 
-<meta name="date" content="2023-09-27" />
 
 <title>Bootcamp worksheet</title>
 
@@ -352,7 +351,7 @@ display: none;
 
 <h1 class="title toc-ignore">Bootcamp worksheet</h1>
 <h4 class="author">Axel Barlow</h4>
-<h4 class="date">2023-09-27</h4>
+<h4 class="date">04-11-2024</h4>
 
 </div>
 
@@ -671,8 +670,7 @@ making a script incorporating a loop</li>
 <h2>Supercomputing Wales and slurm</h2>
 <div id="filesystem" class="section level3">
 <h3>1. Filesystem</h3>
-<pre class="bash"><code>
-# print working directory
+<pre class="bash"><code># print working directory
 pwd
 
 # list contents of working directory
@@ -690,15 +688,21 @@ ls
 # move to root directory 
 cd /
 
+# list contents of working directory
+ls
+
 # Go home
 cd ~</code></pre>
 <div id="new-for-2024-paths-of-glory-game" class="section level4">
-<h4>New for 2024: paths of glory game :)</h4>
-<pre class="bash"><code># Copy the contents of this file:
+<h4><strong>New for 2024: paths of glory game :)</strong></h4>
+<pre class="bash"><code># start in your home
+cd
+
+# Copy the contents of this file:
+/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
 
 # To a file named with your name, here:
-
-</code></pre>
+/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/</code></pre>
 </div>
 </div>
 <div id="modules" class="section level3">
@@ -719,7 +723,7 @@ module purge</code></pre>
 # Do not run resource-intensive jobs on the log in node!
 
 # use slurm to open an active bash shell on a compute node
-srun --nodes=1 --ntasks=4 --mem=4G --time=0-01:00 --pty /bin/bash
+srun --nodes=1 --ntasks=4 --mem=4G --time=0-00:20 --pty /bin/bash
 
 # the queue
 squeue

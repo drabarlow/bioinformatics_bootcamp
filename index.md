@@ -81,7 +81,7 @@ Fri 08/11/2024 | 10:00 to 16:00 | Intro to R, PCA, NJ trees, Manhattan plots
 - Working in the field for ten years
 - Entirely self taught post-PhD
 - No proper bioinformatics/computer science background
-- Knowledge of bash and R.
+- Knowledge of `bash` and `R`.
 
 --- .segue .dark 
 

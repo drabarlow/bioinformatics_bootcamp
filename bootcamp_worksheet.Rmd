@@ -1,7 +1,7 @@
 ---
 title: "Bootcamp worksheet"
 author: "Axel Barlow"
-date: "2023-09-27"
+date: "04-11-2024"
 output: html_document
 ---
 
@@ -296,7 +296,6 @@ done
 ### 1. Filesystem
 
 ```bash
-
 # print working directory
 pwd
 
@@ -315,18 +314,24 @@ ls
 # move to root directory 
 cd /
 
+# list contents of working directory
+ls
+
 # Go home
 cd ~
 ```
 
-#### New for 2024: paths of glory game :)
+#### **New for 2024: paths of glory game :)**
 
 ```bash
+# start in your home
+cd
+
 # Copy the contents of this file:
+/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
 
 # To a file named with your name, here:
-
-
+/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
 ```
 
 ### 2. Modules
@@ -350,7 +355,7 @@ module purge
 # Do not run resource-intensive jobs on the log in node!
 
 # use slurm to open an active bash shell on a compute node
-srun --nodes=1 --ntasks=4 --mem=4G --time=0-01:00 --pty /bin/bash
+srun --nodes=1 --ntasks=4 --mem=4G --time=0-00:20 --pty /bin/bash
 
 # the queue
 squeue
