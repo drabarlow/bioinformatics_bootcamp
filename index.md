@@ -1,5 +1,5 @@
 ---
-title       : "Bioinformatics Bootcamp 2023"
+title       : "Bioinformatics Bootcamp 2024"
 subtitle    : "Molecular Ecology and Evolution at Bangor (MEEB)"
 author      : Dr Axel Barlow
 job         : "email: a.barlow.@bangor.ac.uk"
@@ -35,21 +35,18 @@ strong {
 
 Date|Time|Activity
 ---|---|---
-Tue 03/10/2023 | 09:30 to 13:00 | Unix-like systems and bash
-Wed 04/10/2023 | 12:00 to 14:00 | Super-computing Wales and slurm
-Mon 9/10/2023 | 14:00 to 17:00 | Illumina data and BEARCAVE
-Tue 10/10/2023 | 09:30 to 17:00 | Illumina data processing
-Wed 11/10/2023 | 09:30 to 15:30 | ANGSD, covariance and distance matrices
-Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plotting
+Tue 05/11/2024 | 10:00 to 16:00 | Unix-like systems, bash, SCWales, slurm
+Wed 06/11/2024 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing
+Thu 07/11/2024 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity
+Fri 08/11/2024 | 10:00 to 16:00 | Intro to R, PCA, NJ trees, Manhattan plots
 
 ---
 
 ## Prequisites
 
-- a laptop that can connect to university wifi/eduroam
+- a computer with internet connection
 - an account on super-computing Wales
-- For windows users, installation of the ssh client PuTTY
-- Basic knowledge of DNA and genome structure
+- basic knowledge of DNA and genome structure
 
 ---
 
@@ -133,7 +130,7 @@ Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plo
 
 - 21 year old Linus Torvalds coded a Unix inspired OS in 1991
 - Free and open source
-- The core linux kernal available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, etc.
+- The core linux kernal available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
 
 *** =right
 
@@ -146,7 +143,7 @@ Fri 13/10/2023 | 14:00 to 17:00 | Intro to R, PCA and plotting, NJ trees and plo
 *** =left
 
 - Developed by Microsoft, released 1981
-- Main OS fro IMB PCs in 1980s
+- Main OS for IBM PCs in 1980s
 - GUI introduced with Windows, released 1985
 - Largest market share (70% of PCs)
 - Some bioinformatics possible (e.g. `R` typically via `Rstudio`)
@@ -179,21 +176,20 @@ games|yes|no|no
 
 --- &twocol
 
-## Bash
+## Terminal emulators and Bash
 
 *** =left
 
-- a shell allows users to access OS tools
-- Unix came with the Bourne shell (`sh`), developed by Steven Bourne in 1979
+- a shell allows users to execute OS tools
+- Accessed using a terminal
+- Unix terminal came with the Bourne shell (`sh`), developed by Steven Bourne in 1979
 - In 1979 Brian Fox in improved version: the Bourne again shell (`bash`)
 - Most Unix-like OS use `bash` or something like it
-  - execute standard OS functions
+  - execute standard OS functions and installed programs
   - access filesystem
-  - execute installed programs
   - supports bash scripts
   - pipes, auto-completion, loops, wildcards, etc.
   
-
 *** =right
 
 <img src="./assets/img/Gnu-bash-logo.svg.png" width="90%" style="display: block; margin: auto;" />
@@ -251,7 +247,7 @@ games|yes|no|no
 - Uses `Slurm` job scheduler
 - Many programs installed as `modules`
 - No super user access
-- Can seek help from Ade Fewings (a.fewings@bangor.ac.uk)
+- Can seek help from eResearch manager Ade Fewings (a.fewings@bangor.ac.uk)
 
 *** =right
 
@@ -421,13 +417,15 @@ Short reads from a single individual can be mapped to a reference genome assembl
 
 *** =left
 
-- Adders (*Vipera berus*) widespread across northern Eurasia
+- Adders (*Vipera berus berus*) widespread across northern Eurasia
 - Threatened or near-threatened in UK
-- Illumina PE data from 18 individuals
-- 5 locations
-- Data format
-- Adapter trimming and read merging
-- Map to reference genome: chr7
+- Illumina PE data from 27 individuals
+- Plus one outgroup (*Vipera berus bosniensis*)
+- 7 locations
+- **Our tasks**
+  - Data format
+  - Adapter trimming and read merging
+  - Map to reference genome: chr7
 
 *** =right
 
@@ -439,27 +437,16 @@ Short reads from a single individual can be mapped to a reference genome assembl
 
 ## Adder locations
 
-sample|locality|colour
----|---|---
-adder01|Dublin|red
-adder02|Dublin|red
-adder03|Belfast|green
-adder04|Belfast|green
-adder05|Dublin|red
-adder06|Dublin|red
-adder07|Cork|blue
-adder08|Cork|blue
-adder09|Cork|blue
-adder10|Cork|blue
-adder11|Limerick|yellow
-adder12|Limerick|yellow
-adder13|Limerick|yellow
-adder14|Limerick|yellow
-adder15|Galway|grey
-adder16|Galway|grey
-adder17|Belfast|green
-adder18|Belfast|green
-
+sample|locality
+---|---
+adder01-04|Dublin
+adder05-08|Belfast
+adder09-12|Cork
+adder13-16|Limerick
+adder17-20|Galway
+adder21-24|Dundalk
+adder25-27|Bray
+adder28|outgroup
 
 --- .segue .dark 
 
@@ -663,7 +650,7 @@ A|T|0.05|0.9|0.05
 
 - All indviduals
 - Allele frequency covariance matrix
-- PCA is eigendecomposition of the covariance matrix
+- Used for PCA
 
 **Distance matrix**
 
@@ -674,7 +661,100 @@ A|T|0.05|0.9|0.05
 **Heterozygosity**
 
 - Your single adder
-- Calculate GLs, ML estimation of SFS along a sliding window using `NGSrelate`
+- Calculate GLs, ML estimation of SFS along a sliding window using `realSFS`
+
+--- .segue .dark 
+
+## Intro to `R`
+
+---
+
+## What is `R`?
+
+---
+
+## How `R` works
+
+---
+
+## `R` advantages
+
+---
+
+## `R` disadvantages
+
+---
+
+## `Rstudio`
+
+---
+
+## `Tidyverse`
+
+--- .segue .dark 
+
+## Basic functionality
+
+---
+
+## Objects
+
+---
+
+## Functions
+
+---
+
+## Data structures: vectors
+
+---
+
+## Data structures: matrix
+
+---
+
+## Data structures: dataframe
+
+---
+
+## Data structures: list
+
+--- .segue .dark 
+
+## Population genetics in `R`
+
+---
+
+## Opinions on `R` from a heretic
+
+---
+
+## PCA
+
+---
+
+## Neighbour-joining clustering
+
+---
+
+## Heterozygosity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 --- &thankyou
 

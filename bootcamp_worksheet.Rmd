@@ -13,11 +13,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### 1. Logging on to SCW
 
-```bash
-# Note Windows users will generally use an ssh client like putty
-# Linux and Mac users just ssh from terminal:
+- Consult guide from Ade Fewings: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
+- Windows users need to download a SSH client. We will use MobaXterm portable edition: https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip
+- Linux and Mac users can just ssh from the terminal
+- Note your bangor_username and hawk_username are different
+- bangor_username has you normal password
+- hawk_username password (suggest no special characters) can be set at: https://scw.bangor.ac.uk/en-gb/
 
-ssh username@hawklogin.cf.ac.uk
+```bash
+# Windows
+# Unzip and open the downloaded MobaXterm executable
+# In MobaXterm, click on the 'Session' icon at the top left.
+# Choose 'SSH' as the session type.
+# In the 'Remote host' field, enter ssh.bangor.ac.uk
+# Login using your Bangor username with MFA
+# initiate an SSH connection to the Hawk supercomputer:
+
+ssh hawk_username@hawklogin.cf.ac.uk
+
+# Linux/Mac
+# Open a terminal
+
+ssh bangor_username@ssh.bangor.ac.uk
+ssh hawk_username@hawklogin.cf.ac.uk
 ```
 
 ### 2. Basic bash commands
@@ -29,6 +47,18 @@ Unix-like (linux and Mac) generally use a bash shell (or something like it).
 See https://en.wikipedia.org/wiki/Bash_(Unix_shell)
 
 ```bash
+# print working directory
+pwd
+
+# make directory
+mkdir my_directory
+
+# change directory
+cd my_directory
+
+# print working directory
+pwd
+
 # print something to screen
 echo "hello"
 
@@ -86,8 +116,9 @@ wget https://dnazoo.s3.wasabisys.com/Alligator_mississippiensis/ASM28112v4_HiC.f
 # view contents without unzipping
 zcat ASM28112v4_HiC.fasta.gz | less
 
-# unzip
+# uncompress
 gunzip ASM28112v4_HiC.fasta.gz
+# note you can compress with the command gzip
 
 # log off
 exit
@@ -101,20 +132,15 @@ exit
 - Print only scaffold names 10 to 20 to a file
 - Count the number of bases in the first line of DNA sequence (i.e. line 2)
 - Work out the genome size (don't worry about newline characters in your base counts for now)
-- try to connect graphically to SCWales
-
-### Info from a fellow windows user
- 
-- There is a Windows Subsystem for Linux that needs to be installed
-- <https://learn.microsoft.com/hu-hu/windows/wsl/install>
-- <https://learn.microsoft.com/hu-hu/windows/wsl/setup/environment#set-up-your-linux-user-info>
-- <https://learn.microsoft.com/hu-hu/windows/wsl/filesystems#file-storage-and-performance-across-file-systems>
-- I use Total Commander with the SFTP plugin which enables direct access to files on SCW (WinSCP does the same, but I have no experience with it).    
-
+- If you are finished early, you can find a genome of your choice to play around with
+- Or... look at setting up a jump host and data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
 
 ### 4. Basic bash commands 2
 
 ```bash
+# We assume you are in /home/hawk_username/my_directory. Check!
+pwd
+
 # let's make a file of random numbers
 # we can use the bash variable $RANDOM (more on variables later)
 # write 10 random numbers to a file
@@ -145,6 +171,7 @@ sed 's/./\0 /g' my_randoms.txt
 
 - Using the help menu and Google, work out how to get grep to report the line numbers of each scaffold header in the Alligator genome file
 - Extract the sequence of the first scaffold and calculate the base composition (number of A, T, G, C)
+- If you are finished early, play around some more. For example can calculate base composition of the entire genome ignoring header lines?
 
 ### 6. Bash scripts
 
@@ -205,6 +232,7 @@ sh my_script.sh
 
 - Generate the `bash` script described above and execute
 - try modifying the script, for example to delete the intermediary files my_file1.txt and my_file2.txt
+- If you are finished early, think what other functions you could add to your script. For example lines counts reported to the terminal or saved in a file
 
 ### 8. Variables
 
@@ -258,7 +286,7 @@ done
 - Generate the script shown in part 8. variables
 - execute your script, and try changing the variables. Is behaviour as expected?
 - try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
-- Generate the script shown in part 9. loops. Execute
+- Generate the script shown in part 9. using a loop. Execute
 - Remember making the file of random numbers above, wasn't this annoying? Try to make this file and carry out the same operation by making a script incorporating a loop
 
 ---
@@ -275,25 +303,30 @@ pwd
 # list contents of working directory
 ls
 
-# make directory
-mkdir my_directory
-
-# change directory
-cd my_directory
-
-# make file
-echo hello > hello.txt
-
-# move up one level in heirarchy
+# move up one level in hierarchy
 cd ..
 
-# list contents of new directory 
-ls ./my_directory
+# print working directory
+pwd
+
+# list contents of working directory
+ls
 
 # move to root directory 
 cd /
 
-# take a tour :)
+# Go home
+cd ~
+```
+
+#### New for 2024: paths of glory game :)
+
+```bash
+# Copy the contents of this file:
+
+# To a file named with your name, here:
+
+
 ```
 
 ### 2. Modules
@@ -506,7 +539,7 @@ less BEARCAVE2/scripts/map_modern_PE_mem2.sh
 - move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
 - delete the *processing directory
 - make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
-- Use 192Gb RAM, 20 CPUs, and run for 2 hours
+- Use 50Gb RAM, 10 CPUs, and run for 6 hours
 - Check outcome
 
 ## PCA, NJ tree and heterozygosity

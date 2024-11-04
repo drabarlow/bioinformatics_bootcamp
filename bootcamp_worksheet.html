@@ -361,10 +361,31 @@ display: none;
 <h2>Unix-like systems and bash</h2>
 <div id="logging-on-to-scw" class="section level3">
 <h3>1. Logging on to SCW</h3>
-<pre class="bash"><code># Note Windows users will generally use an ssh client like putty
-# Linux and Mac users just ssh from terminal:
+<ul>
+<li>Consult guide from Ade Fewings: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
+<li>Windows users need to download a SSH client. We will use MobaXterm
+portable edition: <a href="https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip" class="uri">https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip</a></li>
+<li>Linux and Mac users can just ssh from the terminal</li>
+<li>Note your bangor_username and hawk_username are different</li>
+<li>bangor_username has you normal password</li>
+<li>hawk_username password (suggest no special characters) can be set
+at: <a href="https://scw.bangor.ac.uk/en-gb/" class="uri">https://scw.bangor.ac.uk/en-gb/</a></li>
+</ul>
+<pre class="bash"><code># Windows
+# Unzip and open the downloaded MobaXterm executable
+# In MobaXterm, click on the &#39;Session&#39; icon at the top left.
+# Choose &#39;SSH&#39; as the session type.
+# In the &#39;Remote host&#39; field, enter ssh.bangor.ac.uk
+# Login using your Bangor username with MFA
+# initiate an SSH connection to the Hawk supercomputer:
 
-ssh username@hawklogin.cf.ac.uk</code></pre>
+ssh hawk_username@hawklogin.cf.ac.uk
+
+# Linux/Mac
+# Open a terminal
+
+ssh bangor_username@ssh.bangor.ac.uk
+ssh hawk_username@hawklogin.cf.ac.uk</code></pre>
 </div>
 <div id="basic-bash-commands" class="section level3">
 <h3>2. Basic bash commands</h3>
@@ -377,7 +398,19 @@ shells, it supports filename globbing (wildcard matching), piping, here
 documents, command substitution, variables, and control structures for
 condition-testing and iteration.</em>”</p>
 <p>See <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" class="uri">https://en.wikipedia.org/wiki/Bash_(Unix_shell)</a></p>
-<pre class="bash"><code># print something to screen
+<pre class="bash"><code># print working directory
+pwd
+
+# make directory
+mkdir my_directory
+
+# change directory
+cd my_directory
+
+# print working directory
+pwd
+
+# print something to screen
 echo &quot;hello&quot;
 
 # redirect output to file 
@@ -434,8 +467,9 @@ wget https://dnazoo.s3.wasabisys.com/Alligator_mississippiensis/ASM28112v4_HiC.f
 # view contents without unzipping
 zcat ASM28112v4_HiC.fasta.gz | less
 
-# unzip
+# uncompress
 gunzip ASM28112v4_HiC.fasta.gz
+# note you can compress with the command gzip
 
 # log off
 exit
@@ -451,25 +485,18 @@ exit
 (i.e. line 2)</li>
 <li>Work out the genome size (don’t worry about newline characters in
 your base counts for now)</li>
-<li>try to connect graphically to SCWales</li>
-</ul>
-</div>
-<div id="info-from-a-fellow-windows-user" class="section level3">
-<h3>Info from a fellow windows user</h3>
-<ul>
-<li>There is a Windows Subsystem for Linux that needs to be
-installed</li>
-<li><a href="https://learn.microsoft.com/hu-hu/windows/wsl/install" class="uri">https://learn.microsoft.com/hu-hu/windows/wsl/install</a></li>
-<li><a href="https://learn.microsoft.com/hu-hu/windows/wsl/setup/environment#set-up-your-linux-user-info" class="uri">https://learn.microsoft.com/hu-hu/windows/wsl/setup/environment#set-up-your-linux-user-info</a></li>
-<li><a href="https://learn.microsoft.com/hu-hu/windows/wsl/filesystems#file-storage-and-performance-across-file-systems" class="uri">https://learn.microsoft.com/hu-hu/windows/wsl/filesystems#file-storage-and-performance-across-file-systems</a></li>
-<li>I use Total Commander with the SFTP plugin which enables direct
-access to files on SCW (WinSCP does the same, but I have no experience
-with it).</li>
+<li>If you are finished early, you can find a genome of your choice to
+play around with</li>
+<li>Or… look at setting up a jump host and data transfer to your local
+PC: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
 </ul>
 </div>
 <div id="basic-bash-commands-2" class="section level3">
 <h3>4. Basic bash commands 2</h3>
-<pre class="bash"><code># let&#39;s make a file of random numbers
+<pre class="bash"><code># We assume you are in /home/hawk_username/my_directory. Check!
+pwd
+
+# let&#39;s make a file of random numbers
 # we can use the bash variable $RANDOM (more on variables later)
 # write 10 random numbers to a file
 echo $RANDOM &gt;&gt; my_randoms.txt
@@ -502,6 +529,9 @@ the line numbers of each scaffold header in the Alligator genome
 file</li>
 <li>Extract the sequence of the first scaffold and calculate the base
 composition (number of A, T, G, C)</li>
+<li>If you are finished early, play around some more. For example can
+calculate base composition of the entire genome ignoring header
+lines?</li>
 </ul>
 </div>
 <div id="bash-scripts" class="section level3">
@@ -566,6 +596,9 @@ i
 execute</li>
 <li>try modifying the script, for example to delete the intermediary
 files my_file1.txt and my_file2.txt</li>
+<li>If you are finished early, think what other functions you could add
+to your script. For example lines counts reported to the terminal or
+saved in a file</li>
 </ul>
 </div>
 <div id="variables" class="section level3">
@@ -626,7 +659,7 @@ expected?</li>
 <li>try modifying your script, for example entering the counts at the
 command line, or specifying the name of the output file at the command
 line</li>
-<li>Generate the script shown in part 9. loops. Execute</li>
+<li>Generate the script shown in part 9. using a loop. Execute</li>
 <li>Remember making the file of random numbers above, wasn’t this
 annoying? Try to make this file and carry out the same operation by
 making a script incorporating a loop</li>
@@ -645,25 +678,28 @@ pwd
 # list contents of working directory
 ls
 
-# make directory
-mkdir my_directory
-
-# change directory
-cd my_directory
-
-# make file
-echo hello &gt; hello.txt
-
-# move up one level in heirarchy
+# move up one level in hierarchy
 cd ..
 
-# list contents of new directory 
-ls ./my_directory
+# print working directory
+pwd
+
+# list contents of working directory
+ls
 
 # move to root directory 
 cd /
 
-# take a tour :)</code></pre>
+# Go home
+cd ~</code></pre>
+<div id="new-for-2024-paths-of-glory-game" class="section level4">
+<h4>New for 2024: paths of glory game :)</h4>
+<pre class="bash"><code># Copy the contents of this file:
+
+# To a file named with your name, here:
+
+</code></pre>
+</div>
 </div>
 <div id="modules" class="section level3">
 <h3>2. Modules</h3>
@@ -880,7 +916,7 @@ directory</li>
 <li>make a slurm job script similar to the one in part 4. in your chosen
 location within home directory. This script should execute the
 map_modern_PE_mem2.sh script</li>
-<li>Use 192Gb RAM, 20 CPUs, and run for 2 hours</li>
+<li>Use 50Gb RAM, 10 CPUs, and run for 6 hours</li>
 <li>Check outcome</li>
 </ul>
 </div>
