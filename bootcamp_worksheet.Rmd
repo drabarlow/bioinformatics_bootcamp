@@ -173,6 +173,31 @@ sed 's/./\0 /g' my_randoms.txt
 - Extract the sequence of the first scaffold and calculate the base composition (number of A, T, G, C)
 - If you are finished early, play around some more. For example can calculate base composition of the entire genome ignoring header lines?
 
+```bash
+# extracting the scaffold
+head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 > scaffold_1.txt
+
+# Axel's solution using sed. Slow!
+# sed 's/./\0\n/g' enters newline after each character
+sed 's/./\0\n/g' scaffold_1.txt | sort | uniq -c
+
+# Jeronimo et al's method using greps, faster!
+# -o print all matches
+# -i case insensitive
+grep -o -i a scaffold_1.txt
+grep -o -i t scaffold_1.txt
+grep -o -i g scaffold_1.txt
+grep -o -i c scaffold_1.txt
+
+# Ruby's method using tr, Fastest!
+# -c complement, find opposite of match
+# -d delete
+tr -cd 'Aa' < scaffold_1.txt | wc -c
+tr -cd 'Tt' < scaffold_1.txt | wc -c
+tr -cd 'Gg' < scaffold_1.txt | wc -c
+tr -cd 'Cc' < scaffold_1.txt | wc -c
+```
+
 ### 6. Bash scripts
 
 - Bash scripts allow sets of commands to be executed in an automated fashion
@@ -192,7 +217,6 @@ yes goodbye | head -n 100 > my_file2.txt
 cat my_file* > my_combined_file.txt
 
 echo "job finished"
-
 ```
 
 #### A note on text editors
@@ -287,7 +311,7 @@ done
 - execute your script, and try changing the variables. Is behaviour as expected?
 - try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
 - Generate the script shown in part 9. using a loop. Execute
-- Remember making the file of random numbers above, wasn't this annoying? Try to make this file and carry out the same operation by making a script incorporating a loop
+- If you are finished early... Remember making the file of random numbers above, wasn't this annoying? Try to make this file and carry out the same operation by making a script incorporating a loop
 
 ---
 
@@ -435,6 +459,19 @@ sbatch account=scw1234 job_script.sh
 - Direct stdout and error messages to `./output_logs`
 - Specify 1 node, 8 cpus, 16Gb RAM, 1 hour
 - Submit job to queue
+
+## New for 2024: paths of glory game :)
+
+```bash
+# start in your home
+cd
+
+# Copy the contents of this file:
+/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
+
+# To a file named with your name, here:
+/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
+```
 
 ---
 

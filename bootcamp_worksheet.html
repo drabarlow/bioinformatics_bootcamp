@@ -532,6 +532,28 @@ composition (number of A, T, G, C)</li>
 calculate base composition of the entire genome ignoring header
 lines?</li>
 </ul>
+<pre class="bash"><code># extracting the scaffold
+head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 &gt; scaffold_1.txt
+
+# Axel&#39;s solution using sed. Slow!
+# sed &#39;s/./\0\n/g&#39; enters newline after each character
+sed &#39;s/./\0\n/g&#39; scaffold_1.txt | sort | uniq -c
+
+# Jeronimo et al&#39;s method using greps, faster!
+# -o print all matches
+# -i case insensitive
+grep -o -i a scaffold_1.txt
+grep -o -i t scaffold_1.txt
+grep -o -i g scaffold_1.txt
+grep -o -i c scaffold_1.txt
+
+# Ruby&#39;s method using tr, Fastest!
+# -c complement, find opposite of match
+# -d delete
+tr -cd &#39;Aa&#39; &lt; scaffold_1.txt | wc -c
+tr -cd &#39;Tt&#39; &lt; scaffold_1.txt | wc -c
+tr -cd &#39;Gg&#39; &lt; scaffold_1.txt | wc -c
+tr -cd &#39;Cc&#39; &lt; scaffold_1.txt | wc -c</code></pre>
 </div>
 <div id="bash-scripts" class="section level3">
 <h3>6. Bash scripts</h3>
@@ -555,8 +577,7 @@ yes goodbye | head -n 100 &gt; my_file2.txt
 # combine files
 cat my_file* &gt; my_combined_file.txt
 
-echo &quot;job finished&quot;
-</code></pre>
+echo &quot;job finished&quot;</code></pre>
 <div id="a-note-on-text-editors" class="section level4">
 <h4>A note on text editors</h4>
 <ul>
@@ -659,9 +680,9 @@ expected?</li>
 command line, or specifying the name of the output file at the command
 line</li>
 <li>Generate the script shown in part 9. using a loop. Execute</li>
-<li>Remember making the file of random numbers above, wasn’t this
-annoying? Try to make this file and carry out the same operation by
-making a script incorporating a loop</li>
+<li>If you are finished early… Remember making the file of random
+numbers above, wasn’t this annoying? Try to make this file and carry out
+the same operation by making a script incorporating a loop</li>
 </ul>
 <hr />
 </div>
@@ -811,8 +832,19 @@ doing the computation</li>
 <li>Specify 1 node, 8 cpus, 16Gb RAM, 1 hour</li>
 <li>Submit job to queue</li>
 </ul>
-<hr />
 </div>
+</div>
+<div id="new-for-2024-paths-of-glory-game-1" class="section level2">
+<h2>New for 2024: paths of glory game :)</h2>
+<pre class="bash"><code># start in your home
+cd
+
+# Copy the contents of this file:
+/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
+
+# To a file named with your name, here:
+/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/</code></pre>
+<hr />
 </div>
 <div id="illumina-data-processing" class="section level2">
 <h2>Illumina data processing</h2>
