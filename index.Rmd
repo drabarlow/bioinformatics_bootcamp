@@ -21,8 +21,10 @@ github:
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+library(gganimate)
 library(RColorBrewer)
 library(knitr)
+library(ape)
 opts_chunk$set(fig.lp = '')
 ```
 
@@ -742,7 +744,7 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 
 **Distance matrix**
 
-- All indviduals
+- All individuals
 - absolute genetic distance between populations
 - used as input for NJ algorithm
 
@@ -755,94 +757,238 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 
 ## Intro to `R`
 
----
+--- &twocol
 
 ## What is `R`?
 
----
+*** =left
+
+- Statistical analysis 
+- Data visualisation
+- Free and open source
+- Linux, Mac, Windows
+- Many additional packages
+- Several GUIs e.g. `Rstudio`
+- Graphics
+- Text documents
+- Interactive figures
+- Websites
+- This presentation!
+
+*** =right
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/R_logo.svg.png")
+```
+
+--- bg:white
 
 ## How `R` works
 
----
-
-## `R` advantages
-
----
-
-## `R` disadvantages
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/R_works.png")
+```
 
 ---
+
+## Why is bash faster than `R`?
+
+Suppose you're a survey company. To carry out your survey you need all the people seated in a classroom, which you have to build. You're not sure how many, so you build an ordinary classroom, with 5 rows of 6 desks for 30 people, after 30 people file in you notice there's a 31st. You build a second 30-person classroom right next to the first, and now you can accept 60 people, but then you notice a 61st. So you ask them to wait, and you build two more classrooms, so now you've got a nice 2x2 grid of 30-person classrooms, but the people keep coming and soon enough the 121st person shows up and there's not enough room. So you build a big 5-story building next door with 50-person classrooms, 5 on each floor, for a total of 50 x 5 x 5 = 1,250 desks, and you have the first 120 people file out of the old rooms into the new building, and you hire some wreckers to demolish the old classrooms and recycle some of the materials, and the people keep coming. And when you're all done with all this, the only "survey question" you're going to ask is "How many rows are there?"
+
+
+Meanwhile, Bob's discount survey company, who can only tell you how many people he surveyed, is down there on the streetcorner, and the people are filing by, and Bob is jotting down tally marks on his clipboards, and the people, once surveyed, are walking away and going about their business, and Bob isn't wasting time and money building any classrooms at all.
+
+---
+
+## Why is bash faster than `R`?
+
+An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r
+
+--- &thirds
 
 ## `Rstudio`
 
----
+*** =left
+
+- GUI
+- Preferred by many
+- Linked to `tidyverse`
+- Linked to `R markdown`
+- Version control and other development tools
+
+*** =right
+
+```{r, out.width = "100%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
+```
+
+--- &twocol
 
 ## `Tidyverse`
 
---- .segue .dark 
+*** =left
 
-## Basic functionality
+- `ggplot2`
+- `tibble`
+- `tidyr`
+- `readr`
+- `dplyr`
+- `stringr`
+- `purr`
+- `forcats`
+- "Tidy data"
+- "Grammar of graphics"
 
----
+*** =right
 
-## Objects
-
----
-
-## Functions
-
----
-
-## Data structures: vectors
-
----
-
-## Data structures: matrix
-
----
-
-## Data structures: dataframe
-
----
-
-## Data structures: list
-
---- .segue .dark 
-
-## Population genetics in `R`
+```{r, out.width = "80%", dpi = 300, , echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/Tidyverse_hex_logo.png")
+```
 
 ---
 
 ## Opinions on `R` from a heretic
 
+**Most people disagree (in some cases strongly)**
+
+- `Rstudio` is terrible (except for `R markdown`)
+- Base `R` is really good
+- `ggplot2` code is hellishly complex
+- `tidyverse` is not the way to teach `R` to beginners
+- It's OK to modify a raw data file
+- It's OK to combine other tools and languages
+- Data doesn't have to be tidy
+
+--- .segue .dark 
+
+## Functionality
+
 ---
 
-## PCA
+## Objects and functions
+
+**Objects**
+
+- Contain data and results
+- Created with `<-`
+- Stored in active memory
+- Names include letters numbers _ .
+- Names must begin with a letter
+
+**Functions**
+
+- Carry out operations on objects
+- Often generates new objects
+- `function()`
+- `?function`
 
 ---
 
-## Neighbour-joining clustering
+## Data structures: vector and matrix
+
+**Vector**
+
+- List of values of the same type
+- Numbers, strings, or logical values
+- Can be generated using `c()`
+- Indexing vector objects `my_vector[]`
+
+**Matrix**
+- 2D data of same type in rows and columns
+- Indexing matrix objects `my_matrix[row, column]`
 
 ---
+
+## Data structures: dataframe and list
+
+**Dataframe**
+- Rectangular "table"
+- Mixture of data types
+- Set of vectors of equal length
+- Extract columns with `$`, which can then be indexed like vectors
+
+**List**
+- Set of components with different structures
+- Extract named components with `$`
+
+--- &twocol bg:white
+
+## Population genetics: PCA
+
+*** =left
+
+- Input is allele covariance matrix
+- eigen decomposition `eigen()`
+- Actually a recent method
+- No knowledge of PC loadings in terms of SNPs/sites
+- PC scatterplot
+- PC variance explained
+
+*** =right
+
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 5, dpi = 300, echo = FALSE, fig.align = "center", fig.cap=""}
+my_info <- read.table("./assets/data/bam_info", header=TRUE)
+
+# read in covariance matrix
+my_cov <- read.table("assets/data/bamlist_old.covMat")
+
+# do PCA
+my_pca <- eigen(my_cov)
+
+# plot
+plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC1, 20% variance", ylab="PC2, 10% variance")
+```
+
+--- &twocol bg:white
+
+## Population genetics: Neighbour-joining clustering
+
+*** =left
+
+- Input is distance matrix
+- Neighbour joining algorithm
+- Clusters based on genetic similarity
+- Rooted using outgroup
+- Requires `ape` library
+- Basic estimate of phylogeny
+
+*** =right
+
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, echo = FALSE, fig.align = "center", fig.cap=""}
+# read in matrix
+my_mat <- as.dist(read.table("./assets/data/bamlist_old.ibsMat"))
+
+# compute tree
+my_tree <- nj(my_mat)
+
+# sort out plot margins
+par(mar=c(1,1,1,5), xpd=TRUE)
+
+# plot
+my_root <- root(my_tree, node=34)
+plot(my_root)
+```
+
+--- &twocol bg:white
 
 ## Heterozygosity
 
+- Input is sliding window estimates of heterozygous sites
 
+*** =left
 
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, echo = FALSE, fig.align = "center", fig.cap=""}
+my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
+hist((my_sfs$V2/1000), breaks=40, xlab="het sites per kb", main="", col="blue")
+```
+*** =right
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, echo = FALSE, fig.align = "center", fig.cap=""}
+my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
+plot(1:length(my_sfs$V2), my_sfs$V2/1000, pch=20, col="blue", axes=FALSE, xlab="chromosome 7", ylab="het sites per kb")
+axis(1, labels=FALSE)
+axis(2)
+```
 
 --- &thankyou
 

@@ -654,7 +654,7 @@ A|T|0.05|0.9|0.05
 
 **Distance matrix**
 
-- All indviduals
+- All individuals
 - absolute genetic distance between populations
 - used as input for NJ algorithm
 
@@ -667,94 +667,198 @@ A|T|0.05|0.9|0.05
 
 ## Intro to `R`
 
----
+--- &twocol
 
 ## What is `R`?
 
----
+*** =left
+
+- Statistical analysis 
+- Data visualisation
+- Free and open source
+- Linux, Mac, Windows
+- Many additional packages
+- Several GUIs e.g. `Rstudio`
+- Graphics
+- Text documents
+- Interactive figures
+- Websites
+- This presentation!
+
+*** =right
+
+<img src="./assets/img/R_logo.svg.png" width="100%" />
+
+--- bg:white
 
 ## How `R` works
 
----
-
-## `R` advantages
+<img src="./assets/img/R_works.png" width="100%" />
 
 ---
 
-## `R` disadvantages
+## Why is bash faster than `R`?
+
+Suppose you're a survey company. To carry out your survey you need all the people seated in a classroom, which you have to build. You're not sure how many, so you build an ordinary classroom, with 5 rows of 6 desks for 30 people, after 30 people file in you notice there's a 31st. You build a second 30-person classroom right next to the first, and now you can accept 60 people, but then you notice a 61st. So you ask them to wait, and you build two more classrooms, so now you've got a nice 2x2 grid of 30-person classrooms, but the people keep coming and soon enough the 121st person shows up and there's not enough room. So you build a big 5-story building next door with 50-person classrooms, 5 on each floor, for a total of 50 x 5 x 5 = 1,250 desks, and you have the first 120 people file out of the old rooms into the new building, and you hire some wreckers to demolish the old classrooms and recycle some of the materials, and the people keep coming. And when you're all done with all this, the only "survey question" you're going to ask is "How many rows are there?"
+
+
+Meanwhile, Bob's discount survey company, who can only tell you how many people he surveyed, is down there on the streetcorner, and the people are filing by, and Bob is jotting down tally marks on his clipboards, and the people, once surveyed, are walking away and going about their business, and Bob isn't wasting time and money building any classrooms at all.
 
 ---
+
+## Why is bash faster than `R`?
+
+An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r
+
+--- &thirds
 
 ## `Rstudio`
 
----
+*** =left
+
+- GUI
+- Preferred by many
+- Linked to `tidyverse`
+- Linked to `R markdown`
+- Version control and other development tools
+
+*** =right
+
+<img src="./assets/img/Screenshot from 2024-11-06 20-20-24.png" width="100%" />
+
+--- &twocol
 
 ## `Tidyverse`
 
---- .segue .dark 
+*** =left
 
-## Basic functionality
+- `ggplot2`
+- `tibble`
+- `tidyr`
+- `readr`
+- `dplyr`
+- `stringr`
+- `purr`
+- `forcats`
+- "Tidy data"
+- "Grammar of graphics"
 
----
+*** =right
 
-## Objects
-
----
-
-## Functions
-
----
-
-## Data structures: vectors
-
----
-
-## Data structures: matrix
-
----
-
-## Data structures: dataframe
-
----
-
-## Data structures: list
-
---- .segue .dark 
-
-## Population genetics in `R`
+<img src="./assets/img/Tidyverse_hex_logo.png" width="80%" />
 
 ---
 
 ## Opinions on `R` from a heretic
 
+**Most people disagree (in some cases strongly)**
+
+- `Rstudio` is terrible (except for `R markdown`)
+- Base `R` is really good
+- `ggplot2` code is hellishly complex
+- `tidyverse` is not the way to teach `R` to beginners
+- It's OK to modify a raw data file
+- It's OK to combine other tools and languages
+- Data doesn't have to be tidy
+
+--- .segue .dark 
+
+## Functionality
+
 ---
 
-## PCA
+## Objects and functions
+
+**Objects**
+
+- Contain data and results
+- Created with `<-`
+- Stored in active memory
+- Names include letters numbers _ .
+- Names must begin with a letter
+
+**Functions**
+
+- Carry out operations on objects
+- Often generates new objects
+- `function()`
+- `?function`
 
 ---
 
-## Neighbour-joining clustering
+## Data structures: vector and matrix
+
+**Vector**
+
+- List of values of the same type
+- Numbers, strings, or logical values
+- Can be generated using `c()`
+- Indexing vector objects `my_vector[]`
+
+**Matrix**
+- 2D data of same type in rows and columns
+- Indexing matrix objects `my_matrix[row, column]`
 
 ---
+
+## Data structures: dataframe and list
+
+**Dataframe**
+- Rectangular "table"
+- Mixture of data types
+- Set of vectors of equal length
+- Extract columns with `$`, which can then be indexed like vectors
+
+**List**
+- Set of components with different structures
+- Extract named components with `$`
+
+--- &twocol bg:white
+
+## Population genetics: PCA
+
+*** =left
+
+- Input is allele covariance matrix
+- eigen decomposition `eigen()`
+- Actually a recent method
+- No knowledge of PC loadings in terms of SNPs/sites
+- PC scatterplot
+- PC variance explained
+
+*** =right
+
+<img src="assets/fig/unnamed-chunk-40-1.png" width="100%" style="display: block; margin: auto;" />
+
+--- &twocol bg:white
+
+## Population genetics: Neighbour-joining clustering
+
+*** =left
+
+- Input is distance matrix
+- Neighbour joining algorithm
+- Clusters based on genetic similarity
+- Rooted using outgroup
+- Requires `ape` library
+- Basic estimate of phylogeny
+
+*** =right
+
+<img src="assets/fig/unnamed-chunk-41-1.png" width="100%" style="display: block; margin: auto;" />
+
+--- &twocol bg:white
 
 ## Heterozygosity
 
+- Input is sliding window estimates of heterozygous sites
 
+*** =left
 
+<img src="assets/fig/unnamed-chunk-42-1.png" width="100%" style="display: block; margin: auto;" />
+*** =right
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img src="assets/fig/unnamed-chunk-43-1.png" width="100%" style="display: block; margin: auto;" />
 
 --- &thankyou
 

@@ -1421,7 +1421,7 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <p><strong>Distance matrix</strong></p>
 
 <ul>
-<li>All indviduals</li>
+<li>All individuals</li>
 <li>absolute genetic distance between populations</li>
 <li>used as input for NJ algorithm</li>
 </ul>
@@ -1459,19 +1459,40 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   
   <article data-timings="">
     
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Statistical analysis </li>
+<li>Data visualisation</li>
+<li>Free and open source</li>
+<li>Linux, Mac, Windows</li>
+<li>Many additional packages</li>
+<li>Several GUIs e.g. <code>Rstudio</code></li>
+<li>Graphics</li>
+<li>Text documents</li>
+<li>Interactive figures</li>
+<li>Websites</li>
+<li>This presentation!</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/R_logo.svg.png" width="100%" /></p>
+
+</div>
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="" id="slide-61" style="background:;">
+<slide class="" id="slide-61" style="background:white;">
   
   <hgroup>
     <h2>How <code>R</code> works</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p><img src="./assets/img/R_works.png" width="100%" /></p>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1480,11 +1501,14 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <slide class="" id="slide-62" style="background:;">
   
   <hgroup>
-    <h2><code>R</code> advantages</h2>
+    <h2>Why is bash faster than <code>R</code>?</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p>Suppose you&#39;re a survey company. To carry out your survey you need all the people seated in a classroom, which you have to build. You&#39;re not sure how many, so you build an ordinary classroom, with 5 rows of 6 desks for 30 people, after 30 people file in you notice there&#39;s a 31st. You build a second 30-person classroom right next to the first, and now you can accept 60 people, but then you notice a 61st. So you ask them to wait, and you build two more classrooms, so now you&#39;ve got a nice 2x2 grid of 30-person classrooms, but the people keep coming and soon enough the 121st person shows up and there&#39;s not enough room. So you build a big 5-story building next door with 50-person classrooms, 5 on each floor, for a total of 50 x 5 x 5 = 1,250 desks, and you have the first 120 people file out of the old rooms into the new building, and you hire some wreckers to demolish the old classrooms and recycle some of the materials, and the people keep coming. And when you&#39;re all done with all this, the only &quot;survey question&quot; you&#39;re going to ask is &quot;How many rows are there?&quot;</p>
+
+<p>Meanwhile, Bob&#39;s discount survey company, who can only tell you how many people he surveyed, is down there on the streetcorner, and the people are filing by, and Bob is jotting down tally marks on his clipboards, and the people, once surveyed, are walking away and going about their business, and Bob isn&#39;t wasting time and money building any classrooms at all.</p>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1493,11 +1517,12 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <slide class="" id="slide-63" style="background:;">
   
   <hgroup>
-    <h2><code>R</code> disadvantages</h2>
+    <h2>Why is bash faster than <code>R</code>?</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p>An abridged version of <a href="https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r">https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r</a></p>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1511,6 +1536,20 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   
   <article data-timings="">
     
+<div style='float:left;width:31%;' class='centered'>
+  <ul>
+<li>GUI</li>
+<li>Preferred by many</li>
+<li>Linked to <code>tidyverse</code></li>
+<li>Linked to <code>R markdown</code></li>
+<li>Version control and other development tools</li>
+</ul>
+
+</div>
+<div style='float:right;width:64%;'>
+  <p><img src="./assets/img/Screenshot from 2024-11-06 20-20-24.png" width="100%" /></p>
+
+</div>
   </article>
   <!-- Presenter Notes -->
   
@@ -1524,28 +1563,58 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   
   <article data-timings="">
     
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li><code>ggplot2</code></li>
+<li><code>tibble</code></li>
+<li><code>tidyr</code></li>
+<li><code>readr</code></li>
+<li><code>dplyr</code></li>
+<li><code>stringr</code></li>
+<li><code>purr</code></li>
+<li><code>forcats</code></li>
+<li>&quot;Tidy data&quot;</li>
+<li>&quot;Grammar of graphics&quot;</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/Tidyverse_hex_logo.png" width="80%" /></p>
+
+</div>
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="segue dark" id="slide-66" style="background:;">
+<slide class="" id="slide-66" style="background:;">
   
   <hgroup>
-    <h2>Basic functionality</h2>
+    <h2>Opinions on <code>R</code> from a heretic</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p><strong>Most people disagree (in some cases strongly)</strong></p>
+
+<ul>
+<li><code>Rstudio</code> is terrible (except for <code>R markdown</code>)</li>
+<li>Base <code>R</code> is really good</li>
+<li><code>ggplot2</code> code is hellishly complex</li>
+<li><code>tidyverse</code> is not the way to teach <code>R</code> to beginners</li>
+<li>It&#39;s OK to modify a raw data file</li>
+<li>It&#39;s OK to combine other tools and languages</li>
+<li>Data doesn&#39;t have to be tidy</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="" id="slide-67" style="background:;">
+<slide class="segue dark" id="slide-67" style="background:;">
   
   <hgroup>
-    <h2>Objects</h2>
+    <h2>Functionality</h2>
   </hgroup>
   
   <article data-timings="">
@@ -1558,11 +1627,29 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <slide class="" id="slide-68" style="background:;">
   
   <hgroup>
-    <h2>Functions</h2>
+    <h2>Objects and functions</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p><strong>Objects</strong></p>
+
+<ul>
+<li>Contain data and results</li>
+<li>Created with <code>&lt;-</code></li>
+<li>Stored in active memory</li>
+<li>Names include letters numbers _ .</li>
+<li>Names must begin with a letter</li>
+</ul>
+
+<p><strong>Functions</strong></p>
+
+<ul>
+<li>Carry out operations on objects</li>
+<li>Often generates new objects</li>
+<li><code>function()</code></li>
+<li><code>?function</code></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1571,11 +1658,26 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <slide class="" id="slide-69" style="background:;">
   
   <hgroup>
-    <h2>Data structures: vectors</h2>
+    <h2>Data structures: vector and matrix</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p><strong>Vector</strong></p>
+
+<ul>
+<li>List of values of the same type</li>
+<li>Numbers, strings, or logical values</li>
+<li>Can be generated using <code>c()</code></li>
+<li>Indexing vector objects <code>my_vector[]</code></li>
+</ul>
+
+<p><strong>Matrix</strong></p>
+
+<ul>
+<li>2D data of same type in rows and columns</li>
+<li>Indexing matrix objects <code>my_matrix[row, column]</code></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
@@ -1584,108 +1686,112 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 <slide class="" id="slide-70" style="background:;">
   
   <hgroup>
-    <h2>Data structures: matrix</h2>
+    <h2>Data structures: dataframe and list</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <p><strong>Dataframe</strong></p>
+
+<ul>
+<li>Rectangular &quot;table&quot;</li>
+<li>Mixture of data types</li>
+<li>Set of vectors of equal length</li>
+<li>Extract columns with <code>$</code>, which can then be indexed like vectors</li>
+</ul>
+
+<p><strong>List</strong></p>
+
+<ul>
+<li>Set of components with different structures</li>
+<li>Extract named components with <code>$</code></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="" id="slide-71" style="background:;">
+<slide class="" id="slide-71" style="background:white;">
   
   <hgroup>
-    <h2>Data structures: dataframe</h2>
+    <h2>Population genetics: PCA</h2>
   </hgroup>
   
   <article data-timings="">
     
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Input is allele covariance matrix</li>
+<li>eigen decomposition <code>eigen()</code></li>
+<li>Actually a recent method</li>
+<li>No knowledge of PC loadings in terms of SNPs/sites</li>
+<li>PC scatterplot</li>
+<li>PC variance explained</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="assets/fig/unnamed-chunk-40-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="" id="slide-72" style="background:;">
+<slide class="" id="slide-72" style="background:white;">
   
   <hgroup>
-    <h2>Data structures: list</h2>
+    <h2>Population genetics: Neighbour-joining clustering</h2>
   </hgroup>
   
   <article data-timings="">
     
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Input is distance matrix</li>
+<li>Neighbour joining algorithm</li>
+<li>Clusters based on genetic similarity</li>
+<li>Rooted using outgroup</li>
+<li>Requires <code>ape</code> library</li>
+<li>Basic estimate of phylogeny</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="assets/fig/unnamed-chunk-41-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="segue dark" id="slide-73" style="background:;">
-  
-  <hgroup>
-    <h2>Population genetics in <code>R</code></h2>
-  </hgroup>
-  
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="" id="slide-74" style="background:;">
-  
-  <hgroup>
-    <h2>Opinions on <code>R</code> from a heretic</h2>
-  </hgroup>
-  
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="" id="slide-75" style="background:;">
-  
-  <hgroup>
-    <h2>PCA</h2>
-  </hgroup>
-  
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="" id="slide-76" style="background:;">
-  
-  <hgroup>
-    <h2>Neighbour-joining clustering</h2>
-  </hgroup>
-  
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="" id="slide-77" style="background:;">
+<slide class="" id="slide-73" style="background:white;">
   
   <hgroup>
     <h2>Heterozygosity</h2>
   </hgroup>
   
   <article data-timings="">
-    
+    <ul>
+<li>Input is sliding window estimates of heterozygous sites</li>
+</ul>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-42-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="assets/fig/unnamed-chunk-43-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="thank-you-slide segue nobackground" id="slide-78">
+<slide class="thank-you-slide segue nobackground" id="slide-74">
   <aside class="gdbar right"><img src="assets/img/LA_Full_colour_reversed.svg"></aside>
   <article class="flexbox vleft auto-fadein">
     <h2>That&#39;s all folks!</h2>
@@ -2131,14 +2237,14 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=62 title='<code>R</code> advantages'>
+        data-slide=62 title='Why is bash faster than <code>R</code>?'>
          62
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=63 title='<code>R</code> disadvantages'>
+        data-slide=63 title='Why is bash faster than <code>R</code>?'>
          63
       </a>
     </li>
@@ -2159,92 +2265,64 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=66 title='Basic functionality'>
+        data-slide=66 title='Opinions on <code>R</code> from a heretic'>
          66
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=67 title='Objects'>
+        data-slide=67 title='Functionality'>
          67
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=68 title='Functions'>
+        data-slide=68 title='Objects and functions'>
          68
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=69 title='Data structures: vectors'>
+        data-slide=69 title='Data structures: vector and matrix'>
          69
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=70 title='Data structures: matrix'>
+        data-slide=70 title='Data structures: dataframe and list'>
          70
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=71 title='Data structures: dataframe'>
+        data-slide=71 title='Population genetics: PCA'>
          71
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=72 title='Data structures: list'>
+        data-slide=72 title='Population genetics: Neighbour-joining clustering'>
          72
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=73 title='Population genetics in <code>R</code>'>
+        data-slide=73 title='Heterozygosity'>
          73
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=74 title='Opinions on <code>R</code> from a heretic'>
+        data-slide=74 title='That&#39;s all folks!'>
          74
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=75 title='PCA'>
-         75
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=76 title='Neighbour-joining clustering'>
-         76
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=77 title='Heterozygosity'>
-         77
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=78 title='That&#39;s all folks!'>
-         78
       </a>
     </li>
     

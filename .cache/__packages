@@ -10,3 +10,5 @@ forcats
 lubridate
 RColorBrewer
 knitr
+gganimate
+ape
