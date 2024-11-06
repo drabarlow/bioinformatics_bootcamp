@@ -345,19 +345,6 @@ ls
 cd ~
 ```
 
-#### **New for 2024: paths of glory game :)**
-
-```bash
-# start in your home
-cd
-
-# Copy the contents of this file:
-/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
-
-# To a file named with your name, here:
-/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
-```
-
 ### 2. Modules
 
 ```bash
