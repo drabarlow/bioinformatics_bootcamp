@@ -8,7 +8,7 @@ dplyr
 stringr
 forcats
 lubridate
+gganimate
 RColorBrewer
 knitr
-gganimate
 ape
