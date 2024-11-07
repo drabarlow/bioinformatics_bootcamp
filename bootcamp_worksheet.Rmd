@@ -503,17 +503,23 @@ cd
 ### 1. Fastq file format
 
 ```bash
-# navigate to shared scratch space
-cd /scratch/scw2141/
+# enter BEARCAVE
+cd /scratch/scw2141/BEARCAVE2/
+
+# view directories
+ll
+
+# raw data
+cd rawdata
 
 # look at a fastq file
-zcat ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz | less
+zcat ./adder01/a01+adder01_R1.fastq.gz | less
 
 # look at metadata
-cat ./BEARCAVE2/rawdata/metadata.txt 
+cat ./metadata.txt 
 
 # look at reference genome
-less ./BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa
+less /scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa
 ```
 
 ### 2. Your turn :)
@@ -554,8 +560,8 @@ less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh
 
 ### 4. Your turn :)
 
-- make a `slurm` job script in your chosen location within home directory. It should do the following:
-- you will need to add the following SBATCH to your script, to ensure the command is executed in the scripts directory: 
+- make a `slurm` job script in your chosen location within home directory. It should do the following steps.
+- Note you will need to add the following SBATCH to your script, to ensure the command is executed in the scripts directory: 
 
 ```bash
 #set working directory
@@ -566,7 +572,6 @@ less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh
 - run the trim_merge_DS_PE_standard2.sh script on your adder sample
 - use 4Gb RAM, 10 CPUs, and run for 1 hour
 - direct stdout and errors to your chosen location in your home directory
-- check the script works
 - submit to queue
 
 ### 5. BEARCAVE script: mapping
@@ -604,7 +609,7 @@ less BEARCAVE2/scripts/map_modern_PE_mem2.sh
 - move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
 - delete the *processing directory
 - make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
-- Use 50Gb RAM, 10 CPUs, and run for 6 hours
+- Use 10Gb RAM, 10 CPUs, and run for 4 hours
 - Check outcome
 
 ## PCA, NJ tree and heterozygosity

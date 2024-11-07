@@ -873,17 +873,23 @@ cd
 <h2>Illumina data processing</h2>
 <div id="fastq-file-format" class="section level3">
 <h3>1. Fastq file format</h3>
-<pre class="bash"><code># navigate to shared scratch space
-cd /scratch/scw2141/
+<pre class="bash"><code># enter BEARCAVE
+cd /scratch/scw2141/BEARCAVE2/
+
+# view directories
+ll
+
+# raw data
+cd rawdata
 
 # look at a fastq file
-zcat ./BEARCAVE2/rawdata/adder01/Lbx+adder01_EDSW210011374-1a_HJMMLDSX2_L1_R1.fastq.gz | less
+zcat ./adder01/a01+adder01_R1.fastq.gz | less
 
 # look at metadata
-cat ./BEARCAVE2/rawdata/metadata.txt 
+cat ./metadata.txt 
 
 # look at reference genome
-less ./BEARCAVE2/refgenomes/ursinii_chr7/vipera_ursinii_chromosome_7.fa</code></pre>
+less /scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa</code></pre>
 </div>
 <div id="your-turn-5" class="section level3">
 <h3>2. Your turn :)</h3>
@@ -923,9 +929,9 @@ how do you explain the file sizes?</li>
 <h3>4. Your turn :)</h3>
 <ul>
 <li>make a <code>slurm</code> job script in your chosen location within
-home directory. It should do the following:</li>
-<li>you will need to add the following SBATCH to your script, to ensure
-the command is executed in the scripts directory:</li>
+home directory. It should do the following steps.</li>
+<li>Note you will need to add the following SBATCH to your script, to
+ensure the command is executed in the scripts directory:</li>
 </ul>
 <pre class="bash"><code>#set working directory
 #SBATCH --chdir=/scratch/scw2141/BEARCAVE2/scripts/</code></pre>
@@ -936,7 +942,6 @@ sample</li>
 <li>use 4Gb RAM, 10 CPUs, and run for 1 hour</li>
 <li>direct stdout and errors to your chosen location in your home
 directory</li>
-<li>check the script works</li>
 <li>submit to queue</li>
 </ul>
 </div>
@@ -975,7 +980,7 @@ directory</li>
 <li>make a slurm job script similar to the one in part 4. in your chosen
 location within home directory. This script should execute the
 map_modern_PE_mem2.sh script</li>
-<li>Use 50Gb RAM, 10 CPUs, and run for 6 hours</li>
+<li>Use 10Gb RAM, 10 CPUs, and run for 4 hours</li>
 <li>Check outcome</li>
 </ul>
 </div>
