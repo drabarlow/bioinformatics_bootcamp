@@ -757,6 +757,8 @@ An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-
 - Base `R` is really good
 - `ggplot2` code is hellishly complex
 - `tidyverse` is not the way to teach `R` to beginners
+- It's boring if everyone's graphs look the same
+- It's OK to type commands directly into the terminal
 - It's OK to modify a raw data file
 - It's OK to combine other tools and languages
 - Data doesn't have to be tidy

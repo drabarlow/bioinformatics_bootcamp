@@ -651,6 +651,14 @@ angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -mi
 ### 2. Covariance matrix
 
 ```bash
+# load angsd module
+module purge
+module load angsd/0.935
+
+# set ref genome as a variable
+ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
+
+
 # load modules and declare variables as above
 # this calculates the covariance matrix, exclude the outgroup
 angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 27 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10
@@ -659,11 +667,11 @@ angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 
 ### 3. Heterozygosity
 
 ```bash
-
 # set files as variables
 input='/scratch/scw2141/BEARCAVE2/mappedberus_chr7/xxx+adderxx_ber_berus_chr7_.xxxxx.bam'
 output='adderxx_het'
-ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
+# We need to specify the ancestral allele, use fasta generated from bosniensis outgroup
+bos='/scratch/scw2141/bosniensis_chr7/bosniensis_chr7.fa'
 
 # depth variables
 max=20
@@ -677,7 +685,7 @@ min=3
 # -anc = outgroup, to identify ancestral allele
 #-minQ,-minMapQ = min base and map quality
 # -setMinDepthInd, -setMaxDepthInd = max and min depth filters
-angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $ref -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
+angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $bos -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
 
 # calculate sfs
 # -nSites = sliding window size
@@ -687,11 +695,11 @@ realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
 
 ### 3. Your turn :)
 
-- Make a slurm job script in you home directory to run the analyses above 
+- Make a separate slurm job scripts (somewhere in your home directory) for each analysis shown above (3 total) 
 - make a bamlist in the same directory
 - direct stdout and errors to your chosen location in your home directory
-- adjust variables to appropriate paths and filenames
-- Use 32Gb RAM, 10 CPUs, and run for 0.5 hours
+- adjust SBATCH to appropriate paths and filenames
+- Use 10Gb RAM, 10 CPUs, and run for 40 mins
 - Check results
 - Look at your *.ibs.gz file and count the lines
 

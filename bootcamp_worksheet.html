@@ -1019,17 +1019,25 @@ angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -mi
 </div>
 <div id="covariance-matrix" class="section level3">
 <h3>2. Covariance matrix</h3>
-<pre class="bash"><code># load modules and declare variables as above
+<pre class="bash"><code># load angsd module
+module purge
+module load angsd/0.935
+
+# set ref genome as a variable
+ref=&#39;/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa&#39;
+
+
+# load modules and declare variables as above
 # this calculates the covariance matrix, exclude the outgroup
 angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 27 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10</code></pre>
 </div>
 <div id="heterozygosity" class="section level3">
 <h3>3. Heterozygosity</h3>
-<pre class="bash"><code>
-# set files as variables
+<pre class="bash"><code># set files as variables
 input=&#39;/scratch/scw2141/BEARCAVE2/mappedberus_chr7/xxx+adderxx_ber_berus_chr7_.xxxxx.bam&#39;
 output=&#39;adderxx_het&#39;
-ref=&#39;/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa&#39;
+# We need to specify the ancestral allele, use fasta generated from bosniensis outgroup
+bos=&#39;/scratch/scw2141/bosniensis_chr7/bosniensis_chr7.fa&#39;
 
 # depth variables
 max=20
@@ -1043,7 +1051,7 @@ min=3
 # -anc = outgroup, to identify ancestral allele
 #-minQ,-minMapQ = min base and map quality
 # -setMinDepthInd, -setMaxDepthInd = max and min depth filters
-angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $ref -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
+angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $bos -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
 
 # calculate sfs
 # -nSites = sliding window size
@@ -1053,13 +1061,13 @@ realSFS $output.saf.idx -nSites 100000 -P 10 &gt; $output.window.sfs</code></pre
 <div id="your-turn-8" class="section level3">
 <h3>3. Your turn :)</h3>
 <ul>
-<li>Make a slurm job script in you home directory to run the analyses
-above</li>
+<li>Make a separate slurm job scripts (somewhere in your home directory)
+for each analysis shown above (3 total)</li>
 <li>make a bamlist in the same directory</li>
 <li>direct stdout and errors to your chosen location in your home
 directory</li>
-<li>adjust variables to appropriate paths and filenames</li>
-<li>Use 32Gb RAM, 10 CPUs, and run for 0.5 hours</li>
+<li>adjust SBATCH to appropriate paths and filenames</li>
+<li>Use 10Gb RAM, 10 CPUs, and run for 40 mins</li>
 <li>Check results</li>
 <li>Look at your *.ibs.gz file and count the lines</li>
 </ul>
