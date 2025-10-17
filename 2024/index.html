@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bioinformatics Bootcamp 2024</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Bioinformatics Bootcamp 2024">
+  <meta name="author" content="Dr Axel Barlow">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    
+  <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span>
+        <img width='300px' src="assets/img/A1_FullColour.svg">
+      </span>
+    </article>
+  </slide>
+    <slide class="title-slide segue nobackground">
+  
+  <aside class="gdbar">
+    <img src="assets/img/LA_Full_colour_reversed.svg">
+  </aside>
+  
+  <hgroup class="auto-fadein">
+    <h1>Bioinformatics Bootcamp 2024</h1>
+    <h2>Molecular Ecology and Evolution at Bangor (MEEB)</h2>
+    <p>Dr Axel Barlow<br/>email: a.barlow.@bangor.ac.uk</p>
+  </hgroup>
+  
+    <a href="https://github.com/drabarlow/bioinformatics_bootcamp/zipball/gh-pages" class="example">
+     Download
+    </a>
+  
+  <article></article>  
+      
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
+  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  
+  <article data-timings="">
+    <!-- adding bold and italic options -->
+
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Schedule</h2>
+
+<table><thead>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Activity</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Tue 05/11/2024</td>
+<td>10:00 to 16:00</td>
+<td>Unix-like systems, bash, SCWales, slurm</td>
+</tr>
+<tr>
+<td>Wed 06/11/2024</td>
+<td>10:00 to 16:00</td>
+<td>Illumina data, BEARCAVE, data processing</td>
+</tr>
+<tr>
+<td>Thu 07/11/2024</td>
+<td>10:00 to 16:00</td>
+<td>ANGSD, covariance and distance matrices, heterozygosity</td>
+</tr>
+<tr>
+<td>Fri 08/11/2024</td>
+<td>10:00 to 16:00</td>
+<td>Intro to R, PCA, NJ trees, Manhattan plots</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  
+  <hgroup>
+    <h2>Prequisites</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>a computer with internet connection</li>
+<li>an account on super-computing Wales</li>
+<li>basic knowledge of DNA and genome structure</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  
+  <hgroup>
+    <h2>Resources</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <h3>Lecture slides</h3>
+
+<p><a href="https://drabarlow.github.io/bioinformatics_bootcamp/">https://drabarlow.github.io/bioinformatics_bootcamp/</a></p>
+
+<h3>Bootcamp worksheet</h3>
+
+<p><a href="https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html">https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html</a></p>
+
+<h3>Github repo</h3>
+
+<p><a href="https://github.com/drabarlow/bioinformatics_bootcamp">https://github.com/drabarlow/bioinformatics_bootcamp</a></p>
+
+<h3>Supercomputing Wales shared project</h3>
+
+<ul>
+<li>please request access to: <strong>scw2141 Bioinformatics training</strong></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  
+  <hgroup>
+    <h2>Introductions</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <h3>Axel Barlow, Lecturer in Zoology at Bangor University</h3>
+
+<p><strong>Interests</strong></p>
+
+<ul>
+<li>Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Conservation genomics of native species</li>
+</ul>
+
+<p><strong>Bioinformatics experience</strong></p>
+
+<ul>
+<li>Working in the field for ten years</li>
+<li>Entirely self taught post-PhD</li>
+<li>No proper bioinformatics/computer science background</li>
+<li>Knowledge of <code>bash</code> and <code>R</code>.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-5" style="background:;">
+  
+  <hgroup>
+    <h2>Unix-like systems and bash</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  
+  <hgroup>
+    <h2>Unix</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Operating system developed in 1969 by Bell Labs</li>
+<li>Unix philosophy: <em>operating system should provide a set of simple tools, each of which performs a limited, well-defined function.</em></li>
+<li>Modular (small programs strung together)</li>
+<li>Inter-process communication: &quot;pipes&quot;</li>
+<li>Separate normal and &quot;super&quot; users (<code>sudo</code>)</li>
+<li>Hierarchical filesystem</li>
+<li>A shell for executing and combining tools</li>
+<li>The basis of many subsequent OS</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/Operating_system_placement.svg.png" width="40%" style="display: block; margin: auto;" /></p>
+
+<p><img src="./assets/img/unix-an-open-group-standard.png" width="70%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  
+  <hgroup>
+    <h2>Unix</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <iframe src = 'https://en.wikipedia.org/wiki/Unix' height='600px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  
+  <hgroup>
+    <h2>Unix-like systems</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><strong>Mac OS</strong></p>
+
+<ul>
+<li>Released 1984</li>
+<li>Developed from NeXTSTEP, which is developed from Unix</li>
+<li>Proprietary, only available with Apple hardware</li>
+</ul>
+
+<p><strong>Linux</strong></p>
+
+<ul>
+<li>21 year old Linus Torvalds coded a Unix inspired OS in 1991</li>
+<li>Free and open source</li>
+<li>The core linux kernal available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpeg" width="90%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  
+  <hgroup>
+    <h2>MS-DOS (Windows)</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:66%;' class='centered'>
+  <ul>
+<li>Developed by Microsoft, released 1981</li>
+<li>Main OS for IBM PCs in 1980s</li>
+<li>GUI introduced with Windows, released 1985</li>
+<li>Largest market share (70% of PCs)</li>
+<li>Some bioinformatics possible (e.g. <code>R</code> typically via <code>Rstudio</code>)</li>
+<li>No <code>bash</code></li>
+<li>Encoding of text files is different</li>
+<li>Majority of bioinfomatics software unsupported</li>
+<li>Windows subsystem for linux <a href="https://learn.microsoft.com/en-us/windows/wsl/install">https://learn.microsoft.com/en-us/windows/wsl/install</a></li>
+<li>Seamless transfer between <code>DOS</code> and <code>Unix</code> not yet possible</li>
+</ul>
+
+</div>
+<div style='float:right;width:30%;'>
+  <p><img src="./assets/img/Msdos-icon.svg.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<p><img src="./assets/img/StartingMsdos.png" width="80%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  
+  <hgroup>
+    <h2>OS comparison</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th></th>
+<th>Windows</th>
+<th>Mac</th>
+<th>Linux</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>standard PC functions</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>cost</td>
+<td>yes</td>
+<td>yes</td>
+<td>free</td>
+</tr>
+<tr>
+<td>hardware choice</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>bioinformatics</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>HPC</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>open source</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>active community</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>games</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  
+  <hgroup>
+    <h2>Terminal emulators and Bash</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>a shell allows users to execute OS tools</li>
+<li>Accessed using a terminal</li>
+<li>Unix terminal came with the Bourne shell (<code>sh</code>), developed by Steven Bourne in 1979</li>
+<li>In 1979 Brian Fox in improved version: the Bourne again shell (<code>bash</code>)</li>
+<li>Most Unix-like OS use <code>bash</code> or something like it
+
+<ul>
+<li>execute standard OS functions and installed programs</li>
+<li>access filesystem</li>
+<li>supports bash scripts</li>
+<li>pipes, auto-completion, loops, wildcards, etc.</li>
+</ul></li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/Gnu-bash-logo.svg.png" width="90%" style="display: block; margin: auto;" /></p>
+
+<p><img src="./assets/img/Screenshot from 2023-10-02 09-39-05.png" width="90%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-12" style="background:;">
+  
+  <hgroup>
+    <h2>Supercomputing Wales and slurm</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-13" style="background:white;">
+  
+  <hgroup>
+    <h2>Supercomputing Wales</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>£16m investment, part-funded by the European Regional Development Fund (ERDF) through Welsh Government</li>
+<li>Provide university research teams access to HPC</li>
+<li>Consortium of Cardiff, Swansea, Bangor and Aberystwyth</li>
+<li>2 Supercomputers:
+
+<ul>
+<li>Cardiff HPC System - Hawk</li>
+<li>Swansea HPC System - Sunbird</li>
+</ul></li>
+<li>Hawk: 280 nodes, 12,736 cores, 68.224 TB memory</li>
+</ul>
+
+<p><img src="./assets/img/lgo_supercomputingWales-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  
+  <hgroup>
+    <h2>Hawk</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Scientific linux OS</li>
+<li><strong>compute nodes</strong>
+
+<ul>
+<li>134x Intel nodes with 20 cpus + 192 Gb RAM each</li>
+<li>64x AMD nodes with 32 cpus + 256 Gb RAM each</li>
+</ul></li>
+<li><strong>high memory nodes</strong>
+
+<ul>
+<li>26 nodes with 384 Gb RAM each</li>
+</ul></li>
+<li><strong>GPU nodes</strong>
+
+<ul>
+<li>26 Nvidia P100 GPUs on 13 nodes</li>
+<li>30 Nvidia V100 GPUs on 15 nodes</li>
+</ul></li>
+<li><strong>Storage</strong>
+
+<ul>
+<li>1192TB (usable) scratch space</li>
+<li>420TB of home directory space</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  
+  <hgroup>
+    <h2>Hawk users</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:66%;' class='centered'>
+  <ul>
+<li>Anyone in consortium Universities</li>
+<li>Guests possible, with some restrictions</li>
+<li>Ability to set up shared projects</li>
+<li>Generally max 10 running jobs (ways around it)</li>
+<li>Three day max runtime (ways around it)</li>
+<li>Generally ~50 Gb home dir</li>
+<li>Generally 4 Tb scratch space (currently an issue)</li>
+<li>Uses <code>Slurm</code> job scheduler</li>
+<li>Many programs installed as <code>modules</code></li>
+<li>No super user access</li>
+<li>Can seek help from eResearch manager Ade Fewings (<a href="mailto:a.fewings@bangor.ac.uk">a.fewings@bangor.ac.uk</a>)</li>
+</ul>
+
+</div>
+<div style='float:right;width:30%;'>
+  <p><img src="./assets/img/Untitled.jpeg" width="70%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  
+  <hgroup>
+    <h2>Filesystem</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li><code>/</code> [root] is uppermost level of filesystem</li>
+<li>Everything is contained in <code>/</code></li>
+<li>Directories exist within the filesystem, they can contain files and other directories</li>
+<li>We specify a path through this hierarchy using forward-slashes (note back-slashes on <code>DOS</code>)</li>
+<li>Our current directory is called the <code>working directory</code></li>
+</ul>
+
+<pre><code class="bash">/home/b.xlb21brx/
+/scratch/b.xlb21brx/
+</code></pre>
+
+<ul>
+<li>We can navigate through the filesystem (change working directory)</li>
+<li>Or we can specify the patch to directories or files remotely</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  
+  <hgroup>
+    <h2>Slurm</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Simple Linux Utility for Resource Management: <code>Slurm</code></li>
+<li>Free open source job scheduler for linux systems</li>
+<li>Used on 60% of World&#39;s top 500 computers</li>
+<li>Assigns user jobs to computer resources </li>
+<li>Submit to queue</li>
+<li>Short, low-resource jobs move faster through the queue</li>
+<li>Other tools for scheduling, reporting, etc</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/1024px-Slurm_logo.svg.png" width="70%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-18" style="background:;">
+  
+  <hgroup>
+    <h2>Illumina data</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  
+  <hgroup>
+    <h2>Illumina sequencing platforms</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/illumina.svg" width="100%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  
+  <hgroup>
+    <h2>Data output</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th>Platform</th>
+<th>Million reads</th>
+<th>Read length</th>
+<th>Gb data</th>
+<th>Genome coverage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MiniSeq</td>
+<td>25</td>
+<td>2 x 150 bp</td>
+<td>7.5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>MiSeq</td>
+<td>25</td>
+<td>2 x 300 bp</td>
+<td>15</td>
+<td>4</td>
+</tr>
+<tr>
+<td>NextSeq</td>
+<td>400</td>
+<td>2 x 150 bp</td>
+<td>120</td>
+<td>33</td>
+</tr>
+<tr>
+<td>HiSeq X</td>
+<td>6000</td>
+<td>2 x 150 bp</td>
+<td>1800</td>
+<td>500</td>
+</tr>
+<tr>
+<td>NovaSeq</td>
+<td>20000</td>
+<td>2 x 150 bp</td>
+<td>6000</td>
+<td>1667</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  
+  <hgroup>
+    <h2>Sequencing by synthesis</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ol>
+<li>Sample preparation</li>
+<li>Bind DNA to flowcell, generate clusters</li>
+<li>Sequencing by synthesis</li>
+<li>Data analysis (in the machine)</li>
+</ol>
+
+<p><a href="https://www.youtube.com/watch?v=fCd6B5HRaZ8">https://www.youtube.com/watch?v=fCd6B5HRaZ8</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  
+  <hgroup>
+    <h2>Sample preparation</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/library_molecule.svg" width="100%" style="display: block; margin: auto;" /></p>
+
+<p>*Indexes allow multiple samples to be sequenced at the same time</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  
+  <hgroup>
+    <h2>Flow cell</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/flowcell.svg" width="80%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-24" style="background:white;">
+  
+  <hgroup>
+    <h2>Cluster generation</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/cluster.svg" width="70%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-25" style="background:white;">
+  
+  <hgroup>
+    <h2>Sequencing by synthesis</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/sbs.svg" width="100%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-26" style="background:white;">
+  
+  <hgroup>
+    <h2>Data analysis (in the machine)</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/dataanalysis.svg" width="85%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  
+  <hgroup>
+    <h2>What do we sequence?</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>[Not an exhaustive list]</p>
+
+<ul>
+<li><strong>Whole genome sequencing (pure DNA sample from a single individual)</strong></li>
+<li>Reduced representation genome data (RADseq, targeted SNPs, single individual)</li>
+<li>Poolseq (multiple individuals)</li>
+<li>Transcriptome (RNA sample from single tissue/individual)</li>
+<li>Metabarcoding (PCR amplicon, multiple individuals/species)</li>
+<li>Metagenomics (whole genomes, multiple individuals/species)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  
+  <hgroup>
+    <h2>Whole genome sequencing</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>Short reads from a single individual can be mapped to a reference genome assembly</p>
+
+<p><img src="./assets/img/pseudohap.svg" width="95%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  
+  <hgroup>
+    <h2>Whole genome sequencing</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/Screenshot from 2022-09-08 13-58-44.png" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  
+  <hgroup>
+    <h2>Illumina summary</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>The current market leader</li>
+<li>Massive output</li>
+<li>Many applications (genome resequencing, RADseq, transcriptomes, metabarcoding)</li>
+<li>Cheap (£10 per Gb)</li>
+<li>Major limitation is the read length</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-31" style="background:;">
+  
+  <hgroup>
+    <h2>BEARCAVE</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  
+  <hgroup>
+    <h2>BEARCAVE</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Nikolas Basler, Achim Klittich, Axel Barlow</li>
+<li>An environment for organising, processing, and archiving Illumina data</li>
+<li>BEARCAVE philosophy
+
+<ul>
+<li>All users can access all data</li>
+<li>Avoid data redundancy</li>
+<li>All samples processed using identical software programs and parameters</li>
+<li>Incorporates sample metadata</li>
+<li>Documents results of data processing</li>
+<li>Easy to use wrapper scripts for programs</li>
+<li>Publicly available</li>
+<li>Safeguards in place to ensure consistency</li>
+</ul></li>
+<li>Consequently BEARCAVE is not for everyone, and has idiosyncrasies in use</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  
+  <hgroup>
+    <h2>Our project: adder population genomics</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Adders (<em>Vipera berus berus</em>) widespread across northern Eurasia</li>
+<li>Threatened or near-threatened in UK</li>
+<li>Illumina PE data from 27 individuals</li>
+<li>Plus one outgroup (<em>Vipera berus bosniensis</em>)</li>
+<li>7 locations</li>
+<li><strong>Our tasks</strong>
+
+<ul>
+<li>Data format</li>
+<li>Adapter trimming and read merging</li>
+<li>Map to reference genome: chr7</li>
+</ul></li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/male.jpg" width="90%" style="display: block; margin: auto;" /></p>
+
+<p><img src="./assets/img/female.jpg" width="90%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  
+  <hgroup>
+    <h2>Adder locations</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th>sample</th>
+<th>locality</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>adder01-04</td>
+<td>Dublin</td>
+</tr>
+<tr>
+<td>adder05-08</td>
+<td>Belfast</td>
+</tr>
+<tr>
+<td>adder09-12</td>
+<td>Cork</td>
+</tr>
+<tr>
+<td>adder13-16</td>
+<td>Limerick</td>
+</tr>
+<tr>
+<td>adder17-20</td>
+<td>Galway</td>
+</tr>
+<tr>
+<td>adder21-24</td>
+<td>Dundalk</td>
+</tr>
+<tr>
+<td>adder25-27</td>
+<td>Bray</td>
+</tr>
+<tr>
+<td>adder28</td>
+<td>outgroup</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-35" style="background:;">
+  
+  <hgroup>
+    <h2>Illumina data processing</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  
+  <hgroup>
+    <h2>.fastq file format</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>fastq is the standard output format for data from Illumina (and other) platforms</li>
+</ul>
+
+<pre><code class="bash">@A00551:758:HKTVJDSX7:4:1101:3595:6872 1:N:0:CCTGAGATGT+GGTCTAGTTG
+CTGAATATGGATTTTAATTGAATCCTAAGATATTATAGCATCTTTCACTCCCTGTCCTGTGCATGTCAGA
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+</code></pre>
+
+<ul>
+<li><strong>Line 1</strong>: info on sequencer, flowcell, cluster position, indexes (sometimes)</li>
+<li><strong>Line 2</strong>: called bases</li>
+<li><strong>Line 3</strong>: a +</li>
+<li><strong>Line 4</strong>: quality scores on Phred scale</li>
+<li>10 = 90% accuracy; 20 = 99% accuracy; 30 = 99.9% accuracy</li>
+<li>Recoded as single character: F = 37; ? = 30; 5 = 20; + = 10</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-37" style="background:;">
+  
+  <hgroup>
+    <h2>Adapter trimming and read merging</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-38" style="background:white;">
+  
+  <hgroup>
+    <h2>DNA fragment length distribution</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>DNA can be fragmented</li>
+<li>The fragment lengths have a <strong>distribution</strong></li>
+</ul>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-21-1.png" width="100%" height="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/kudarensis.png" width="100%" /></p>
+
+<p>45 ka cave bear (<em>Ursus kudarensis</em>)</p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  
+  <hgroup>
+    <h2>Effect of insert size</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim1.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  
+  <hgroup>
+    <h2>Effect of insert size</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim2.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  
+  <hgroup>
+    <h2>Effect of insert size</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim3.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  
+  <hgroup>
+    <h2>Effect of insert size</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim4.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  
+  <hgroup>
+    <h2>Effect of insert size</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim5.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  
+  <hgroup>
+    <h2>Effect of insert size</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim6.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  
+  <hgroup>
+    <h2>Adapter trimming</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim9.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  
+  <hgroup>
+    <h2>Overlapping reads are merged</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/trim10.svg" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-47" style="background:;">
+  
+  <hgroup>
+    <h2>BEARCAVE script</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>decompress fastqs</li>
+<li>trim adapter seqs using <code>Cutadapt</code>
+
+<ul>
+<li>30 bp min length</li>
+<li>min overlap 1 bp</li>
+</ul></li>
+<li>merge overlapping read pair using <code>FLASH</code></li>
+<li>recompress files and clean up </li>
+<li>save appropriate log files</li>
+</ul>
+
+<p><strong>Expected output in</strong> <code>/BEARCAVE2/trimdata/*processing/</code></p>
+
+<ul>
+<li>merged reads <code>*_mappable.fastq.gz</code> [big file]</li>
+<li>unmerged R1 <code>*_mappable_R1.fastq.gz</code> [big file]</li>
+<li>unmerged R2 <code>*_mappable_R2.fastq.gz</code> [big file]</li>
+<li>trim report <code>*_trim_report.log</code> and merge report <code>*_merge_report.log</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  
+  <hgroup>
+    <h2>Cutadapt</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2011-Cutadapt_removes_adapter_sequences_from_high-throughput_sequencing_reads.pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  
+  <hgroup>
+    <h2>FLASH</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_to_improve_genome_assemblies..pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-50" style="background:;">
+  
+  <hgroup>
+    <h2>Mapping</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-51" style="background:;">
+  
+  <hgroup>
+    <h2>BEARCAVE mapping script</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>decompress fastqs</li>
+<li>merged (SE) and PE data processed separately
+
+<ul>
+<li>mapping using <code>bwa</code> mem algorithm</li>
+<li>PCR duplicates identified and removed using <code>samtools</code></li>
+<li>Reads with poor mapping quality (Q30) removed using <code>samtools</code></li>
+</ul></li>
+<li>SE and PE data merged</li>
+<li>mapping log file generated</li>
+<li>file cleanup and renaming</li>
+</ul>
+
+<p><strong>Expected output in</strong> <code>/BEARCAVE2/mapped*/*processing/</code></p>
+
+<ul>
+<li>mapped filtered data <code>*.bam</code> [big file]</li>
+<li>bam index <code>*.bam.bai</code></li>
+<li>mapping log <code>*_mapping.log</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-52" style="background:;">
+  
+  <hgroup>
+    <h2>bwa</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-53" style="background:;">
+  
+  <hgroup>
+    <h2>samtools (48,024 citations)</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-54" style="background:;">
+  
+  <hgroup>
+    <h2>Population genomics using <code>angsd</code></h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-55" style="background:;">
+  
+  <hgroup>
+    <h2>angsd</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Widely used program</li>
+<li>MANY population genetics analyses possible</li>
+<li>Tends to work directly from bam files (unlike <code>plink</code>, <code>admixtools</code>, etc)</li>
+<li>MANY filters available</li>
+<li>Genotype likelihood approach is a particular speciality</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Allele1</th>
+<th>Allele2</th>
+<th>prob11</th>
+<th>prob12</th>
+<th>prob22</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>T</td>
+<td>0.05</td>
+<td>0.9</td>
+<td>0.05</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>Several spin off programs that use GLs
+
+<ul>
+<li><code>NGSadmix</code></li>
+<li><code>PCangsd</code></li>
+<li><code>NGSrelate</code></li>
+<li><code>realSFS</code></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-56" style="background:;">
+  
+  <hgroup>
+    <h2>angsd website</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <iframe src = 'http://www.popgen.dk/angsd/index.php/ANGSD' height='600px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-57" style="background:;">
+  
+  <hgroup>
+    <h2>angsd paper</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf" width="100%" height="500" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-58" style="background:;">
+  
+  <hgroup>
+    <h2>Covariance matrix, distance matrix, heterozygosity</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><strong>Covariance matrix</strong></p>
+
+<ul>
+<li>All indviduals</li>
+<li>Allele frequency covariance matrix</li>
+<li>Used for PCA</li>
+</ul>
+
+<p><strong>Distance matrix</strong></p>
+
+<ul>
+<li>All individuals</li>
+<li>absolute genetic distance between populations</li>
+<li>used as input for NJ algorithm</li>
+</ul>
+
+<p><strong>Heterozygosity</strong></p>
+
+<ul>
+<li>Your single adder</li>
+<li>Calculate GLs, ML estimation of SFS along a sliding window using <code>realSFS</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-59" style="background:;">
+  
+  <hgroup>
+    <h2>Intro to <code>R</code></h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-60" style="background:;">
+  
+  <hgroup>
+    <h2>What is <code>R</code>?</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Statistical analysis </li>
+<li>Data visualisation</li>
+<li>Free and open source</li>
+<li>Linux, Mac, Windows</li>
+<li>Many additional packages</li>
+<li>Several GUIs e.g. <code>Rstudio</code></li>
+<li>Graphics</li>
+<li>Text documents</li>
+<li>Interactive figures</li>
+<li>Websites</li>
+<li>This presentation!</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/R_logo.svg.png" width="100%" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-61" style="background:white;">
+  
+  <hgroup>
+    <h2>How <code>R</code> works</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/R_works.png" width="100%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-62" style="background:;">
+  
+  <hgroup>
+    <h2>Why is bash faster than <code>R</code>?</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>Suppose you&#39;re a survey company. To carry out your survey you need all the people seated in a classroom, which you have to build. You&#39;re not sure how many, so you build an ordinary classroom, with 5 rows of 6 desks for 30 people, after 30 people file in you notice there&#39;s a 31st. You build a second 30-person classroom right next to the first, and now you can accept 60 people, but then you notice a 61st. So you ask them to wait, and you build two more classrooms, so now you&#39;ve got a nice 2x2 grid of 30-person classrooms, but the people keep coming and soon enough the 121st person shows up and there&#39;s not enough room. So you build a big 5-story building next door with 50-person classrooms, 5 on each floor, for a total of 50 x 5 x 5 = 1,250 desks, and you have the first 120 people file out of the old rooms into the new building, and you hire some wreckers to demolish the old classrooms and recycle some of the materials, and the people keep coming. And when you&#39;re all done with all this, the only &quot;survey question&quot; you&#39;re going to ask is &quot;How many rows are there?&quot;</p>
+
+<p>Meanwhile, Bob&#39;s discount survey company, who can only tell you how many people he surveyed, is down there on the streetcorner, and the people are filing by, and Bob is jotting down tally marks on his clipboards, and the people, once surveyed, are walking away and going about their business, and Bob isn&#39;t wasting time and money building any classrooms at all.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-63" style="background:;">
+  
+  <hgroup>
+    <h2>Why is bash faster than <code>R</code>?</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>An abridged version of <a href="https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r">https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-64" style="background:;">
+  
+  <hgroup>
+    <h2><code>Rstudio</code></h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:31%;' class='centered'>
+  <ul>
+<li>GUI</li>
+<li>Preferred by many</li>
+<li>Linked to <code>tidyverse</code></li>
+<li>Linked to <code>R markdown</code></li>
+<li>Version control and other development tools</li>
+</ul>
+
+</div>
+<div style='float:right;width:64%;'>
+  <p><img src="./assets/img/Screenshot from 2024-11-06 20-20-24.png" width="100%" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-65" style="background:;">
+  
+  <hgroup>
+    <h2><code>Tidyverse</code></h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li><code>ggplot2</code></li>
+<li><code>tibble</code></li>
+<li><code>tidyr</code></li>
+<li><code>readr</code></li>
+<li><code>dplyr</code></li>
+<li><code>stringr</code></li>
+<li><code>purr</code></li>
+<li><code>forcats</code></li>
+<li>&quot;Tidy data&quot;</li>
+<li>&quot;Grammar of graphics&quot;</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/Tidyverse_hex_logo.png" width="80%" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-66" style="background:;">
+  
+  <hgroup>
+    <h2>Opinions on <code>R</code> from a heretic</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><strong>Most people disagree (in some cases strongly)</strong></p>
+
+<ul>
+<li><code>Rstudio</code> is terrible (except for <code>R markdown</code>)</li>
+<li>Base <code>R</code> is really good</li>
+<li><code>ggplot2</code> code is hellishly complex</li>
+<li><code>tidyverse</code> is not the way to teach <code>R</code> to beginners</li>
+<li>It&#39;s boring if everyone&#39;s graphs look the same</li>
+<li>It&#39;s OK to type commands directly into the terminal</li>
+<li>It&#39;s OK to modify a raw data file</li>
+<li>It&#39;s OK to combine other tools and languages</li>
+<li>Data doesn&#39;t have to be tidy</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-67" style="background:;">
+  
+  <hgroup>
+    <h2>Functionality</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-68" style="background:;">
+  
+  <hgroup>
+    <h2>Objects and functions</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><strong>Objects</strong></p>
+
+<ul>
+<li>Contain data and results</li>
+<li>Created with <code>&lt;-</code></li>
+<li>Stored in active memory</li>
+<li>Names include letters numbers _ .</li>
+<li>Names must begin with a letter</li>
+</ul>
+
+<p><strong>Functions</strong></p>
+
+<ul>
+<li>Carry out operations on objects</li>
+<li>Often generates new objects</li>
+<li><code>function()</code></li>
+<li><code>?function</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-69" style="background:;">
+  
+  <hgroup>
+    <h2>Data structures: vector and matrix</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><strong>Vector</strong></p>
+
+<ul>
+<li>List of values of the same type</li>
+<li>Numbers, strings, or logical values</li>
+<li>Can be generated using <code>c()</code></li>
+<li>Indexing vector objects <code>my_vector[]</code></li>
+</ul>
+
+<p><strong>Matrix</strong></p>
+
+<ul>
+<li>2D data of same type in rows and columns</li>
+<li>Indexing matrix objects <code>my_matrix[row, column]</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-70" style="background:;">
+  
+  <hgroup>
+    <h2>Data structures: dataframe and list</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><strong>Dataframe</strong></p>
+
+<ul>
+<li>Rectangular &quot;table&quot;</li>
+<li>Mixture of data types</li>
+<li>Set of vectors of equal length</li>
+<li>Extract columns with <code>$</code>, which can then be indexed like vectors</li>
+</ul>
+
+<p><strong>List</strong></p>
+
+<ul>
+<li>Set of components with different structures</li>
+<li>Extract named components with <code>$</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-71" style="background:white;">
+  
+  <hgroup>
+    <h2>Population genetics: PCA</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Input is allele covariance matrix</li>
+<li>eigen decomposition <code>eigen()</code></li>
+<li>Actually a recent method</li>
+<li>No knowledge of PC loadings in terms of SNPs/sites</li>
+<li>PC scatterplot</li>
+<li>PC variance explained</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="assets/fig/unnamed-chunk-40-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-72" style="background:white;">
+  
+  <hgroup>
+    <h2>Population genetics: Neighbour-joining clustering</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Input is distance matrix</li>
+<li>Neighbour joining algorithm</li>
+<li>Clusters based on genetic similarity</li>
+<li>Rooted using outgroup</li>
+<li>Requires <code>ape</code> library</li>
+<li>Basic estimate of phylogeny</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="assets/fig/unnamed-chunk-41-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-73" style="background:white;">
+  
+  <hgroup>
+    <h2>Heterozygosity</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Input is sliding window estimates of heterozygous sites</li>
+</ul>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-42-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="assets/fig/unnamed-chunk-43-1.png" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="thank-you-slide segue nobackground" id="slide-74">
+  <aside class="gdbar right"><img src="assets/img/LA_Full_colour_reversed.svg"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>That&#39;s all folks!</h2>
+    <p><strong>See you next year :)</strong></p>
+
+  </article>
+
+  <p class="auto-fadein" data-config-contact="">
+    
+  </p>
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Prequisites'>
+         2
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Resources'>
+         3
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Introductions'>
+         4
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Unix-like systems and bash'>
+         5
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Unix'>
+         6
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Unix'>
+         7
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Unix-like systems'>
+         8
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='MS-DOS (Windows)'>
+         9
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='OS comparison'>
+         10
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Terminal emulators and Bash'>
+         11
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Supercomputing Wales and slurm'>
+         12
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Supercomputing Wales'>
+         13
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Hawk'>
+         14
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Hawk users'>
+         15
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Filesystem'>
+         16
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Slurm'>
+         17
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Illumina data'>
+         18
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Illumina sequencing platforms'>
+         19
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Data output'>
+         20
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Sequencing by synthesis'>
+         21
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Sample preparation'>
+         22
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Flow cell'>
+         23
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Cluster generation'>
+         24
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Sequencing by synthesis'>
+         25
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Data analysis (in the machine)'>
+         26
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='What do we sequence?'>
+         27
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Whole genome sequencing'>
+         28
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Whole genome sequencing'>
+         29
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Illumina summary'>
+         30
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='BEARCAVE'>
+         31
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='BEARCAVE'>
+         32
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Our project: adder population genomics'>
+         33
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Adder locations'>
+         34
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Illumina data processing'>
+         35
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='.fastq file format'>
+         36
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Adapter trimming and read merging'>
+         37
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='DNA fragment length distribution'>
+         38
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Effect of insert size'>
+         39
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Effect of insert size'>
+         40
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='Effect of insert size'>
+         41
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='Effect of insert size'>
+         42
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Effect of insert size'>
+         43
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Effect of insert size'>
+         44
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Adapter trimming'>
+         45
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Overlapping reads are merged'>
+         46
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='BEARCAVE script'>
+         47
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Cutadapt'>
+         48
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='FLASH'>
+         49
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Mapping'>
+         50
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='BEARCAVE mapping script'>
+         51
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='bwa'>
+         52
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='samtools (48,024 citations)'>
+         53
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='Population genomics using <code>angsd</code>'>
+         54
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title='angsd'>
+         55
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='angsd website'>
+         56
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='angsd paper'>
+         57
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title='Covariance matrix, distance matrix, heterozygosity'>
+         58
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='Intro to <code>R</code>'>
+         59
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=60 title='What is <code>R</code>?'>
+         60
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=61 title='How <code>R</code> works'>
+         61
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=62 title='Why is bash faster than <code>R</code>?'>
+         62
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=63 title='Why is bash faster than <code>R</code>?'>
+         63
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=64 title='<code>Rstudio</code>'>
+         64
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=65 title='<code>Tidyverse</code>'>
+         65
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=66 title='Opinions on <code>R</code> from a heretic'>
+         66
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=67 title='Functionality'>
+         67
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=68 title='Objects and functions'>
+         68
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=69 title='Data structures: vector and matrix'>
+         69
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=70 title='Data structures: dataframe and list'>
+         70
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=71 title='Population genetics: PCA'>
+         71
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=72 title='Population genetics: Neighbour-joining clustering'>
+         72
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=73 title='Heterozygosity'>
+         73
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=74 title='That&#39;s all folks!'>
+         74
+      </a>
+    </li>
+    
+    </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

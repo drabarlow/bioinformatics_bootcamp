@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="239.6747mm"
+   height="96.799706mm"
+   viewBox="0 0 239.6747 96.799706"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="library_molecule.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       id="clipPath905"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         style="clip-rule:evenodd"
+         inkscape:connector-curvature="0"
+         id="path903"
+         d="M 0,0 H 793.6 V 595.2 H 0 Z" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="1.5000096"
+     inkscape:cy="318.64283"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(42.730211,-136.34121)">
+    <g
+       id="g909"
+       transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)" />
+    <g
+       id="g911"
+       transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)" />
+    <g
+       id="g1446">
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g923">
+        <path
+           inkscape:connector-curvature="0"
+           id="path925"
+           style="fill:none;stroke:#0000ff;stroke-width:16.97999954;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 270.7,294.7 H 520.2" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g927">
+        <path
+           inkscape:connector-curvature="0"
+           id="path929"
+           style="fill:none;stroke:#ff0000;stroke-width:16.97999954;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 520.2,294.7 h 79.3" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g931">
+        <path
+           inkscape:connector-curvature="0"
+           id="path933"
+           style="fill:none;stroke:#ff0000;stroke-width:16.97999954;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 644.9,294.7 h 73.7" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g935">
+        <text
+           id="text939"
+           style="font-variant:normal;font-weight:bold;font-size:16px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,600.9,288.9)">
+          <tspan
+             id="tspan937"
+             sodipodi:role="line"
+             y="0"
+             x="0 10.592 21.280001 31.968">XXXX</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g941">
+        <path
+           inkscape:connector-curvature="0"
+           id="path943"
+           style="fill:none;stroke:#ff0000;stroke-width:16.97999954;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 72.3,294.7 h 79.4" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g945">
+        <path
+           inkscape:connector-curvature="0"
+           id="path947"
+           style="fill:none;stroke:#ff0000;stroke-width:16.97999954;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 197,294.7 h 73.7" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g949">
+        <text
+           id="text953"
+           style="font-variant:normal;font-weight:bold;font-size:16px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,153,288.9)">
+          <tspan
+             id="tspan951"
+             sodipodi:role="line"
+             y="0"
+             x="0 10.688 21.375999 31.968">XXXX</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g955">
+        <path
+           inkscape:connector-curvature="0"
+           id="path957"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 395.4,286.2 H 72.3 v 17 h 646.3 v -17 z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g959">
+        <path
+           inkscape:connector-curvature="0"
+           id="path961"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 276.4,325.9 c 0,8.5 10.1,17 20.3,17 h 203.2 c 10.1,0 20.3,-8.5 20.3,-17" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g963">
+        <path
+           inkscape:connector-curvature="0"
+           id="path965"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 276.4,325.9 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g967">
+        <path
+           inkscape:connector-curvature="0"
+           id="path969"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 520.2,342.9 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g971">
+        <text
+           id="text975"
+           style="font-variant:normal;font-weight:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,73.7,319.1)">
+          <tspan
+             id="tspan973"
+             sodipodi:role="line"
+             y="0"
+             x="0 10.008">5'</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g977">
+        <text
+           id="text981"
+           style="font-variant:normal;font-weight:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,708.7,319.1)">
+          <tspan
+             id="tspan979"
+             sodipodi:role="line"
+             y="0"
+             x="0 9.8999996">3'</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g983">
+        <text
+           id="text987"
+           style="font-style:italic;font-variant:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Italic;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,373.5,354.2)">
+          <tspan
+             id="tspan985"
+             sodipodi:role="line"
+             y="0"
+             x="0 3.9960001 13.896 22.896 32.903999 38.897999">insert</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g989">
+        <path
+           inkscape:connector-curvature="0"
+           id="path991"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 151.7,325.9 c 0,8.5 1.8,17.1 3.7,17.1 h 37.8 c 1.9,0 3.8,-8.6 3.8,-17.1" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g993">
+        <path
+           inkscape:connector-curvature="0"
+           id="path995"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 151.7,325.9 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g997">
+        <path
+           inkscape:connector-curvature="0"
+           id="path999"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 197,343 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1001">
+        <text
+           id="text1005"
+           style="font-style:italic;font-variant:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Italic;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,139.4,354.2)">
+          <tspan
+             id="tspan1003"
+             sodipodi:role="line"
+             y="0"
+             x="0 11.988 21.996 26.982 30.978001 40.877998 50.886002 60.785999">P5 index</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1007">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1009"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 599.5,325.6 c 0,8.5 1.9,17 3.8,17 h 37.8 c 1.9,0 3.8,-8.5 3.8,-17" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1011">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1013"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 599.5,325.6 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1015">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1017"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 644.9,342.6 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1019">
+        <text
+           id="text1023"
+           style="font-style:italic;font-variant:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Italic;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,587.3,353.9)">
+          <tspan
+             id="tspan1021"
+             sodipodi:role="line"
+             y="0"
+             x="0 11.988 21.996 26.982 30.888 40.896 50.903999 60.804001">P7 index</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1025">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1027"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 270.7,266.4 c 0,-8.5 -8.2,-17.1 -16.5,-17.1 H 88.8 c -8.3,0 -16.5,8.6 -16.5,17.1" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1029">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1031"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 270.7,266.4 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1033">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1035"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 72.3,249.3 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1037">
+        <text
+           id="text1041"
+           style="font-style:italic;font-variant:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Italic;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,124.8,223.8)">
+          <tspan
+             id="tspan1039"
+             sodipodi:role="line"
+             y="0"
+             x="0 11.898 21.906 26.982 36.882 46.889999 56.790001 66.797997 71.783997 81.792">P5 adapter</tspan>
+        </text>
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1043">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1045"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="m 718.6,266.7 c 0,-8.5 -8.3,-17 -16.5,-17 H 536.7 c -8.3,0 -16.6,8.5 -16.6,17" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1047">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1049"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 718.6,266.7 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1051">
+        <path
+           inkscape:connector-curvature="0"
+           id="path1053"
+           style="fill:none;stroke:#000000;stroke-width:1.41499996;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           d="M 520.1,249.7 Z" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-62.875077,294.64143)"
+         id="g1055">
+        <text
+           id="text1059"
+           style="font-style:italic;font-variant:normal;font-size:18px;font-family:'Liberation Sans';-inkscape-font-specification:LiberationSans-Italic;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,572.6,224.2)">
+          <tspan
+             id="tspan1057"
+             sodipodi:role="line"
+             y="0"
+             x="0 11.988 21.996 26.982 36.990002 46.889999 56.897999 66.905998 71.891998 81.900002">P7 adapter</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
