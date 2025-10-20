@@ -4,8 +4,8 @@ subtitle: "Molecular Ecology and Evolution at Bangor (MEEB)"
 author: Dr Axel Barlow & Dr Johanna Paijmans
 output:
   ioslides_presentation:
-    css: css/custom.css
-    logo: img/LA_Full_colour_reversed.svg
+    css: assets/css/custom.css
+    logo: assets/img/LA_Full_colour_reversed.svg
     widescreen: true
     license: "by-nc-sa"
   beamer_presentation: default
@@ -92,11 +92,11 @@ Fri 08/11/2024 | 10:00 to 16:00 | Intro to R, PCA, NJ trees, Manhattan plots
 *** =right
 
 ```{r, out.width = "40%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/Operating_system_placement.svg.png")
+include_graphics("./assets/img/Operating_system_placement.svg.png")
 ```
 
 ```{r, out.width = "70%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/unix-an-open-group-standard.png")
+include_graphics("./assets/img/unix-an-open-group-standard.png")
 ```
 
 
@@ -126,7 +126,7 @@ include_graphics("./img/unix-an-open-group-standard.png")
 *** =right
 
 ```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpeg")
+include_graphics("./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpeg")
 ```
 
  &thirds_alt
@@ -149,11 +149,11 @@ include_graphics("./img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpeg")
 *** =right
 
 ```{r, out.width = "80%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/Msdos-icon.svg.png")
+include_graphics("./assets/img/Msdos-icon.svg.png")
 ```
 
 ```{r, out.width = "80%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/StartingMsdos.png")
+include_graphics("./assets/img/StartingMsdos.png")
 ```
 
 
@@ -190,11 +190,11 @@ games|yes|no|no
 *** =right
 
 ```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/Gnu-bash-logo.svg.png")
+include_graphics("./assets/img/Gnu-bash-logo.svg.png")
 ```
 
 ```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/Screenshot from 2023-10-02 09-39-05.png")
+include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
 ```
 
  .segue .dark 
@@ -214,7 +214,7 @@ include_graphics("./img/Screenshot from 2023-10-02 09-39-05.png")
 - Hawk: 280 nodes, 12,736 cores, 68.224 TB memory
 
 ```{r, out.width = "80%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/lgo_supercomputingWales-1.png")
+include_graphics("./assets/img/lgo_supercomputingWales-1.png")
 ```
 
 
@@ -255,7 +255,7 @@ include_graphics("./img/lgo_supercomputingWales-1.png")
 *** =right
 
 ```{r, out.width = "70%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/Untitled.jpeg")
+include_graphics("./assets/img/Untitled.jpeg")
 ```
 
 
@@ -292,7 +292,7 @@ include_graphics("./img/Untitled.jpeg")
 *** =right
 
 ```{r, out.width = "70%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/1024px-Slurm_logo.svg.png")
+include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
  .segue .dark 
@@ -304,7 +304,7 @@ include_graphics("./img/1024px-Slurm_logo.svg.png")
 ## Illumina sequencing platforms
 
 ```{r, out.width = "100%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/illumina.svg")
+  include_graphics("./assets/img/illumina.svg")
 ```
 
 
@@ -335,7 +335,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 ## Sample preparation
 
 ```{r, out.width = "100%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/library_molecule.svg")
+  include_graphics("./assets/img/library_molecule.svg")
 ```
 
 *Indexes allow multiple samples to be sequenced at the same time
@@ -345,7 +345,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 ## Flow cell
 
 ```{r, out.width = "80%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/flowcell.svg")
+  include_graphics("./assets/img/flowcell.svg")
 ```
 
  bg:white
@@ -353,7 +353,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 ## Cluster generation
 
 ```{r, out.width = "70%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/cluster.svg")
+  include_graphics("./assets/img/cluster.svg")
 ```
 
  bg:white
@@ -361,7 +361,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 ## Sequencing by synthesis
 
 ```{r, out.width = "100%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/sbs.svg")
+  include_graphics("./assets/img/sbs.svg")
 ```
 
  bg:white
@@ -369,7 +369,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 ## Data analysis (in the machine)
 
 ```{r, out.width = "85%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/dataanalysis.svg")
+  include_graphics("./assets/img/dataanalysis.svg")
 ```
 
 
@@ -392,7 +392,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 Short reads from a single individual can be mapped to a reference genome assembly
 
 ```{r, out.width = "95%", dpi = 300, .fig.align = "center", fig.cap=""}
-  include_graphics("./img/pseudohap.svg")
+  include_graphics("./assets/img/pseudohap.svg")
 ```
 
 
@@ -400,7 +400,7 @@ Short reads from a single individual can be mapped to a reference genome assembl
 ## Whole genome sequencing
 
 ```{r, out.width = "100%", dpi = 300, .fig.align = "left", fig.cap=""}
-  include_graphics("./img/Screenshot from 2022-09-08 13-58-44.png")
+  include_graphics("./assets/img/Screenshot from 2022-09-08 13-58-44.png")
 ```
 
 
@@ -453,11 +453,11 @@ Short reads from a single individual can be mapped to a reference genome assembl
 *** =right
 
 ```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/male.jpg")
+include_graphics("./assets/img/male.jpg")
 ```
 
 ```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
-include_graphics("./img/female.jpg")
+include_graphics("./assets/img/female.jpg")
 ```
 
 
@@ -519,7 +519,7 @@ getmode <- function(v) {
    uniqv[which.max(tabulate(match(v, uniqv)))]
 }
 
-adna <- read.table("./data/HV74-Dab-SS_S12_dataset1_rld.txt", header=TRUE)
+adna <- read.table("./assets/data/HV74-Dab-SS_S12_dataset1_rld.txt", header=TRUE)
 
 plot <- ggplot(adna) +
   geom_histogram(aes(x=bp), fill="lightgrey", colour="black", show.legend=TRUE, bins = 30) +
@@ -531,7 +531,7 @@ plot
 *** =right
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/kudarensis.png")
+include_graphics("./assets/img/kudarensis.png")
 ```
 
 45 ka cave bear (*Ursus kudarensis*)
@@ -541,7 +541,7 @@ include_graphics("./img/kudarensis.png")
 ## Effect of insert size
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim1.svg")
+include_graphics("./assets/img/trim1.svg")
 ```
 
  
@@ -549,7 +549,7 @@ include_graphics("./img/trim1.svg")
 ## Effect of insert size
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim2.svg")
+include_graphics("./assets/img/trim2.svg")
 ```
 
  
@@ -557,7 +557,7 @@ include_graphics("./img/trim2.svg")
 ## Effect of insert size
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim3.svg")
+include_graphics("./assets/img/trim3.svg")
 ```
 
  
@@ -565,7 +565,7 @@ include_graphics("./img/trim3.svg")
 ## Effect of insert size
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim4.svg")
+include_graphics("./assets/img/trim4.svg")
 ```
 
  
@@ -573,7 +573,7 @@ include_graphics("./img/trim4.svg")
 ## Effect of insert size
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim5.svg")
+include_graphics("./assets/img/trim5.svg")
 ```
 
  
@@ -581,7 +581,7 @@ include_graphics("./img/trim5.svg")
 ## Effect of insert size
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim6.svg")
+include_graphics("./assets/img/trim6.svg")
 ```
 
  
@@ -589,7 +589,7 @@ include_graphics("./img/trim6.svg")
 ## Adapter trimming
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim9.svg")
+include_graphics("./assets/img/trim9.svg")
 ```
 
  
@@ -597,7 +597,7 @@ include_graphics("./img/trim9.svg")
 ## Overlapping reads are merged
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/trim10.svg")
+include_graphics("./assets/img/trim10.svg")
 ```
 
 
@@ -624,7 +624,7 @@ include_graphics("./img/trim10.svg")
 ## Cutadapt
 
 ```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
-include_graphics("./img/2011-Cutadapt_removes_adapter_sequences_from_high-throughput_sequencing_reads.pdf")
+include_graphics("./assets/img/2011-Cutadapt_removes_adapter_sequences_from_high-throughput_sequencing_reads.pdf")
 ```
 
  
@@ -632,7 +632,7 @@ include_graphics("./img/2011-Cutadapt_removes_adapter_sequences_from_high-throug
 ## FLASH
 
 ```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
-include_graphics("./img/2011-FLASH_fast_length_adjustment_of_short_reads_to_improve_genome_assemblies..pdf")
+include_graphics("./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_to_improve_genome_assemblies..pdf")
 ```
 
  .segue .dark 
@@ -663,7 +663,7 @@ include_graphics("./img/2011-FLASH_fast_length_adjustment_of_short_reads_to_impr
 ## bwa
 
 ```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
-include_graphics("./img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf")
+include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf")
 ```
 
  
@@ -671,7 +671,7 @@ include_graphics("./img/2009-Fast_and_accurate_short_read_alignment_with_Burrows
 ## samtools (48,024 citations)
 
 ```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
-include_graphics("./img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
+include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
 ```
 
  .segue .dark 
@@ -709,7 +709,7 @@ A|T|0.05|0.9|0.05
 ## angsd paper
 
 ```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
-include_graphics("./img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf")
+include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf")
 ```
 
 
@@ -758,7 +758,7 @@ include_graphics("./img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequ
 *** =right
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/R_logo.svg.png")
+include_graphics("./assets/img/R_logo.svg.png")
 ```
 
  bg:white
@@ -766,7 +766,7 @@ include_graphics("./img/R_logo.svg.png")
 ## How `R` works
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/R_works.png")
+include_graphics("./assets/img/R_works.png")
 ```
 
 
@@ -799,7 +799,7 @@ An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-
 *** =right
 
 ```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/Screenshot from 2024-11-06 20-20-24.png")
+include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 ```
 
  &twocol
@@ -822,7 +822,7 @@ include_graphics("./img/Screenshot from 2024-11-06 20-20-24.png")
 *** =right
 
 ```{r, out.width = "80%", dpi = 300, , .fig.cap=""}
-include_graphics("./img/Tidyverse_hex_logo.png")
+include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ```
 
 
@@ -909,10 +909,10 @@ include_graphics("./img/Tidyverse_hex_logo.png")
 *** =right
 
 ```{r, out.width = "100%", fig.width = 4.5, fig.height = 5, dpi = 300, .fig.align = "center", fig.cap=""}
-my_info <- read.table("./data/bam_info", header=TRUE)
+my_info <- read.table("./assets/data/bam_info", header=TRUE)
 
 # read in covariance matrix
-my_cov <- read.table("./data/bamlist_old.covMat")
+my_cov <- read.table("./assets/data/bamlist_old.covMat")
 
 # do PCA
 my_pca <- eigen(my_cov)
@@ -938,7 +938,7 @@ plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC
 
 ```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, .fig.align = "center", fig.cap=""}
 # read in matrix
-my_mat <- as.dist(read.table("./data/bamlist_old.ibsMat"))
+my_mat <- as.dist(read.table("./assets/data/bamlist_old.ibsMat"))
 
 # compute tree
 my_tree <- nj(my_mat)
@@ -960,13 +960,13 @@ plot(my_root)
 *** =left
 
 ```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, .fig.align = "center", fig.cap=""}
-my_sfs <- read.table("./data/adder01_het_old.window.sfs")
+my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
 hist((my_sfs$V2/1000), breaks=40, xlab="het sites per kb", main="", col="blue")
 ```
 *** =right
 
 ```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, .fig.align = "center", fig.cap=""}
-my_sfs <- read.table("./data/adder01_het_old.window.sfs")
+my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
 plot(1:length(my_sfs$V2), my_sfs$V2/1000, pch=20, col="blue", axes=FALSE, xlab="chromosome 7", ylab="het sites per kb")
 axis(1, labels=FALSE)
 axis(2)
