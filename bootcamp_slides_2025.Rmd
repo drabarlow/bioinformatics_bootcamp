@@ -25,14 +25,20 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Schedule
 
+```{r echo=FALSE}
+library(knitr)
 
-| Date | Time | Activity |
-|------|------|----------|
-| Mon 03/11/2024 | 10:00 to 16:00 | Unix-like systems, bash, connecting to SCWales |
-| Tue 04/11/2024 | 10:00 to 16:00 | More bash, SCWales, using SCWales and slurm |
-| Wed 05/11/2024 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing |
-| Thu 06/11/2024 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity, intro to R |
-| Fri 07/11/2024 | 10:00 to 16:00 | Maps, PCA's, NJ trees, Manhattan plots and Rmarkdown |
+schedule <- data.frame(
+  Date = c("Tue 05/11/2024", "Wed 06/11/2024", "Thu 07/11/2024", "Fri 08/11/2024"),
+  Time = c("10:00 to 16:00", "10:00 to 16:00", "10:00 to 16:00", "10:00 to 16:00"),
+  Activity = c("Unix-like systems, bash, SCWales, slurm",
+               "Illumina data, BEARCAVE, data processing",
+               "ANGSD, covariance and distance matrices, heterozygosity",
+               "Intro to R, PCA, NJ trees, Manhattan plots")
+)
+
+kable(schedule)
+```
 
 ## Prequisites
 
