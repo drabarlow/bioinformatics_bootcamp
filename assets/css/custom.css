@@ -4,13 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,400&family=Roboto:ital,wght@0,100..900;1,400&display=swap');
 
 slides>slide.title-slide {
-    background-image: url('../img/me_cropped.jpg');
+    background-image: url('../img/A1_FullColour.svg');
     background-size: 25%; /* Resize the image */
     background-position: calc(100% - 10%) calc(0% + 15%); /* Position it at the top-right corner */
     background-repeat: no-repeat; /* Prevent repeating the image */
 }
 
-slides>slide.title-slide h1 , h2{
+slides>slide.title-slide h1 , h2, h3{
     font-family: "Roboto Condensed", sans-serif;
     color: #37324f;
 }
@@ -131,6 +131,12 @@ ol li {
   margin-bottom: -60px;
   padding-bottom: 60px;
 }
+
+.slide table th {
+  background-color: #632121 !important;
+  color: white !important;
+}
+
 
 
 

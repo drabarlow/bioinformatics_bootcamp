@@ -13,6 +13,7 @@ output:
 
 
 ```{r setup, include = FALSE}
+
 library(ggplot2)
 library(RColorBrewer)
 library(knitr)
@@ -24,13 +25,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Schedule
 
-Date|Time|Activity
-||
-Tue 05/11/2024 | 10:00 to 16:00 | Unix-like systems, bash, SCWales, slurm
-Wed 06/11/2024 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing
-Thu 07/11/2024 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity
-Fri 08/11/2024 | 10:00 to 16:00 | Intro to R, PCA, NJ trees, Manhattan plots
 
+| Date | Time | Activity |
+|------|------|----------|
+| Mon 03/11/2024 | 10:00 to 16:00 | Unix-like systems, bash, connecting to SCWales |
+| Tue 04/11/2024 | 10:00 to 16:00 | More bash, SCWales, using SCWales and slurm |
+| Wed 05/11/2024 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing |
+| Thu 06/11/2024 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity, intro to R |
+| Fri 07/11/2024 | 10:00 to 16:00 | Maps, PCA's, NJ trees, Manhattan plots and Rmarkdown |
 
 ## Prequisites
 
@@ -70,15 +72,23 @@ Fri 08/11/2024 | 10:00 to 16:00 | Intro to R, PCA, NJ trees, Manhattan plots
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
 
- .segue .dark 
+### Johanna Paijmans, Lecturer in Zoology at Bangor University
 
-## Unix-like systems and bash
+**Interests**
+- Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Drivers of population dynamics through time
 
- &twocol
+**Bioinformatics experience**
+- Working in the field for ten years
+- Entirely self taught post-PhD
+- No proper bioinformatics/computer science background
+- Knowledge of `bash` and `R`.
 
-## Unix
 
-*** =left
+# Unix-like systems and bash
+
+
+## Unix {.columns-2}
+
 
 - Operating system developed in 1969 by Bell Labs
 - Unix philosophy: *operating system should provide a set of simple tools, each of which performs a limited, well-defined function.*
@@ -89,13 +99,13 @@ Fri 08/11/2024 | 10:00 to 16:00 | Intro to R, PCA, NJ trees, Manhattan plots
 - A shell for executing and combining tools
 - The basis of many subsequent OS
 
-*** =right
+<br> 
 
-```{r, out.width = "40%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "40%"}
 include_graphics("./assets/img/Operating_system_placement.svg.png")
 ```
 
-```{r, out.width = "70%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "70%"}
 include_graphics("./assets/img/unix-an-open-group-standard.png")
 ```
 
@@ -105,11 +115,9 @@ include_graphics("./assets/img/unix-an-open-group-standard.png")
 
 <iframe src = 'https://en.wikipedia.org/wiki/Unix' height='600px'></iframe>
 
- &twocol
 
-## Unix-like systems
+## Unix-like systems {.columns-2}
 
-*** =left
 
 **Mac OS**
 
@@ -123,17 +131,14 @@ include_graphics("./assets/img/unix-an-open-group-standard.png")
 - Free and open source
 - The core linux kernal available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
 
-*** =right
 
-```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "90%"}
 include_graphics("./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpeg")
 ```
 
- &thirds_alt
 
-## MS-DOS (Windows)
+## MS-DOS (Windows) {.columns-2}
 
-*** =left
 
 - Developed by Microsoft, released 1981
 - Main OS for IBM PCs in 1980s
@@ -146,13 +151,12 @@ include_graphics("./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpe
 - Windows subsystem for linux <https://learn.microsoft.com/en-us/windows/wsl/install>
 - Seamless transfer between `DOS` and `Unix` not yet possible
 
-*** =right
 
-```{r, out.width = "80%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "80%"}
 include_graphics("./assets/img/Msdos-icon.svg.png")
 ```
 
-```{r, out.width = "80%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "80%"}
 include_graphics("./assets/img/StartingMsdos.png")
 ```
 
@@ -160,22 +164,20 @@ include_graphics("./assets/img/StartingMsdos.png")
 
 ## OS comparison
 
- |Windows|Mac|Linux
-|||
-standard PC functions|yes|yes|yes
-cost|yes|yes|free
-hardware choice|yes|no|yes
-bioinformatics|no|yes|yes
-HPC|no|no|yes
-open source|no|no|yes
-active community|no|no|yes
-games|yes|no|no
+|Windows|Mac|Linux|
+|-------|---|-----|
+|standard PC functions|yes|yes|yes|
+|cost|yes|yes|free|
+|hardware choice|yes|no|yes|
+|bioinformatics|no|yes|yes|
+|HPC|no|no|yes|
+|open source|no|no|yes|
+|active community|no|no|yes|
+|games|yes|no|no (but..)|
 
- &twocol
 
-## Terminal emulators and Bash
+## Terminal emulators and Bash {.columns-2}
 
-*** =left
 
 - a shell allows users to execute OS tools
 - Accessed using a terminal
@@ -187,39 +189,45 @@ games|yes|no|no
   - supports bash scripts
   - pipes, auto-completion, loops, wildcards, etc.
   
-*** =right
 
-```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "90%"}
 include_graphics("./assets/img/Gnu-bash-logo.svg.png")
 ```
 
-```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "90%"}
 include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
 ```
 
- .segue .dark 
 
-## Supercomputing Wales and slurm
+# AI
 
- bg:white
+## A note on AI in Bioinformatics
+
+- AI tools are becoming increasingly common in bioinformatics
+- It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy)
+- Different models are better or worse for different tasks (ChatGPT is not great at programming, Claude is better ime)
+
+# Supercomputing Wales and slurm
+
 
 ## Supercomputing Wales
 
 - £16m investment, part-funded by the European Regional Development Fund (ERDF) through Welsh Government
-- Provide university research teams access to HPC
+- Provide university research teams access to HPC (High Performance Computing)
 - Consortium of Cardiff, Swansea, Bangor and Aberystwyth
 - 2 Supercomputers:
   - Cardiff HPC System - Hawk
   - Swansea HPC System - Sunbird
 - Hawk: 280 nodes, 12,736 cores, 68.224 TB memory
+- (yours: 1 node, 4-16 cores, 16-96 Gb memory)
 
-```{r, out.width = "80%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "80%"}
 include_graphics("./assets/img/lgo_supercomputingWales-1.png")
 ```
 
 
 
-## Hawk
+## Hawk (soon to be retired! Followed by Falcon)
 
 - Scientific linux OS
 - **compute nodes**
@@ -234,11 +242,8 @@ include_graphics("./assets/img/lgo_supercomputingWales-1.png")
   - 1192TB (usable) scratch space
   - 420TB of home directory space
 
- &thirds_alt
 
 ## Hawk users
-
-*** =left
 
 - Anyone in consortium Universities
 - Guests possible, with some restrictions
@@ -246,15 +251,14 @@ include_graphics("./assets/img/lgo_supercomputingWales-1.png")
 - Generally max 10 running jobs (ways around it)
 - Three day max runtime (ways around it)
 - Generally ~50 Gb home dir
-- Generally 4 Tb scratch space (currently an issue)
+- Generally 3 Tb scratch space (currently an issue)
 - Uses `Slurm` job scheduler
 - Many programs installed as `modules`
 - No super user access
 - Can seek help from eResearch manager Ade Fewings (a.fewings@bangor.ac.uk)
 
-*** =right
 
-```{r, out.width = "70%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "70%"}
 include_graphics("./assets/img/Untitled.jpeg")
 ```
 
@@ -275,11 +279,9 @@ include_graphics("./assets/img/Untitled.jpeg")
 - We can navigate through the filesystem (change working directory)
 - Or we can specify the patch to directories or files remotely
 
- &twocol
 
 ## Slurm
 
-*** =left
 
 - Simple Linux Utility for Resource Management: `Slurm`
 - Free open source job scheduler for linux systems
@@ -289,21 +291,19 @@ include_graphics("./assets/img/Untitled.jpeg")
 - Short, low-resource jobs move faster through the queue
 - Other tools for scheduling, reporting, etc
 
-*** =right
 
-```{r, out.width = "70%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "70%"}
 include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
- .segue .dark 
 
-## Illumina data
+# Illumina data
 
 
 
 ## Illumina sequencing platforms
 
-```{r, out.width = "100%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%"}
   include_graphics("./assets/img/illumina.svg")
 ```
 
@@ -311,7 +311,7 @@ include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 
 ## Data output
 
-Platform | Million reads | Read length | Gb data | Genome coverage
+|Platform | Million reads | Read length | Gb data | Genome coverage
 ||||
 MiniSeq|25|2 x 150 bp|7.5|2
 MiSeq|25|2 x 300 bp|15|4
@@ -334,7 +334,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 
 ## Sample preparation
 
-```{r, out.width = "100%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%"}
   include_graphics("./assets/img/library_molecule.svg")
 ```
 
@@ -344,7 +344,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 
 ## Flow cell
 
-```{r, out.width = "80%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "80%"}
   include_graphics("./assets/img/flowcell.svg")
 ```
 
@@ -352,23 +352,21 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 
 ## Cluster generation
 
-```{r, out.width = "70%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "70%"}
   include_graphics("./assets/img/cluster.svg")
 ```
 
- bg:white
 
 ## Sequencing by synthesis
 
-```{r, out.width = "100%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%"}
   include_graphics("./assets/img/sbs.svg")
 ```
 
- bg:white
 
 ## Data analysis (in the machine)
 
-```{r, out.width = "85%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "85%"}
   include_graphics("./assets/img/dataanalysis.svg")
 ```
 
@@ -391,7 +389,7 @@ NovaSeq|20000|2 x 150 bp|6000|1667
 
 Short reads from a single individual can be mapped to a reference genome assembly
 
-```{r, out.width = "95%", dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "95%"}
   include_graphics("./assets/img/pseudohap.svg")
 ```
 
@@ -399,7 +397,7 @@ Short reads from a single individual can be mapped to a reference genome assembl
 
 ## Whole genome sequencing
 
-```{r, out.width = "100%", dpi = 300, .fig.align = "left", fig.cap=""}
+```{r, out.width = "100%", .fig.align = "left", fig.cap=""}
   include_graphics("./assets/img/Screenshot from 2022-09-08 13-58-44.png")
 ```
 
@@ -413,9 +411,8 @@ Short reads from a single individual can be mapped to a reference genome assembl
 - Cheap (£10 per Gb)
 - Major limitation is the read length
 
- .segue .dark 
 
-## BEARCAVE
+# BEARCAVE
 
 
 
@@ -434,11 +431,9 @@ Short reads from a single individual can be mapped to a reference genome assembl
   - Safeguards in place to ensure consistency
 - Consequently BEARCAVE is not for everyone, and has idiosyncrasies in use
 
- &twocol
 
 ## Our project: adder population genomics
 
-*** =left
 
 - Adders (*Vipera berus berus*) widespread across northern Eurasia
 - Threatened or near-threatened in UK
@@ -452,11 +447,11 @@ Short reads from a single individual can be mapped to a reference genome assembl
 
 *** =right
 
-```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "90%"}
 include_graphics("./assets/img/male.jpg")
 ```
 
-```{r, out.width = "90%", dpi = 300, fig.align = "center", .fig.cap=""}
+```{r, out.width = "90%"}
 include_graphics("./assets/img/female.jpg")
 ```
 
@@ -475,9 +470,8 @@ adder21-24|Dundalk
 adder25-27|Bray
 adder28|outgroup
 
- .segue .dark 
 
-## Illumina data processing
+# Illumina data processing
 
 
 
@@ -499,20 +493,17 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 - 10 = 90% accuracy; 20 = 99% accuracy; 30 = 99.9% accuracy
 - Recoded as single character: F = 37; ? = 30; 5 = 20; + = 10
 
- .segue .dark 
 
-## Adapter trimming and read merging
+# Adapter trimming and read merging
 
- &twocol bg:white
 
 ## DNA fragment length distribution
 
 - DNA can be fragmented
 - The fragment lengths have a **distribution**
 
-*** =left
 
-```{r, out.width = "100%", out.height = "100%", fig.width = 8, fig.height = 7, dpi = 600, fig.align = "center", .fig.cap=""}
+```{r, out.width = "100%", out.height = "100%", fig.width = 8, fig.height = 7, dpi = 600}
 # function for calculating mode
 getmode <- function(v) {
    uniqv <- unique(v)
@@ -528,9 +519,8 @@ plot <- ggplot(adna) +
 
 plot
 ```
-*** =right
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/kudarensis.png")
 ```
 
@@ -540,7 +530,7 @@ include_graphics("./assets/img/kudarensis.png")
 
 ## Effect of insert size
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim1.svg")
 ```
 
@@ -548,7 +538,7 @@ include_graphics("./assets/img/trim1.svg")
 
 ## Effect of insert size
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim2.svg")
 ```
 
@@ -556,7 +546,7 @@ include_graphics("./assets/img/trim2.svg")
 
 ## Effect of insert size
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim3.svg")
 ```
 
@@ -564,7 +554,7 @@ include_graphics("./assets/img/trim3.svg")
 
 ## Effect of insert size
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim4.svg")
 ```
 
@@ -572,7 +562,7 @@ include_graphics("./assets/img/trim4.svg")
 
 ## Effect of insert size
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim5.svg")
 ```
 
@@ -580,7 +570,7 @@ include_graphics("./assets/img/trim5.svg")
 
 ## Effect of insert size
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim6.svg")
 ```
 
@@ -588,7 +578,7 @@ include_graphics("./assets/img/trim6.svg")
 
 ## Adapter trimming
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim9.svg")
 ```
 
@@ -596,7 +586,7 @@ include_graphics("./assets/img/trim9.svg")
 
 ## Overlapping reads are merged
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/trim10.svg")
 ```
 
@@ -623,7 +613,7 @@ include_graphics("./assets/img/trim10.svg")
 
 ## Cutadapt
 
-```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
+```{r, out.width = "100%", out.height=500, .fig.cap=""}
 include_graphics("./assets/img/2011-Cutadapt_removes_adapter_sequences_from_high-throughput_sequencing_reads.pdf")
 ```
 
@@ -631,13 +621,12 @@ include_graphics("./assets/img/2011-Cutadapt_removes_adapter_sequences_from_high
 
 ## FLASH
 
-```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
+```{r, out.width = "100%", out.height=500, .fig.cap=""}
 include_graphics("./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_to_improve_genome_assemblies..pdf")
 ```
 
- .segue .dark 
 
-## Mapping
+# Mapping
 
 
 
@@ -662,7 +651,7 @@ include_graphics("./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_
 
 ## bwa
 
-```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
+```{r, out.width = "100%", out.height=500, .fig.cap=""}
 include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf")
 ```
 
@@ -670,7 +659,7 @@ include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_
 
 ## samtools (48,024 citations)
 
-```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
+```{r, out.width = "100%", out.height=500, .fig.cap=""}
 include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
 ```
 
@@ -708,7 +697,7 @@ A|T|0.05|0.9|0.05
 
 ## angsd paper
 
-```{r, out.width = "100%", out.height=500, dpi = 300, .fig.cap=""}
+```{r, out.width = "100%", out.height=500, .fig.cap=""}
 include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf")
 ```
 
@@ -733,15 +722,9 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 - Your single adder
 - Calculate GLs, ML estimation of SFS along a sliding window using `realSFS`
 
- .segue .dark 
+# Intro to R
 
-## Intro to `R`
-
- &twocol
-
-## What is `R`?
-
-*** =left
+## What is `R` {.columns-2}
 
 - Statistical analysis 
 - Data visualisation
@@ -749,23 +732,19 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 - Linux, Mac, Windows
 - Many additional packages
 - Several GUIs e.g. `Rstudio`
-- Graphics
-- Text documents
-- Interactive figures
-- Websites
+- Graphics (even interactive), text documents, websites
 - This presentation!
 
-*** =right
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/R_logo.svg.png")
 ```
 
- bg:white
+
 
 ## How `R` works
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/R_works.png")
 ```
 
@@ -784,11 +763,9 @@ Meanwhile, Bob's discount survey company, who can only tell you how many people 
 
 An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r
 
- &thirds
 
 ## `Rstudio`
 
-*** =left
 
 - GUI
 - Preferred by many
@@ -796,17 +773,14 @@ An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-
 - Linked to `R markdown`
 - Version control and other development tools
 
-*** =right
 
-```{r, out.width = "100%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "100%"}
 include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 ```
 
- &twocol
 
 ## `Tidyverse`
 
-*** =left
 
 - `ggplot2`
 - `tibble`
@@ -819,9 +793,8 @@ include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 - "Tidy data"
 - "Grammar of graphics"
 
-*** =right
 
-```{r, out.width = "80%", dpi = 300, , .fig.cap=""}
+```{r, out.width = "80%"}
 include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ```
 
@@ -841,9 +814,8 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - It's OK to combine other tools and languages
 - Data doesn't have to be tidy
 
- .segue .dark 
 
-## Functionality
+# Functionality
 
 
 
@@ -893,11 +865,9 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - Set of components with different structures
 - Extract named components with `$`
 
- &twocol bg:white
 
 ## Population genetics: PCA
 
-*** =left
 
 - Input is allele covariance matrix
 - eigen decomposition `eigen()`
@@ -908,7 +878,7 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 
 *** =right
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 5, dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 5}
 my_info <- read.table("./assets/data/bam_info", header=TRUE)
 
 # read in covariance matrix
@@ -921,11 +891,9 @@ my_pca <- eigen(my_cov)
 plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC1, 20% variance", ylab="PC2, 10% variance")
 ```
 
- &twocol bg:white
 
 ## Population genetics: Neighbour-joining clustering
 
-*** =left
 
 - Input is distance matrix
 - Neighbour joining algorithm
@@ -934,9 +902,8 @@ plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC
 - Requires `ape` library
 - Basic estimate of phylogeny
 
-*** =right
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
 # read in matrix
 my_mat <- as.dist(read.table("./assets/data/bamlist_old.ibsMat"))
 
@@ -951,29 +918,25 @@ my_root <- root(my_tree, node=34)
 plot(my_root)
 ```
 
- &twocol bg:white
 
 ## Heterozygosity
 
 - Input is sliding window estimates of heterozygous sites
 
-*** =left
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
 my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
 hist((my_sfs$V2/1000), breaks=40, xlab="het sites per kb", main="", col="blue")
 ```
-*** =right
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 4, dpi = 300, .fig.align = "center", fig.cap=""}
+```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
 my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
 plot(1:length(my_sfs$V2), my_sfs$V2/1000, pch=20, col="blue", axes=FALSE, xlab="chromosome 7", ylab="het sites per kb")
 axis(1, labels=FALSE)
 axis(2)
 ```
 
- &thankyou
 
-## That's all folks!
+# That's all folks!
 
 **See you next year :)**

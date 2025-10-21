@@ -1,19 +1,19 @@
-sample	locality	colour	bam
-adder17	Belfast	green	2hy+adder17_ber_ursinii_chr7_1.01421.bam
-adder13	Limerick	yellow	34g+adder13_ber_ursinii_chr7_.95552.bam
-adder11	Limerick	yellow	547+adder11_ber_ursinii_chr7_1.01000.bam
-adder08	Cork	blue	7f7+adder08_ber_ursinii_chr7_1.04511.bam
-adder18	Belfast	green	7Lx+adder18_ber_ursinii_chr7_1.01297.bam
-adder12	Limerick	yellow	ef1+adder12_ber_ursinii_chr7_.95648.bam
-adder14	Limerick	yellow	eL1+adder14_ber_ursinii_chr7_1.01451.bam
-adder10	Cork	blue	i2f+adder10_ber_ursinii_chr7_.99929.bam
-adder01	Dublin	red	Lbx+adder01_ber_ursinii_chr7_1.00762.bam
-adder16	Galway	grey	piq+adder16_ber_ursinii_chr7_.89471.bam
-adder02	Dublin	red	pwm+adder02_ber_ursinii_chr7_1.02637.bam
-adder03	Belfast	green	qy7+adder03_ber_ursinii_chr7_1.07458.bam
-adder07	Cork	blue	rr0+adder07_ber_ursinii_chr7_1.01144.bam
-adder15	Galway	grey	urz+adder15_ber_ursinii_chr7_.37351.bam
-adder06	Dublin	red	vb2+adder06_ber_ursinii_chr7_1.04132.bam
-adder05	Dublin	red	vys+adder05_ber_ursinii_chr7_.97694.bam
-adder04	Belfast	green	wjq+adder04_ber_ursinii_chr7_1.03066.bam
-adder09	Cork	blue	xfx+adder09_ber_ursinii_chr7_1.09662.bam
+sample	locality	colour	bam	lat	lon
+adder17	Belfast	green	2hy+adder17_ber_ursinii_chr7_1.01421.bam	54.542204808019946	-5.792329006876554
+adder13	Limerick	yellow	34g+adder13_ber_ursinii_chr7_.95552.bam	52.63581114647656	-8.733448158181833
+adder11	Limerick	yellow	547+adder11_ber_ursinii_chr7_1.01000.bam	52.75538932612373	-8.69028708250811
+adder08	Cork	blue	7f7+adder08_ber_ursinii_chr7_1.04511.bam	51.804819893903044	-8.462149968232719
+adder18	Belfast	green	7Lx+adder18_ber_ursinii_chr7_1.01297.bam	54.724216157788426	-5.9279782393898754
+adder12	Limerick	yellow	ef1+adder12_ber_ursinii_chr7_.95648.bam	52.79641870056595	-8.52380864776661
+adder14	Limerick	yellow	eL1+adder14_ber_ursinii_chr7_1.01451.bam	52.60586540765133	-8.46831583618611
+adder10	Cork	blue	i2f+adder10_ber_ursinii_chr7_.99929.bam	51.907643050646534	-8.653291874787778
+adder01	Dublin	red	Lbx+adder01_ber_ursinii_chr7_1.00762.bam	53.48434610971328	-6.00813452278393
+adder16	Galway	grey	piq+adder16_ber_ursinii_chr7_.89471.bam	53.21935823205867	-8.949253536550444
+adder02	Dublin	red	pwm+adder02_ber_ursinii_chr7_1.02637.bam	53.33365218980352	-6.415081807707601
+adder03	Belfast	green	qy7+adder03_ber_ursinii_chr7_1.07458.bam	54.49926015959916	-5.582689634000096
+adder07	Cork	blue	rr0+adder07_ber_ursinii_chr7_1.01144.bam	51.94186523431527	-8.295671533491218
+adder15	Galway	grey	urz+adder15_ber_ursinii_chr7_.37351.bam	53.30050155432403	-9.189722386732614
+adder06	Dublin	red	vb2+adder06_ber_ursinii_chr7_1.04132.bam	53.3226048388885	-6.297930316593211
+adder05	Dublin	red	vys+adder05_ber_ursinii_chr7_.97694.bam	53.436622904386	-6.5383991667753785
+adder04	Belfast	green	wjq+adder04_ber_ursinii_chr7_1.03066.bam	54.88059165853717	-5.983471050970376
+adder09	Cork	blue	xfx+adder09_ber_ursinii_chr7_1.09662.bam	51.78956684648758	-8.751945762041998

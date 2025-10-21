@@ -1,13 +1,13 @@
-# Bootcamp 2025
+# Bioinformatics Bootcamp 2025
 
-## Lecture slides
+### Lecture slides
 
 https://drabarlow.github.io/bioinformatics_bootcamp/
 
-## Bootcamp worksheet
+### Bootcamp worksheet
 
 https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html
 
-## Github repo
+### Github repo
 
 https://github.com/drabarlow/bioinformatics_bootcamp
