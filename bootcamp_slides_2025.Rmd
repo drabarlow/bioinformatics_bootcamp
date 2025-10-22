@@ -67,8 +67,8 @@ knitr::opts_chunk$set(echo = FALSE)
 - Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Conservation genomics of native species
 
 **Bioinformatics experience**
-- Working in the field for ten years
-- Entirely self taught post-PhD
+
+- Self taught post-PhD
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
 
@@ -78,8 +78,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Drivers of population dynamics through time
 
 **Bioinformatics experience**
-- Working in the field for ten years
-- Entirely self taught post-PhD
+- Self taught, linux-obsessed father
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
 
