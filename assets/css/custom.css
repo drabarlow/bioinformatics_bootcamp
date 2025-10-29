@@ -30,6 +30,14 @@ code {
   border-radius: 4px;
 }
 
+pre.shell {
+    background-color: #1e1e1e;
+    color: #00ff00; /* green text like a terminal */
+    font-family: "Fira Mono", monospace;
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
 
 /* this is the grey bar that the title logo sits in*/
 aside.gdbar {

@@ -19,7 +19,7 @@ library(RColorBrewer)
 library(knitr)
 library(ape)
 
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE,fig.align='center')
 ```
 
 
@@ -48,7 +48,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Bootcamp worksheet
 
-<https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html>
+<https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2025.html>
 
 ### Github repo
 
@@ -79,7 +79,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Bioinformatics experience**
 
-- Self taught (by rebelling against a Linux-expert father)
+- Self taught (by rebelling against a Linux-expert dad)
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
 
@@ -271,12 +271,49 @@ include_graphics("./assets/img/hawk.png")
 
 ## SCW Usage
 
-- Access through SSH jump host
 - Command-line only (via `ssh`)
+- Access through SSH jump host
 - File transfer using `scp` or `sftp`
 - Job submission using `slurm` job scheduler
-- Many software installed as `modules`
+- Software installed as `modules`
 - No super user access
+
+## Secure shell (SSH)
+
+```{r, out.width = "100%"}
+include_graphics("./assets/img/server.svg")
+```
+
+## SSH via jump host
+
+```{r, out.width = "100%"}
+include_graphics("./assets/img/jumphost.png")
+```
+
+## SSH via jump host
+
+
+```{r, out.width = "100%"}
+include_graphics("./assets/img/jumphost_bangor.svg")
+```
+
+## Getting logged on...
+
+**Connecting to the jump host (with MFA)**
+```sh
+ssh you25usr@ssh.bangor.ac.uk
+```
+*Note: most UNIX systems do not show anything when you're typing your password!*
+
+<div style="height:30px;"></div>
+
+**If successful, connecting to Hawk**
+```shell
+ssh b.you25usr@hawklogin.cf.ac.uk
+```
+<div style="height:30px;"></div>
+
+<span style="font-size: 150%;"> ***Raise your hand if you are having issues*** 🙌</span> 
 
 ## Filesystem
 
@@ -286,7 +323,7 @@ include_graphics("./assets/img/hawk.png")
 - We specify a path through this hierarchy using forward-slashes
 - Our current directory is called the `working directory`
 
-```bash
+```sh
 /home/b.xlb21brx/
 /scratch/b.xlb21brx/
 ```
@@ -294,18 +331,18 @@ include_graphics("./assets/img/hawk.png")
 - Or we can specify the patch to directories or files remotely
 
 
-## Slurm
+## Slurm 
 
-- Simple Linux Utility for Resource Management: `Slurm`
+- Simple Linux Utility for Resource Management: `slurm`
 - Free open source job scheduler for linux systems
 - Used on 60% of World's top 500 computers
 - Assigns user jobs to computer resources 
 - Submit to queue
 - Short, low-resource jobs move faster through the queue
-- Other tools for scheduling, reporting, etc
+- Useful tools for scheduling, reporting, etc
 
 
-```{r, out.width = "70%"}
+```{r, out.width = 200, fig.align='right'}
 include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
@@ -336,29 +373,40 @@ include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 
 
 
+## Illumina summary
+
+- The current market leader
+- Massive output
+- Many applications (genome resequencing, RADseq, transcriptomes, metabarcoding)
+- Cheap (£10 per Gb)
+- Major limitation is the read length
+
+
 ## Data output
 
 |Platform | Million reads | Read length | Gb data | Genome coverage|
 |---|---|---|---|---|
-|iSeq|4|2 x 150 bp|1.2|0.4|
-|MiniSeq|25|2 x 150 bp|7.5|2.5|
-|MiSeq|100|2 x 500 bp|30|10|
-|Nextseq 550|400|2 x 150 bp|120|40|
-|NextSeq 1000/2000|1800|2 x 300 bp|540|180|
-|NovaSeq 6000|20000|2 x 250 bp|3000|1000|
-|NovaSeq X|52000|2 x 150 bp|8000|2667|
+|iSeq|4|2 x 150 bp|1.2|0.4x|
+|MiniSeq|25|2 x 150 bp|7.5|2.5x|
+|MiSeq|100|2 x 500 bp|30|10x|
+|Nextseq 550|400|2 x 150 bp|120|40x|
+|NextSeq 1000/2000|1800|2 x 300 bp|540|180x|
+|NovaSeq 6000|20000|2 x 250 bp|3000|1000x|
+|NovaSeq X|52000|2 x 150 bp|8000|2667x|
 
 
 
-## Sequencing by synthesis
+## Sequencing by synthesis {.flex-cols}
 
 1. Sample preparation
-2. Bind DNA to flowcell, generate clusters
-3. Sequencing by synthesis
-4. Data analysis (in the machine)
+2. Bind DNA to flowcell
+3. Generate clusters
+4. Sequencing by synthesis
+5. Image analysis 
 
-<https://www.youtube.com/watch?v=fCd6B5HRaZ8>
-
+<div style="width:60%; margin:auto; margin-top:-15px;">
+<iframe width="600" height="350" src="https://www.youtube.com/embed/fCd6B5HRaZ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 
 ## Sample preparation
@@ -371,29 +419,28 @@ include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 
 
 
-## Flow cell
+## Flow cell {.white-slide}
 
 ```{r, out.width = "80%"}
   include_graphics("./assets/img/flowcell.svg")
 ```
 
- bg:white
 
-## Cluster generation
+## Cluster generation {.white-slide}
 
-```{r, out.width = "70%"}
-  include_graphics("./assets/img/cluster.svg")
+```{r, out.width = 900}
+  include_graphics("./assets/img/cluster_amplification2.png")
 ```
 
 
-## Sequencing by synthesis
+## Sequencing by synthesis {.white-slide}
 
 ```{r, out.width = "100%"}
   include_graphics("./assets/img/sbs.svg")
 ```
 
 
-## Data analysis (in the machine)
+## Data analysis (in the machine) {.white-slide}
 
 ```{r, out.width = "85%"}
   include_graphics("./assets/img/dataanalysis.svg")
@@ -411,7 +458,6 @@ include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 - Transcriptome (RNA sample from single tissue/individual)
 - Metabarcoding (PCR amplicon, multiple individuals/species)
 - Metagenomics (whole genomes, multiple individuals/species)
-
 
 
 ## Whole genome sequencing
@@ -432,17 +478,7 @@ Short reads from a single individual can be mapped to a reference genome assembl
 
 
 
-## Illumina summary
-
-- The current market leader
-- Massive output
-- Many applications (genome resequencing, RADseq, transcriptomes, metabarcoding)
-- Cheap (£10 per Gb)
-- Major limitation is the read length
-
-
 # BEARCAVE
-
 
 
 ## BEARCAVE
@@ -461,7 +497,7 @@ Short reads from a single individual can be mapped to a reference genome assembl
 - Consequently BEARCAVE is not for everyone, and has idiosyncrasies in use
 
 
-## Our project: adder population genomics
+## Our project: adder population genomics {.flex-cols}
 
 
 - Adders (*Vipera berus berus*) widespread across northern Eurasia
@@ -474,7 +510,6 @@ Short reads from a single individual can be mapped to a reference genome assembl
   - Adapter trimming and read merging
   - Map to reference genome: chr7
 
-*** =right
 
 ```{r, out.width = "90%"}
 include_graphics("./assets/img/male.jpg")
@@ -692,9 +727,8 @@ include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_
 include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
 ```
 
- .segue .dark 
 
-## Population genomics using `angsd`
+# Population genomics using ANGSD
 
 
 
@@ -778,38 +812,23 @@ include_graphics("./assets/img/R_works.png")
 ```
 
 
-
-## Why is bash faster than `R`?
-
-Suppose you're a survey company. To carry out your survey you need all the people seated in a classroom, which you have to build. You're not sure how many, so you build an ordinary classroom, with 5 rows of 6 desks for 30 people, after 30 people file in you notice there's a 31st. You build a second 30-person classroom right next to the first, and now you can accept 60 people, but then you notice a 61st. So you ask them to wait, and you build two more classrooms, so now you've got a nice 2x2 grid of 30-person classrooms, but the people keep coming and soon enough the 121st person shows up and there's not enough room. So you build a big 5-story building next door with 50-person classrooms, 5 on each floor, for a total of 50 x 5 x 5 = 1,250 desks, and you have the first 120 people file out of the old rooms into the new building, and you hire some wreckers to demolish the old classrooms and recycle some of the materials, and the people keep coming. And when you're all done with all this, the only "survey question" you're going to ask is "How many rows are there?"
-
-
-Meanwhile, Bob's discount survey company, who can only tell you how many people he surveyed, is down there on the streetcorner, and the people are filing by, and Bob is jotting down tally marks on his clipboards, and the people, once surveyed, are walking away and going about their business, and Bob isn't wasting time and money building any classrooms at all.
-
-
-
-## Why is bash faster than `R`?
-
-An abridged version of https://stackoverflow.com/questions/30948366/why-is-unix-terminal-faster-than-r
-
-
 ## `Rstudio`
 
 
-- GUI
+- GUI for `R`
 - Preferred by many
 - Linked to `tidyverse`
 - Linked to `R markdown`
-- Version control and other development tools
+- Version control (`git`) and other development tools
 
+## `Rstudio`
 
-```{r, out.width = "100%"}
+```{r, out.width = "90%"}
 include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 ```
 
 
-## `Tidyverse`
-
+## `Tidyverse` {.columns-2}
 
 - `ggplot2`
 - `tibble`
@@ -822,21 +841,17 @@ include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 - "Tidy data"
 - "Grammar of graphics"
 
-
 ```{r, out.width = "80%"}
 include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ```
 
-
-
-## Opinions on `R` from a heretic
+## `R` from the heretics
 
 **Most people disagree (in some cases strongly)**
 
-- `Rstudio` is terrible (except for `R markdown`)
-- Base `R` is really good
-- `ggplot2` code is hellishly complex
+- Base `R` is really good!
 - `tidyverse` is not the way to teach `R` to beginners
+- `ggplot2` code is restrictive
 - It's boring if everyone's graphs look the same
 - It's OK to type commands directly into the terminal
 - It's OK to modify a raw data file
@@ -844,8 +859,7 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - Data doesn't have to be tidy
 
 
-# Functionality
-
+# R functionality
 
 
 ## Objects and functions
@@ -877,6 +891,7 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - Indexing vector objects `my_vector[]`
 
 **Matrix**
+
 - 2D data of same type in rows and columns
 - Indexing matrix objects `my_matrix[row, column]`
 
@@ -885,17 +900,31 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ## Data structures: dataframe and list
 
 **Dataframe**
+
 - Rectangular "table"
 - Mixture of data types
 - Set of vectors of equal length
 - Extract columns with `$`, which can then be indexed like vectors
 
 **List**
+
 - Set of components with different structures
 - Extract named components with `$`
 
 
-## Population genetics: PCA
+## Maps {.flex-cols}
+
+- Plot samples on a map (lat/lon coordinates)
+- Add a distribution to it
+- Many different ways
+- Here we are using `rworldmap` and `sf`
+
+```{r, out.width = 600,fig.align='right'}
+include_graphics("./assets/img/map.png")
+```
+
+
+## Population genetics: PCA {.columns-2}
 
 
 - Input is allele covariance matrix
@@ -905,9 +934,8 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - PC scatterplot
 - PC variance explained
 
-*** =right
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 5}
+```{r, out.width = "80%", fig.width = 4.5, fig.height = 5}
 my_info <- read.table("./assets/data/bam_info", header=TRUE)
 
 # read in covariance matrix
@@ -921,7 +949,7 @@ plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC
 ```
 
 
-## Population genetics: Neighbour-joining clustering
+## Population genetics: Neighbour-joining clustering {.columns-2}
 
 
 - Input is distance matrix
@@ -932,7 +960,7 @@ plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC
 - Basic estimate of phylogeny
 
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
+```{r, out.width = "80%", fig.width = 4.5, fig.height = 4}
 # read in matrix
 my_mat <- as.dist(read.table("./assets/data/bamlist_old.ibsMat"))
 
@@ -948,15 +976,21 @@ plot(my_root)
 ```
 
 
-## Heterozygosity
+## Heterozygosity {.white-slide}
 
 - Input is sliding window estimates of heterozygous sites
 
 
-```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 0 0 50%;">
+
+```{r, out.width = "96%", fig.width = 4.5, fig.height = 4}
 my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
 hist((my_sfs$V2/1000), breaks=40, xlab="het sites per kb", main="", col="blue")
 ```
+</div>
+<div style="flex: 1; margin-left: 15px;">
 
 ```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
 my_sfs <- read.table("./assets/data/adder01_het_old.window.sfs")
@@ -964,7 +998,25 @@ plot(1:length(my_sfs$V2), my_sfs$V2/1000, pch=20, col="blue", axes=FALSE, xlab="
 axis(1, labels=FALSE)
 axis(2)
 ```
+</div>
 
+</div>
+
+# Rmarkdown
+
+## Rmarkdown
+
+- Dynamic documents in Rstudio
+- Combine text, code, and results
+- Publishers are increasingly asking for reproducible code capsules
+
+## Reproducability
+
+<iframe src = 'https://www.springernature.com/gp/open-science/code-policy' height='600px'></iframe>
+
+## Rmarkdown example
+
+<iframe src = 'https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2025.html' height='600px'></iframe>
 
 # That's all folks!
 
