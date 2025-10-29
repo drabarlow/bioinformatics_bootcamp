@@ -78,7 +78,8 @@ knitr::opts_chunk$set(echo = FALSE)
 - Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Drivers of population dynamics through time
 
 **Bioinformatics experience**
-- Self taught, linux-obsessed father
+
+- Self taught (by rebelling against a Linux-expert father)
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
 
@@ -163,7 +164,7 @@ include_graphics("./assets/img/StartingMsdos.png")
 
 ## OS comparison
 
-|Windows|Mac|Linux|
+||Windows|Mac|Linux|
 |-------|---|-----|
 |standard PC functions|yes|yes|yes|
 |cost|yes|yes|free|
@@ -172,7 +173,7 @@ include_graphics("./assets/img/StartingMsdos.png")
 |HPC|no|no|yes|
 |open source|no|no|yes|
 |active community|no|no|yes|
-|games|yes|no|no (but..)|
+|games|yes|some|some|
 
 
 ## Terminal emulators and Bash {.columns-2}

@@ -6,7 +6,7 @@ https://drabarlow.github.io/bioinformatics_bootcamp/
 
 ### Bootcamp worksheet
 
-https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet.html
+https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2025.html
 
 ### Github repo
 

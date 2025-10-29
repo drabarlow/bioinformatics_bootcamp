@@ -1,0 +1,825 @@
+---
+title: "Bootcamp worksheet"
+author: "Axel Barlow & Johanna Paijmans"
+date: "2025"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, dpi = 300)
+```
+
+## Unix-like systems and bash
+
+### 1. Logging on to SCW
+
+- Consult guide from Ade Fewings: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
+- Windows users need to download a SSH client. We will use MobaXterm portable edition: https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip
+- Linux and Mac users can just ssh from the terminal
+- Note your bangor_username and hawk_username are different
+- bangor_username has you normal password
+- hawk_username password (suggest no special characters) can be set at: https://scw.bangor.ac.uk/en-gb/
+
+```bash
+# Windows
+# Unzip and open the downloaded MobaXterm executable
+# In MobaXterm, click on the 'Session' icon at the top left.
+# Choose 'SSH' as the session type.
+# In the 'Remote host' field, enter ssh.bangor.ac.uk
+# Login using your Bangor username with MFA
+# initiate an SSH connection to the Hawk supercomputer:
+
+ssh hawk_username@hawklogin.cf.ac.uk
+
+# Linux/Mac
+# Open a terminal
+
+ssh bangor_username@ssh.bangor.ac.uk
+ssh hawk_username@hawklogin.cf.ac.uk
+```
+
+### 2. Basic bash commands
+
+Unix-like (linux and Mac) generally use a bash shell (or something like it).
+
+"*Bash is a command processor that typically runs in a text window where the user types commands that cause actions. Bash can also read and execute commands from a file, called a shell script. Like most Unix shells, it supports filename globbing (wildcard matching), piping, here documents, command substitution, variables, and control structures for condition-testing and iteration.*" 
+
+See https://en.wikipedia.org/wiki/Bash_(Unix_shell)
+
+```bash
+# print working directory
+pwd
+
+# make directory
+mkdir my_directory
+
+# change directory
+cd my_directory
+
+# print working directory
+pwd
+
+# print something to screen
+echo "hello"
+
+# redirect output to file 
+echo "hello" > hello.txt
+
+# list contents of directory
+ls
+
+# help menu
+ls --help
+
+# view contents of file
+cat
+less
+head
+
+# print something else to file
+echo "hello2" > hello.txt
+echo "hello" > hello.txt
+echo "hello2" >> hello.txt
+
+# count lines and characters
+wc -l
+wc -c
+
+# search for content in files
+grep --help
+grep "2" hello.txt
+
+# pipes
+grep "2" hello.txt | wc -l
+
+# deleting (CAREFUL!!!)
+rm hello.txt
+
+# let's make some more files
+yes hello | head -n 100 > my_file1.txt
+yes goodbye | head -n 100 > my_file2.txt
+
+# wildcards
+cat my_file* > my_combined_file.txt
+
+# a note on file extensions
+mv my_combined_file2.txt my_combined_file2.mp3
+mv my_combined_file2.txt my_combined_file2
+
+# deleting with wildcards (VERY CAREFUL!!!)
+rm my*
+
+# Download file from internet
+wget https://dnazoo.s3.wasabisys.com/Alligator_mississippiensis/ASM28112v4_HiC.fasta.gz
+
+# Note file is compressed with gzip compression
+# view contents without unzipping
+zcat ASM28112v4_HiC.fasta.gz | less
+
+# uncompress
+gunzip ASM28112v4_HiC.fasta.gz
+# note you can compress with the command gzip
+
+# log off
+exit
+
+```
+
+### 3. Your turn :)
+
+- Count number of scaffold names in the Alligator genome
+- Print scaffold names to a file
+- Print only scaffold names 10 to 20 to a file
+- Count the number of bases in the first line of DNA sequence (i.e. line 2)
+- Work out the genome size (don't worry about newline characters in your base counts for now)
+- If you are finished early, you can find a genome of your choice to play around with
+- Or... look at setting up a jump host and data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
+
+### 4. Basic bash commands 2
+
+```bash
+# We assume you are in /home/hawk_username/my_directory. Check!
+pwd
+
+# let's make a file of random numbers
+# we can use the bash variable $RANDOM (more on variables later)
+# write 10 random numbers to a file
+echo $RANDOM >> my_randoms.txt
+
+# sort the numbers
+sort my_randoms.txt
+
+# check for duplicates
+sort my_randoms.txt | uniq -c
+
+# stream editing: sed
+# see https://www.gnu.org/software/sed/manual/sed.html
+# sed 's/search_string/replace_string/g' inputfile
+# s = substitute
+# g = global
+sed --help
+sed 's/1/Axel/g' my_randoms.txt
+
+# something more complex
+# . all characters
+# \0 [replace with] the same character
+sed 's/./\0 /g' my_randoms.txt 
+
+```
+
+### 5. Your turn
+
+- Using the help menu and Google, work out how to get grep to report the line numbers of each scaffold header in the Alligator genome file
+- Extract the sequence of the first scaffold and calculate the base composition (number of A, T, G, C)
+- If you are finished early, play around some more. For example can calculate base composition of the entire genome ignoring header lines?
+
+```bash
+# extracting the scaffold
+head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 > scaffold_1.txt
+
+# Axel's solution using sed. Slow!
+# sed 's/./\0\n/g' enters newline after each character
+sed 's/./\0\n/g' scaffold_1.txt | sort | uniq -c
+
+# Jeronimo et al's method using greps, faster!
+# -o print all matches
+# -i case insensitive
+grep -o -i a scaffold_1.txt
+grep -o -i t scaffold_1.txt
+grep -o -i g scaffold_1.txt
+grep -o -i c scaffold_1.txt
+
+# Ruby's method using tr, Fastest!
+# -c complement, find opposite of match
+# -d delete
+tr -cd 'Aa' < scaffold_1.txt | wc -c
+tr -cd 'Tt' < scaffold_1.txt | wc -c
+tr -cd 'Gg' < scaffold_1.txt | wc -c
+tr -cd 'Cc' < scaffold_1.txt | wc -c
+```
+
+### 6. Bash scripts
+
+- Bash scripts allow sets of commands to be executed in an automated fashion
+- Files contain bash scripts are given the extension `.sh` by convention
+- fist line is the bash **shebang**, it instructs the system to parse the file using `bash` (as opposed to `python, perl, R`, etc.)
+- lines starting `#` are comments
+- commands are executed from top to bottom
+
+```bash
+#!/bin/bash
+
+# let's make some files
+yes hello | head -n 100 > my_file1.txt
+yes goodbye | head -n 100 > my_file2.txt
+
+# combine files
+cat my_file* > my_combined_file.txt
+
+echo "job finished"
+```
+
+#### A note on text editors
+
+- never (ever) use a word processor
+- plain text editor (many available)
+- includes terminal plain text editors
+- be careful windows people :)
+- example: `vim`
+
+```bash
+# open file
+vim my_script.sh
+
+# enter insert mode
+i
+
+# do stuff ######################################
+
+# exit insert mode 
+[ESC]
+
+# write changes to file
+:w
+
+# quit
+:q
+```
+
+#### Executing bash scripts
+
+```bash
+sh my_script.sh
+```
+
+### 7. Your turn :)
+
+- Generate the `bash` script described above and execute
+- try modifying the script, for example to delete the intermediary files my_file1.txt and my_file2.txt
+- If you are finished early, think what other functions you could add to your script. For example lines counts reported to the terminal or saved in a file
+
+### 8. Variables
+
+- In `bash`, variables can be used to store data in memory
+- Works exactly like objects in `R`
+- After they are defined, variables can be recalled using `$`
+- anything entered after the script call becomes variables `$1, $2, $3`, etc. 
+- Or they can be defined in the script `variable=value`
+
+```bash
+#!/bin/bash
+
+# script makes lists of 2 words, which can be entered when the script is called
+# $count controls the length of the list
+# call the script like:
+# sh my_script.sh hello goodbye
+
+# declare variables
+count=100
+
+# main script 
+
+# let's make some files
+yes $1 | head -n $count > my_file1.txt
+yes $2 | head -n $count > my_file2.txt
+
+# combine files
+cat my_file* > my_combined_file.txt
+
+echo "job finished"
+```
+
+### 9. Loops
+
+- Loops are quite an advanced feature, but extremely useful
+- here we look at a basic while loop with a counter
+
+```bash
+#!/bin/bash 
+
+x=0
+
+while [ $x -lt 10 ]; do
+  echo The counter is $x
+  let x=x+1
+done
+```
+
+### 10. Your turn :)
+
+- Generate the script shown in part 8. variables
+- execute your script, and try changing the variables. Is behaviour as expected?
+- try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
+- Generate the script shown in part 9. using a loop. Execute
+- If you are finished early... Remember making the file of random numbers above, wasn't this annoying? Try to make this file and carry out the same operation by making a script incorporating a loop
+
+
+
+## Supercomputing Wales and slurm
+
+### 1. Filesystem
+
+```bash
+# print working directory
+pwd
+
+# list contents of working directory
+ls
+
+# move up one level in hierarchy
+cd ..
+
+# print working directory
+pwd
+
+# list contents of working directory
+ls
+
+# move to root directory 
+cd /
+
+# list contents of working directory
+ls
+
+# Go home
+cd ~
+```
+
+### 2. Modules
+
+```bash
+# module searching
+module avail
+module avail R
+
+# module load
+module load R/4.2.0
+
+# module unload
+module purge
+```
+
+### 3. Slurm
+
+```bash
+# You are currently using the log in node. 
+# Do not run resource-intensive jobs on the log in node!
+
+# use slurm to open an active bash shell on a compute node
+srun --nodes=1 --ntasks=4 --mem=4G --time=0-00:20 --pty /bin/bash
+
+# the queue
+squeue
+squeue -u username
+
+# do something resource intensive
+module load pigz
+pigz -p 4 ASM28112v4_HiC.fasta
+
+# exit
+exit
+
+# check efficiency
+seff jobid
+```
+
+### 4. Slurm scripts
+
+- Running a live terminal is not very convenient
+- We need a way of submitting jobs to the queue: `slurm` job script
+- It's just a bash script, with additional options passed to `slurm` using `#SBATCH` 
+
+```bash
+#!/bin/bash --login
+###
+#job name
+#SBATCH --job-name=example
+#job stdout file
+#SBATCH --output=/path/to/dir/example%J
+#job stderr file
+#SBATCH --error=/path/to/dir/example_err%J
+#maximum job time in D-HH:MM
+#SBATCH --time=0-00:01
+#number of nodes
+#SBATCH --nodes=1
+#number of parallel processes (tasks)
+#SBATCH --ntasks=1
+#memory in Gb 
+#SBATCH --mem=1G
+
+echo hello > hello.txt
+```
+
+```bash
+# submit to queue
+sbatch job_script.sh
+```
+
+#### For people who have multiple accounts
+
+- If you have multiple accounts on SCWales, the command above will throw an error
+- You can specify the acount at the command line, or include in the slurm script
+
+```bash
+#command line
+sbatch account=scw1234 job_script.sh
+
+# or include the following SBATCH in the script
+
+#assign account
+#SBATCH account=scw1234
+```
+
+### 5. Your turn :)
+- make 2 new directories in your `home`: `my_slurm_scripts` and `output_logs`
+- make a copy of the `slurm` script in `./my_slurm_scripts`
+- Direct stdout and error messages to `./output_logs`
+- Specify 1 node, 4 cpus, 8Gb RAM, 1 hour
+- Submit job to queue
+
+**Next**
+
+- You are going to implement the method you developed to print scaffold names to a file from the alligator genome in part 3. as a `slurm` script.
+- Make a `slurm` script in `./my_slurm_scripts`
+- You should work on the **compressed** file located in your `home` directory
+- use pigz to decompress the genome file and then re-compress after doing the computation
+- Direct stdout and error messages to `./output_logs`
+- Specify 1 node, 8 cpus, 16Gb RAM, 1 hour
+- Submit job to queue
+
+## Example alligator script
+
+```bash
+#!/bin/bash --login
+###
+#job name
+#SBATCH --job-name=gator
+#job stdout file
+#SBATCH --output=../output_logs/std_%J
+#job stderr file
+#SBATCH --error=../output_logs/err_%J
+#maximum job time in D-HH:MM
+#SBATCH --time=0-01:00
+#number of nodes
+#SBATCH --nodes=1
+#number of parallel processes (tasks)
+#SBATCH --ntasks=8
+#memory in Gb 
+#SBATCH --mem=16G
+
+# load modules
+module purge
+module load pigz
+
+# decompress
+unpigz -p 8 ../ASM28112v4_HiC.fasta.gz
+
+# collect scaffold names
+grep ">" ../ASM28112v4_HiC.fasta > ../scaffold_names.txt
+
+# recompress
+pigz -p 8 ../ASM28112v4_HiC.fasta
+
+echo "job complete"
+```
+
+## New for 2024: paths of glory game :)
+
+```bash
+# start in your home
+cd
+
+# Copy the contents of this file:
+/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
+
+# To a file named with your name, here:
+/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
+```
+
+---
+
+## Illumina data processing
+
+### 1. Fastq file format
+
+```bash
+# enter BEARCAVE
+cd /scratch/scw2141/BEARCAVE2/
+
+# view directories
+ll
+
+# raw data
+cd rawdata
+
+# look at a fastq file
+zcat ./adder01/a01+adder01_R1.fastq.gz | less
+
+# look at metadata
+cat ./metadata.txt 
+
+# look at reference genome
+less /scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa
+```
+
+### 2. Your turn :)
+
+- locate sequence data for your adder
+- What are the file sizes of R1 and R2 files?
+- How many R1 and R2 sequences are there?
+- What is the read length?
+- What can you surmise about the arrangement of R1 and R2 data, and how do you explain the file sizes?
+
+### 3. BEARCAVE script: trim and merge
+
+```bash
+less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh 
+```
+
+```bash
+#!/bin/bash
+
+# Hacked by Axel, April 2023
+# For use on Hawk which has shiny modules, using new cutadapt and pigz to allow multithreading
+# you will need to load the following modules in your slurm script:
+# module load cutadapt/4.3 FLASH/1.2.11 pigz/2.4
+
+# November 2018
+# script for trimming adapter sequences from DS library PE data, removing short reads, amd merging overlapping PE reads.
+# this script is for data sequenced using the standard Illumina R1 sequencing primer
+
+# this script should be run from /BEARCAVE/scripts
+
+# example command line: sh ./trim_merge_DS_PE_standard2.sh $1 $2 $3
+# $1 = SAMPLE*
+# $2 = PREFIX*
+# $3 = SEQ_RUN*
+
+# * these can be found in /BEARCAVE/rawdata/metadata.txt
+```
+
+### 4. Your turn :)
+
+- make a `slurm` job script in your chosen location within home directory. It should do the following steps.
+- Note you will need to add the following SBATCH to your script, to ensure the command is executed in the scripts directory: 
+
+```bash
+#set working directory
+#SBATCH --chdir=/scratch/scw2141/BEARCAVE2/scripts/
+```
+
+- load appropriate modules
+- run the trim_merge_DS_PE_standard2.sh script on your adder sample
+- use 4Gb RAM, 10 CPUs, and run for 1 hour
+- direct stdout and errors to your chosen location in your home directory
+- submit to queue
+
+### 5. BEARCAVE script: mapping
+
+```bash
+less BEARCAVE2/scripts/map_modern_PE_mem2.sh
+```
+
+```bash
+#!/bin/bash
+
+# Hacked by Axel, April 2023
+# For use on Hawk which has shiny modules, using new bwa and samtools
+# this uses the improved duplicate removal method (not rmdup)
+# you will need to load the following modules in your slurm script:
+# module load bwa/0.7.17 samtools/1.17 pigz/2.4
+
+# November 2018
+# script for mappping modern DNA reads to a reference genome
+# note this includes mapping of both merged and unmerged paired-end reads
+
+# this script should be run from /BEARVACE/scripts
+
+# example command line: sh ./map_modern_PE_mem2.sh $1 $2 $3 $4
+# $1 = prefix or prefixes (if you are mapping combined data file, you should enter its while set of prefixes as one argument, like this: pr1_pr2_pr3
+# $2 = reference - folder name in /refgenomes/
+# $3 = 3 character taxon identifier, used for filenaming - e.g. arc, spe, kud, mar.
+# $4 = sample name
+```
+
+### 6. Your turn :)
+
+- check the outcome of the trimming and merging
+- move your processed files into `/scratch/scw2141/BEARCAVE2/trimdata/`
+- move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
+- delete the *processing directory
+- make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
+- Use 10Gb RAM, 10 CPUs, and run for 4 hours
+- Check outcome
+
+## PCA, NJ tree and heterozygosity
+
+We will carry out population gneomics analyses using `angsd`. This requires a list of bamfiles to analyse. For example:
+
+```bash
+# angsd requires a list on bam files in a text file
+ls -1 /scratch/scw2141/BEARCAVE2/mappedberus_chr7/*bam > bamlist
+```
+
+### 1. Distance matrix
+
+```bash
+# load angsd module
+module purge
+module load angsd/0.935
+
+# set ref genome as a variable
+ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
+
+# angsd command
+#-doIBS,-doCounts = Identity by state, currently set as single read sampling
+#-doCov  = calculate covariance matrix
+#-makeMatrix = calculate distance matrix
+#-doMajorMinor, -GL = identify major/minor allele using genotype likelihoods  
+#-minFreq = min allele frequency for site
+#-minInd = min individuals with data
+#-minQ,-minMapQ = min base and map quality
+#-b = specify bamlist
+#-ref = reference genome
+#-out = name outputs
+#-nThreads = number threads
+
+# this calculates the distance matrix, include the outgroup
+angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 28 -minQ 30 -minMapQ 30 -b bamlist_outgroup -ref $ref -out bamlist_outgroup -nThreads 10
+```
+
+### 2. Covariance matrix
+
+```bash
+# load angsd module
+module purge
+module load angsd/0.935
+
+# set ref genome as a variable
+ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
+
+
+# load modules and declare variables as above
+# this calculates the covariance matrix, exclude the outgroup
+angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 27 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10
+```
+
+### 3. Heterozygosity
+
+```bash
+# set files as variables
+input='/scratch/scw2141/BEARCAVE2/mappedberus_chr7/xxx+adderxx_ber_berus_chr7_.xxxxx.bam'
+output='adderxx_het'
+# We need to specify the ancestral allele, use fasta generated from bosniensis outgroup
+bos='/scratch/scw2141/bosniensis_chr7/bosniensis_chr7.fa'
+
+# depth variables
+max=20
+min=3
+
+# estimate genotype likelihoods
+# -i = input file
+# -doSaf = per-site allele frequencies
+# -GL = genotype likelihood model
+# -P = number threads
+# -anc = outgroup, to identify ancestral allele
+#-minQ,-minMapQ = min base and map quality
+# -setMinDepthInd, -setMaxDepthInd = max and min depth filters
+angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $bos -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
+
+# calculate sfs
+# -nSites = sliding window size
+# -P = no threads
+realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
+```
+
+### 3. Your turn :)
+
+- Make a separate slurm job scripts (somewhere in your home directory) for each analysis shown above (3 total) 
+- make a bamlist in the same directory
+- direct stdout and errors to your chosen location in your home directory
+- adjust SBATCH to appropriate paths and filenames
+- Use 10Gb RAM, 10 CPUs, and run for 40 mins
+- Check results
+- Look at your *.ibs.gz file and count the lines
+
+## Intro to basic `R` commands
+
+```{r, eval=FALSE, echo=TRUE}
+# R is just a big calculator
+1+1
+
+# make an object
+my_sum <- 1+1
+
+# vectors
+my_vec <- c(1,2,3,4)
+
+# functions
+length(my_vec)
+
+# plotting
+my_vec2 <- c(1,2,3,4) # geenrate data
+plot(my_vec, my_vec2)
+plot(c(1,2,3,4), c(4,3,2,1))
+
+# sample from a normal distribution
+rnorm(500, 10, 1)
+
+# histogram
+hist(rnorm(500, 10, 1))
+
+# read in data as a dataframe
+my_liz <- read.table("lizard_data.txt", header=TRUE)
+
+# isolate svl data
+my_liz$svl
+```
+
+### Your turn
+
+- Draw a histogram of lizard body width
+- Draw a scatterplot of svl vs width
+- Calculate means and standard deviations for each variable
+- If you have finished early, try out ways to make your plots more attractive
+
+
+## Pretty maps
+
+```{r, out.width = "70%", fig.width = 6, fig.height = 5, eval = FALSE}
+
+# load libraries
+library(rworldmap)
+library(sf)
+
+# read in the data
+adders <- read.csv("./assets/data/bam_info", header=T, sep="\t")
+
+# retrieve map
+map <- getMap(resolution = "low")
+
+# plot simple map
+plot(map, col="grey", border=NA,  xlim=c(-10,10), ylim=c(50,60))
+
+# add IUCN distribution as SHP file on the map
+iucn <- st_read("./assets/data/adder_distribution.shx")
+plot(st_geometry(iucn), add=TRUE, border=NA, col="slategrey")
+
+# add samples
+points(adders$lon,adders$lat)
+
+
+```
+
+### your turn
+
+- colour the points by locality group (adders$colour)
+- add labels to the map
+
+
+
+## Population genetics
+
+### 1. PCA
+
+```{r, out.width = "50%", fig.width = 4.5, fig.height = 5}
+# read in covariance matrix
+my_cov <- as.matrix(read.table("assets/data/bamlist_ingroup.covMat"))
+
+# do PCA
+my_pca <- eigen(my_cov)
+
+# plot
+plot(my_pca$vectors[,1], my_pca$vectors[,2])
+```
+
+### 2. NJ tree
+
+```{r, out.width = "50%", fig.width = 4.5, fig.height = 4}
+# we use the ape library
+library(ape)
+
+# read in matrix
+my_mat <- as.matrix(read.table("./assets/data/bamlist_outgroup.ibsMat"))
+
+# compute tree
+my_tree <- nj(my_mat)
+
+# plot
+my_root <- root(my_tree, outgroup=28)
+plot(my_root)
+```
+
+### 3. Heterozygosity
+
+```{r, out.width = "50%", fig.width = 4.5, fig.height = 4}
+my_sfs <- read.table("./assets/data/adder01_het.window.sfs")
+hist(my_sfs$V2/100)
+
+plot(1:length(my_sfs$V2), my_sfs$V2/100)
+```
+
+### Your turn
+
+Each plot is in its most basic form. Spend some time trying to improve each one to your liking
+
