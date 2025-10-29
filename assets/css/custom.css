@@ -20,6 +20,15 @@ p.caption {
   font-size: 0.6em !important
 }
 
+/* Change inline code font */
+code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.95em;
+  color: #823030; /* optional, adds color */
+  background-color: #f9f9f9; /* subtle background */
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
 
 
 /* this is the grey bar that the title logo sits in*/
@@ -102,7 +111,7 @@ p, li {
 }
 
 ul li {
-    margin-bottom: 20px; /* Adjust the space between each list item */
+    margin-bottom: 10px; /* Adjust the space between each list item */
 }
 
 ol li {

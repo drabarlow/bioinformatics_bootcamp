@@ -198,19 +198,9 @@ include_graphics("./assets/img/Gnu-bash-logo.svg.png")
 include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
 ```
 
-
-# AI
-
-## A note on AI in Bioinformatics
-
-- AI tools are becoming increasingly common in bioinformatics
-- It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy)
-- Different models are better or worse for different tasks (ChatGPT is not great at programming, Claude is better ime)
-
 # Supercomputing Wales and slurm
 
-
-## Supercomputing Wales
+## Supercomputing Wales (SCW) {.white-slide}
 
 - £16m investment, part-funded by the European Regional Development Fund (ERDF) through Welsh Government
 - Provide university research teams access to HPC (High Performance Computing)
@@ -218,58 +208,82 @@ include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
 - 2 Supercomputers:
   - Cardiff HPC System - Hawk
   - Swansea HPC System - Sunbird
-- Hawk: 280 nodes, 12,736 cores, 68.224 TB memory
-- (yours: 1 node, 4-16 cores, 16-96 Gb memory)
+- Hawk: >300 nodes, >20,000 cores, >100 TB memory
 
-```{r, out.width = "80%"}
-include_graphics("./assets/img/lgo_supercomputingWales-1.png")
-```
+<div style="display: flex; align-items: flex-start;">
 
+<div style="flex: 0 0 60%;">
+- (yours: 1 node, 4-16 cores, 8-32 Gb memory)
+</div>
 
+<div style="flex: 1; margin-left: 15px;">
+<img src="./assets/img/lgo_supercomputingWales-1.png" style="width:100%;">
+</div>
+
+</div>
 
 ## Hawk (soon to be retired! Followed by Falcon)
 
-- Scientific linux OS
-- **compute nodes**
-  - 134x Intel nodes with 20 cpus + 192 Gb RAM each
-  - 64x AMD nodes with 32 cpus + 256 Gb RAM each
-- **high memory nodes**
-  - 26 nodes with 384 Gb RAM each
-- **GPU nodes**
-  - 26 Nvidia P100 GPUs on 13 nodes
-  - 30 Nvidia V100 GPUs on 15 nodes
-- **Storage**
-  - 1192TB (usable) scratch space
-  - 420TB of home directory space
-
-
-## Hawk users
-
-- Anyone in consortium Universities
-- Guests possible, with some restrictions
-- Ability to set up shared projects
-- Generally max 10 running jobs (ways around it)
-- Three day max runtime (ways around it)
-- Generally ~50 Gb home dir
-- Generally 3 Tb scratch space (currently an issue)
-- Uses `Slurm` job scheduler
-- Many programs installed as `modules`
-- No super user access
-- Can seek help from eResearch manager Ade Fewings (a.fewings@bangor.ac.uk)
-
-
-```{r, out.width = "70%"}
-include_graphics("./assets/img/Untitled.jpeg")
+```{r, out.height = 500, out.width = "auto", fig.align='center'}
+include_graphics("./assets/img/hawk.png")
 ```
 
 
+## Hawk
+
+- **Computational nodes**
+  - \>134x Intel nodes with 40 cpus + 192 Gb RAM each
+  - \>64x AMD nodes with 64 cpus + 256 Gb RAM each
+  - \>26x Highmem nodes with 384 Gb RAM each
+  - \>28x Nvidia GPU nodes
+- **Storage space**
+  - 1192TB (usable) scratch space
+  - 420TB of home directory space
+- **Access**
+  - Multi-factor authentication (MFA)
+  - SSH jump host
+
+## Hawk
+
+- **Scientific Linux OS**
+  - Command-line only (ssh)
+  - File transfer using `scp`
+- **Space & quota**
+  - Home directory (small, persistent): 50Gb
+  - Scratch space (bigger, temporary): SCW projects, few Tb
+  - Max 10 active jobs, max 30 in the queue
+  - Max 3 day runtime
+
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 0 0 80%;">
+- **Support**
+  - Online documentation <https://www.supercomputing.wales/>
+  - eResearch manager Ade Fewings (a.fewings@bangor.ac.uk)
+</div>
+
+<div style="flex: 1; margin-left: 15px;">
+<img src="./assets/img/Untitled.jpeg" style="width:100%;">
+</div>
+
+</div>
+
+
+## SCW Usage
+
+- Access through SSH jump host
+- Command-line only (via `ssh`)
+- File transfer using `scp` or `sftp`
+- Job submission using `slurm` job scheduler
+- Many software installed as `modules`
+- No super user access
 
 ## Filesystem
 
 - `/` [root] is uppermost level of filesystem
 - Everything is contained in `/`
 - Directories exist within the filesystem, they can contain files and other directories
-- We specify a path through this hierarchy using forward-slashes (note back-slashes on `DOS`)
+- We specify a path through this hierarchy using forward-slashes
 - Our current directory is called the `working directory`
 
 ```bash
@@ -281,7 +295,6 @@ include_graphics("./assets/img/Untitled.jpeg")
 
 
 ## Slurm
-
 
 - Simple Linux Utility for Resource Management: `Slurm`
 - Free open source job scheduler for linux systems
@@ -297,8 +310,22 @@ include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
 
-# Illumina data
+# AI
 
+## A brief note on AI in Bioinformatics
+
+- AI tools are becoming increasingly common in bioinformatics
+- It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy, privacy...)
+- Different models are better or worse for different tasks (ChatGPT 4 is not great at programming)
+
+## A brief note on AI in Bioinformatics
+
+<video width="100%" controls style="display:block; margin:auto; border-radius:12px;">
+  <source src="assets/img/simplescreenrecorder-2025-10-29_11.10.09.mp4" type="video/mp4">
+</video>
+
+
+# Illumina data
 
 
 ## Illumina sequencing platforms
@@ -311,13 +338,15 @@ include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 
 ## Data output
 
-|Platform | Million reads | Read length | Gb data | Genome coverage
-||||
-MiniSeq|25|2 x 150 bp|7.5|2
-MiSeq|25|2 x 300 bp|15|4
-NextSeq|400|2 x 150 bp|120|33
-HiSeq X|6000|2 x 150 bp|1800|500
-NovaSeq|20000|2 x 150 bp|6000|1667
+|Platform | Million reads | Read length | Gb data | Genome coverage|
+|---|---|---|---|---|
+|iSeq|4|2 x 150 bp|1.2|0.4|
+|MiniSeq|25|2 x 150 bp|7.5|2.5|
+|MiSeq|100|2 x 500 bp|30|10|
+|Nextseq 550|400|2 x 150 bp|120|40|
+|NextSeq 1000/2000|1800|2 x 300 bp|540|180|
+|NovaSeq 6000|20000|2 x 250 bp|3000|1000|
+|NovaSeq X|52000|2 x 150 bp|8000|2667|
 
 
 
