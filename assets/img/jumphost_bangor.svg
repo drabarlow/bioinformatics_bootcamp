@@ -63,12 +63,12 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.18147233"
-     inkscape:cx="647.48163"
-     inkscape:cy="424.30711"
-     inkscape:window-width="1920"
-     inkscape:window-height="988"
-     inkscape:window-x="3600"
+     inkscape:zoom="0.76603592"
+     inkscape:cx="893.56123"
+     inkscape:cy="545.66632"
+     inkscape:window-width="2560"
+     inkscape:window-height="1348"
+     inkscape:window-x="2560"
      inkscape:window-y="28"
      inkscape:window-maximized="1"
      inkscape:current-layer="g8" />
@@ -91,9 +91,9 @@
        transform="matrix(2.8362927,0,0,2.8362927,971.05389,-2590.2822)"><tspan
          x="243.2832"
          y="1148.791"
-         id="tspan795"><tspan
+         id="tspan6635"><tspan
            style="font-weight:normal;font-family:monospace;-inkscape-font-specification:monospace;text-align:start;fill:#7a0000"
-           id="tspan793">2</tspan></tspan></text>
+           id="tspan6633">2</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text4501"
@@ -103,9 +103,9 @@
        transform="translate(36.169247,-21.080667)"><tspan
          x="243.2832"
          y="1148.791"
-         id="tspan799"><tspan
+         id="tspan6639"><tspan
            style="font-weight:normal;font-family:monospace;-inkscape-font-specification:monospace;text-align:start;fill:#7a0000"
-           id="tspan797">1. &quot;ssh jump-username@jumphost.ac.uk&quot; (MFA)</tspan></tspan></text>
+           id="tspan6637">1. &quot;ssh jump-username@jumphost.ac.uk&quot; (MFA)</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text4501-5"
@@ -115,19 +115,9 @@
        transform="matrix(2.8362927,0,0,2.8362927,78.446341,-2590.017)"><tspan
          x="243.2832"
          y="1148.791"
-         id="tspan803"><tspan
+         id="tspan6643"><tspan
            style="font-weight:normal;font-family:monospace;-inkscape-font-specification:monospace;text-align:start;fill:#7a0000"
-           id="tspan801">1</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text4501-0"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.6667px;line-height:1.18;font-family:Andika;-inkscape-font-specification:'Andika, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;white-space:pre;shape-inside:url(#rect4503-6);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:15;stroke-dasharray:none;stroke-opacity:1"
-       x="-504.45596"
-       y="0"
-       transform="translate(-145.10695,-525.09947)"><tspan
-         x="1188.0931"
-         y="1148.6275"
-         id="tspan805">1</tspan></text>
+           id="tspan6641">1</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text4501-9"
@@ -137,9 +127,9 @@
        transform="translate(28.213679,124.51822)"><tspan
          x="243.2832"
          y="1148.791"
-         id="tspan809"><tspan
+         id="tspan6647"><tspan
            style="font-weight:normal;font-family:monospace;-inkscape-font-specification:monospace;text-align:start;fill:#7a0000"
-           id="tspan807">2. &quot;ssh server-username@server.ac.uk&quot;</tspan></tspan></text>
+           id="tspan6645">2. &quot;ssh server-username@server.ac.uk&quot;</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text6187"

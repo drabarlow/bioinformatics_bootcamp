@@ -63,9 +63,6 @@ knitr::opts_chunk$set(echo = FALSE,fig.align='center')
 
 ### Axel Barlow, Lecturer in Zoology at Bangor University
 
-**Interests**
-- Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Conservation genomics of native species
-
 **Bioinformatics experience**
 
 - Self taught post-PhD
@@ -74,20 +71,25 @@ knitr::opts_chunk$set(echo = FALSE,fig.align='center')
 
 ### Johanna Paijmans, Lecturer in Zoology at Bangor University
 
-**Interests**
-- Population and evolutionary genomics of animals. Palaeogenomics of extinct animals. Drivers of population dynamics through time
-
 **Bioinformatics experience**
 
-- Self taught (by rebelling against a Linux-expert dad)
+- Self taught (rebelling against a Linux-expert dad)
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
+
+
+## Introductions
+
+
+```{r, out.width = "70%"}
+include_graphics("./assets/img/ax-vs-jo.svg")
+```
 
 
 # Unix-like systems and bash
 
 
-## Unix {.columns-2}
+## Unix {.columns-2 .white-slide}
 
 
 - Operating system developed in 1969 by Bell Labs
@@ -99,7 +101,7 @@ knitr::opts_chunk$set(echo = FALSE,fig.align='center')
 - A shell for executing and combining tools
 - The basis of many subsequent OS
 
-<br> 
+<br>
 
 ```{r, out.width = "40%"}
 include_graphics("./assets/img/Operating_system_placement.svg.png")
@@ -129,7 +131,7 @@ include_graphics("./assets/img/unix-an-open-group-standard.png")
 
 - 21 year old Linus Torvalds coded a Unix inspired OS in 1991
 - Free and open source
-- The core linux kernal available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
+- The core linux kernel available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
 
 
 ```{r, out.width = "90%"}
@@ -164,8 +166,8 @@ include_graphics("./assets/img/StartingMsdos.png")
 
 ## OS comparison
 
-||Windows|Mac|Linux|
-|-------|---|-----|
+| |Windows|Mac|Linux|
+|---|-------|---|-----|
 |standard PC functions|yes|yes|yes|
 |cost|yes|yes|free|
 |hardware choice|yes|no|yes|
@@ -269,7 +271,7 @@ include_graphics("./assets/img/hawk.png")
 </div>
 
 
-## SCW Usage
+## Hawk usage
 
 - Command-line only (via `ssh`)
 - Access through SSH jump host
@@ -291,7 +293,6 @@ include_graphics("./assets/img/jumphost.png")
 ```
 
 ## SSH via jump host
-
 
 ```{r, out.width = "100%"}
 include_graphics("./assets/img/jumphost_bangor.svg")
@@ -346,13 +347,21 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
+## Copying files via SCP
+
+```{r, out.width = "100%"}
+include_graphics("./assets/img/jumphost_backwards.svg")
+```
+
 
 # AI
 
 ## A brief note on AI in Bioinformatics
 
-- AI tools are becoming increasingly common in bioinformatics
+- AI tools are becoming increasingly common in bioinformatics (and everywhere else)
+
 - It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy, privacy...)
+
 - Different models are better or worse for different tasks (ChatGPT 4 is not great at programming)
 
 ## A brief note on AI in Bioinformatics

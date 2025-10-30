@@ -14,28 +14,22 @@ knitr::opts_chunk$set(echo = TRUE, dpi = 300)
 ### 1. Logging on to SCW
 
 - Consult guide from Ade Fewings: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
-- Windows users need to download a SSH client. We will use MobaXterm portable edition: https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip
+- Windows users need to download the Windows Subsystem for Linux (WSL) (other solutions exist)
 - Linux and Mac users can just ssh from the terminal
-- Note your bangor_username and hawk_username are different
-- bangor_username has you normal password
+- Note your bangor_username for the ssh server and hawk_username are different
+- bangor_username has your normal password with MFA
 - hawk_username password (suggest no special characters) can be set at: https://scw.bangor.ac.uk/en-gb/
 
 ```bash
-# Windows
-# Unzip and open the downloaded MobaXterm executable
-# In MobaXterm, click on the 'Session' icon at the top left.
-# Choose 'SSH' as the session type.
-# In the 'Remote host' field, enter ssh.bangor.ac.uk
-# Login using your Bangor username with MFA
-# initiate an SSH connection to the Hawk supercomputer:
-
-ssh hawk_username@hawklogin.cf.ac.uk
-
-# Linux/Mac
+# Linux/Mac/WSL
 # Open a terminal
 
-ssh bangor_username@ssh.bangor.ac.uk
-ssh hawk_username@hawklogin.cf.ac.uk
+ssh you25usr@ssh.bangor.ac.uk
+ssh b.you25usr@hawklogin.cf.ac.uk
+
+# ! advanced option: all-in-one
+ssh -J you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk
+
 ```
 
 ### 2. Basic bash commands
@@ -125,6 +119,7 @@ exit
 
 ```
 
+
 ### 3. Your turn :)
 
 - Count number of scaffold names in the Alligator genome
@@ -133,7 +128,7 @@ exit
 - Count the number of bases in the first line of DNA sequence (i.e. line 2)
 - Work out the genome size (don't worry about newline characters in your base counts for now)
 - If you are finished early, you can find a genome of your choice to play around with
-- Or... look at setting up a jump host and data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
+- Or... advanced! look at setting up a jump host and data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
 
 ### 4. Basic bash commands 2
 
@@ -317,6 +312,9 @@ done
 
 ## Supercomputing Wales and slurm
 
+
+
+
 ### 1. Filesystem
 
 ```bash
@@ -498,6 +496,32 @@ cd
 
 ---
 
+
+### 6. Copying files 
+
+```
+# on hawk: make a small file
+echo "copying is awesome!" > copy.txt
+
+# check the small file
+cat copy.txt
+
+# open a new terminal from your local PC & log into the ssh jump host
+ssh you25usr@ssh.bangor.ac.uk
+
+# copy the file from hawk to bangor ssh server
+scp b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+
+# log out of bangor ssh server
+exit
+
+# copy the file from bangor ssh server to your local PC
+scp you25usr@ssh.bangor.ac.uk:/home/b.you25usr/copy.txt .
+
+# !Advanced! all-in-one
+scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+
+```
 ## Illumina data processing
 
 ### 1. Fastq file format
