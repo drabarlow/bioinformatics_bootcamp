@@ -20,6 +20,9 @@ library(knitr)
 library(ape)
 
 knitr::opts_chunk$set(echo = FALSE,fig.align='center')
+
+#<div style="text-align: right;">📝</div>
+
 ```
 
 
@@ -63,15 +66,11 @@ knitr::opts_chunk$set(echo = FALSE,fig.align='center')
 
 ### Axel Barlow, Lecturer in Zoology at Bangor University
 
-**Bioinformatics experience**
-
 - Self taught post-PhD
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
 
 ### Johanna Paijmans, Lecturer in Zoology at Bangor University
-
-**Bioinformatics experience**
 
 - Self taught (rebelling against a Linux-expert dad)
 - No proper bioinformatics/computer science background
@@ -89,7 +88,7 @@ include_graphics("./assets/img/ax-vs-jo.svg")
 # Unix-like systems and bash
 
 
-## Unix {.columns-2 .white-slide}
+## Unix {.flex-cols .white-slide}
 
 
 - Operating system developed in 1969 by Bell Labs
@@ -101,16 +100,11 @@ include_graphics("./assets/img/ax-vs-jo.svg")
 - A shell for executing and combining tools
 - The basis of many subsequent OS
 
-<br>
 
-```{r, out.width = "40%"}
+```{r, out.width = 200}
+include_graphics("./assets/img/unix-an-open-group-standard.png")
 include_graphics("./assets/img/Operating_system_placement.svg.png")
 ```
-
-```{r, out.width = "70%"}
-include_graphics("./assets/img/unix-an-open-group-standard.png")
-```
-
 
 
 ## Unix
@@ -125,20 +119,37 @@ include_graphics("./assets/img/unix-an-open-group-standard.png")
 
 - Released 1984
 - Developed from NeXTSTEP, which is developed from Unix
-- Proprietary, only available with Apple hardware
+- Proprietary, Apple hardware only
 
 **Linux**
 
 - 21 year old Linus Torvalds coded a Unix inspired OS in 1991
 - Free and open source
-- The core linux kernel available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
+- Many distributions of the Linux Kernel: Ubuntu, Mint, Android, Tesla, etc.
 
+<br> 
 
-```{r, out.width = "90%"}
+```{r, out.width = 450}
 include_graphics("./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpeg")
 ```
 
 
+## Windows Subsystem for Linux
+
+- Released in 2016
+- Allows installation of Linux distributions (e.g. Ubuntu) within Windows 10/11
+- Provides a bash terminal and Linux environment
+- Rransfer between Windows and Linux filesystems possible
+- Essentially WSL Microsoft's admittance to Linux superiority
+- Windows: Encoding of text files is different, causing problems
+- Windows: does things without you knowing it (particularly Office!), causing problems
+
+
+```{r, out.width = 200, fig.align='right'}
+include_graphics("./assets/img/WSL.png")
+```
+
+<!--
 ## MS-DOS (Windows) {.columns-2}
 
 
@@ -161,7 +172,7 @@ include_graphics("./assets/img/Msdos-icon.svg.png")
 ```{r, out.width = "80%"}
 include_graphics("./assets/img/StartingMsdos.png")
 ```
-
+-->
 
 
 ## OS comparison
@@ -175,30 +186,29 @@ include_graphics("./assets/img/StartingMsdos.png")
 |HPC|no|no|yes|
 |open source|no|no|yes|
 |active community|no|no|yes|
-|games|yes|some|some|
 
 
-## Terminal emulators and Bash {.columns-2}
+## Terminal emulators and Bash
 
-
-- a shell allows users to execute OS tools
+<div style="display: flex; align-items: flex-start;">
+<div style="flex: 0 0 80%;">
+- A shell allows users to execute OS tools
 - Accessed using a terminal
 - Unix terminal came with the Bourne shell (`sh`), developed by Steven Bourne in 1979
 - In 1979 Brian Fox in improved version: the Bourne again shell (`bash`)
-- Most Unix-like OS use `bash` or something like it
+</div>
+<div style="flex: 1; margin-left: 15px;">
+<img src="./assets/img/Gnu-bash-logo.svg.png" style="width:100%;">
+</div>
+</div>
+
+- Most Unix-like OS (incl Mac) use `bash` or something like it
   - execute standard OS functions and installed programs
   - access filesystem
   - supports bash scripts
   - pipes, auto-completion, loops, wildcards, etc.
   
-
-```{r, out.width = "90%"}
-include_graphics("./assets/img/Gnu-bash-logo.svg.png")
-```
-
-```{r, out.width = "90%"}
-include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
-```
+<div style="text-align: right;">📝</div>
 
 # Supercomputing Wales and slurm
 
@@ -213,7 +223,6 @@ include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
 - Hawk: >300 nodes, >20,000 cores, >100 TB memory
 
 <div style="display: flex; align-items: flex-start;">
-
 <div style="flex: 0 0 60%;">
 - (yours: 1 node, 4-16 cores, 8-32 Gb memory)
 </div>
@@ -221,10 +230,9 @@ include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
 <div style="flex: 1; margin-left: 15px;">
 <img src="./assets/img/lgo_supercomputingWales-1.png" style="width:100%;">
 </div>
-
 </div>
 
-## Hawk (soon to be retired! Followed by Falcon)
+## Hawk
 
 ```{r, out.height = 500, out.width = "auto", fig.align='center'}
 include_graphics("./assets/img/hawk.png")
@@ -316,6 +324,27 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 
 <span style="font-size: 150%;"> ***Raise your hand if you are having issues*** 🙌</span> 
 
+<div style="text-align: right;">📝</div>
+
+
+
+# AI
+
+## A brief note on AI in Bioinformatics
+
+- AI tools are becoming increasingly common in bioinformatics (and everywhere else)
+
+- It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy, privacy...)
+
+- Different models are better or worse for different tasks (e.g. I find ChatGPT 4 is not great at programming)
+
+## A brief note on AI in Bioinformatics
+
+<video width="100%" controls style="display:block; margin:auto; border-radius:12px;">
+  <source src="assets/img/simplescreenrecorder-2025-10-29_11.10.09.mp4" type="video/mp4">
+</video>
+
+
 ## Filesystem
 
 - `/` [root] is uppermost level of filesystem
@@ -330,6 +359,8 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 ```
 - We can navigate through the filesystem (change working directory)
 - Or we can specify the patch to directories or files remotely
+
+<div style="text-align: right;">📝</div>
 
 
 ## Slurm 
@@ -347,32 +378,17 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
-## Copying files via SCP
+<div style="text-align: right;">📝</div>
+
+## Copying files via SCP {.white-slide}
 
 ```{r, out.width = "100%"}
 include_graphics("./assets/img/jumphost_backwards.svg")
 ```
 
-
-# AI
-
-## A brief note on AI in Bioinformatics
-
-- AI tools are becoming increasingly common in bioinformatics (and everywhere else)
-
-- It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy, privacy...)
-
-- Different models are better or worse for different tasks (ChatGPT 4 is not great at programming)
-
-## A brief note on AI in Bioinformatics
-
-<video width="100%" controls style="display:block; margin:auto; border-radius:12px;">
-  <source src="assets/img/simplescreenrecorder-2025-10-29_11.10.09.mp4" type="video/mp4">
-</video>
-
+<div style="text-align: right;">📝</div>
 
 # Illumina data
-
 
 ## Illumina sequencing platforms
 

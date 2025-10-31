@@ -501,7 +501,7 @@ cd
 
 ```
 # on hawk: make a small file
-echo "copying is awesome!" > copy.txt
+echo "scp'ing is awesome!" > copy.txt
 
 # check the small file
 cat copy.txt
