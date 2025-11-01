@@ -554,6 +554,8 @@ less /scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa
 - What is the read length?
 - What can you surmise about the arrangement of R1 and R2 data, and how do you explain the file sizes?
 
+NOTE: if you haven't been able to finish this section when we move on, just continue with the next section and we will make sure there's time at the end of the day to get you caught up.
+
 ### 3. BEARCAVE script: trim and merge
 
 ```bash

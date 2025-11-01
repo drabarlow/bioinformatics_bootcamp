@@ -119,14 +119,13 @@ include_graphics("./assets/img/Operating_system_placement.svg.png")
 
 - Released 1984
 - Developed from NeXTSTEP, which is developed from Unix
-- Proprietary, Apple hardware only
+- Proprietary, only available with Apple hardware
 
 **Linux**
 
 - 21 year old Linus Torvalds coded a Unix inspired OS in 1991
 - Free and open source
-- Many distributions of the Linux Kernel: Ubuntu, Mint, Android, Tesla, etc.
-
+- The core linux kernel available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
 <br> 
 
 ```{r, out.width = 450}
@@ -134,24 +133,7 @@ include_graphics("./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpe
 ```
 
 
-## Windows Subsystem for Linux
-
-- Released in 2016
-- Allows installation of Linux distributions (e.g. Ubuntu) within Windows 10/11
-- Provides a bash terminal and Linux environment
-- Rransfer between Windows and Linux filesystems possible
-- Essentially WSL Microsoft's admittance to Linux superiority
-- Windows: Encoding of text files is different, causing problems
-- Windows: does things without you knowing it (particularly Office!), causing problems
-
-
-```{r, out.width = 200, fig.align='right'}
-include_graphics("./assets/img/WSL.png")
-```
-
-<!--
-## MS-DOS (Windows) {.columns-2}
-
+## MS-DOS (Windows) {.flex-cols}
 
 - Developed by Microsoft, released 1981
 - Main OS for IBM PCs in 1980s
@@ -165,14 +147,24 @@ include_graphics("./assets/img/WSL.png")
 - Seamless transfer between `DOS` and `Unix` not yet possible
 
 
-```{r, out.width = "80%"}
+```{r, out.width = 200}
 include_graphics("./assets/img/Msdos-icon.svg.png")
-```
-
-```{r, out.width = "80%"}
 include_graphics("./assets/img/StartingMsdos.png")
 ```
--->
+
+
+## Windows Subsystem for Linux
+
+- Released in 2016
+- Allows installation of Linux distributions (e.g. Ubuntu) within Windows 10/11
+- Provides a bash terminal and Linux environment
+- Transfer between Windows and Linux filesystems possible
+- Essentially WSL is Microsoft's admittance to Linux superiority
+
+
+```{r, out.width = 200, fig.align='right'}
+include_graphics("./assets/img/WSL.png")
+```
 
 
 ## OS comparison
@@ -186,32 +178,37 @@ include_graphics("./assets/img/StartingMsdos.png")
 |HPC|no|no|yes|
 |open source|no|no|yes|
 |active community|no|no|yes|
+|games|yes|no|no|
 
 
 ## Terminal emulators and Bash
 
-<div style="display: flex; align-items: flex-start;">
-<div style="flex: 0 0 80%;">
-- A shell allows users to execute OS tools
+*** =left
+
+- a shell allows users to execute OS tools
 - Accessed using a terminal
 - Unix terminal came with the Bourne shell (`sh`), developed by Steven Bourne in 1979
 - In 1979 Brian Fox in improved version: the Bourne again shell (`bash`)
-</div>
-<div style="flex: 1; margin-left: 15px;">
-<img src="./assets/img/Gnu-bash-logo.svg.png" style="width:100%;">
-</div>
-</div>
-
-- Most Unix-like OS (incl Mac) use `bash` or something like it
+- Most Unix-like OS use `bash` or something like it
   - execute standard OS functions and installed programs
   - access filesystem
   - supports bash scripts
   - pipes, auto-completion, loops, wildcards, etc.
   
-<div style="text-align: right;">📝</div>
+*** =right
+
+```{r, out.width = "90%", dpi = 300, fig.align = "center", echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/Gnu-bash-logo.svg.png")
+```
+
+```{r, out.width = "90%", dpi = 300, fig.align = "center", echo = FALSE, fig.cap=""}
+include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
+```
+
 
 # Supercomputing Wales and slurm
 
+<!--
 ## Supercomputing Wales (SCW) {.white-slide}
 
 - £16m investment, part-funded by the European Regional Development Fund (ERDF) through Welsh Government
@@ -231,6 +228,7 @@ include_graphics("./assets/img/StartingMsdos.png")
 <img src="./assets/img/lgo_supercomputingWales-1.png" style="width:100%;">
 </div>
 </div>
+--> 
 
 ## Hawk
 
@@ -287,6 +285,11 @@ include_graphics("./assets/img/hawk.png")
 - Job submission using `slurm` job scheduler
 - Software installed as `modules`
 - No super user access
+- **Space & quota**
+  - Home directory (small, persistent): 50Gb
+  - Scratch space (bigger, temporary): SCW projects, few Tb
+  - Max 10 active jobs, max 30 in the queue
+  - Max 3 day runtime
 
 ## Secure shell (SSH)
 
@@ -360,8 +363,6 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 - We can navigate through the filesystem (change working directory)
 - Or we can specify the patch to directories or files remotely
 
-<div style="text-align: right;">📝</div>
-
 
 ## Slurm 
 
@@ -378,15 +379,11 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
-<div style="text-align: right;">📝</div>
-
 ## Copying files via SCP {.white-slide}
 
 ```{r, out.width = "100%"}
 include_graphics("./assets/img/jumphost_backwards.svg")
 ```
-
-<div style="text-align: right;">📝</div>
 
 # Illumina data
 
