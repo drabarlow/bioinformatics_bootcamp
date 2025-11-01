@@ -119,13 +119,13 @@ include_graphics("./assets/img/Operating_system_placement.svg.png")
 
 - Released 1984
 - Developed from NeXTSTEP, which is developed from Unix
-- Proprietary, only available with Apple hardware
+- Proprietary, Apple hardware only
 
 **Linux**
 
 - 21 year old Linus Torvalds coded a Unix inspired OS in 1991
 - Free and open source
-- The core linux kernel available under many distributions: Ubuntu, Mint, Arch, RedHat, Android, Tesla, etc.
+- The core linux kernel available under many distributions: Ubuntu, Mint, Arch, Android, Tesla, etc.
 <br> 
 
 ```{r, out.width = 450}
@@ -183,27 +183,23 @@ include_graphics("./assets/img/WSL.png")
 
 ## Terminal emulators and Bash
 
-*** =left
-
-- a shell allows users to execute OS tools
+<div style="display: flex; align-items: flex-start;">
+<div style="flex: 0 0 80%;">
+- A shell allows users to execute OS tools
 - Accessed using a terminal
 - Unix terminal came with the Bourne shell (`sh`), developed by Steven Bourne in 1979
 - In 1979 Brian Fox in improved version: the Bourne again shell (`bash`)
-- Most Unix-like OS use `bash` or something like it
+</div>
+<div style="flex: 1; margin-left: 15px;">
+<img src="./assets/img/Gnu-bash-logo.svg.png" style="width:100%;">
+</div>
+</div>
+
+- Most Unix-like OS (incl Mac) use `bash` or something like it
   - execute standard OS functions and installed programs
   - access filesystem
   - supports bash scripts
   - pipes, auto-completion, loops, wildcards, etc.
-  
-*** =right
-
-```{r, out.width = "90%", dpi = 300, fig.align = "center", echo = FALSE, fig.cap=""}
-include_graphics("./assets/img/Gnu-bash-logo.svg.png")
-```
-
-```{r, out.width = "90%", dpi = 300, fig.align = "center", echo = FALSE, fig.cap=""}
-include_graphics("./assets/img/Screenshot from 2023-10-02 09-39-05.png")
-```
 
 
 # Supercomputing Wales and slurm
