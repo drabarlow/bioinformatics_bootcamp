@@ -363,29 +363,24 @@ display: none;
 <h3>1. Logging on to SCW</h3>
 <ul>
 <li>Consult guide from Ade Fewings: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
-<li>Windows users need to download a SSH client. We will use MobaXterm
-portable edition: <a href="https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip" class="uri">https://download.mobatek.net/2432024101610907/MobaXterm_Portable_v24.3.zip</a></li>
+<li>Windows users need to download the Windows Subsystem for Linux (WSL)
+(other solutions exist)</li>
 <li>Linux and Mac users can just ssh from the terminal</li>
-<li>Note your bangor_username and hawk_username are different</li>
-<li>bangor_username has you normal password</li>
+<li>Note your bangor_username for the ssh server and hawk_username are
+different</li>
+<li>bangor_username has your normal password with MFA</li>
 <li>hawk_username password (suggest no special characters) can be set
 at: <a href="https://scw.bangor.ac.uk/en-gb/" class="uri">https://scw.bangor.ac.uk/en-gb/</a></li>
 </ul>
-<pre class="bash"><code># Windows
-# Unzip and open the downloaded MobaXterm executable
-# In MobaXterm, click on the &#39;Session&#39; icon at the top left.
-# Choose &#39;SSH&#39; as the session type.
-# In the &#39;Remote host&#39; field, enter ssh.bangor.ac.uk
-# Login using your Bangor username with MFA
-# initiate an SSH connection to the Hawk supercomputer:
-
-ssh hawk_username@hawklogin.cf.ac.uk
-
-# Linux/Mac
+<pre class="bash"><code># Linux/Mac/WSL
 # Open a terminal
 
-ssh bangor_username@ssh.bangor.ac.uk
-ssh hawk_username@hawklogin.cf.ac.uk</code></pre>
+ssh you25usr@ssh.bangor.ac.uk
+ssh b.you25usr@hawklogin.cf.ac.uk
+
+# ! advanced option: all-in-one
+ssh -J you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk
+</code></pre>
 </div>
 <div id="basic-bash-commands" class="section level3">
 <h3>2. Basic bash commands</h3>
@@ -487,8 +482,8 @@ exit
 your base counts for now)</li>
 <li>If you are finished early, you can find a genome of your choice to
 play around with</li>
-<li>Or… look at setting up a jump host and data transfer to your local
-PC: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
+<li>Or… advanced! look at setting up a jump host and data transfer to
+your local PC: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
 </ul>
 </div>
 <div id="basic-bash-commands-2" class="section level3">
@@ -533,28 +528,6 @@ composition (number of A, T, G, C)</li>
 calculate base composition of the entire genome ignoring header
 lines?</li>
 </ul>
-<pre class="bash"><code># extracting the scaffold
-head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 &gt; scaffold_1.txt
-
-# Axel&#39;s solution using sed. Slow!
-# sed &#39;s/./\0\n/g&#39; enters newline after each character
-sed &#39;s/./\0\n/g&#39; scaffold_1.txt | sort | uniq -c
-
-# Jeronimo et al&#39;s method using greps, faster!
-# -o print all matches
-# -i case insensitive
-grep -o -i a scaffold_1.txt
-grep -o -i t scaffold_1.txt
-grep -o -i g scaffold_1.txt
-grep -o -i c scaffold_1.txt
-
-# Ruby&#39;s method using tr, Fastest!
-# -c complement, find opposite of match
-# -d delete
-tr -cd &#39;Aa&#39; &lt; scaffold_1.txt | wc -c
-tr -cd &#39;Tt&#39; &lt; scaffold_1.txt | wc -c
-tr -cd &#39;Gg&#39; &lt; scaffold_1.txt | wc -c
-tr -cd &#39;Cc&#39; &lt; scaffold_1.txt | wc -c</code></pre>
 </div>
 <div id="bash-scripts" class="section level3">
 <h3>6. Bash scripts</h3>
@@ -868,6 +841,30 @@ cd
 # To a file named with your name, here:
 /scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/</code></pre>
 <hr />
+<div id="copying-files" class="section level3">
+<h3>6. Copying files</h3>
+<pre><code># on hawk: make a small file
+echo &quot;scp&#39;ing is awesome!&quot; &gt; copy.txt
+
+# check the small file
+cat copy.txt
+
+# open a new terminal from your local PC &amp; log into the ssh jump host
+ssh you25usr@ssh.bangor.ac.uk
+
+# copy the file from hawk to bangor ssh server
+scp b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+
+# log out of bangor ssh server
+exit
+
+# copy the file from bangor ssh server to your local PC
+scp you25usr@ssh.bangor.ac.uk:/home/b.you25usr/copy.txt .
+
+# !Advanced! all-in-one
+scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+</code></pre>
+</div>
 </div>
 <div id="illumina-data-processing" class="section level2">
 <h2>Illumina data processing</h2>
@@ -901,6 +898,9 @@ less /scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa</code></pre>
 <li>What can you surmise about the arrangement of R1 and R2 data, and
 how do you explain the file sizes?</li>
 </ul>
+<p>NOTE: if you haven’t been able to finish this section when we move
+on, just continue with the next section and we will make sure there’s
+time at the end of the day to get you caught up.</p>
 </div>
 <div id="bearcave-script-trim-and-merge" class="section level3">
 <h3>3. BEARCAVE script: trim and merge</h3>
