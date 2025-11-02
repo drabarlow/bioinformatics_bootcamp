@@ -253,7 +253,7 @@ include_graphics("./assets/img/hawk.png")
   - Command-line only (ssh)
   - File transfer using `scp`
 - **Space & quota**
-  - Home directory (small, persistent): 50Gb
+  - Home directory (small, persistent): 100Gb
   - Scratch space (bigger, temporary): SCW projects, few Tb
   - Max 10 active jobs, max 30 in the queue
   - Max 3 day runtime
