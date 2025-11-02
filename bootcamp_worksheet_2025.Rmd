@@ -23,8 +23,10 @@ knitr::opts_chunk$set(echo = TRUE, dpi = 300)
 ```bash
 # Linux/Mac/WSL
 # Open a terminal
-
 ssh you25usr@ssh.bangor.ac.uk
+# enter your bangor password and complete MFA
+
+# from bangor ssh server, log into hawk
 ssh b.you25usr@hawklogin.cf.ac.uk
 
 # ! advanced option: all-in-one
@@ -458,7 +460,7 @@ pigz -p 8 ../ASM28112v4_HiC.fasta
 echo "job complete"
 ```
 
-## New for 2024: paths of glory game :)
+## Paths of glory game :)
 
 ```bash
 # start in your home
@@ -494,6 +496,11 @@ exit
 
 # copy the file from bangor ssh server to your local PC
 scp you25usr@ssh.bangor.ac.uk:/home/b.you25usr/copy.txt .
+
+# for WSL users: if you move the file to your Windows filesystem, you can edit in Notepad etc
+# your windows filesystem can be found in the WSL in the following path:
+/mnt/c/Users/your_windows_username/
+
 
 # !Advanced! all-in-one
 scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
