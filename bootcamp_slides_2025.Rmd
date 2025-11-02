@@ -210,7 +210,7 @@ include_graphics("./assets/img/WSL.png")
   - pipes, auto-completion, loops, wildcards, etc.
 
 
-# Supercomputing Wales and slurm
+# Supercomputing Wales
 
 <!--
 ## Supercomputing Wales (SCW) {.white-slide}
