@@ -251,14 +251,26 @@ include_graphics("./assets/img/hawk.png")
 - **Storage space**
   - 1192TB (usable) scratch space
   - 420TB of home directory space
-- **Access**
-  - Multi-factor authentication (MFA)
-  - SSH jump host
 
+<div style="display: flex; align-items: flex-start;">
+
+<div style="flex: 0 0 80%;">
+- **Support**
+  - Online documentation <https://www.supercomputing.wales/>
+  - eResearch manager Ade Fewings (a.fewings@bangor.ac.uk)
+</div>
+
+<div style="flex: 1; margin-left: 15px;">
+<img src="./assets/img/Untitled.jpeg" style="width:100%;">
+</div>
+
+</div>
+
+<!--
 ## Hawk
 
 - **Scientific Linux OS**
-  - Command-line only (ssh)
+  - Command-line only (`ssh`)
   - File transfer using `scp`
 - **Space & quota**
   - Home directory (small, persistent): 100Gb
@@ -279,7 +291,7 @@ include_graphics("./assets/img/hawk.png")
 </div>
 
 </div>
-
+-->
 
 ## Hawk usage
 
