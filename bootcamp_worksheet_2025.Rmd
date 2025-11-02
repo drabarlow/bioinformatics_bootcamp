@@ -449,6 +449,7 @@ sbatch account=scw1234 job_script.sh
 - Specify 1 node, 8 cpus, 16Gb RAM, 1 hour
 - Submit job to queue
 
+<!--
 ## Example alligator script
 
 ```bash
@@ -484,6 +485,7 @@ pigz -p 8 ../ASM28112v4_HiC.fasta
 
 echo "job complete"
 ```
+--> 
 
 ## Paths of glory game :)
 

@@ -822,11 +822,11 @@ doing the computation</li>
 <li>Specify 1 node, 8 cpus, 16Gb RAM, 1 hour</li>
 <li>Submit job to queue</li>
 </ul>
-</div>
-</div>
-<div id="example-alligator-script" class="section level2">
-<h2>Example alligator script</h2>
-<pre class="bash"><code>#!/bin/bash --login
+<!--
+## Example alligator script
+
+```bash
+#!/bin/bash --login
 ###
 #job name
 #SBATCH --job-name=gator
@@ -851,12 +851,15 @@ module load pigz
 unpigz -p 8 ../ASM28112v4_HiC.fasta.gz
 
 # collect scaffold names
-grep &quot;&gt;&quot; ../ASM28112v4_HiC.fasta &gt; ../scaffold_names.txt
+grep ">" ../ASM28112v4_HiC.fasta > ../scaffold_names.txt
 
 # recompress
 pigz -p 8 ../ASM28112v4_HiC.fasta
 
-echo &quot;job complete&quot;</code></pre>
+echo "job complete"
+```
+-->
+</div>
 </div>
 <div id="paths-of-glory-game" class="section level2">
 <h2>Paths of glory game :)</h2>
