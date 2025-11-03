@@ -378,6 +378,11 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 - We can navigate through the filesystem (change working directory)
 - Or we can specify the patch to directories or files remotely
 
+## Copying files via SCP {.white-slide}
+
+```{r, out.width = "100%"}
+include_graphics("./assets/img/jumphost_backwards.svg")
+```
 
 ## Slurm 
 
@@ -394,11 +399,6 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 include_graphics("./assets/img/1024px-Slurm_logo.svg.png")
 ```
 
-## Copying files via SCP {.white-slide}
-
-```{r, out.width = "100%"}
-include_graphics("./assets/img/jumphost_backwards.svg")
-```
 
 # Illumina data
 

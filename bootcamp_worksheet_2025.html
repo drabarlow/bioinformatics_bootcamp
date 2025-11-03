@@ -716,8 +716,40 @@ ls
 # Go home
 cd ~</code></pre>
 </div>
+<div id="copying-files" class="section level3">
+<h3>2. Copying files</h3>
+<pre class="sh"><code># copying files
+cp &lt;source&gt; &lt;destination_file&gt;
+
+# on hawk: make a small file
+echo &quot;scp&#39;ing is awesome!&quot; &gt; copy.txt
+
+# check the small file
+cat copy.txt
+
+# open a new terminal from your local PC &amp; log into the ssh jump host
+ssh you25usr@ssh.bangor.ac.uk
+
+# copy the file from hawk to bangor ssh server
+scp b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+
+# log out of bangor ssh server
+exit
+
+# copy the file from bangor ssh server to your local PC
+scp you25usr@ssh.bangor.ac.uk:/home/b.you25usr/copy.txt .
+
+# for WSL users: if you move the file to your Windows filesystem, you can edit in Notepad etc
+# your windows filesystem can be found in the WSL in the following path:
+/mnt/c/Users/your_windows_username/
+
+
+# !Advanced! all-in-one
+scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+</code></pre>
+</div>
 <div id="modules" class="section level3">
-<h3>2. Modules</h3>
+<h3>3. Modules</h3>
 <pre class="bash"><code># module searching
 module avail
 module avail R
@@ -729,7 +761,7 @@ module load R/4.2.0
 module purge</code></pre>
 </div>
 <div id="slurm" class="section level3">
-<h3>3. Slurm</h3>
+<h3>4. Slurm</h3>
 <pre class="bash"><code># You are currently using the log in node. 
 # Do not run resource-intensive jobs on the log in node!
 
@@ -751,7 +783,7 @@ exit
 seff jobid</code></pre>
 </div>
 <div id="slurm-scripts" class="section level3">
-<h3>4. Slurm scripts</h3>
+<h3>5. Slurm scripts</h3>
 <ul>
 <li>Running a live terminal is not very convenient</li>
 <li>We need a way of submitting jobs to the queue: <code>slurm</code>
@@ -872,35 +904,6 @@ cd
 # To a file named with your name, here:
 /scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/</code></pre>
 <hr />
-<div id="copying-files" class="section level3">
-<h3>6. Copying files</h3>
-<pre><code># on hawk: make a small file
-echo &quot;scp&#39;ing is awesome!&quot; &gt; copy.txt
-
-# check the small file
-cat copy.txt
-
-# open a new terminal from your local PC &amp; log into the ssh jump host
-ssh you25usr@ssh.bangor.ac.uk
-
-# copy the file from hawk to bangor ssh server
-scp b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
-
-# log out of bangor ssh server
-exit
-
-# copy the file from bangor ssh server to your local PC
-scp you25usr@ssh.bangor.ac.uk:/home/b.you25usr/copy.txt .
-
-# for WSL users: if you move the file to your Windows filesystem, you can edit in Notepad etc
-# your windows filesystem can be found in the WSL in the following path:
-/mnt/c/Users/your_windows_username/
-
-
-# !Advanced! all-in-one
-scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
-</code></pre>
-</div>
 </div>
 <div id="illumina-data-processing" class="section level2">
 <h2>Illumina data processing</h2>
