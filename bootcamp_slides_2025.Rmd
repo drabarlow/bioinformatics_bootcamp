@@ -352,10 +352,10 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 ## A brief note on AI in Bioinformatics
 
 - AI tools are becoming increasingly common in bioinformatics (and everywhere else)
-
-- It's incredible powerful, but keep various considerations in mind (ethics, reproducibility, accuracy, privacy...)
-
 - Different models are better or worse for different tasks (e.g. I find ChatGPT 4 is not great at programming)
+- But you need knowledge of code, error messages, structure, logic, etc
+- Also the standard AI considerations: ethics, reproducibility, accuracy, privacy...
+
 
 ## A brief note on AI in Bioinformatics
 
