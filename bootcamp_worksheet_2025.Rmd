@@ -352,6 +352,7 @@ cd ~
 ```sh
 # copying files
 cp <source> <destination_file>
+cp sheep.txt bla/sheep_in_bla.txt
 
 # on hawk: make a small file
 echo "scp'ing is awesome!" > copy.txt
