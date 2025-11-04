@@ -380,6 +380,21 @@ scp you25usr@ssh.bangor.ac.uk:/home/b.you25usr/copy.txt .
 scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
 
 ```
+
+
+## Paths of glory game :)
+
+```bash
+# start in your home
+cd
+
+# Copy the contents of this file:
+/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
+
+# To a file named with your name, here:
+/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
+```
+
 ### 3. Modules
 
 ```bash
@@ -519,19 +534,6 @@ pigz -p 8 ../ASM28112v4_HiC.fasta
 echo "job complete"
 ```
 --> 
-
-## Paths of glory game :)
-
-```bash
-# start in your home
-cd
-
-# Copy the contents of this file:
-/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
-
-# To a file named with your name, here:
-/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
-```
 
 ---
 
