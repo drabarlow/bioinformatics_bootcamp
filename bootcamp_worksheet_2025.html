@@ -530,16 +530,14 @@ composition (number of A, T, G, C)</li>
 calculate base composition of the entire genome ignoring header
 lines?</li>
 </ul>
-<!--
-```bash
-# extracting the scaffold
-head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 > scaffold_1.txt
+<pre class="bash"><code># extracting the scaffold
+head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 &gt; scaffold_1.txt
 
-# Axel's solution using sed. Slow!
-# sed 's/./\0\n/g' enters newline after each character
-sed 's/./\0\n/g' scaffold_1.txt | sort | uniq -c
+# Axel&#39;s solution using sed. Slow!
+# sed &#39;s/./\0\n/g&#39; enters newline after each character
+sed &#39;s/./\0\n/g&#39; scaffold_1.txt | sort | uniq -c
 
-# Jeronimo et al's method using greps, faster!
+# Jeronimo et al&#39;s method using greps, faster!
 # -o print all matches
 # -i case insensitive
 grep -o -i a scaffold_1.txt
@@ -547,15 +545,13 @@ grep -o -i t scaffold_1.txt
 grep -o -i g scaffold_1.txt
 grep -o -i c scaffold_1.txt
 
-# Ruby's method using tr, Fastest!
+# Ruby&#39;s method using tr, Fastest!
 # -c complement, find opposite of match
 # -d delete
-tr -cd 'Aa' < scaffold_1.txt | wc -c
-tr -cd 'Tt' < scaffold_1.txt | wc -c
-tr -cd 'Gg' < scaffold_1.txt | wc -c
-tr -cd 'Cc' < scaffold_1.txt | wc -c
-```
--->
+tr -cd &#39;Aa&#39; &lt; scaffold_1.txt | wc -c
+tr -cd &#39;Tt&#39; &lt; scaffold_1.txt | wc -c
+tr -cd &#39;Gg&#39; &lt; scaffold_1.txt | wc -c
+tr -cd &#39;Cc&#39; &lt; scaffold_1.txt | wc -c</code></pre>
 </div>
 <div id="bash-scripts" class="section level3">
 <h3>6. Bash scripts</h3>

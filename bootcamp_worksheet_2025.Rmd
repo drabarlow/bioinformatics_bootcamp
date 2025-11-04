@@ -170,7 +170,7 @@ sed 's/./\0 /g' my_randoms.txt
 - Extract the sequence of the first scaffold and calculate the base composition (number of A, T, G, C)
 - If you are finished early, play around some more. For example can calculate base composition of the entire genome ignoring header lines?
 
-<!--
+
 ```bash
 # extracting the scaffold
 head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 > scaffold_1.txt
@@ -195,7 +195,7 @@ tr -cd 'Tt' < scaffold_1.txt | wc -c
 tr -cd 'Gg' < scaffold_1.txt | wc -c
 tr -cd 'Cc' < scaffold_1.txt | wc -c
 ```
--->
+
 
 ### 6. Bash scripts
 
