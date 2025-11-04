@@ -514,45 +514,23 @@ Short reads from a single individual can be mapped to a reference genome assembl
 ```
 
 
-
-# BEARCAVE
-
-
-## BEARCAVE
-
-- Nikolas Basler, Achim Klittich, Axel Barlow
-- An environment for organising, processing, and archiving Illumina data
-- BEARCAVE philosophy
-  - All users can access all data
-  - Avoid data redundancy
-  - All samples processed using identical software programs and parameters
-  - Incorporates sample metadata
-  - Documents results of data processing
-  - Easy to use wrapper scripts for programs
-  - Publicly available
-  - Safeguards in place to ensure consistency
-- Consequently BEARCAVE is not for everyone, and has idiosyncrasies in use
-
-
 ## Our project: adder population genomics {.flex-cols}
 
 
 - Adders (*Vipera berus berus*) widespread across northern Eurasia
 - Threatened or near-threatened in UK
-- Illumina PE data from 27 individuals
+- Illumina PE data from 47 individuals
 - Plus one outgroup (*Vipera berus bosniensis*)
-- 7 locations
+- 12 locations
 - **Our tasks**
   - Data format
   - Adapter trimming and read merging
   - Map to reference genome: chr7
 
 
-```{r, out.width = "90%"}
+```{r, out.width = 300, results='asis'}
 include_graphics("./assets/img/male.jpg")
-```
-
-```{r, out.width = "90%"}
+cat("<span style='display:inline-block; width: 30px;'></span>")
 include_graphics("./assets/img/female.jpg")
 ```
 
@@ -560,21 +538,28 @@ include_graphics("./assets/img/female.jpg")
 
 ## Adder locations
 
-sample|locality
-|
-adder01-04|Dublin
-adder05-08|Belfast
-adder09-12|Cork
-adder13-16|Limerick
-adder17-20|Galway
-adder21-24|Dundalk
-adder25-27|Bray
-adder28|outgroup
+```
+      +-------------+---------------+
+      |   Sample    |   Locality    |
+      +-------------+---------------+
+      | adder01-04  | Leeds         |
+      | adder05-08  | Wensleydale   |
+      | adder09-12  | Manchester    |
+      | adder13-16  | Caerphilly    |
+      | adder17-20  | Gouda         |
+      | adder21-24  | Stockholm     |
+      | adder25-27  | Cheddar       |
+      | adder28-31  | Huddersfield  |
+      | adder32-35  | Sheffield     |
+      | adder36-39  | Leicester     |
+      | adder40-43  | Nottingham    |
+      | adder44-47  | Stilton       |
+      | adderout    | outgroup      |
+      +-------------+---------------+
+```
 
 
 # Illumina data processing
-
-
 
 ## .fastq file format
 
@@ -595,16 +580,43 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 - Recoded as single character: F = 37; ? = 30; 5 = 20; + = 10
 
 
+
+# BEARCAVE
+
+
+## BEARCAVE
+
+- Nikolas Basler, Achim Klittich, Axel Barlow
+- An environment for organising, processing, and archiving Illumina data
+- BEARCAVE philosophy
+  - All users can access all data
+  - Avoid data redundancy
+  - All samples processed using identical software programs and parameters
+  - Incorporates sample metadata
+  - Documents results of data processing
+  - Easy to use wrapper scripts for programs
+  - Publicly available
+  - Safeguards in place to ensure consistency
+- Consequently BEARCAVE is not for everyone, and has idiosyncrasies in use
+
+
 # Adapter trimming and read merging
 
-
-## DNA fragment length distribution
+## DNA fragment length distribution {.columns-2 .white-slide}
 
 - DNA can be fragmented
 - The fragment lengths have a **distribution**
 
+<div style="height:50px;"></div>
 
-```{r, out.width = "100%", out.height = "100%", fig.width = 8, fig.height = 7, dpi = 600}
+```{r, out.width = "80%"}
+include_graphics("./assets/img/kudarensis.png")
+```
+
+45 ka cave bear (*Ursus kudarensis*)
+
+
+```{r, out.width = "100%", out.height = "100%", fig.width = 8, fig.height = 9, dpi = 600}
 # function for calculating mode
 getmode <- function(v) {
    uniqv <- unique(v)
@@ -620,12 +632,6 @@ plot <- ggplot(adna) +
 
 plot
 ```
-
-```{r, out.width = "100%"}
-include_graphics("./assets/img/kudarensis.png")
-```
-
-45 ka cave bear (*Ursus kudarensis*)
 
  
 
@@ -693,7 +699,7 @@ include_graphics("./assets/img/trim10.svg")
 
 
 
-## BEARCAVE script
+## BEARCAVE script {.white-slide}
 
 - decompress fastqs
 - trim adapter seqs using `Cutadapt`
@@ -752,7 +758,7 @@ include_graphics("./assets/img/2011-FLASH_fast_length_adjustment_of_short_reads_
 
 ## bwa
 
-```{r, out.width = "100%", out.height=500, .fig.cap=""}
+```{r, out.width="100%", out.height=500}
 include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_Burrows-Wheeler_transform..pdf")
 ```
 
@@ -760,7 +766,7 @@ include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_
 
 ## samtools (48,024 citations)
 
-```{r, out.width = "100%", out.height=500, .fig.cap=""}
+```{r, out.width="100%", out.height=500}
 include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
 ```
 
@@ -824,8 +830,9 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 
 # Intro to R
 
-## What is `R` {.columns-2}
+## What is `R` {.flex-cols}
 
+- `R` was born from `S` in the Bell labs in 1992
 - Statistical analysis 
 - Data visualisation
 - Free and open source
@@ -836,7 +843,7 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 - This presentation!
 
 
-```{r, out.width = "100%"}
+```{r, out.width = 300}
 include_graphics("./assets/img/R_logo.svg.png")
 ```
 
@@ -850,7 +857,6 @@ include_graphics("./assets/img/R_works.png")
 
 
 ## `Rstudio`
-
 
 - GUI for `R`
 - Preferred by many
@@ -882,7 +888,7 @@ include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ```
 
-## `R` from the heretics
+## `R` from a heretic and a pragmatist (guess who is who)
 
 **Most people disagree (in some cases strongly)**
 
