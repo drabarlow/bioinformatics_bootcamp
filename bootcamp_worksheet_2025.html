@@ -940,7 +940,7 @@ time at the end of the day to get you caught up.</p>
 </div>
 <div id="bearcave-script-trim-and-merge" class="section level3">
 <h3>3. BEARCAVE script: trim and merge</h3>
-<pre class="bash"><code>less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh </code></pre>
+<pre class="bash"><code>less BEARCAVE2/scripts/trim_merge_DS_PE_standard2_JP.sh </code></pre>
 <pre class="bash"><code>#!/bin/bash
 
 # Hacked by Axel, April 2023
@@ -973,9 +973,9 @@ ensure the command is executed in the scripts directory:</li>
 #SBATCH --chdir=/scratch/scw2141/BEARCAVE2/scripts/</code></pre>
 <ul>
 <li>load appropriate modules</li>
-<li>run the trim_merge_DS_PE_standard2.sh script on your adder
+<li>run the trim_merge_DS_PE_standard2_JP.sh script on your adder
 sample</li>
-<li>use 4Gb RAM, 10 CPUs, and run for 1 hour</li>
+<li>use 4Gb RAM, 6 CPUs, and run for 40 minutes</li>
 <li>direct stdout and errors to your chosen location in your home
 directory</li>
 <li>submit to queue</li>
@@ -983,7 +983,7 @@ directory</li>
 </div>
 <div id="bearcave-script-mapping" class="section level3">
 <h3>5. BEARCAVE script: mapping</h3>
-<pre class="bash"><code>less BEARCAVE2/scripts/map_modern_PE_mem2.sh</code></pre>
+<pre class="bash"><code>less BEARCAVE2/scripts/map_modern_PE_mem2_tmp_JP.sh</code></pre>
 <pre class="bash"><code>#!/bin/bash
 
 # Hacked by Axel, April 2023
@@ -1015,8 +1015,8 @@ directory</li>
 <li>delete the *processing directory</li>
 <li>make a slurm job script similar to the one in part 4. in your chosen
 location within home directory. This script should execute the
-map_modern_PE_mem2.sh script</li>
-<li>Use 10Gb RAM, 10 CPUs, and run for 4 hours</li>
+map_modern_PE_mem2_tmp_JP.sh script</li>
+<li>Use 10Gb RAM, 10 CPUs, and run for 2 hours</li>
 <li>Check outcome</li>
 </ul>
 </div>

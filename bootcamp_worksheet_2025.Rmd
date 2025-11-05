@@ -576,7 +576,7 @@ NOTE: if you haven't been able to finish this section when we move on, just cont
 ### 3. BEARCAVE script: trim and merge
 
 ```bash
-less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh 
+less BEARCAVE2/scripts/trim_merge_DS_PE_standard2_JP.sh 
 ```
 
 ```bash
@@ -612,15 +612,15 @@ less BEARCAVE2/scripts/trim_merge_DS_PE_standard2.sh
 ```
 
 - load appropriate modules
-- run the trim_merge_DS_PE_standard2.sh script on your adder sample
-- use 4Gb RAM, 10 CPUs, and run for 1 hour
+- run the trim_merge_DS_PE_standard2_JP.sh script on your adder sample
+- use 4Gb RAM, 6 CPUs, and run for 40 minutes
 - direct stdout and errors to your chosen location in your home directory
 - submit to queue
 
 ### 5. BEARCAVE script: mapping
 
 ```bash
-less BEARCAVE2/scripts/map_modern_PE_mem2.sh
+less BEARCAVE2/scripts/map_modern_PE_mem2_tmp_JP.sh
 ```
 
 ```bash
@@ -651,8 +651,8 @@ less BEARCAVE2/scripts/map_modern_PE_mem2.sh
 - move your processed files into `/scratch/scw2141/BEARCAVE2/trimdata/`
 - move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
 - delete the *processing directory
-- make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2.sh script
-- Use 10Gb RAM, 10 CPUs, and run for 4 hours
+- make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2_tmp_JP.sh script
+- Use 10Gb RAM, 10 CPUs, and run for 2 hours
 - Check outcome
 
 ## PCA, NJ tree and heterozygosity
