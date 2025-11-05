@@ -657,11 +657,11 @@ less BEARCAVE2/scripts/map_modern_PE_mem2_tmp_JP.sh
 
 ## PCA, NJ tree and heterozygosity
 
-We will carry out population gneomics analyses using `angsd`. This requires a list of bamfiles to analyse. For example:
+We will carry out population genomics analyses using `angsd`. This requires a list of bamfiles (with full paths) to analyse. For example:
 
 ```bash
 # angsd requires a list on bam files in a text file
-ls -1 /scratch/scw2141/BEARCAVE2/mappedberus_chr7/*bam > bamlist
+ls -1 /scratch/scw2141/BEARCAVE2/mappedberus_chr7/*bam > bamlist_outgroup
 ```
 
 ### 1. Distance matrix
@@ -688,7 +688,7 @@ ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
 #-nThreads = number threads
 
 # this calculates the distance matrix, include the outgroup
-angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 28 -minQ 30 -minMapQ 30 -b bamlist_outgroup -ref $ref -out bamlist_outgroup -nThreads 10
+angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 48 -minQ 30 -minMapQ 30 -b bamlist_outgroup -ref $ref -out bamlist_outgroup -nThreads 10
 ```
 
 ### 2. Covariance matrix
@@ -704,7 +704,7 @@ ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
 
 # load modules and declare variables as above
 # this calculates the covariance matrix, exclude the outgroup
-angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 27 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10
+angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 47 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10
 ```
 
 ### 3. Heterozygosity
@@ -739,12 +739,12 @@ realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
 ### 3. Your turn :)
 
 - Make a separate slurm job scripts (somewhere in your home directory) for each analysis shown above (3 total) 
-- make a bamlist in the same directory
+- make bamlists in the same directory, one with outgroup and one without
 - direct stdout and errors to your chosen location in your home directory
 - adjust SBATCH to appropriate paths and filenames
-- Use 10Gb RAM, 10 CPUs, and run for 40 mins
+- Use 10Gb RAM, 10 CPUs, and run each for 40 mins
 - Check results
-- Look at your *.ibs.gz file and count the lines
+- Look at your *.ibs.gz file for covariance and distance matrices and count the lines
 
 ## Intro to basic `R` commands
 

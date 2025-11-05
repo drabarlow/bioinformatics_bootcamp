@@ -1023,11 +1023,11 @@ map_modern_PE_mem2_tmp_JP.sh script</li>
 </div>
 <div id="pca-nj-tree-and-heterozygosity" class="section level2">
 <h2>PCA, NJ tree and heterozygosity</h2>
-<p>We will carry out population gneomics analyses using
-<code>angsd</code>. This requires a list of bamfiles to analyse. For
-example:</p>
+<p>We will carry out population genomics analyses using
+<code>angsd</code>. This requires a list of bamfiles (with full paths)
+to analyse. For example:</p>
 <pre class="bash"><code># angsd requires a list on bam files in a text file
-ls -1 /scratch/scw2141/BEARCAVE2/mappedberus_chr7/*bam &gt; bamlist</code></pre>
+ls -1 /scratch/scw2141/BEARCAVE2/mappedberus_chr7/*bam &gt; bamlist_outgroup</code></pre>
 <div id="distance-matrix" class="section level3">
 <h3>1. Distance matrix</h3>
 <pre class="bash"><code># load angsd module
@@ -1051,7 +1051,7 @@ ref=&#39;/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa&#39;
 #-nThreads = number threads
 
 # this calculates the distance matrix, include the outgroup
-angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 28 -minQ 30 -minMapQ 30 -b bamlist_outgroup -ref $ref -out bamlist_outgroup -nThreads 10</code></pre>
+angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 48 -minQ 30 -minMapQ 30 -b bamlist_outgroup -ref $ref -out bamlist_outgroup -nThreads 10</code></pre>
 </div>
 <div id="covariance-matrix" class="section level3">
 <h3>2. Covariance matrix</h3>
@@ -1065,7 +1065,7 @@ ref=&#39;/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa&#39;
 
 # load modules and declare variables as above
 # this calculates the covariance matrix, exclude the outgroup
-angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.05 -minInd 27 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10</code></pre>
+angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 47 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10</code></pre>
 </div>
 <div id="heterozygosity" class="section level3">
 <h3>3. Heterozygosity</h3>
@@ -1099,13 +1099,15 @@ realSFS $output.saf.idx -nSites 100000 -P 10 &gt; $output.window.sfs</code></pre
 <ul>
 <li>Make a separate slurm job scripts (somewhere in your home directory)
 for each analysis shown above (3 total)</li>
-<li>make a bamlist in the same directory</li>
+<li>make bamlists in the same directory, one with outgroup and one
+without</li>
 <li>direct stdout and errors to your chosen location in your home
 directory</li>
 <li>adjust SBATCH to appropriate paths and filenames</li>
-<li>Use 10Gb RAM, 10 CPUs, and run for 40 mins</li>
+<li>Use 10Gb RAM, 10 CPUs, and run each for 40 mins</li>
 <li>Check results</li>
-<li>Look at your *.ibs.gz file and count the lines</li>
+<li>Look at your *.ibs.gz file for covariance and distance matrices and
+count the lines</li>
 </ul>
 </div>
 </div>
