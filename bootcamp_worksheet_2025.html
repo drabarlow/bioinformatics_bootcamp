@@ -1113,6 +1113,10 @@ count the lines</li>
 </div>
 <div id="intro-to-basic-r-commands" class="section level2">
 <h2>Intro to basic <code>R</code> commands</h2>
+<p>Download the lizard_data.txt file to your working directory (use
+right-click “Save link as…”):</p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/lizard_data.txt" download="lizard_data.txt">
+Download lizard_data.txt </a></p>
 <pre class="r"><code># R is just a big calculator
 1+1
 
@@ -1140,7 +1144,9 @@ hist(rnorm(500, 10, 1))
 my_liz &lt;- read.table(&quot;lizard_data.txt&quot;, header=TRUE)
 
 # isolate svl data
-my_liz$svl</code></pre>
+my_liz$svl
+
+# and we can make this into a script</code></pre>
 <div id="your-turn-9" class="section level3">
 <h3>Your turn</h3>
 <ul>
@@ -1154,12 +1160,13 @@ attractive</li>
 </div>
 <div id="pretty-maps" class="section level2">
 <h2>Pretty maps</h2>
-<p>download the following 3 files to your working directory:
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shx">
-Download adder_distribution.shx </a>
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shp">
-Download adder_distribution.shp </a>
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_info.csv">
+<p>download the following 3 files to your working directory (use
+right-click “Save link as…”):</p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shx">
+Download adder_distribution.shx </a></p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shp" download="adder_distribution.shp">
+Download adder_distribution.shp </a></p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.csv" download="adder_info.csv">
 Download adder_info.csv </a></p>
 <pre class="r"><code>
 # read in the data
@@ -1172,25 +1179,26 @@ map &lt;- getMap(resolution = &quot;low&quot;)
 library(rworldmap)
 
 # plot simple map
-plot(map, col=&quot;grey&quot;, border=NA,  xlim=c(-10,10), ylim=c(50,60))
+plot(map, col=&quot;grey&quot;, border=NA)
 
 
 # load libraries
 library(sf)
 
 # add IUCN distribution as SHP file on the map
-iucn &lt;- st_read(&quot;./assets/data/adder_distribution.shx&quot;)
+iucn &lt;- st_read(&quot;adder_distribution.shx&quot;)
 plot(st_geometry(iucn), add=TRUE, border=NA, col=&quot;slategrey&quot;)
 
 # add samples
 points(adders$lon,adders$lat)
-
 </code></pre>
 <div id="your-turn-10" class="section level3">
 <h3>your turn</h3>
 <ul>
-<li>colour the points by locality group (adders$colour)</li>
-<li>add labels to the map</li>
+<li>colour the points by locality (adders$loc)</li>
+<li>make this into a self contained script</li>
+<li>if you have finished early, try to make the script save your map as
+pdf</li>
 </ul>
 </div>
 </div>

@@ -809,7 +809,7 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 
 
 
-## Covariance matrix, distance matrix, heterozygosity
+## Analyses
 
 **Covariance matrix**
 
@@ -830,34 +830,6 @@ include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generati
 
 # Intro to R
 
-1. what is R
-2. why we are teaching R the way we do (or at the end)
-
-3. basic R functionality:
-- functions and objects
-- libraries to access more functions
-- data structures (vector, matrix, dataframe, list)
-
-X - that figure from axel?
-
-. Rstudio
-
-4. exercise: lizard data, ADD functions with libraries, and ADD create a script
-- extract the year (year$dob)
-- calculate lizard age (answer is 2025-year$dob)
-- BONUS add age as extra column (year$age <- 2025-year$dob)
-
-- making an R script
-
-6. doing some real-life fun stuff: ADD gps coordinates, ADD adders to github
-- reading in data: table with GPS coordinates
-- inspecting the data
-- extracting a column
-- plotting points on a map
-- adding the IUCN distribution to the map
-- DIY: make this into a script and execute to make your PDF
-
-
 ## What is `R` {.flex-cols}
 
 - `R` was born from `S` in the Bell labs in 1992
@@ -876,50 +848,9 @@ include_graphics("./assets/img/R_logo.svg.png")
 ```
 
 
+## `R` from a heretic and a pragmatist 
 
-## `Rstudio`
-
-- GUI for `R`
-- Preferred by many
-- Linked to `tidyverse`
-- Linked to `R markdown`
-- Version control (`git`) and other development tools
-
-## `Rstudio`
-
-```{r, out.width = "90%"}
-include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
-```
-
-## How `R` works
-
-***"Everything is an object; everything that happens is a function"***
-
-## How `R` works
-
-```{r, out.width = "100%"}
-include_graphics("./assets/img/R_works.png")
-```
-
-
-## `Tidyverse` {.columns-2}
-
-- `ggplot2`
-- `tibble`
-- `tidyr`
-- `readr`
-- `dplyr`
-- `stringr`
-- `purr`
-- `forcats`
-- "Tidy data"
-- "Grammar of graphics"
-
-```{r, out.width = "80%"}
-include_graphics("./assets/img/Tidyverse_hex_logo.png")
-```
-
-## `R` from a heretic and a pragmatist (guess who is who)
+*(guess who is who)*
 
 **Most people disagree (in some cases strongly)**
 
@@ -934,7 +865,15 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - Data doesn't have to be tidy
 
 
-# R functionality
+## How `R` works
+
+***"Everything is an object; everything that happens is a function"***
+
+## How `R` works {.white-slide}
+
+```{r, out.width = "100%"}
+include_graphics("./assets/img/R_works.png")
+```
 
 
 ## Objects and functions
@@ -954,8 +893,6 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - `function()`
 - `?function`
 
-
-
 ## Data structures: vector and matrix
 
 **Vector**
@@ -969,8 +906,6 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 
 - 2D data of same type in rows and columns
 - Indexing matrix objects `my_matrix[row, column]`
-
-
 
 ## Data structures: dataframe and list
 
@@ -986,6 +921,46 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 - Set of components with different structures
 - Extract named components with `$`
 
+
+## Data structures: as shapes {.white-slide}
+
+```{r, out.width = "90%"}
+include_graphics("./assets/img/dataStructures.png")
+```
+
+
+## `Rstudio`
+
+- GUI for `R`
+- Preferred by many
+- Linked to `tidyverse`
+- Linked to `R markdown`
+- Version control (`git`) and other development tools
+
+## `Rstudio`
+
+```{r, out.width = "90%"}
+include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
+```
+
+<!--
+## `Tidyverse` {.columns-2}
+
+- `ggplot2`
+- `tibble`
+- `tidyr`
+- `readr`
+- `dplyr`
+- `stringr`
+- `purr`
+- `forcats`
+- "Tidy data"
+- "Grammar of graphics"
+
+```{r, out.width = "80%"}
+include_graphics("./assets/img/Tidyverse_hex_logo.png")
+```
+-->
 
 ## Maps {.flex-cols}
 

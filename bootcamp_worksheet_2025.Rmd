@@ -748,9 +748,9 @@ realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
 
 ## Intro to basic `R` commands
 
-Download the lizard_data.txt file to your working directory:
+Download the lizard_data.txt file to your working directory (use right-click "Save link as..."):
 
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/lizard_data.txt" download="adder_info.csv">
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/lizard_data.txt" download="lizard_data.txt">
   Download lizard_data.txt
 </a>
 
@@ -785,7 +785,7 @@ my_liz <- read.table("lizard_data.txt", header=TRUE)
 # isolate svl data
 my_liz$svl
 
-# and we can make this into a script
+# and we can make this into a self-contained script too...
 ```
 
 ### Your turn
@@ -798,17 +798,17 @@ my_liz$svl
 
 ## Pretty maps
 
-download the following 3 files to your working directory:
+download the following 3 files to your working directory (use right-click "Save link as..."):
 
 <a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shx">
   Download adder_distribution.shx
 </a>
 
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shp">
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shp" download="adder_distribution.shp">
   Download adder_distribution.shp
 </a>
 
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_info.csv">
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.csv" download="adder_info.csv">
   Download adder_info.csv
 </a>
 
@@ -824,29 +824,27 @@ map <- getMap(resolution = "low")
 library(rworldmap)
 
 # plot simple map
-plot(map, col="grey", border=NA,  xlim=c(-10,10), ylim=c(50,60))
+plot(map, col="grey", border=NA)
 
 
 # load libraries
 library(sf)
 
 # add IUCN distribution as SHP file on the map
-iucn <- st_read("./assets/data/adder_distribution.shx")
+iucn <- st_read("adder_distribution.shx")
 plot(st_geometry(iucn), add=TRUE, border=NA, col="slategrey")
 
 # add samples
 points(adders$lon,adders$lat)
 
-
 ```
 
 ### your turn
 
-- change colours
+- crop the map to the region of interest using xlim and ylim in the plot() function
 - colour the points by locality (adders$loc)
-- add labels to the points
-
-
+- make this into a self contained script
+- if you have finished early, try to make the script save your map as pdf
 
 ## Population genetics
 
