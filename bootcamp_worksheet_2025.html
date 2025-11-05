@@ -1154,25 +1154,38 @@ attractive</li>
 </div>
 <div id="pretty-maps" class="section level2">
 <h2>Pretty maps</h2>
-<pre class="r"><code># load libraries
-library(rworldmap)
-library(sf)
-
+<p>download the following 3 files to your working directory:
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shx">
+Download adder_distribution.shx </a>
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shp">
+Download adder_distribution.shp </a>
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_info.csv">
+Download adder_info.csv </a></p>
+<pre class="r"><code>
 # read in the data
-adders &lt;- read.csv(&quot;./assets/data/bam_info&quot;, header=T, sep=&quot;\t&quot;)
+adders &lt;- read.csv(&quot;adder_info.csv&quot;, header=T, sep=&quot;\t&quot;)
 
 # retrieve map
 map &lt;- getMap(resolution = &quot;low&quot;)
 
+# load libraries
+library(rworldmap)
+
 # plot simple map
 plot(map, col=&quot;grey&quot;, border=NA,  xlim=c(-10,10), ylim=c(50,60))
+
+
+# load libraries
+library(sf)
 
 # add IUCN distribution as SHP file on the map
 iucn &lt;- st_read(&quot;./assets/data/adder_distribution.shx&quot;)
 plot(st_geometry(iucn), add=TRUE, border=NA, col=&quot;slategrey&quot;)
 
 # add samples
-points(adders$lon,adders$lat)</code></pre>
+points(adders$lon,adders$lat)
+
+</code></pre>
 <div id="your-turn-10" class="section level3">
 <h3>your turn</h3>
 <ul>

@@ -748,7 +748,14 @@ realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
 
 ## Intro to basic `R` commands
 
-```{r, eval=FALSE, echo=TRUE}
+Download the lizard_data.txt file to your working directory:
+
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/lizard_data.txt" download="adder_info.csv">
+  Download lizard_data.txt
+</a>
+
+
+```r
 # R is just a big calculator
 1+1
 
@@ -777,6 +784,8 @@ my_liz <- read.table("lizard_data.txt", header=TRUE)
 
 # isolate svl data
 my_liz$svl
+
+# and we can make this into a script
 ```
 
 ### Your turn
@@ -789,20 +798,37 @@ my_liz$svl
 
 ## Pretty maps
 
-```{r, out.width = "70%", fig.width = 6, fig.height = 5, eval = FALSE}
+download the following 3 files to your working directory:
 
-# load libraries
-library(rworldmap)
-library(sf)
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shx">
+  Download adder_distribution.shx
+</a>
+
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_distribution.shp">
+  Download adder_distribution.shp
+</a>
+
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shx" download="adder_info.csv">
+  Download adder_info.csv
+</a>
+
+```r
 
 # read in the data
-adders <- read.csv("./assets/data/bam_info", header=T, sep="\t")
+adders <- read.csv("adder_info.csv", header=T, sep="\t")
 
 # retrieve map
 map <- getMap(resolution = "low")
 
+# load libraries
+library(rworldmap)
+
 # plot simple map
 plot(map, col="grey", border=NA,  xlim=c(-10,10), ylim=c(50,60))
+
+
+# load libraries
+library(sf)
 
 # add IUCN distribution as SHP file on the map
 iucn <- st_read("./assets/data/adder_distribution.shx")
@@ -816,8 +842,9 @@ points(adders$lon,adders$lat)
 
 ### your turn
 
-- colour the points by locality group (adders$colour)
-- add labels to the map
+- change colours
+- colour the points by locality (adders$loc)
+- add labels to the points
 
 
 
