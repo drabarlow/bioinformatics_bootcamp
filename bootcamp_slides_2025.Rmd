@@ -961,7 +961,7 @@ include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ```
 -->
-
+<!--
 ## Maps {.flex-cols}
 
 - Plot samples on a map (lat/lon coordinates)
@@ -972,7 +972,7 @@ include_graphics("./assets/img/Tidyverse_hex_logo.png")
 ```{r, out.width = 600,fig.align='right'}
 include_graphics("./assets/img/map.png")
 ```
-
+-->
 
 ## Population genetics: PCA {.columns-2}
 
@@ -998,6 +998,7 @@ my_pca <- eigen(my_cov)
 plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC1, 20% variance", ylab="PC2, 10% variance")
 ```
 
+#  Population genetics
 
 ## Population genetics: Neighbour-joining clustering {.columns-2}
 
