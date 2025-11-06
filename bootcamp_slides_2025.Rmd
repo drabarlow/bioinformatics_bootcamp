@@ -866,7 +866,11 @@ include_graphics("./assets/img/R_logo.svg.png")
 
 ## How `R` works
 
+<div style="height:100px;"></div>
+
+<div style="display:flex; align-items:center; justify-content:center; text-align:center; font-size:50px;">
 ***"Everything is an object; everything that happens is a function"***
+</div>
 
 ## How `R` works {.white-slide}
 
