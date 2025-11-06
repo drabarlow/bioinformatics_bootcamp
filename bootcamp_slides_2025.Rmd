@@ -856,12 +856,12 @@ include_graphics("./assets/img/R_logo.svg.png")
 - Base `R` is really good!
 - `R` ≠ `Rstudio`
 - `tidyverse` is not the way to teach `R` to beginners
+- Data doesn't have to be `tidy`
 - `ggplot2` code is restrictive
 - It's boring if everyone's graphs look the same
 - It's OK to type commands directly into the terminal
 - It's OK to modify a raw data file
 - It's OK to combine other tools and languages
-- Data doesn't have to be tidy
 
 
 ## How `R` works
