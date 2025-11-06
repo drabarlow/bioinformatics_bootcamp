@@ -1146,7 +1146,8 @@ my_liz &lt;- read.table(&quot;lizard_data.txt&quot;, header=TRUE)
 # isolate svl data
 my_liz$svl
 
-# and we can make this into a self-contained script too...</code></pre>
+# and we can make this into a self-contained script too...
+# ...and also run this on the SCW</code></pre>
 <div id="your-turn-9" class="section level3">
 <h3>Your turn</h3>
 <ul>
@@ -1155,6 +1156,10 @@ my_liz$svl
 <li>Calculate means and standard deviations for each variable</li>
 <li>If you have finished early, try out ways to make your plots more
 attractive</li>
+<li>Also if you finished early, copy the contents of
+<code>/scratch/scw2141/addeRs/</code> to you home directory and execute
+the <code>lizards.R</code> script on hawk</li>
+<li>and write a slurm script to submit it to the queue</li>
 </ul>
 </div>
 </div>
@@ -1181,7 +1186,6 @@ library(rworldmap)
 # plot simple map
 plot(map, col=&quot;grey&quot;, border=NA)
 
-
 # load libraries
 library(sf)
 
@@ -1196,11 +1200,17 @@ points(adders$lon,adders$lat)
 <h3>your turn</h3>
 <ul>
 <li>crop the map to the region of interest using xlim and ylim in the
-plot() function</li>
-<li>colour the points by locality (adders$loc)</li>
+<code>plot()</code> function</li>
+<li>colour the points by locality (adders$col)</li>
+<li>create your own colours that are colourblind friendly without
+changing the input file</li>
+<li>change the symbols / sizes</li>
 <li>make this into a self contained script</li>
 <li>if you have finished early, try to make the script save your map as
 pdf</li>
+<li>Also if you finished early, execute your map making script on hawk
+(files are in <code>/scratch/scw2141/addeRs/</code>)</li>
+<li>and you can even write a slurm script &amp; submit to queue</li>
 </ul>
 </div>
 </div>

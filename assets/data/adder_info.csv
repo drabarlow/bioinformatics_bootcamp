@@ -1,50 +1,49 @@
-name	loc	lat	lon
-adder01	Leeds	53.85	-1.5
-adder02	Leeds	53.78	-1.6
-adder03	Leeds	53.82	-1.45
-adder04	Leeds	53.75	-1.55
-adder05	Wensleydale	53.85	-1.5
-adder06	Wensleydale	53.78	-1.6
-adder07	Wensleydale	53.82	-1.45
-adder08	Wensleydale	53.75	-1.55
-adder09	Manchester	53.85	-1.5
-adder10	Manchester	53.78	-1.6
-adder11	Manchester	53.82	-1.45
-adder12	Manchester	53.75	-1.55
-adder13	Caerphilly	51.6	-3.2
-adder14	Caerphilly	51.57	-3.25
-adder15	Caerphilly	51.59	-3.18
-adder16	Caerphilly	51.56	-3.23
-adder17	Gouda	52.03	4.7
-adder18	Gouda	51.99	4.73
-adder19	Gouda	52.01	4.75
-adder20	Gouda	52.02	4.68
-adder21	Stockholm	59.35	18.05
-adder22	Stockholm	59.31	18.1
-adder23	Stockholm	59.33	18.12
-adder24	Stockholm	59.3	18.08
-adder25	Cheddar	51.3	-2.73
-adder26	Cheddar	51.27	-2.78
-adder27	Cheddar	51.28	-2.7
-adder28	Huddersfield	51.26	-2.75
-adder29	Huddersfield	53.66	-1.75
-adder30	Huddersfield	53.64	-1.8
-adder31	Huddersfield	53.63	-1.77
-adder32	Sheffield	53.65	-1.82
-adder33	Sheffield	53.4	-1.45
-adder34	Sheffield	53.36	-1.5
-adder35	Sheffield	53.39	-1.48
-adder36	Leicester	53.37	-1.46
-adder37	Leicester	52.65	-1.1
-adder38	Leicester	52.62	-1.15
-adder39	Leicester	52.64	-1.12
-adder40	Nottingham	52.61	-1.14
-adder41	Nottingham	52.97	-1.12
-adder42	Nottingham	52.94	-1.18
-adder43	Nottingham	52.96	-1.14
-adder44	Stilton	52.93	-1.13
-adder45	Stilton	52.56	-0.3
-adder46	Stilton	52.53	-0.27
-adder47	Stilton	52.55	-0.25
-adderout	bosniensis	52.52	-0.28
-		43.87	18.36
+name	loc	col	lat	lon		
+adder01	Leeds	red	53.85	-1.5		red
+adder02	Leeds	red	53.78	-1.6		blue
+adder03	Leeds	red	53.82	-1.45		green
+adder04	Leeds	red	53.75	-1.55		orange
+adder05	Wensleydale	blue	53.85	-1.5		purple
+adder06	Wensleydale	blue	53.78	-1.6		brown
+adder07	Wensleydale	blue	53.82	-1.45		pink
+adder08	Wensleydale	blue	53.75	-1.55		cyan
+adder09	Manchester	green	53.85	-1.5		yellow
+adder10	Manchester	green	53.78	-1.6		black
+adder11	Manchester	green	53.82	-1.45		magenta
+adder12	Manchester	green	53.75	-1.55		darkgreen
+adder13	Caerphilly	orange	51.6	-3.2		
+adder14	Caerphilly	orange	51.57	-3.25		
+adder15	Caerphilly	orange	51.59	-3.18		
+adder16	Caerphilly	orange	51.56	-3.23		
+adder17	Gouda	purple	52.03	4.7		
+adder18	Gouda	purple	51.99	4.73		
+adder19	Gouda	purple	52.01	4.75		
+adder20	Gouda	purple	52.02	4.68		
+adder21	Stockholm	brown	59.35	18.05		
+adder22	Stockholm	brown	59.31	18.1		
+adder23	Stockholm	brown	59.33	18.12		
+adder24	Stockholm	brown	59.3	18.08		
+adder25	Cheddar	pink	51.3	-2.73		
+adder26	Cheddar	pink	51.27	-2.78		
+adder27	Cheddar	pink	51.26	-2.75		
+adder28	Huddersfield	cyan	53.66	-1.75		
+adder29	Huddersfield	cyan	53.64	-1.8		
+adder30	Huddersfield	cyan	53.63	-1.77		
+adder31	Huddersfield	cyan	53.65	-1.82		
+adder32	Sheffield	yellow	53.4	-1.45		
+adder33	Sheffield	yellow	53.36	-1.5		
+adder34	Sheffield	yellow	53.39	-1.48		
+adder35	Sheffield	yellow	53.37	-1.46		
+adder36	Leicester	magenta	52.65	-1.1		
+adder37	Leicester	magenta	52.62	-1.15		
+adder38	Leicester	magenta	52.64	-1.12		
+adder39	Leicester	magenta	52.61	-1.14		
+adder40	Nottingham	darkgreen	52.97	-1.12		
+adder41	Nottingham	darkgreen	52.94	-1.18		
+adder42	Nottingham	darkgreen	52.96	-1.14		
+adder43	Nottingham	darkgreen	52.93	-1.13		
+adder44	Stilton	gold	52.56	-0.3		
+adder45	Stilton	gold	52.53	-0.27		
+adder46	Stilton	gold	52.55	-0.25		
+adder47	Stilton	gold	52.52	-0.28		
+adderout	bosniensis	black	43.87	18.36		

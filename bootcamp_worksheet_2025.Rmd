@@ -786,6 +786,7 @@ my_liz <- read.table("lizard_data.txt", header=TRUE)
 my_liz$svl
 
 # and we can make this into a self-contained script too...
+# ...and also run this on the SCW
 ```
 
 ### Your turn
@@ -794,7 +795,8 @@ my_liz$svl
 - Draw a scatterplot of svl vs width
 - Calculate means and standard deviations for each variable
 - If you have finished early, try out ways to make your plots more attractive
-
+- Also if you finished early, copy the contents of `/scratch/scw2141/addeRs/` to you home directory and execute the `lizards.R` script on hawk
+- and write a slurm script to submit it to the queue
 
 ## Pretty maps
 
@@ -826,7 +828,6 @@ library(rworldmap)
 # plot simple map
 plot(map, col="grey", border=NA)
 
-
 # load libraries
 library(sf)
 
@@ -841,10 +842,14 @@ points(adders$lon,adders$lat)
 
 ### your turn
 
-- crop the map to the region of interest using xlim and ylim in the plot() function
-- colour the points by locality (adders$loc)
+- crop the map to the region of interest using xlim and ylim in the `plot()` function
+- colour the points by locality (adders$col)
+- create your own colours that are colourblind friendly without changing the input file
+- change the symbols / sizes
 - make this into a self contained script
 - if you have finished early, try to make the script save your map as pdf
+- Also if you finished early, execute your map making script on hawk (files are in `/scratch/scw2141/addeRs/`)
+- and you can even write a slurm script & submit to queue
 
 ## Population genetics
 
