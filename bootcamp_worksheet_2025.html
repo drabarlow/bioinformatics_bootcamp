@@ -1175,7 +1175,7 @@ Download adder_distribution.shp </a></p>
 Download adder_info.txt </a></p>
 <pre class="r"><code>
 # read in the data
-adders &lt;- read.table(&quot;adder_info.txt&quot;, header=T)
+adders &lt;- read.table(&quot;adder_info.txt&quot;, header=T, sep=&#39;\t&#39;)
 
 # retrieve map
 map &lt;- getMap(resolution = &quot;low&quot;)

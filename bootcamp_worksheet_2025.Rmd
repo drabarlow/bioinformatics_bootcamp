@@ -817,7 +817,7 @@ download the following 3 files to your working directory (use right-click "Save 
 ```r
 
 # read in the data
-adders <- read.table("adder_info.txt", header=T)
+adders <- read.table("adder_info.txt", header=T, sep='\t')
 
 # retrieve map
 map <- getMap(resolution = "low")
