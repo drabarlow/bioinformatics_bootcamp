@@ -810,14 +810,14 @@ download the following 3 files to your working directory (use right-click "Save 
   Download adder_distribution.shp
 </a>
 
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.csv" download="adder_info.csv">
-  Download adder_info.csv
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.txt" download="adder_info.txt">
+  Download adder_info.txt
 </a>
 
 ```r
 
 # read in the data
-adders <- read.csv("adder_info.csv", header=T, sep="\t")
+adders <- read.table("adder_info.txt", header=T)
 
 # retrieve map
 map <- getMap(resolution = "low")

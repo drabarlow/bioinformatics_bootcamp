@@ -1171,11 +1171,11 @@ right-click “Save link as…”):</p>
 Download adder_distribution.shx </a></p>
 <p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shp" download="adder_distribution.shp">
 Download adder_distribution.shp </a></p>
-<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.csv" download="adder_info.csv">
-Download adder_info.csv </a></p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.txt" download="adder_info.txt">
+Download adder_info.txt </a></p>
 <pre class="r"><code>
 # read in the data
-adders &lt;- read.csv(&quot;adder_info.csv&quot;, header=T, sep=&quot;\t&quot;)
+adders &lt;- read.table(&quot;adder_info.txt&quot;, header=T)
 
 # retrieve map
 map &lt;- getMap(resolution = &quot;low&quot;)
