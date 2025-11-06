@@ -894,7 +894,7 @@ include_graphics("./assets/img/R_works.png")
 - Carry out operations on objects
 - Often generates new objects
 - `function()`
-- `?function`
+- `?function`, `example(function)`
 
 ## Data structures: vector and matrix
 
