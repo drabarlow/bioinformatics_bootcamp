@@ -853,11 +853,25 @@ points(adders$lon,adders$lat)
 
 ## Population genetics
 
+You can use your own angsd output files or the ones here: 
+
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/bamlist_ingroup.covMat" download="bamlist_ingroup.covMat">
+  Download bamlist_ingroup.covMat
+</a>
+
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/bamlist_outgroup.ibsMat" download="bamlist_outgroup.ibsMat">
+  Download bamlist_outgroup.ibsMat
+</a>
+
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder01_het.window.sfs" download="adder01_het.window.sfs">
+  Download adder01_het.window.sfs
+</a>
+
 ### 1. PCA
 
 ```{r, out.width = "50%", fig.width = 4.5, fig.height = 5}
 # read in covariance matrix
-my_cov <- as.matrix(read.table("assets/data/bamlist_ingroup.covMat"))
+my_cov <- as.matrix(read.table("./assets/data/bamlist_ingroup.covMat"))
 
 # do PCA
 my_pca <- eigen(my_cov)
@@ -868,7 +882,7 @@ plot(my_pca$vectors[,1], my_pca$vectors[,2])
 
 ### 2. NJ tree
 
-```{r, out.width = "50%", fig.width = 4.5, fig.height = 4}
+```{r, out.width = "100%", fig.width = 10, fig.height = 10}
 # we use the ape library
 library(ape)
 
@@ -879,7 +893,7 @@ my_mat <- as.matrix(read.table("./assets/data/bamlist_outgroup.ibsMat"))
 my_tree <- nj(my_mat)
 
 # plot
-my_root <- root(my_tree, outgroup=28)
+my_root <- root(my_tree, outgroup=48)
 plot(my_root)
 ```
 
