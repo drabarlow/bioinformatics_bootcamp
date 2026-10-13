@@ -1,5 +1,5 @@
 ---
-title: "Bioinformatics Bootcamp 2025"
+title: "Bioinformatics Bootcamp 2026"
 subtitle: "Molecular Ecology and Evolution at Bangor (MEEB)"
 author: Dr Axel Barlow & Dr Johanna Paijmans
 output:
@@ -39,11 +39,11 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 
 | Date | Time | Activity |
 |------|------|----------|
-| Mon 03/11/2024 | 10:00 to 16:00 | Unix-like systems, bash, connecting to SCWales |
-| Tue 04/11/2024 | 10:00 to 16:00 | More bash, SCWales, using SCWales and slurm |
-| Wed 05/11/2024 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing |
-| Thu 06/11/2024 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity, intro to R |
-| Fri 07/11/2024 | 10:00 to 16:00 | Maps, PCA's, NJ trees, Manhattan plots and Rmarkdown |
+| Mon 02/11/2026 | 10:00 to 16:00 | Unix-like systems, bash, connecting to SCWales |
+| Tue 03/11/2026 | 10:00 to 16:00 | More bash, scripts, SCWales, using SCWales and slurm |
+| Wed 04/11/2026 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing |
+| Thu 05/11/2026 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity, intro to R |
+| Fri 06/11/2026 | 10:00 to 16:00 | Maps, PCA's, NJ trees, Manhattan plots and Rmarkdown |
 
 ## Prequisites
 
@@ -59,7 +59,7 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 
 ### Bootcamp worksheet
 
-<https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2025.html>
+<https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2026.html>
 
 ### Github repo
 
@@ -67,7 +67,7 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 
 ### Supercomputing Wales shared project
 
-- please request access to: **scw2141 Bioinformatics training**
+- please request access to
 
 
 ## Introductions
@@ -1070,7 +1070,7 @@ axis(2)
 
 ## Rmarkdown example
 
-<iframe src = 'https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2025.html' height='600px'></iframe>
+<iframe src = 'https://drabarlow.github.io/bioinformatics_bootcamp/bootcamp_worksheet_2026.html' height='600px'></iframe>
 
 # That's all folks!
 
