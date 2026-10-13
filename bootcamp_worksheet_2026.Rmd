@@ -803,6 +803,11 @@ my_liz$svl
 - Also if you finished early, copy the contents of `/scratch/scw2141/addeRs/` to you home directory and execute the `lizards.R` script on hawk
 - and write a slurm script to submit it to the queue
 
+## TODO Rmarkdown
+
+Create code chunks from the above code & knit output document
+
+
 ## Pretty maps
 
 download the following 3 files to your working directory (use right-click "Save link as..."):
