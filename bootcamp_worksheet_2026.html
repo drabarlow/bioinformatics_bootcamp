@@ -359,29 +359,60 @@ display: none;
 
 <div id="unix-like-systems-and-bash" class="section level2">
 <h2>Unix-like systems and bash</h2>
-<div id="logging-on-to-scw" class="section level3">
-<h3>1. Logging on to SCW</h3>
+<div id="logging-on-to-the-falcon-supercomputer" class="section level3">
+<h3>1. Logging on to the Falcon Supercomputer</h3>
+<p>Prerequisites</p>
 <ul>
-<li>Consult guide from Ade Fewings: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
+<li>Consult Falcon documentation from Ade Fewings: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/The-Falcon-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/The-Falcon-Supercomputer.aspx</a></li>
 <li>Windows users need to download the Windows Subsystem for Linux (WSL)
 (other solutions exist)</li>
 <li>Linux and Mac users can just ssh from the terminal</li>
-<li>Note your bangor_username for the ssh server and hawk_username are
+</ul>
+<p>You will interact with four main systems:</p>
+<ul>
+<li><strong>COGS</strong> – The account portal where you request and
+manage your Falcon login (username and password).
+<ul>
+<li><a href="https://cogs.cf.ac.uk" class="uri">https://cogs.cf.ac.uk</a></li>
+</ul></li>
+<li><strong>ColdFront</strong> – The portal where projects, project
+membership, and compute allocations are managed. Normally only PIs need
+to access ColdFront
+<ul>
+<li><a href="https://coldfront.cf.ac.uk" class="uri">https://coldfront.cf.ac.uk</a></li>
+</ul></li>
+<li><strong>Falcon login node</strong> – The HPC login server where you
+log in and run jobs.
+<ul>
+<li><code>falcon_username@falconlogin.cf.ac.uk</code></li>
+</ul></li>
+<li><strong>Bangor’s SSH Bastion</strong> – The gateway you must connect
+through before you can reach Falcon.
+<ul>
+<li><code>bangor_username@ssh.bangor.ac.uk</code></li>
+</ul></li>
+</ul>
+<p>Important Note: COGS and ColdFront are reachable directly from the
+Bangor LAN - e.g. campus managed wired, VPN or via standard Bangor
+remote access solutions such as the Linux Desktop available through
+eResearch OnDemand. Also note:</p>
+<ul>
+<li>your bangor_username for the ssh server and falcon_username are
 different</li>
 <li>bangor_username has your normal password with MFA</li>
-<li>hawk_username password (suggest no special characters) can be set
-at: <a href="https://scw.bangor.ac.uk/en-gb/" class="uri">https://scw.bangor.ac.uk/en-gb/</a></li>
+<li>falcon_username password (suggest no special characters) can be set
+in COGS</li>
 </ul>
 <pre class="bash"><code># Linux/Mac/WSL
 # Open a terminal
 ssh you25usr@ssh.bangor.ac.uk
 # enter your bangor password and complete MFA
 
-# from bangor ssh server, log into hawk
-ssh b.you25usr@hawklogin.cf.ac.uk
+# from bangor ssh server, log into falcon
+ssh b.you25usr@falconlogin.cf.ac.uk
 
 # ! advanced option: all-in-one
-ssh -J you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk
+ssh -J you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk
 </code></pre>
 </div>
 <div id="basic-bash-commands" class="section level3">
@@ -484,13 +515,16 @@ exit
 your base counts for now)</li>
 <li>If you are finished early, you can find a genome of your choice to
 play around with</li>
-<li>Or… advanced! look at setting up a jump host and data transfer to
-your local PC: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
+<li>Or… advanced! look at setting up a jump host for 1-step log on and
+easier data transfer to your local PC: <a href="https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx" class="uri">https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx</a></li>
 </ul>
+</div>
+<div id="insert-markdown-here" class="section level3">
+<h3>INSERT MARKDOWN HERE</h3>
 </div>
 <div id="basic-bash-commands-2" class="section level3">
 <h3>4. Basic bash commands 2</h3>
-<pre class="bash"><code># We assume you are in /home/hawk_username/my_directory. Check!
+<pre class="bash"><code># We assume you are in /home/falcon_username/my_directory. Check!
 pwd
 
 # let&#39;s make a file of random numbers
@@ -727,8 +761,8 @@ cat copy.txt
 # open a new terminal from your local PC &amp; log into the ssh jump host
 ssh you25usr@ssh.bangor.ac.uk
 
-# copy the file from hawk to bangor ssh server
-scp b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+# copy the file from falcon to bangor ssh server
+scp b.you25usr@falconlogin.cf.ac.uk:/home/b.you25usr/copy.txt .
 
 # log out of bangor ssh server
 exit
@@ -742,7 +776,7 @@ scp you25usr@ssh.bangor.ac.uk:/home/people/you25usr/copy.txt .
 
 
 # !Advanced! all-in-one
-scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@hawklogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/home/b.you25usr/copy.txt .
 </code></pre>
 </div>
 </div>
@@ -1158,10 +1192,14 @@ my_liz$svl
 attractive</li>
 <li>Also if you finished early, copy the contents of
 <code>/scratch/scw2141/addeRs/</code> to you home directory and execute
-the <code>lizards.R</code> script on hawk</li>
+the <code>lizards.R</code> script on falcon</li>
 <li>and write a slurm script to submit it to the queue</li>
 </ul>
 </div>
+</div>
+<div id="todo-rmarkdown" class="section level2">
+<h2>TODO Rmarkdown</h2>
+<p>Create code chunks from the above code &amp; knit output document</p>
 </div>
 <div id="pretty-maps" class="section level2">
 <h2>Pretty maps</h2>
