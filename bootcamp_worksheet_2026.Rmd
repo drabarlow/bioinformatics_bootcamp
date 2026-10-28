@@ -23,7 +23,7 @@ You will interact with four main systems:
 
 - **COGS** – The account portal where you request and manage your Falcon login (username and password).
   - https://cogs.cf.ac.uk
-- **ColdFront** – The portal where projects, project membership, and compute allocations are managed. Normally only PIs need to access ColdFront
+- **ColdFront** – Normally only PIs need to access ColdFront. The portal where projects, project membership, and compute allocations are managed. 
   - https://coldfront.cf.ac.uk
 - **Falcon login node** – The HPC login server where you log in and run jobs.
   - `falcon_username@falconlogin.cf.ac.uk`
@@ -121,15 +121,15 @@ mv my_combined_file2.txt my_combined_file2
 # deleting with wildcards (VERY CAREFUL!!!)
 rm my*
 
-# Download file from internet
-wget https://dnazoo.s3.wasabisys.com/Alligator_mississippiensis/ASM28112v4_HiC.fasta.gz
+# Download file from internet: e.g. NCBI
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/964/194/415/GCF_964194415.1_rVipBer3.hap1.1/GCF_964194415.1_rVipBer3.hap1.1_genomic.fna.gz
 
 # Note file is compressed with gzip compression
 # view contents without unzipping
-zcat ASM28112v4_HiC.fasta.gz | less
+zcat GCF_964194415.1_rVipBer3.hap1.1_genomic.fna.gz | less
 
 # uncompress
-gunzip ASM28112v4_HiC.fasta.gz
+gunzip GCF_964194415.1_rVipBer3.hap1.1_genomic.fna.gz
 # note you can compress with the command gzip
 
 # log off
@@ -140,60 +140,20 @@ exit
 
 ### 3. Your turn :)
 
-- Count number of scaffold names in the Alligator genome
-- Print scaffold names to a file
+- Count number of scaffolds in the adder genome
+- Print scaffold names to a file (hint, just the names)
 - Print only scaffold names 10 to 20 to a file
 - Count the number of bases in the first line of DNA sequence (i.e. line 2)
 - Work out the genome size (don't worry about newline characters in your base counts for now)
 - If you are finished early, you can find a genome of your choice to play around with
-- Or... advanced! look at setting up a jump host for 1-step log on and easier data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx
 
-### INSERT MARKDOWN HERE
+- Or... advanced! look at setting up a jump host for 1-step log on and easier data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch_Connecting-to-eResearch-Resources.aspx
 
-
-
-### 4. Basic bash commands 2
-
-```bash
-# We assume you are in /home/falcon_username/my_directory. Check!
-pwd
-
-# let's make a file of random numbers
-# we can use the bash variable $RANDOM (more on variables later)
-# write 10 random numbers to a file
-echo $RANDOM >> my_randoms.txt
-
-# sort the numbers
-sort my_randoms.txt
-
-# check for duplicates
-sort my_randoms.txt | uniq -c
-
-# stream editing: sed
-# see https://www.gnu.org/software/sed/manual/sed.html
-# sed 's/search_string/replace_string/g' inputfile
-# s = substitute
-# g = global
-sed --help
-sed 's/1/Axel/g' my_randoms.txt
-
-# something more complex
-# . all characters
-# \0 [replace with] the same character
-sed 's/./\0 /g' my_randoms.txt 
-
-```
-
-### 5. Your turn
-
-- Using the help menu and Google, work out how to get grep to report the line numbers of each scaffold header in the Alligator genome file
-- Extract the sequence of the first scaffold and calculate the base composition (number of A, T, G, C)
-- If you are finished early, play around some more. For example can calculate base composition of the entire genome ignoring header lines?
 
 
 ```bash
-# extracting the scaffold
-head -n 5576894 ASM28112v4_HiC.fasta | tail -n 5576893 > scaffold_1.txt
+# extracting the scaffolds
+head -n 5576894 GCF_964194415.1_rVipBer3.hap1.1_genomic.fna.gz | tail -n 5576893 > scaffold_1.txt
 
 # Axel's solution using sed. Slow!
 # sed 's/./\0\n/g' enters newline after each character
@@ -215,6 +175,11 @@ tr -cd 'Tt' < scaffold_1.txt | wc -c
 tr -cd 'Gg' < scaffold_1.txt | wc -c
 tr -cd 'Cc' < scaffold_1.txt | wc -c
 ```
+
+### INSERT MARKDOWN HERE
+
+
+
 
 
 ### 6. Bash scripts
