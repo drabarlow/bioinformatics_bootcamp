@@ -141,7 +141,7 @@ exit
 ### 3. Your turn :)
 
 - Count number of scaffolds in the adder genome
-- Print scaffold names to a file (hint, just the names)
+- Print scaffold names to a file
 - Print only scaffold names 10 to 20 to a file
 - Count the number of bases in the first line of DNA sequence (i.e. line 2)
 - Work out the genome size (don't worry about newline characters in your base counts for now)
