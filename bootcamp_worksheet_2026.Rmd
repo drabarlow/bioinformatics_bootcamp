@@ -137,7 +137,6 @@ exit
 
 ```
 
-
 ### 3. Your turn :)
 
 - Count number of scaffolds in the adder genome
@@ -146,43 +145,10 @@ exit
 - Count the number of bases in the first line of DNA sequence (i.e. line 2)
 - Work out the genome size (don't worry about newline characters in your base counts for now)
 - If you are finished early, you can find a genome of your choice to play around with
-
 - Or... advanced! look at setting up a jump host for 1-step log on and easier data transfer to your local PC: https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch_Connecting-to-eResearch-Resources.aspx
 
 
-
-```bash
-# extracting the scaffolds
-head -n 5576894 GCF_964194415.1_rVipBer3.hap1.1_genomic.fna.gz | tail -n 5576893 > scaffold_1.txt
-
-# Axel's solution using sed. Slow!
-# sed 's/./\0\n/g' enters newline after each character
-sed 's/./\0\n/g' scaffold_1.txt | sort | uniq -c
-
-# Jeronimo et al's method using greps, faster!
-# -o print all matches
-# -i case insensitive
-grep -o -i a scaffold_1.txt
-grep -o -i t scaffold_1.txt
-grep -o -i g scaffold_1.txt
-grep -o -i c scaffold_1.txt
-
-# Ruby's method using tr, Fastest!
-# -c complement, find opposite of match
-# -d delete
-tr -cd 'Aa' < scaffold_1.txt | wc -c
-tr -cd 'Tt' < scaffold_1.txt | wc -c
-tr -cd 'Gg' < scaffold_1.txt | wc -c
-tr -cd 'Cc' < scaffold_1.txt | wc -c
-```
-
-### INSERT MARKDOWN HERE
-
-
-
-
-
-### 6. Bash scripts
+### 4. Bash scripts
 
 - Bash scripts allow sets of commands to be executed in an automated fashion
 - Files contain bash scripts are given the extension `.sh` by convention
@@ -236,13 +202,13 @@ i
 sh my_script.sh
 ```
 
-### 7. Your turn :)
+### 5. Your turn :)
 
 - Generate the `bash` script described above and execute
 - try modifying the script, for example to delete the intermediary files my_file1.txt and my_file2.txt
 - If you are finished early, think what other functions you could add to your script. For example lines counts reported to the terminal or saved in a file
 
-### 8. Variables
+### 6. Variables
 
 - In `bash`, variables can be used to store data in memory
 - Works exactly like objects in `R`
@@ -273,7 +239,7 @@ cat my_file* > my_combined_file.txt
 echo "job finished"
 ```
 
-### 9. Loops
+### 7. Loops
 
 - Loops are quite an advanced feature, but extremely useful
 - here we look at a basic while loop with a counter
@@ -289,13 +255,94 @@ while [ $x -lt 10 ]; do
 done
 ```
 
-### 10. Your turn :)
+### 8. Your turn :)
 
 - Generate the script shown in part 8. variables
 - execute your script, and try changing the variables. Is behaviour as expected?
 - try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
 - Generate the script shown in part 9. using a loop. Execute
 - If you are finished early... Remember making the file of random numbers above, wasn't this annoying? Try to make this file and carry out the same operation by making a script incorporating a loop
+
+
+## `markdown` and `Rmarkdown` in `Rstudio`
+
+At this stage, you may be taking notes on commands and results in some way. We suggest `markdown` is the best option for this. It is a simple text format that allows you to combine text, code and results in a single document, and knit to html to view in an internet browser.
+
+`Rmarkdown` is an one implementation of markdown for use within `Rstudio`. An `Rmarkdown` document is written in markdown and contains chunks of embedded `R` code, which can be executed and results knitted to the html.
+
+- In Rstudio select File > New File > R Markdown
+- Below is a simple example that we will work though
+
+```bash
+# this is an example yaml header that goes at the top of the document
+---
+title: "R markdown example"
+author: "Axel Barlow"
+date: "2023-10-31"
+output:
+  html_document:
+    keep_md: true
+---
+```
+
+The setup chunk is a special code chunk that is executed at the start of the document. It is used to set options for the document and load libraries.
+
+```r
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1. Basic text formatting
+
+```r
+
+## Header 1
+
+### Header 2
+
+#### Header 3
+
+You can just write stuff like this
+
+- list1
+- list2
+  - sublist 1
+  - sublist 2
+
+1. Numbered list1
+2. Numbered list2
+
+**here is bold**
+
+*here is italic*
+
+`this is inline code`  
+
+## Tables
+
+Subject|Emotion|Object
+--|--|--
+I|hate|Powerpoint
+I|love|Rmarkdown
+
+```
+
+### 2. `R` code chunk
+
+```r
+# ```{r, echo=TRUE, eval=TRUE}
+# here is some R code that is executed
+1+1
+# ```
+```
+
+
+## `bash` code chunk (not exectuted)
+
+```r
+# ```bash
+echo "hello"
+# ```
+```
 
 
 
@@ -524,212 +571,44 @@ echo "job complete"
 ---
 
 
-## Illumina data processing
+## Population genomics: population structure and heterozygosity
 
-### 1. Fastq file format
+Our shared project directory is `/scratch/SCWF00251/`
+
+### 1. Tour and `BEARCAVE`
 
 ```bash
-# enter BEARCAVE
-cd /scratch/scw2141/BEARCAVE2/
+# enter project directory
+cd /scratch/SCWF00251/
 
 # view directories
 ll
 
-# raw data
-cd rawdata
+# bams
+ll BEARCAVE2/mappedrVipBer3_chr6/
 
-# look at a fastq file
-zcat ./adder01/a01+adder01_R1.fastq.gz | less
+# ref genome
+ll BEARCAVE2/refgenomes/rVipBer3_chr6/
 
-# look at metadata
-cat ./metadata.txt 
-
-# look at reference genome
-less /scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa
+# look at coverage
+module load SAMtools
+samtools coverage BEARCAVE2/mappedrVipBer3_chr6/adder0X_XXX_chr6.bam | head -2
 ```
 
-### 2. Your turn :)
+### 2. Compute genotype likelihoods in `angsd`
 
-- locate sequence data for your adder
-- What are the file sizes of R1 and R2 files?
-- How many R1 and R2 sequences are there?
-- What is the read length?
-- What can you surmise about the arrangement of R1 and R2 data, and how do you explain the file sizes?
+### 3. Allele covariance matrix using `PCangsd`
 
-NOTE: if you haven't been able to finish this section when we move on, just continue with the next section and we will make sure there's time at the end of the day to get you caught up.
+### 4. Genetic distance matrix using `ngsDist`
 
-### 3. BEARCAVE script: trim and merge
-
-```bash
-less BEARCAVE2/scripts/trim_merge_DS_PE_standard2_JP.sh 
-```
-
-```bash
-#!/bin/bash
-
-# Hacked by Axel, April 2023
-# For use on Hawk which has shiny modules, using new cutadapt and pigz to allow multithreading
-# you will need to load the following modules in your slurm script:
-# module load cutadapt/4.3 FLASH/1.2.11 pigz/2.4
-
-# November 2018
-# script for trimming adapter sequences from DS library PE data, removing short reads, amd merging overlapping PE reads.
-# this script is for data sequenced using the standard Illumina R1 sequencing primer
-
-# this script should be run from /BEARCAVE/scripts
-
-# example command line: sh ./trim_merge_DS_PE_standard2.sh $1 $2 $3
-# $1 = SAMPLE*
-# $2 = PREFIX*
-# $3 = SEQ_RUN*
-
-# * these can be found in /BEARCAVE/rawdata/metadata.txt
-```
-
-### 4. Your turn :)
-
-- make a `slurm` job script in your chosen location within home directory. It should do the following steps.
-- Note you will need to add the following SBATCH to your script, to ensure the command is executed in the scripts directory: 
-
-```bash
-#set working directory
-#SBATCH --chdir=/scratch/scw2141/BEARCAVE2/scripts/
-```
-
-- load appropriate modules
-- run the trim_merge_DS_PE_standard2_JP.sh script on your adder sample
-- use 4Gb RAM, 6 CPUs, and run for 40 minutes
-- direct stdout and errors to your chosen location in your home directory
-- submit to queue
-
-### 5. BEARCAVE script: mapping
-
-```bash
-less BEARCAVE2/scripts/map_modern_PE_mem2_tmp_JP.sh
-```
-
-```bash
-#!/bin/bash
-
-# Hacked by Axel, April 2023
-# For use on Hawk which has shiny modules, using new bwa and samtools
-# this uses the improved duplicate removal method (not rmdup)
-# you will need to load the following modules in your slurm script:
-# module load bwa/0.7.17 samtools/1.17 pigz/2.4
-
-# November 2018
-# script for mappping modern DNA reads to a reference genome
-# note this includes mapping of both merged and unmerged paired-end reads
-
-# this script should be run from /BEARVACE/scripts
-
-# example command line: sh ./map_modern_PE_mem2.sh $1 $2 $3 $4
-# $1 = prefix or prefixes (if you are mapping combined data file, you should enter its while set of prefixes as one argument, like this: pr1_pr2_pr3
-# $2 = reference - folder name in /refgenomes/
-# $3 = 3 character taxon identifier, used for filenaming - e.g. arc, spe, kud, mar.
-# $4 = sample name
-```
-
-### 6. Your turn :)
-
-- check the outcome of the trimming and merging
-- move your processed files into `/scratch/scw2141/BEARCAVE2/trimdata/`
-- move your log files into `/scratch/scw2141/BEARCAVE2/trimdata/trimlogs`
-- delete the *processing directory
-- make a slurm job script similar to the one in part 4. in your chosen location within home directory. This script should execute the map_modern_PE_mem2_tmp_JP.sh script
-- Use 10Gb RAM, 10 CPUs, and run for 2 hours
-- Check outcome
-
-## PCA, NJ tree and heterozygosity
-
-We will carry out population genomics analyses using `angsd`. This requires a list of bamfiles (with full paths) to analyse. For example:
-
-```bash
-# angsd requires a list on bam files in a text file
-ls -1 /scratch/scw2141/BEARCAVE2/mappedberus_chr7/*bam > bamlist_outgroup
-```
-
-### 1. Distance matrix
-
-```bash
-# load angsd module
-module purge
-module load angsd/0.935
-
-# set ref genome as a variable
-ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
-
-# angsd command
-#-doIBS,-doCounts = Identity by state, currently set as single read sampling
-#-doCov  = calculate covariance matrix
-#-makeMatrix = calculate distance matrix
-#-doMajorMinor, -GL = identify major/minor allele using genotype likelihoods  
-#-minFreq = min allele frequency for site
-#-minInd = min individuals with data
-#-minQ,-minMapQ = min base and map quality
-#-b = specify bamlist
-#-ref = reference genome
-#-out = name outputs
-#-nThreads = number threads
-
-# this calculates the distance matrix, include the outgroup
-angsd -doIBS 1 -makeMatrix 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 48 -minQ 30 -minMapQ 30 -b bamlist_outgroup -ref $ref -out bamlist_outgroup -nThreads 10
-```
-
-### 2. Covariance matrix
-
-```bash
-# load angsd module
-module purge
-module load angsd/0.935
-
-# set ref genome as a variable
-ref='/scratch/scw2141/BEARCAVE2/refgenomes/berus_chr7/berus_chr7.fa'
+### 5. `STRUCTURE` analysis using `ngsAdmix`
 
 
-# load modules and declare variables as above
-# this calculates the covariance matrix, exclude the outgroup
-angsd -doIBS 1 -doCov 1 -doCounts 1 -doMajorMinor 1 -GL 1 -minFreq 0.1 -minInd 47 -minQ 30 -minMapQ 30 -b bamlist_ingroup -ref $ref -out bamlist_ingroup -nThreads 10
-```
 
-### 3. Heterozygosity
 
-```bash
-# set files as variables
-input='/scratch/scw2141/BEARCAVE2/mappedberus_chr7/xxx+adderxx_ber_berus_chr7_.xxxxx.bam'
-output='adderxx_het'
-# We need to specify the ancestral allele, use fasta generated from bosniensis outgroup
-bos='/scratch/scw2141/bosniensis_chr7/bosniensis_chr7.fa'
+## JOHANNA R SECTION GOES HERE
 
-# depth variables
-max=20
-min=3
 
-# estimate genotype likelihoods
-# -i = input file
-# -doSaf = per-site allele frequencies
-# -GL = genotype likelihood model
-# -P = number threads
-# -anc = outgroup, to identify ancestral allele
-#-minQ,-minMapQ = min base and map quality
-# -setMinDepthInd, -setMaxDepthInd = max and min depth filters
-angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $bos -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
-
-# calculate sfs
-# -nSites = sliding window size
-# -P = no threads
-realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
-```
-
-### 3. Your turn :)
-
-- Make a separate slurm job scripts (somewhere in your home directory) for each analysis shown above (3 total) 
-- make bamlists in the same directory, one with outgroup and one without
-- direct stdout and errors to your chosen location in your home directory
-- adjust SBATCH to appropriate paths and filenames
-- Use 10Gb RAM, 10 CPUs, and run each for 40 mins
-- Check results
-- Look at your *.ibs.gz file for covariance and distance matrices and count the lines
 
 ## Intro to basic `R` commands
 
@@ -886,6 +765,56 @@ my_tree <- nj(my_mat)
 my_root <- root(my_tree, outgroup=48)
 plot(my_root)
 ```
+
+
+
+
+## Population genomics: genetic diversity
+
+### XXX Heterozygosity
+
+I AM LEAVING THIS SECTION TO MODIFY LATER
+
+```bash
+# set files as variables
+input='/scratch/scw2141/BEARCAVE2/mappedberus_chr7/xxx+adderxx_ber_berus_chr7_.xxxxx.bam'
+output='adderxx_het'
+# We need to specify the ancestral allele, use fasta generated from bosniensis outgroup
+bos='/scratch/scw2141/bosniensis_chr7/bosniensis_chr7.fa'
+
+# depth variables
+max=20
+min=3
+
+# estimate genotype likelihoods
+# -i = input file
+# -doSaf = per-site allele frequencies
+# -GL = genotype likelihood model
+# -P = number threads
+# -anc = outgroup, to identify ancestral allele
+#-minQ,-minMapQ = min base and map quality
+# -setMinDepthInd, -setMaxDepthInd = max and min depth filters
+angsd -i $input -doSaf 1 -GL 1 -P 10 -anc $bos -out $output -minMapQ 30 -minQ 30 -setMinDepthInd $min -setMaxDepthInd $max -doCounts 1
+
+# calculate sfs
+# -nSites = sliding window size
+# -P = no threads
+realSFS $output.saf.idx -nSites 100000 -P 10 > $output.window.sfs
+```
+
+### 3. Your turn :)
+
+- Make a separate slurm job scripts (somewhere in your home directory) for each analysis shown above (3 total) 
+- make bamlists in the same directory, one with outgroup and one without
+- direct stdout and errors to your chosen location in your home directory
+- adjust SBATCH to appropriate paths and filenames
+- Use 10Gb RAM, 10 CPUs, and run each for 40 mins
+- Check results
+- Look at your *.ibs.gz file for covariance and distance matrices and count the lines
+
+
+
+
 
 ### 3. Heterozygosity
 
