@@ -234,23 +234,22 @@ include_graphics("./assets/img/WSL.png")
 </div>
 --> 
 
-## Hawk
+## Falcon
 
 ```{r, out.height = 500, out.width = "auto", fig.align='center'}
 include_graphics("./assets/img/hawk.png")
 ```
 
 
-## Hawk
+## Falcon
 
 - **Computational nodes**
-  - \>134x Intel nodes with 40 cpus + 192 Gb RAM each
-  - \>64x AMD nodes with 64 cpus + 256 Gb RAM each
-  - \>26x Highmem nodes with 384 Gb RAM each
-  - \>28x Nvidia GPU nodes
+  - \>70x computing nodes with 192 cores + 768 Gb RAM each    <!-- checked oct 2026 https://www.cardiff.ac.uk/advanced-research-computing/about-us/our-supercomputers -->
+  - \>8x highmem nodes with 192 cores + 1536 Gb RAM each      <!-- checked oct 2026 -->
+  - \>18x Nvidia GPU nodes with 2-8 nodes each
 - **Storage space**
-  - 1192TB (usable) scratch space
-  - 420TB of home directory space
+  - 1192TB (usable) scratch space                            <!-- checked oct 2026 -->
+  - 457TB of home (redundant) directory space                <!-- checked oct 2026 -->
 
 <div style="display: flex; align-items: flex-start;">
 
@@ -293,7 +292,7 @@ include_graphics("./assets/img/hawk.png")
 </div>
 -->
 
-## Hawk usage
+## Falcon usage
 
 - Command-line only (via `ssh`)
 - Access through SSH jump host
@@ -304,8 +303,9 @@ include_graphics("./assets/img/hawk.png")
 - **Space & quota**
   - Home directory (small, persistent): 50Gb
   - Scratch space (bigger, temporary): SCW projects, few Tb
-  - Max 10 active jobs, max 30 in the queue
+  - Variable max active jobs, max 10 in the queue
   - Max 3 day runtime
+  - check with `myquota`
 
 ## Secure shell (SSH)
 
@@ -329,15 +329,15 @@ include_graphics("./assets/img/jumphost_bangor.svg")
 
 **Connecting to the jump host (with MFA)**
 ```sh
-ssh you25usr@ssh.bangor.ac.uk
+ssh you26usr@ssh.bangor.ac.uk
 ```
 *Note: most UNIX systems do not show anything when you're typing your password!*
 
 <div style="height:30px;"></div>
 
-**If successful, connecting to Hawk**
+**If successful, connecting to Falcon**
 ```shell
-ssh b.you25usr@hawklogin.cf.ac.uk
+ssh b.you26usr@falconlogin.cf.ac.uk
 ```
 <div style="height:30px;"></div>
 
@@ -349,11 +349,17 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 
 ## A brief note on AI in Bioinformatics
 
-- AI tools are becoming increasingly common in bioinformatics (and everywhere else)
-- Different models are better or worse for different tasks (e.g. I find ChatGPT 4 is not great at programming)
-- But it doesn't know everything, and it can't do everything
-- You need knowledge of coding, assessing output, error messages, structure, logic, etc
-- Also the standard AI considerations: ethics, reproducibility, accuracy, privacy...
+- AI tools (LLMs) are becoming increasingly common in bioinformatics (and everywhere else)
+- AI lowers the barrier to implementation but it does not remove the need for computational understanding
+- Changing workflows: more time on conceptualisation and design. Less time on implementation. Less time on testing. More time on debugging.
+- Once you get into higher level bioinformatics, the possibilities are just astronomical
+
+## A brief note on AI in Bioinformatics
+
+
+```{r, out.width = 700}
+include_graphics("./assets/img/aidebugmeme.jpg")
+```
 
 
 ## A brief note on AI in Bioinformatics
@@ -361,6 +367,24 @@ ssh b.you25usr@hawklogin.cf.ac.uk
 <video width="100%" controls style="display:block; margin:auto; border-radius:12px;">
   <source src="assets/img/simplescreenrecorder-2025-10-29_11.10.09.mp4" type="video/mp4">
 </video>
+
+## A brief note on AI in Bioinformatics  {.white-slide}
+
+```{r, out.width = 700}
+include_graphics("./assets/img/random.png")
+```
+
+## A brief note on AI in Bioinformatics  {.white-slide}
+
+```{r, out.width = 700}
+include_graphics("./assets/img/random_human.png")
+```
+
+## A brief note on AI in Bioinformatics  {.white-slide}
+
+```{r, out.width = 700}
+include_graphics("./assets/img/random_human_LLM.png")
+```
 
 
 ## Filesystem
