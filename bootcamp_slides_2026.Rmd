@@ -39,16 +39,18 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 
 | Date | Time | Activity |
 |------|------|----------|
-| Mon 02/11/2026 | 10:00 to 16:00 | Unix-like systems, bash, connecting to SCWales |
-| Tue 03/11/2026 | 10:00 to 16:00 | More bash, scripts, SCWales, using SCWales and slurm |
-| Wed 04/11/2026 | 10:00 to 16:00 | Illumina data, BEARCAVE, data processing |
-| Thu 05/11/2026 | 10:00 to 16:00 | ANGSD, covariance and distance matrices, heterozygosity, intro to R |
-| Fri 06/11/2026 | 10:00 to 16:00 | Maps, PCA's, NJ trees, Manhattan plots and Rmarkdown |
+| Mon 02/11/2026 | 10:00 to 16:00 | Unix-like systems, connecting to SCWales, `bash` |
+| Tue 03/11/2026 | 10:00 to 16:00 | More `bash`, scripts, `markdown` and `Rmarkdown`, SCWales, using SCWales and `slurm` |
+| Wed 04/11/2026 | 10:00 to 16:00 | Illumina data, population genomics, `ANGSD`, population structure, intro to `R`, **EVENING SOCIAL** |
+| Thu 05/11/2026 | 10:00 to 16:00 | Genetic diversity, `Rmarkdown` notebooks |
+| Fri 06/11/2026 | 10:00 to 16:00 | Phylogenomics, `iqtree`, admixture |
 
 ## Prequisites
 
 - a computer with internet connection
-- an account on super-computing Wales
+  - eduroam with bangor email address
+- an account on falcon
+- invite to SCWF00251, with signed EULA
 - basic knowledge of DNA and genome structure
 
 ## Resources
@@ -65,10 +67,7 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 
 <https://github.com/drabarlow/bioinformatics_bootcamp>
 
-### Supercomputing Wales shared project
-
-- please request access to
-
+**Note these are all active documents: refresh your browser regularly!**
 
 ## Introductions
 
@@ -83,7 +82,7 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 - Self taught (rebelling against a Linux-expert dad)
 - No proper bioinformatics/computer science background
 - Knowledge of `bash` and `R`.
-
+- By far the better coder of the pair ;) 
 
 ## Introductions
 
@@ -152,7 +151,7 @@ include_graphics("./assets/img/main-qimg-592cd3e8f514ec3fd00dd6490d889926-lq.jpe
 - Encoding of text files is different
 - Majority of bioinfomatics software unsupported
 - Windows subsystem for linux <https://learn.microsoft.com/en-us/windows/wsl/install>
-- Seamless transfer between `DOS` and `Unix` not yet possible
+- Seamless transfer between `DOS` and `Unix`-like OS not yet possible
 
 
 ```{r, out.width = 200}
@@ -184,8 +183,7 @@ include_graphics("./assets/img/WSL.png")
 |hardware choice|yes|no|yes|
 |bioinformatics|no|yes|yes|
 |HPC|no|no|yes|
-|open source|no|no|yes|
-|active community|no|no|yes|
+|open source with active community|no|no|yes|
 |games|yes|no|no|
 
 
@@ -234,7 +232,7 @@ include_graphics("./assets/img/WSL.png")
 </div>
 --> 
 
-## Falcon
+## "Falcon"
 
 ```{r, out.height = 500, out.width = "auto", fig.align='center'}
 include_graphics("./assets/img/hawk.png")
@@ -344,6 +342,22 @@ ssh b.you26usr@falconlogin.cf.ac.uk
 <span style="font-size: 150%;"> ***Raise your hand if you are having issues*** 🙌</span> 
 
 
+# `markdown` and `Rmarkdown`
+
+## `markdown` and `Rmarkdown`
+
+- Simple text editor
+- knit to html, pdf, word, etc
+- html in  particular integrates well with github and github pages
+- e.g. this presentation, the worksheet
+- Allows executable code chunks in `R` and other languages
+
+## `Rmarkdown`
+
+```{r, out.width = "90%"}
+include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
+```
+
 
 # AI
 
@@ -386,6 +400,7 @@ include_graphics("./assets/img/random_human.png")
 include_graphics("./assets/img/random_human_LLM.png")
 ```
 
+# Falcon tour 
 
 ## Filesystem
 
@@ -397,8 +412,9 @@ include_graphics("./assets/img/random_human_LLM.png")
 
 ```sh
 /home/b.xlb21brx/
-/scratch/b.xlb21brx/
+/scratch/SCWF00251/
 ```
+
 - We can navigate through the filesystem (change working directory)
 - Or we can specify the patch to directories or files remotely
 

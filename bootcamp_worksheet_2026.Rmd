@@ -255,13 +255,15 @@ while [ $x -lt 10 ]; do
 done
 ```
 
+### JOHANNA ADDING FOR LOOP
+
 ### 8. Your turn :)
 
-- Generate the script shown in part 8. variables
+- Generate the script shown in part 6. variables
 - execute your script, and try changing the variables. Is behaviour as expected?
 - try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
-- Generate the script shown in part 9. using a loop. Execute
-- If you are finished early... Remember making the file of random numbers above, wasn't this annoying? Try to make this file and carry out the same operation by making a script incorporating a loop
+- Generate the script shown in part 7. using a loop. Execute
+- **ADDING SOME MORE LOOP EXERCISES**
 
 
 ## `markdown` and `Rmarkdown` in `Rstudio`
@@ -336,7 +338,7 @@ I|love|Rmarkdown
 ```
 
 
-## `bash` code chunk (not exectuted)
+### 3. `bash` code chunk (not exectuted)
 
 ```r
 # ```bash
@@ -344,12 +346,13 @@ echo "hello"
 # ```
 ```
 
+### 4. Your turn :)
+
+- Set up an Rmarkdown document and save some of your notes and bash commands/scripts in it
+- This will become you personal notebook for the bootcamp, and you can add to it as we go along
 
 
 ## Supercomputing Wales and slurm
-
-
-
 
 ### 1. Filesystem
 
@@ -378,15 +381,15 @@ ls
 # Go home
 cd ~
 ```
-### 2. Copying files
 
+### 2. Copying files
 
 ```sh
 # copying files
 cp <source> <destination_file>
 cp sheep.txt bla/sheep_in_bla.txt
 
-# on hawk: make a small file
+# on falcon: make a small file
 echo "scp'ing is awesome!" > copy.txt
 
 # check the small file
@@ -433,13 +436,17 @@ cd
 ```bash
 # module searching
 module avail
-module avail R
+module avail angsd
+module spider angsd
 
 # module load
-module load R/4.2.0
+angsd
+module load angsd/0.940-GCC-12.3.0
+angsd
 
 # module unload
 module purge
+angsd
 ```
 
 ### 4. Slurm
@@ -457,7 +464,7 @@ squeue -u username
 
 # do something resource intensive
 module load pigz
-pigz -p 4 ASM28112v4_HiC.fasta
+pigz -p 4 GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 
 # exit
 exit
@@ -489,6 +496,8 @@ seff jobid
 #SBATCH --ntasks=1
 #memory in Gb 
 #SBATCH --mem=1G
+#specify project
+#SBATCH --account SCWF00251_j_paijmans_246
 
 echo hello > hello.txt
 ```
@@ -496,21 +505,6 @@ echo hello > hello.txt
 ```bash
 # submit to queue
 sbatch job_script.sh
-```
-
-#### For people who have multiple accounts
-
-- If you have multiple accounts on SCWales, the command above will throw an error
-- You can specify the acount at the command line, or include in the slurm script
-
-```bash
-#command line
-sbatch account=scw1234 job_script.sh
-
-# or include the following SBATCH in the script
-
-#assign account
-#SBATCH account=scw1234
 ```
 
 ### 5. Your turn :)
@@ -522,7 +516,9 @@ sbatch account=scw1234 job_script.sh
 
 **Next**
 
-- You are going to implement the method you developed to print scaffold names to a file from the alligator genome in part 3. as a `slurm` script.
+**UPDATE WITH NEW EXERCISE!!!!**
+
+- You are going to implement the method you developed to print scaffold names to a file from the adder genome in part 3. as a `slurm` script.
 - Make a `slurm` script in `./my_slurm_scripts`
 - You should work on the **compressed** file located in your `home` directory
 - use pigz to decompress the genome file and then re-compress after doing the computation
