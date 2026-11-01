@@ -242,6 +242,7 @@ echo "job finished"
 ### 7. Loops
 
 - Loops are quite an advanced feature, but extremely useful
+- different types of loop `while`, `for`, `if`, and many more
 - here we look at a basic while loop with a counter
 
 ```bash
@@ -255,7 +256,36 @@ while [ $x -lt 10 ]; do
 done
 ```
 
-### JOHANNA ADDING FOR LOOP
+- `for` loops are extremely useful for iterating over files in a directory, or over a list of items
+
+```bash
+
+for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
+  grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
+done
+
+```
+
+- and they can be nested!
+
+```bash
+
+for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
+
+  if grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
+    echo "$scaffold is present :)"
+  fi
+
+done
+
+```
+
+### your turn
+
+- create a file containing all scaffolds in the adder genome (see part 3)
+- create a bash script that automatically goes through all scafffolds in the adder genome and prints them to the screen if found (hint: `echo`)
+- use `VIM` to remove some scaffolds from your scaffold file
+- create a bash script that prints a message to the terminal if they are found. How can you detect which scaffolds were not in the scaffold file?
 
 ### 8. Your turn :)
 

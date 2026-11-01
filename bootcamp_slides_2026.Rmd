@@ -366,39 +366,41 @@ include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 - AI tools (LLMs) are becoming increasingly common in bioinformatics (and everywhere else)
 - AI lowers the barrier to implementation but it does not remove the need for computational understanding
 - Changing workflows: more time on conceptualisation and design. Less time on implementation. Less time on testing. More time on debugging.
-- Once you get into higher level bioinformatics, the possibilities are just astronomical
+- Once you get into higher level bioinformatics, the possibilities are just astronomical 😱
+
 
 ## A brief note on AI in Bioinformatics
 
+<video width="100%" controls style="display:block; margin:auto; border-radius:12px;">
+  <source src="assets/img/video_1.4x_compressed.mp4" type="video/mp4">
+</video>
+
+## Problems...
 
 ```{r, out.width = 700}
 include_graphics("./assets/img/aidebugmeme.jpg")
 ```
 
 
-## A brief note on AI in Bioinformatics
-
-<video width="100%" controls style="display:block; margin:auto; border-radius:12px;">
-  <source src="assets/img/simplescreenrecorder-2025-10-29_11.10.09.mp4" type="video/mp4">
-</video>
-
-## A brief note on AI in Bioinformatics  {.white-slide}
+## Problems...  {.white-slide}
 
 ```{r, out.width = 700}
 include_graphics("./assets/img/random.png")
 ```
 
-## A brief note on AI in Bioinformatics  {.white-slide}
+## Problems... {.white-slide}
 
 ```{r, out.width = 700}
 include_graphics("./assets/img/random_human.png")
 ```
 
-## A brief note on AI in Bioinformatics  {.white-slide}
+## Problems... {.white-slide}
 
 ```{r, out.width = 700}
 include_graphics("./assets/img/random_human_LLM.png")
 ```
+
+
 
 # Falcon tour 
 
