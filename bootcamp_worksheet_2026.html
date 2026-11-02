@@ -635,12 +635,43 @@ while [ $x -lt 10 ]; do
   echo The counter is $x
   let x=x+1
 done</code></pre>
+</div>
+<div id="your-turn-2" class="section level3">
+<h3>8. Your turn :)</h3>
+<ul>
+<li>Generate the script shown in part 6. variables</li>
+<li>execute your script, and try changing the variables. Is behaviour as
+expected?</li>
+<li>try modifying your script, for example entering the counts at the
+command line, or specifying the name of the output file at the command
+line</li>
+<li>Generate the script shown in part 7. using a loop. Execute</li>
+</ul>
+</div>
+<div id="for-loops" class="section level3">
+<h3>?.<code>for</code> loops</h3>
 <ul>
 <li><code>for</code> loops are extremely useful for iterating over files
 in a directory, or over a list of items</li>
+<li>it’s a way of doing things automatically and sequentially</li>
 </ul>
 <pre class="bash"><code>
+cat are_these_all_adder_scaffolds.txt
+
+printf &#39;%s\n&#39; &#39;&amp;#96;&amp;#96;&amp;#96;&#39;
+#!/bin/bash 
+
+for x in $(cat are_these_all_adder_scaffolds.txt); do
+  echo $x
+done
+printf &#39;\`\`\`\n&#39;
+
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
+  echo $scaffold
+done
+
+for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
+  echo $scaffold
   grep -c &quot;$scaffold&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 done
 </code></pre>
@@ -651,38 +682,28 @@ done
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
 
   if grep -c &quot;$scaffold&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
-    echo &quot;$scaffold is present :)&quot;
+    echo &quot;${scaffold} is present :)&quot;
   fi
 
 done
 </code></pre>
 </div>
-<div id="your-turn-2" class="section level3">
-<h3>your turn</h3>
+<div id="your-turn-3" class="section level3">
+<h3>?. your turn :)</h3>
 <ul>
-<li>create a file containing all scaffolds in the adder genome (see part
-3)</li>
-<li>create a bash script that automatically goes through all scafffolds
-in the adder genome and prints them to the screen if found (hint:
-<code>echo</code>)</li>
+<li>create a file containing all scaffolds in the adder genome (you
+should already have this, see part 3)</li>
+<li>create a bash script that automatically goes through all scaffolds
+in the adder genome file and prints their name to the screen if
+found</li>
 <li>use <code>VIM</code> to remove some scaffolds from your scaffold
 file</li>
-<li>create a bash script that prints a message to the terminal if they
-are found. How can you detect which scaffolds were not in the scaffold
-file?</li>
-</ul>
-</div>
-<div id="your-turn-3" class="section level3">
-<h3>8. Your turn :)</h3>
-<ul>
-<li>Generate the script shown in part 6. variables</li>
-<li>execute your script, and try changing the variables. Is behaviour as
-expected?</li>
-<li>try modifying your script, for example entering the counts at the
-command line, or specifying the name of the output file at the command
-line</li>
-<li>Generate the script shown in part 7. using a loop. Execute</li>
-<li><strong>ADDING SOME MORE LOOP EXERCISES</strong></li>
+<li>create a bash script that loops through the scaffold names and
+prints an informative (for example: “Scaffoldxxx found”) message to the
+terminal if they are found. How can you detect which scaffolds were
+<em>not</em> in the scaffold file?</li>
+<li>bonus round: you can loop through a list of scaffolds, without
+actually creating a scaffold file first… Can you figure out how?</li>
 </ul>
 </div>
 </div>

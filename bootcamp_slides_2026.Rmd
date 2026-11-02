@@ -1116,4 +1116,9 @@ axis(2)
 
 # That's all folks!
 
+
+```{r, out.width = "50%", fig.align='right'}
+include_graphics("./assets/img/QRCode_BioinformaticsBootcamp_2026.png")
+```
+
 **See you next year :)**

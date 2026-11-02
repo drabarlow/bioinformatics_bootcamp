@@ -256,11 +256,36 @@ while [ $x -lt 10 ]; do
 done
 ```
 
+
+### 8. Your turn :)
+
+- Generate the script shown in part 6. variables
+- execute your script, and try changing the variables. Is behaviour as expected?
+- try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
+- Generate the script shown in part 7. using a loop. Execute
+
+### ?.`for` loops
+
 - `for` loops are extremely useful for iterating over files in a directory, or over a list of items
+- it's a way of doing things automatically and sequentially
 
 ```bash
 
+cat are_these_all_adder_scaffolds.txt
+
+#!/bin/bash 
+
+for x in $(cat are_these_all_adder_scaffolds.txt); do
+  echo $x
+done
+
+
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
+  echo $scaffold
+done
+
+for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
+  echo $scaffold
   grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 done
 
@@ -273,27 +298,20 @@ done
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
 
   if grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
-    echo "$scaffold is present :)"
+    echo "${scaffold} is present :)"
   fi
 
 done
 
 ```
 
-### your turn
+### ?. your turn :)
 
-- create a file containing all scaffolds in the adder genome (see part 3)
-- create a bash script that automatically goes through all scafffolds in the adder genome and prints them to the screen if found (hint: `echo`)
+- create a file containing all scaffolds in the adder genome (you should already have this, see part 3)
+- create a bash script that automatically goes through all scaffolds in the adder genome file and prints their name to the screen if found
 - use `VIM` to remove some scaffolds from your scaffold file
-- create a bash script that prints a message to the terminal if they are found. How can you detect which scaffolds were not in the scaffold file?
-
-### 8. Your turn :)
-
-- Generate the script shown in part 6. variables
-- execute your script, and try changing the variables. Is behaviour as expected?
-- try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
-- Generate the script shown in part 7. using a loop. Execute
-- **ADDING SOME MORE LOOP EXERCISES**
+- create a bash script that loops through the scaffold names and prints an informative (for example: "Scaffoldxxx found") message to the terminal if they are found. How can you detect which scaffolds were _not_ in the scaffold file?
+- bonus round: you can loop through a list of scaffolds, without actually creating a scaffold file first... Can you figure out how?
 
 
 ## `markdown` and `Rmarkdown` in `Rstudio`
