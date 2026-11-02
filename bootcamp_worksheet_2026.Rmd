@@ -239,6 +239,15 @@ cat my_file* > my_combined_file.txt
 echo "job finished"
 ```
 
+
+
+### 8. Your turn :)
+
+- Generate the script shown in part 6. variables
+- execute your script, and try changing the variables. Is behaviour as expected?
+- try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
+
+
 ### 7. Loops
 
 - Loops are quite an advanced feature, but extremely useful
@@ -256,14 +265,6 @@ while [ $x -lt 10 ]; do
 done
 ```
 
-
-### 8. Your turn :)
-
-- Generate the script shown in part 6. variables
-- execute your script, and try changing the variables. Is behaviour as expected?
-- try modifying your script, for example entering the counts at the command line, or specifying the name of the output file at the command line
-- Generate the script shown in part 7. using a loop. Execute
-
 ### ?.`for` loops
 
 - `for` loops are extremely useful for iterating over files in a directory, or over a list of items
@@ -275,18 +276,19 @@ cat are_these_all_adder_scaffolds.txt
 
 #!/bin/bash 
 
+# execute a command for each scaffold in the list
 for x in $(cat are_these_all_adder_scaffolds.txt); do
   echo $x
 done
 
-
+# the variable can be any word which could help with clarity
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
   echo $scaffold
 done
 
-
+# you can do multiple commands in the loop, but you need to use `;` to separate them
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
-  echo $scaffold
+  echo $scaffold;
   grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 done
 
@@ -308,6 +310,7 @@ done
 
 ### ?. your turn :)
 
+- Generate the script shown in part 7. using a loop. Execute
 - create a file containing all scaffolds in the adder genome (you should already have this, see part 3)
 - create a bash script that automatically goes through all scaffolds in the adder genome file and prints their name to the screen if found
 - use `VIM` to remove some scaffolds from your scaffold file
