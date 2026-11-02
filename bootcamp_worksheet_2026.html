@@ -619,6 +619,17 @@ cat my_file* &gt; my_combined_file.txt
 
 echo &quot;job finished&quot;</code></pre>
 </div>
+<div id="your-turn-2" class="section level3">
+<h3>8. Your turn :)</h3>
+<ul>
+<li>Generate the script shown in part 6. variables</li>
+<li>execute your script, and try changing the variables. Is behaviour as
+expected?</li>
+<li>try modifying your script, for example entering the counts at the
+command line, or specifying the name of the output file at the command
+line</li>
+</ul>
+</div>
 <div id="loops" class="section level3">
 <h3>7. Loops</h3>
 <ul>
@@ -636,18 +647,6 @@ while [ $x -lt 10 ]; do
   let x=x+1
 done</code></pre>
 </div>
-<div id="your-turn-2" class="section level3">
-<h3>8. Your turn :)</h3>
-<ul>
-<li>Generate the script shown in part 6. variables</li>
-<li>execute your script, and try changing the variables. Is behaviour as
-expected?</li>
-<li>try modifying your script, for example entering the counts at the
-command line, or specifying the name of the output file at the command
-line</li>
-<li>Generate the script shown in part 7. using a loop. Execute</li>
-</ul>
-</div>
 <div id="for-loops" class="section level3">
 <h3>?.<code>for</code> loops</h3>
 <ul>
@@ -657,21 +656,21 @@ in a directory, or over a list of items</li>
 </ul>
 <pre class="bash"><code>
 cat are_these_all_adder_scaffolds.txt
-
-#!/bin/bash 
-
+</code></pre>
+<pre><code>
+# execute a command for each scaffold in the list
 for x in $(cat are_these_all_adder_scaffolds.txt); do
   echo $x
 done
 
-
+# the variable can be any word which could help with clarity
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
   echo $scaffold
 done
 
-
+# you can do multiple commands in the loop, but you need to use `;` to separate them
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
-  echo $scaffold
+  echo $scaffold;
   grep -c &quot;$scaffold&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 done
 </code></pre>
@@ -691,6 +690,7 @@ done
 <div id="your-turn-3" class="section level3">
 <h3>?. your turn :)</h3>
 <ul>
+<li>Generate the script shown in part 7. using a loop. Execute</li>
 <li>create a file containing all scaffolds in the adder genome (you
 should already have this, see part 3)</li>
 <li>create a bash script that automatically goes through all scaffolds
