@@ -276,7 +276,7 @@ cat are_these_all_adder_scaffolds.txt
 
 ```
 
-```
+```bash
 
 # execute a command for each scaffold in the list
 for x in $(cat are_these_all_adder_scaffolds.txt); do
