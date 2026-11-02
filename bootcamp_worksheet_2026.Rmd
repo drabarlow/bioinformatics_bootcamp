@@ -284,6 +284,7 @@ for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
   echo $scaffold
 done
 
+
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
   echo $scaffold
   grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
