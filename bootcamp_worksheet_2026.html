@@ -673,14 +673,19 @@ for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
   echo $scaffold;
   grep -c &quot;$scaffold&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 done
+
+# other cool loops: if loops
+if grep -c &quot;chromosome: 1&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
+  echo &quot;did I find a chromosome?&quot;
+fi
 </code></pre>
 <ul>
-<li>and they can be nested!</li>
+<li>and they can even be nested!</li>
 </ul>
 <pre class="bash"><code>
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
 
-  if grep -c &quot;$scaffold&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
+  if grep &quot;$scaffold&quot; GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
     echo &quot;${scaffold} is present :)&quot;
   fi
 
@@ -699,8 +704,8 @@ found</li>
 <li>use <code>VIM</code> to remove some scaffolds from your scaffold
 file</li>
 <li>create a bash script that loops through the scaffold names and
-prints an informative (for example: “Scaffoldxxx found”) message to the
-terminal if they are found. How can you detect which scaffolds were
+prints an informative message (for example: “Scaffoldxxx found”) to the
+terminal if they are found. How could you detect which scaffolds were
 <em>not</em> in the scaffold file?</li>
 <li>bonus round: you can loop through a list of scaffolds, without
 actually creating a scaffold file first… Can you figure out how?</li>
@@ -836,7 +841,7 @@ cat copy.txt
 ssh you25usr@ssh.bangor.ac.uk
 
 # copy the file from falcon to bangor ssh server
-scp b.you25usr@falconlogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+scp b.you25usr@falconlogin.cf.ac.uk:/shared/home1/b.jhp24gpg/b.you25usr/copy.txt .
 
 # log out of bangor ssh server
 exit
@@ -850,7 +855,7 @@ scp you25usr@ssh.bangor.ac.uk:/home/people/you25usr/copy.txt .
 
 
 # !Advanced! all-in-one
-scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/shared/home1/b.jhp24gpg/b.you25usr/copy.txt .
 </code></pre>
 </div>
 </div>
@@ -860,10 +865,10 @@ scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/home
 cd
 
 # Copy the contents of this file:
-/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
+/scratch/SCWF00251/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
 
 # To a file named with your name, here:
-/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/</code></pre>
+/scratch/SCWF00251/and/did/he/use/caPITAls/what/a/masochist/</code></pre>
 <div id="modules" class="section level3">
 <h3>3. Modules</h3>
 <pre class="bash"><code># module searching

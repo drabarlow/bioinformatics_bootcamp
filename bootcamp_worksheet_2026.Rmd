@@ -294,15 +294,20 @@ for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
   grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna
 done
 
+# other cool loops: if loops
+if grep -c "chromosome: 1" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
+  echo "did I find a chromosome?"
+fi
+
 ```
 
-- and they can be nested!
+- and they can even be nested!
 
 ```bash
 
 for scaffold in $(cat are_these_all_adder_scaffolds.txt); do
 
-  if grep -c "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
+  if grep "$scaffold" GCF_964194415.1_rVipBer3.hap1.1_genomic.fna; then
     echo "${scaffold} is present :)"
   fi
 
@@ -316,7 +321,7 @@ done
 - create a file containing all scaffolds in the adder genome (you should already have this, see part 3)
 - create a bash script that automatically goes through all scaffolds in the adder genome file and prints their name to the screen if found
 - use `VIM` to remove some scaffolds from your scaffold file
-- create a bash script that loops through the scaffold names and prints an informative (for example: "Scaffoldxxx found") message to the terminal if they are found. How can you detect which scaffolds were _not_ in the scaffold file?
+- create a bash script that loops through the scaffold names and prints an informative message (for example: "Scaffoldxxx found") to the terminal if they are found. How could you detect which scaffolds were _not_ in the scaffold file?
 - bonus round: you can loop through a list of scaffolds, without actually creating a scaffold file first... Can you figure out how?
 
 
@@ -453,7 +458,7 @@ cat copy.txt
 ssh you25usr@ssh.bangor.ac.uk
 
 # copy the file from falcon to bangor ssh server
-scp b.you25usr@falconlogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+scp b.you25usr@falconlogin.cf.ac.uk:/shared/home1/b.jhp24gpg/b.you25usr/copy.txt .
 
 # log out of bangor ssh server
 exit
@@ -467,7 +472,7 @@ scp you25usr@ssh.bangor.ac.uk:/home/people/you25usr/copy.txt .
 
 
 # !Advanced! all-in-one
-scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/home/b.you25usr/copy.txt .
+scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/shared/home1/b.jhp24gpg/b.you25usr/copy.txt .
 
 ```
 
@@ -479,10 +484,10 @@ scp -o ProxyJump=you25usr@ssh.bangor.ac.uk b.you25usr@falconlogin.cf.ac.uk:/home
 cd
 
 # Copy the contents of this file:
-/scratch/scw2141/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
+/scratch/SCWF00251/oooooo/its/such/a/long/filepatch/paths_of_glory.txt
 
 # To a file named with your name, here:
-/scratch/scw2141/and/did/he/use/caPITAls/what/a/masochist/
+/scratch/SCWF00251/and/did/he/use/caPITAls/what/a/masochist/
 ```
 
 ### 3. Modules
