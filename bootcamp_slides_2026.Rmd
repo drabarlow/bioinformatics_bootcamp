@@ -691,7 +691,7 @@ include_graphics("./assets/img/2009-Fast_and_accurate_short_read_alignment_with_
 include_graphics("./assets/img/2009-The_Sequence_AlignmentMap_format_and_SAMtools.pdf")
 ```
 
-# Population genomics using ANGSD
+# Population genomics using `angsd`
 
 ## angsd
 
@@ -725,7 +725,7 @@ AA|AT|AG|AC|TT|TG|TC|GG|GC|CC
 
 ## How it works
 
-- second pass to calculate GLs 3 possible genotypes and allele frequencies
+- second pass: GLs for 3 possible genotypes and allele frequencies
 - Range of filters, for e.g.:
   - minor allele frequency
   - minimum individuals with data
@@ -743,9 +743,13 @@ A|T|0.05|0.9|0.05
 include_graphics("./assets/img/2014-Open_Access_ANGSD__Analysis_of_Next_Generation_Sequencing_Data.pdf")
 ```
 
+# Population structure
+
 ## Principal components analysis (PCA) {.columns-2}
 
-- Input is allele covariance matrix (`PCAngsd`)
+- No assumptions on the underlying population structure
+- Input is allele covariance matrix
+- Calculated from GLs in `PCAngsd`
 - eigen decompositionin `R eigen()`
 - Actually a recent method
 - No knowledge of PC loadings in terms of SNPs/sites
@@ -768,12 +772,12 @@ plot(my_pca$vectors[,1], my_pca$vectors[,2], pch=21, bg=my_info$colour, xlab="PC
 
 ## Neighbour-joining clustering {.columns-2}
 
-- Input is distance matrix (`NGSdist`)
+- Input is distance matrix
+- Calculated from GLs in `NGSdist`
 - Neighbour joining clustering in `R` using `ape` library
 - Clusters based on genetic similarity
 - Needs rooting, e.g. using an outgroup
 - Basic estimate of phylogeny
-
 
 ```{r, out.width = "100%", fig.width = 4.5, fig.height = 4}
 # read in matrix
@@ -790,24 +794,15 @@ my_root <- root(my_tree, node=34)
 plot(my_root)
 ```
 
-## Analyses
+## `STRUCTURE`-type analysis {.white-slide}
 
-**Covariance matrix**
+- Assigns individuals to K populations allowing admixture
+- `NGSadmix` can take GLs as input
+- K is assumed in advance, but several K can be tested
 
-- All indviduals
-- Allele frequency covariance matrix
-- Used for PCA
-
-**Distance matrix**
-
-- All individuals
-- absolute genetic distance between populations
-- used as input for NJ algorithm
-
-**Heterozygosity**
-
-- Your single adder
-- Calculate GLs, ML estimation of SFS along a sliding window using `realSFS`
+```{r, out.width = "100%", .fig.cap=""}
+include_graphics("./assets/img/ngsadmix.png")
+```
 
 # Intro to R
 
