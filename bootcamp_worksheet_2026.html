@@ -1143,10 +1143,10 @@ the PCangsd, NGSdist and NGSadmix analyses above</li>
 </div>
 <div id="intro-to-basic-r-commands" class="section level2">
 <h2>Intro to basic <code>R</code> commands</h2>
-<p>Download the lizard_data.txt file to your working directory (use
-right-click “Save link as…”):</p>
-<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/lizard_data.txt" download="lizard_data.txt">
-Download lizard_data.txt </a></p>
+<p>Download the adder_measurements_2026.txt file to your working
+directory (use right-click “Save link as…”):</p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_measurements_2026.txt" download="adder_measurements_2026.txt">
+Download adder_measurements_2026.txt </a></p>
 <pre class="r"><code># R is just a big calculator
 1+1
 
@@ -1171,31 +1171,36 @@ rnorm(500, 10, 1)
 hist(rnorm(500, 10, 1))
 
 # read in data as a dataframe
-my_liz &lt;- read.table(&quot;lizard_data.txt&quot;, header=TRUE)
+my_adder &lt;- read.table(&quot;adder_measurements_2026.txt&quot;, header=TRUE)
 
 # isolate svl data
-my_liz$svl
+my_adder$svl
 
 # and we can make this into a self-contained script too...
 # ...and also run this on the SCW</code></pre>
 <div id="your-turn-8" class="section level3">
 <h3>Your turn</h3>
 <ul>
-<li>Draw a histogram of lizard body width</li>
-<li>Draw a scatterplot of svl vs width</li>
+<li>Draw a histogram of adder tail length</li>
+<li>Draw a scatterplot of svl vs tail length</li>
 <li>Calculate means and standard deviations for each variable</li>
 <li>If you have finished early, try out ways to make your plots more
 attractive</li>
 <li>Also if you finished early, copy the contents of
 <code>/scratch/scw2141/addeRs/</code> to you home directory and execute
-the <code>lizards.R</code> script on falcon</li>
+the <code>adders.R</code> script on falcon</li>
 <li>and write a slurm script to submit it to the queue</li>
 </ul>
 </div>
 </div>
-<div id="todo-rmarkdown" class="section level2">
-<h2>TODO Rmarkdown</h2>
-<p>Create code chunks from the above code &amp; knit output document</p>
+<div id="rmarkdown" class="section level2">
+<h2><code>Rmarkdown</code></h2>
+<p>We can now create a nice summary of what we just did using
+Rmarkdown…</p>
+<ul>
+<li>create code chunks from the above code &amp; knit output document
+showing analysis of SVL and tail length</li>
+</ul>
 </div>
 <div id="pretty-maps" class="section level2">
 <h2>Pretty maps</h2>
@@ -1215,7 +1220,7 @@ adders &lt;- read.table(&quot;adder_info.txt&quot;, header=T, sep=&#39;\t&#39;)
 map &lt;- getMap(resolution = &quot;low&quot;)
 
 # load libraries
-library(rworldmap)
+library(maps)
 
 # plot simple map
 plot(map, col=&quot;grey&quot;, border=NA)

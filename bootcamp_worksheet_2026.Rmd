@@ -769,10 +769,10 @@ NGSadmix -likes all_gl.beagle.gz -K 5 -P 4 -outfiles all_gl_admix_k5
 
 ## Intro to basic `R` commands
 
-Download the lizard_data.txt file to your working directory (use right-click "Save link as..."):
+Download the adder_measurements_2026.txt file to your working directory (use right-click "Save link as..."):
 
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/lizard_data.txt" download="lizard_data.txt">
-  Download lizard_data.txt
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_measurements_2026.txt" download="adder_measurements_2026.txt">
+  Download adder_measurements_2026.txt
 </a>
 
 
@@ -801,10 +801,10 @@ rnorm(500, 10, 1)
 hist(rnorm(500, 10, 1))
 
 # read in data as a dataframe
-my_liz <- read.table("lizard_data.txt", header=TRUE)
+my_adder <- read.table("adder_measurements_2026.txt", header=TRUE)
 
 # isolate svl data
-my_liz$svl
+my_adder$svl
 
 # and we can make this into a self-contained script too...
 # ...and also run this on the SCW
@@ -812,16 +812,18 @@ my_liz$svl
 
 ### Your turn
 
-- Draw a histogram of lizard body width
-- Draw a scatterplot of svl vs width
+- Draw a histogram of adder tail length
+- Draw a scatterplot of svl vs tail length
 - Calculate means and standard deviations for each variable
 - If you have finished early, try out ways to make your plots more attractive
-- Also if you finished early, copy the contents of `/scratch/scw2141/addeRs/` to you home directory and execute the `lizards.R` script on falcon
+- Also if you finished early, copy the contents of `/scratch/SCWF00251/addeRs/` to you home directory and execute the `adders.R` script on falcon
 - and write a slurm script to submit it to the queue
 
-## TODO Rmarkdown
+## `Rmarkdown`
 
-Create code chunks from the above code & knit output document
+We can now create a nice summary of what we just did using Rmarkdown...
+
+- create code chunks from the above code & knit output document showing analysis of SVL and tail length
 
 
 ## Pretty maps
@@ -843,17 +845,26 @@ download the following 3 files to your working directory (use right-click "Save 
 ```r
 
 # read in the data
-adders <- read.table("adder_info.txt", header=T, sep='\t')
 
-# retrieve map
-map <- getMap(resolution = "low")
+# read in the data
+adders <- read.table("adder_info_2026.txt", header=T, sep=',')
 
 # load libraries
-library(rworldmap)
+library(maps)
 
 # plot simple map
-plot(map, col="grey", border=NA)
+map("world",
+    xlim=c(-12, 32),
+    ylim=c(49, 71))
 
+
+# add samples
+points(adders$lon,adders$lat)
+```
+
+Wouldn't it be nice to add an adder distribution to this?
+
+```
 # load libraries
 library(sf)
 
@@ -863,6 +874,8 @@ plot(st_geometry(iucn), add=TRUE, border=NA, col="slategrey")
 
 # add samples
 points(adders$lon,adders$lat)
+
+
 
 ```
 
@@ -874,7 +887,7 @@ points(adders$lon,adders$lat)
 - change the symbols / sizes
 - make this into a self contained script
 - if you have finished early, try to make the script save your map as pdf
-- Also if you finished early, execute your map making script on hawk (files are in `/scratch/scw2141/addeRs/`)
+- Also if you finished early, execute your map making script on hawk (files are in `/scratch/SCWF00251/addeRs/`)
 - and you can even write a slurm script & submit to queue
 
 ## Population genetics
