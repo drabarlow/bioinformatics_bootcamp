@@ -1187,8 +1187,8 @@ my_adder$svl
 <li>If you have finished early, try out ways to make your plots more
 attractive</li>
 <li>Also if you finished early, copy the contents of
-<code>/scratch/scw2141/addeRs/</code> to you home directory and execute
-the <code>adders.R</code> script on falcon</li>
+<code>/scratch/SCWF00251/addeRs/</code> to you home directory and
+execute the <code>adders.R</code> script on falcon</li>
 <li>and write a slurm script to submit it to the queue</li>
 </ul>
 </div>
@@ -1210,22 +1210,27 @@ right-click “Save link as…”):</p>
 Download adder_distribution.shx </a></p>
 <p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_distribution.shp" download="adder_distribution.shp">
 Download adder_distribution.shp </a></p>
-<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.txt" download="adder_info.txt">
-Download adder_info.txt </a></p>
+<p><a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info_2026.txt" download="adder_info_2026.txt">
+Download adder_info_2026.txt </a></p>
 <pre class="r"><code>
 # read in the data
-adders &lt;- read.table(&quot;adder_info.txt&quot;, header=T, sep=&#39;\t&#39;)
 
-# retrieve map
-map &lt;- getMap(resolution = &quot;low&quot;)
+# read in the data
+adders &lt;- read.table(&quot;adder_info_2026.txt&quot;, header=T, sep=&#39;,&#39;)
 
 # load libraries
 library(maps)
 
 # plot simple map
-plot(map, col=&quot;grey&quot;, border=NA)
+map(&quot;world&quot;,
+    xlim=c(-12, 32),
+    ylim=c(49, 71))
 
-# load libraries
+
+# add samples
+points(adders$lon,adders$lat)</code></pre>
+<p>Wouldn’t it be nice to add an adder distribution to this?</p>
+<pre><code># load libraries
 library(sf)
 
 # add IUCN distribution as SHP file on the map
@@ -1234,6 +1239,8 @@ plot(st_geometry(iucn), add=TRUE, border=NA, col=&quot;slategrey&quot;)
 
 # add samples
 points(adders$lon,adders$lat)
+
+
 </code></pre>
 <div id="your-turn-9" class="section level3">
 <h3>your turn</h3>
@@ -1248,7 +1255,7 @@ changing the input file</li>
 <li>if you have finished early, try to make the script save your map as
 pdf</li>
 <li>Also if you finished early, execute your map making script on hawk
-(files are in <code>/scratch/scw2141/addeRs/</code>)</li>
+(files are in <code>/scratch/SCWF00251/addeRs/</code>)</li>
 <li>and you can even write a slurm script &amp; submit to queue</li>
 </ul>
 </div>

@@ -838,8 +838,8 @@ download the following 3 files to your working directory (use right-click "Save 
   Download adder_distribution.shp
 </a>
 
-<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info.txt" download="adder_info.txt">
-  Download adder_info.txt
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/adder_info_2026.txt" download="adder_info_2026.txt">
+  Download adder_info_2026.txt
 </a>
 
 ```r
