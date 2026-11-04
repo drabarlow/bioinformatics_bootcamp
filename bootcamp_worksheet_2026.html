@@ -1018,14 +1018,16 @@ cd /scratch/SCWF00251/
 ll
 
 # bams
-ll BEARCAVE2/mappedrVipBer3_chr6/
+cd BEARCAVE2/mappedrVipBer3_chr6/
+ll
 
 # ref genome
-ll BEARCAVE2/refgenomes/rVipBer3_chr6/
+ll ../refgenomes/rVipBer3_chr6/
 
 # look at coverage
 module load SAMtools
-samtools coverage BEARCAVE2/mappedrVipBer3_chr6/adder0X_XXX_chr6.bam | head -2</code></pre>
+samtools tview adder0X_XXX_chr6.bam ../refgenomes/rVipBer3_chr6/rVipBer3_chr6.fa
+samtools coverage adder0X_XXX_chr6.bam | head -2</code></pre>
 </div>
 <div id="compute-genotype-likelihoods-in-angsd" class="section level3">
 <h3>2. Compute genotype likelihoods in <code>angsd</code></h3>
@@ -1150,9 +1152,6 @@ directory</li>
 </ul>
 </div>
 </div>
-<div id="johanna-r-section-goes-here" class="section level2">
-<h2>JOHANNA R SECTION GOES HERE</h2>
-</div>
 <div id="intro-to-basic-r-commands" class="section level2">
 <h2>Intro to basic <code>R</code> commands</h2>
 <p>Download the adder_measurements_2026.txt file to your working
@@ -1250,10 +1249,7 @@ iucn &lt;- st_read(&quot;adder_distribution.shx&quot;)
 plot(st_geometry(iucn), add=TRUE, border=NA, col=&quot;slategrey&quot;)
 
 # add samples
-points(adders$lon,adders$lat)
-
-
-</code></pre>
+points(adders$lon,adders$lat)</code></pre>
 <div id="your-turn-9" class="section level3">
 <h3>your turn</h3>
 <ul>

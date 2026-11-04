@@ -638,14 +638,16 @@ cd /scratch/SCWF00251/
 ll
 
 # bams
-ll BEARCAVE2/mappedrVipBer3_chr6/
+cd BEARCAVE2/mappedrVipBer3_chr6/
+ll
 
 # ref genome
-ll BEARCAVE2/refgenomes/rVipBer3_chr6/
+ll ../refgenomes/rVipBer3_chr6/
 
 # look at coverage
 module load SAMtools
-samtools coverage BEARCAVE2/mappedrVipBer3_chr6/adder0X_XXX_chr6.bam | head -2
+samtools tview adder0X_XXX_chr6.bam ../refgenomes/rVipBer3_chr6/rVipBer3_chr6.fa
+samtools coverage adder0X_XXX_chr6.bam | head -2
 ```
 
 ### 2. Compute genotype likelihoods in `angsd`
@@ -772,10 +774,6 @@ NGSadmix -likes all_gl.beagle.gz -K 5 -P 4 -outfiles all_gl_admix_k5
 - Check results
 - Document your code in your `Rmarkdown` notebook
 
-## JOHANNA R SECTION GOES HERE
-
-
-
 ## Intro to basic `R` commands
 
 Download the adder_measurements_2026.txt file to your working directory (use right-click "Save link as..."):
@@ -883,9 +881,6 @@ plot(st_geometry(iucn), add=TRUE, border=NA, col="slategrey")
 
 # add samples
 points(adders$lon,adders$lat)
-
-
-
 ```
 
 ### your turn
