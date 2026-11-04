@@ -1058,15 +1058,14 @@ module load angsd/0.940-GCC-12.3.0
 #-nThreads = number of threads to use
 
 # this calculates the genotype likelihoods for all samples in the bamlist and outputs as a beagle file
-angsd -b bamlist_all.txt -GL 1 -doMajorMinor 1 -doGlf 2 -doMaf 1 -SNP_pval 1e-6 -minMapQ 30 -minQ 30 -minMaf 0.1 -minInd 50 -setMinDepthInd 4 -doCounts 1 -out all_gl -nThreads 10</code></pre>
+angsd -b bamlist_all.txt -GL 1 -doMajorMinor 1 -doGlf 2 -doMaf 1 -SNP_pval 1e-6 -minMapQ 30 -minQ 30 -minMaf 0.1 -minInd 50 -setMinDepthInd 4 -doCounts 1 -out all_gl -nThreads 6</code></pre>
 </div>
 <div id="your-turn-6" class="section level3">
 <h3>3. Your turn</h3>
 <ul>
 <li>Make a separate slurm job script (somewhere in your home directory)
 for the above analysis</li>
-<li>make bamlists in the same directory, one with outgroup and one
-without</li>
+<li>make bamlist in the same directory</li>
 <li>direct stdout and errors to your chosen location in your home
 directory</li>
 <li>adjust SBATCH to appropriate paths and filenames</li>
