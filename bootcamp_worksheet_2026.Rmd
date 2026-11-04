@@ -823,14 +823,6 @@ my_adder$svl
 - Draw a scatterplot of svl vs tail length
 - Calculate means and standard deviations for each variable
 - If you have finished early, try out ways to make your plots more attractive
-- Also if you finished early, copy the contents of `/scratch/SCWF00251/addeRs/` to you home directory and execute the `adders.R` script on falcon
-- and write a slurm script to submit it to the queue
-
-## `Rmarkdown`
-
-We can now create a nice summary of what we just did using Rmarkdown...
-
-- create code chunks from the above code & knit output document showing analysis of SVL and tail length
 
 
 ## Pretty maps
@@ -871,7 +863,7 @@ points(adders$lon,adders$lat)
 
 Wouldn't it be nice to add an adder distribution to this?
 
-```
+```r
 # load libraries
 library(sf)
 
@@ -889,10 +881,7 @@ points(adders$lon,adders$lat)
 - colour the points by locality (adders$col)
 - create your own colours that are colourblind friendly without changing the input file
 - change the symbols / sizes
-- make this into a self contained script
-- if you have finished early, try to make the script save your map as pdf
-- Also if you finished early, execute your map making script on hawk (files are in `/scratch/SCWF00251/addeRs/`)
-- and you can even write a slurm script & submit to queue
+- Create a `Rmarkdown` document that contains all your code and outputs to create a summary document of this whole analysis we've just done: create plots of measurements, calculating means, standard deviations of measurements, generate maps. 
 
 ## Population structure analyses
 

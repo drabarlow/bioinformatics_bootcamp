@@ -1197,21 +1197,8 @@ my_adder$svl
 <li>Calculate means and standard deviations for each variable</li>
 <li>If you have finished early, try out ways to make your plots more
 attractive</li>
-<li>Also if you finished early, copy the contents of
-<code>/scratch/SCWF00251/addeRs/</code> to you home directory and
-execute the <code>adders.R</code> script on falcon</li>
-<li>and write a slurm script to submit it to the queue</li>
 </ul>
 </div>
-</div>
-<div id="rmarkdown" class="section level2">
-<h2><code>Rmarkdown</code></h2>
-<p>We can now create a nice summary of what we just did using
-Rmarkdown…</p>
-<ul>
-<li>create code chunks from the above code &amp; knit output document
-showing analysis of SVL and tail length</li>
-</ul>
 </div>
 <div id="pretty-maps" class="section level2">
 <h2>Pretty maps</h2>
@@ -1241,7 +1228,7 @@ map(&quot;world&quot;,
 # add samples
 points(adders$lon,adders$lat)</code></pre>
 <p>Wouldn’t it be nice to add an adder distribution to this?</p>
-<pre><code># load libraries
+<pre class="r"><code># load libraries
 library(sf)
 
 # add IUCN distribution as SHP file on the map
@@ -1259,12 +1246,10 @@ points(adders$lon,adders$lat)</code></pre>
 <li>create your own colours that are colourblind friendly without
 changing the input file</li>
 <li>change the symbols / sizes</li>
-<li>make this into a self contained script</li>
-<li>if you have finished early, try to make the script save your map as
-pdf</li>
-<li>Also if you finished early, execute your map making script on hawk
-(files are in <code>/scratch/SCWF00251/addeRs/</code>)</li>
-<li>and you can even write a slurm script &amp; submit to queue</li>
+<li>Create a <code>Rmarkdown</code> document that contains all your code
+and outputs to create a summary document of this whole analysis we’ve
+just done: create plots of measurements, calculating means, standard
+deviations of measurements, generate maps.</li>
 </ul>
 </div>
 </div>
