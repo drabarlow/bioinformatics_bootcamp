@@ -1175,7 +1175,8 @@ seoani_chr6
 ursinii_chr6
 
 # run jackknife with the jackKnife.R script (comes with angsd)
-Rscript jackKnife.R file=vipera_dstat.abbababa indNames=indnames_dstat outfile=vipera_dstat_jackknife```
+Rscript jackKnife.R file=vipera_dstat.abbababa indNames=indnames_dstat outfile=vipera_dstat_jackknife
+```
 
 ### Your turn :)
 

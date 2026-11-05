@@ -1547,15 +1547,17 @@ statistics. We use the reference genome file for the outgroup
 # -out = output file prefix
 angsd -doAbbababa 1 -doCounts 1 -minQ 30 -minMapQ 30 -b bamlist_phylo -anc /scratch/SCWF00251/BEARCAVE2/refgenomes/rMacScw1_chr6/rMacScw1_chr6.fa -out vipera_dstat -nThreads 4</code></pre>
 <p>We then carry out the jackknife analysis in <code>R</code></p>
-<p>```r # create a file containing the list of individuals in the order
-they appear in the bamlist_phylo file ammodytes_chr6 aspis_chr6
-berus_UK_chr6 latastei_chr6 seoani_chr6 ursinii_chr6</p>
+<pre class="r"><code># create a file containing the list of individuals in the order they appear in the bamlist_phylo file
+ammodytes_chr6
+aspis_chr6
+berus_UK_chr6
+latastei_chr6
+seoani_chr6
+ursinii_chr6
+
+# run jackknife with the jackKnife.R script (comes with angsd)
+Rscript jackKnife.R file=vipera_dstat.abbababa indNames=indnames_dstat outfile=vipera_dstat_jackknife</code></pre>
 </div>
-</div>
-<div id="run-jackknife-with-the-jackknife.r-script-comes-with-angsd" class="section level1">
-<h1>run jackknife with the jackKnife.R script (comes with angsd)</h1>
-<p>Rscript jackKnife.R file=vipera_dstat.abbababa
-indNames=indnames_dstat outfile=vipera_dstat_jackknife```</p>
 <div id="your-turn-15" class="section level3">
 <h3>Your turn :)</h3>
 <ul>
