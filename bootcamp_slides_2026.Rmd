@@ -840,6 +840,38 @@ include_graphics("./assets/img/dataStructures.png")
 include_graphics("./assets/img/Screenshot from 2024-11-06 20-20-24.png")
 ```
 
+# Genetic diversity
+
+## Heterozygosity  {.columns-2}
+
+- measured in a single individual
+- het sites per kb
+- Computed from GLs in `ANGSD` as site frequency spectrum of a single individual
+- Outgroup used to assign ancestral allele (unfolded SFS)
+- Can be computed along a sliding window to identify ROH
+
+AA|AB|BB
+-|-|-
+9900|80|20
+
+
+```{r, out.width = "90%"}
+include_graphics("./assets/img/het_eg.png")
+```
+
+## Population nucleotide diversity {.white}
+
+- Measured in a population
+- Average differences between 2 randomly sampled chromosomes
+- Sort of population average heterozygosity
+- Calculated from population SFS computed from GLs in `ANGSD` along a sliding window
+
+```{r, out.width = "70%", .fig.align = "left", fig.cap=""}
+include_graphics("./assets/img/pi.png")
+```
+
+
+
 
 
 # That's all folks!
