@@ -937,9 +937,14 @@ my_mat <- as.matrix(read.table("./assets/data/all_gl_dist.mat", skip=2, row.name
 # compute tree
 my_tree <- nj(my_mat)
 
+par(mar=(c(1,5,1,1)), xpd=TRUE) # set margins to 1 on all sides
+
 # plot
 my_root <- root(my_tree, node=60)
-plot(my_root)
+my_root$tip.label <- adders$loc
+plot(my_root, label.offset = 0.01)
+tiplabels(pch=21, bg=adders$col, cex=0.8)
+add.scale.bar(x=0., y=0., lwd=2, cex=1)
 ```
 
 ### 3. `NGSadmix`
@@ -949,7 +954,7 @@ plot(my_root)
 my_ngs <- as.matrix(read.table("./assets/data/all_gl_admix_k5.qopt"))
 
 # plot
-barplot(t(my_ngs), col=c("yellow", "blue", "green", "grey", "red"))
+barplot(t(my_ngs), col=c("yellow", "blue", "green", "grey", "red"), names.arg=adders$name, las=2, cex.names=0.6)
 ```
 
 ## Your turn :)
@@ -1121,4 +1126,65 @@ angsd -doFasta 2 -doCounts 1 -minQ 30 -minMapQ 30 -setMinDepthInd 3 -basesPerLin
 - generate a script to call consensus fasta for all 6 bam files. You could consider using a loop for this
 
 **PROBLEM! Look at the fasta files you just generated. They all have the same header line. This means we won't be able to tell which species is which in the final tree**
+
+- Johanna live coding hackathon
+
+### 3. Maximum likelihood analysis using `iqtree`
+
+```bash
+module purge
+module load IQ-TREE/3.0.1-gompi-2024a
+
+# run iqtree
+# -s = input alignment
+# -o = outgroup
+# -T = number of threads
+# -B = number of bootstrap replicates
+# -m GTR+ASC = GTR model of sequence evolution for ascertained SNPs
+# --redo = overwrite existing output files
+iqtree3 -s alignment_chr6.fa -o macrovipera_chr6 -T 4 -B 1000 -m GTR+G+ASC --redo
+```
+
+### 4. Your turn :)
+
+- generate the ML tree in iqtree, log in node should be fine
+- look at the output files, visualise the tree file (*.treefile) in FigTree
+
+### 5. D statistics
+
+We need a bamlist of the 6 *Vipera* species to compute D statistics. We use the reference genome file for the outgroup *Macrovipera schweizeri*.
+
+```bash
+# -doAbbababa 1 = compute D statistics using single read sampling
+# -minQ -minMapQ = minimum base and map quality
+# -b = input bam list
+# -anc = outgroup reference genome
+# -out = output file prefix
+angsd -doAbbababa 1 -doCounts 1 -minQ 30 -minMapQ 30 -b bamlist_phylo -anc /scratch/SCWF00251/BEARCAVE2/refgenomes/rMacScw1_chr6/rMacScw1_chr6.fa -out vipera_dstat -nThreads 4
+```
+
+We then carry out the jackknife analysis in `R`
+
+```r
+# create a file containing the list of individuals in the order they appear in the bamlist_phylo file
+ammodytes_chr6
+aspis_chr6
+berus_UK_chr6
+latastei_chr6
+seoani_chr6
+ursinii_chr6
+
+# run jackknife with the jackKnife.R script (comes with angsd)
+Rscript jackKnife.R file=vipera_dstat.abbababa indNames=indnames_dstat outfile=vipera_dstat_jackknife```
+
+### Your turn :)
+
+- run the D statistic and jackknife analysis above
+- Set up a slurm for `angsd`: 4 CPUs, 8Gb RAM, 10 mins
+- jackknife can be run on the log in node
+- open the output in `Excel`:
+  - delete all comparisons that are incongruent with the species tree 
+  - identify potential admixture events
+- think about how you could visualise the results in a more informative way than a table. Try to plot in `R` and add to your Rmarkdown notebook
+
 

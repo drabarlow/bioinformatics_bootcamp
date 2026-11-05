@@ -86,11 +86,9 @@ include_graphics("./assets/img/ChatGPT Image Nov 2, 2025, 09_29_51 PM.png")
 
 ## Introductions
 
-
 ```{r, out.width = "70%"}
 include_graphics("./assets/img/ax-vs-jo.svg")
 ```
-
 
 # Unix-like systems and bash
 
@@ -859,7 +857,7 @@ AA|AB|BB
 include_graphics("./assets/img/het_eg.png")
 ```
 
-## Population nucleotide diversity {.white}
+## Population nucleotide diversity {.white-slide}
 
 - Measured in a population
 - Average differences between 2 randomly sampled chromosomes
@@ -870,9 +868,69 @@ include_graphics("./assets/img/het_eg.png")
 include_graphics("./assets/img/pi.png")
 ```
 
+# Phylogenomics
 
+## Phylogenomics
 
+- Phylogenetic analysis of genome-scale data
+- Data preparation
+  - Concatenation
+  - Reduced/ascertained SNPs
+  - Aligned genome blocks, unlinked or don't care
+- Inference methods
+  - Maximum likelihood (ML)
+  - Coalescent-based methods (e.g. ASTRAL, BPP)
 
+## Phylogenomics {.white-slide}
+
+```{r, out.width = "70%", .fig.align = "left", fig.cap=""}
+include_graphics("./assets/img/Screenshot from 2026-11-05 13-22-52.png")
+```
+
+## European vipers: *Vipera* {.columns-2}
+
+- A. *V. aspis*
+- B. *V. latastei*
+- C. *V. ammodytes*
+- D. *V. ursinii*
+- E. *V. seoanei*
+- F. *V. berus*
+
+Di Nicola et al. Toxicology 453 (2021): 152724.
+
+```{r, out.width = "100%", .fig.align = "left", fig.cap=""}
+include_graphics("./assets/img/vipera.jpg")
+```
+
+## Data {.columns-2}
+
+- 1 individual per species
+- Outgroup is *Macrovipera schweizeri*
+- Data mapped to outgroup to avoid reference bias
+- Tasks: 
+  - call consensus sequences
+  - generate alignment
+  - ML phylogeny using `iqtree`
+  - D statistics
+
+```{r, out.width = "100%", .fig.align = "left", fig.cap=""}
+include_graphics("./assets/img/20260506_090445.jpg")
+```
+
+## D statistics
+
+```{r, out.width = "100%", out.height=500, .fig.cap=""}
+include_graphics("./assets/img/ax_dstat_lect.pdf")
+```
+
+## D statistics with `angsd`
+
+- Computed in `ANGSD` using the `-doAbbababa` option
+- Computes all possible combinations of P1,P2,P3 (2/3 results are redundant)
+- Single read sampling, alleviates reference bias and normalises coverage
+- Other methods exist (e.g. `consensify`)
+- Standard error estimated using block jackknife
+- Z score > 3 indicates significant admixture
 
 # That's all folks!
 
