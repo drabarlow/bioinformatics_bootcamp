@@ -1512,6 +1512,13 @@ species is which in the final tree</strong></p>
 <ul>
 <li>Johanna live coding hackathon</li>
 </ul>
+<p>Once you have an alignment, we can strip out invariant sites and
+sites with missing data using <code>snp-sites</code>.</p>
+<pre class="bash"><code>module load snp-sites/2.5.1-GCCcore-12.3.0
+
+# run snp-sites
+# -c = remove sites with missing data
+snp-sites -c temp &gt; alignment_chr6.fa</code></pre>
 </div>
 <div id="maximum-likelihood-analysis-using-iqtree" class="section level3">
 <h3>3. Maximum likelihood analysis using <code>iqtree</code></h3>

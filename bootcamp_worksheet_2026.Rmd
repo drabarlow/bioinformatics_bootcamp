@@ -1129,6 +1129,16 @@ angsd -doFasta 2 -doCounts 1 -minQ 30 -minMapQ 30 -setMinDepthInd 3 -basesPerLin
 
 - Johanna live coding hackathon
 
+Once you have an alignment, we can strip out invariant sites and sites with missing data using `snp-sites`. 
+
+```bash
+module load snp-sites/2.5.1-GCCcore-12.3.0
+
+# run snp-sites
+# -c = remove sites with missing data
+snp-sites -c temp > alignment_chr6.fa
+```
+
 ### 3. Maximum likelihood analysis using `iqtree`
 
 ```bash
