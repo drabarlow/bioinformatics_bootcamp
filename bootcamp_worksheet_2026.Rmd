@@ -1136,7 +1136,7 @@ module load snp-sites/2.5.1-GCCcore-12.3.0
 
 # run snp-sites
 # -c = remove sites with missing data
-snp-sites -c temp > alignment_chr6.fa
+snp-sites -c alignment_file.fa > alignment_chr6.fa
 ```
 
 ### 3. Maximum likelihood analysis using `iqtree`
