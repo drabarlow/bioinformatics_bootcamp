@@ -1160,6 +1160,10 @@ iqtree3 -s alignment_chr6.fa -o macrovipera_chr6 -T 4 -B 1000 -m GTR+G+ASC --red
 - generate the ML tree in iqtree, log in node should be fine
 - look at the output files, visualise the tree file (*.treefile) in FigTree
 
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/alignment_chr6.fa.treefile" download="alignment_chr6.fa.treefile">
+  Download alignment_chr6.fa.treefile
+</a>
+
 ### 5. D statistics
 
 We need a bamlist of the 6 *Vipera* species to compute D statistics. We use the reference genome file for the outgroup *Macrovipera schweizeri*.
