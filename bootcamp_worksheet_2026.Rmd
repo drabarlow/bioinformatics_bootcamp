@@ -1202,4 +1202,6 @@ Rscript jackKnife.R file=vipera_dstat.abbababa indNames=indnames_dstat outfile=v
   - identify potential admixture events
 - think about how you could visualise the results in a more informative way than a table. Try to plot in `R` and add to your Rmarkdown notebook
 
-
+<a href="https://raw.githubusercontent.com/drabarlow/bioinformatics_bootcamp/main/assets/data/vipera_dstat_jackknife.txt" download="vipera_dstat_jackknife.txt">
+  Download vipera_dstat_jackknife.txt
+</a>
